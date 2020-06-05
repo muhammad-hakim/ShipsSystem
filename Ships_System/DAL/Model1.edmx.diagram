@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fc88d547722747f99420199357aa6602" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.Agent" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Platform" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Port" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Product" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Ship" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Trip" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TripsLoad" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TripsPlatform" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TripsStatu" Width="1.5" PointX="5.25" PointY="10.375" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_Trips_Agents" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Platforms_Ports" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Ships_platform_Platforms" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_TripsLoads_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Trips_Ships" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_TripsLoads_Trips" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_TripsPlatforms_Trips" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_TripsStatus_Trips" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
