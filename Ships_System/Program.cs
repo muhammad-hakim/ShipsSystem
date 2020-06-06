@@ -1,5 +1,7 @@
-﻿using Autofac;
+﻿using Agents_System.BL;
+using Autofac;
 using Ships_System.DAL;
+using Ships_System.PL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +13,6 @@ namespace Ships_System
 {
     static class Program
     {
-        
-
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -21,18 +21,19 @@ namespace Ships_System
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            InitializeDependecies();
-            Application.Run(new PL.MainScreen());
+            var resolver = InitializeDependecies();
+            Application.Run(resolver.Resolve<MainScreen>());
         }
 
-        static void InitializeDependecies()
+        static IContainer InitializeDependecies()
         {
             ContainerBuilder builder = new ContainerBuilder();
-
+            
             builder.RegisterType<SystemContext>().AsSelf();
             builder.RegisterType<UnitOfWork>().AsSelf();
-
+            builder.RegisterType<MainScreen>().AsSelf();
             var resolver = builder.Build();
+            return resolver;
         }
     }
 }

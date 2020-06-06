@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ships_System.BL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,11 +13,17 @@ namespace Ships_System.PL
 {
     public partial class MainScreen : Form
     {
-        public MainScreen()
+        private readonly IShipService shipService;
+
+        public MainScreen(IShipService shipService)
         {
             InitializeComponent();
+            this.shipService = shipService;
         }
 
-       
+        private void AddShip_Savebtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

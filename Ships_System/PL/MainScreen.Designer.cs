@@ -106,22 +106,10 @@
             this.statuslab = new System.Windows.Forms.Label();
             this.shiptrip = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
-            this.triptabControl1 = new System.Windows.Forms.TabControl();
+            this.triptabControl = new System.Windows.Forms.TabControl();
             this.tripsTab = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.namesh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iom11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.typesh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.staus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agent1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tyg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ports = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.plat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ed1 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.del11 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel4 = new System.Windows.Forms.Panel();
             this.by = new System.Windows.Forms.ComboBox();
             this.searcht = new System.Windows.Forms.TextBox();
@@ -130,13 +118,13 @@
             this.searchlab = new System.Windows.Forms.Label();
             this.shipsTab = new System.Windows.Forms.TabPage();
             this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.typeshBox7 = new System.Windows.Forms.ComboBox();
+            this.AddShip_Typecmb = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.iomBox = new System.Windows.Forms.TextBox();
+            this.AddShip_Imotxt = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.shnametBox = new System.Windows.Forms.TextBox();
-            this.savebuttonsh = new System.Windows.Forms.Button();
+            this.AddShip_Nametxt = new System.Windows.Forms.TextBox();
+            this.AddShip_Savebtn = new System.Windows.Forms.Button();
             this.addship = new System.Windows.Forms.Button();
             this.shipGridView = new System.Windows.Forms.DataGridView();
             this.label18 = new System.Windows.Forms.Label();
@@ -163,6 +151,26 @@
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IOM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.n = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ship_name = new System.Windows.Forms.Label();
+            this.imo = new System.Windows.Forms.Label();
+            this.type_ship = new System.Windows.Forms.Label();
+            this.namesh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iom11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typesh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.staus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agent1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tyg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ports = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.plat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ed1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.del11 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.shipnameg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.imo2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeshipg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.update = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.platformTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.platformGridView2)).BeginInit();
             this.panel1.SuspendLayout();
@@ -175,7 +183,7 @@
             this.addingTripTab.SuspendLayout();
             this.loadsgroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productGridView2)).BeginInit();
-            this.triptabControl1.SuspendLayout();
+            this.triptabControl.SuspendLayout();
             this.tripsTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel4.SuspendLayout();
@@ -323,7 +331,7 @@
             this.portTab.Name = "portTab";
             this.portTab.Size = new System.Drawing.Size(1016, 690);
             this.portTab.TabIndex = 5;
-            this.portTab.Text = "المواني";
+            this.portTab.Text = "الموانئ";
             this.portTab.UseVisualStyleBackColor = true;
             // 
             // dataGridView2
@@ -898,24 +906,24 @@
             this.label27.Text = "بيانات الحركة اليومية للسفن";
             this.label27.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // triptabControl1
+            // triptabControl
             // 
-            this.triptabControl1.AccessibleRole = System.Windows.Forms.AccessibleRole.Sound;
-            this.triptabControl1.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
-            this.triptabControl1.Controls.Add(this.tripsTab);
-            this.triptabControl1.Controls.Add(this.addingTripTab);
-            this.triptabControl1.Controls.Add(this.shipsTab);
-            this.triptabControl1.Controls.Add(this.agentsTab);
-            this.triptabControl1.Controls.Add(this.goodsTab);
-            this.triptabControl1.Controls.Add(this.portTab);
-            this.triptabControl1.Controls.Add(this.platformTab);
-            this.triptabControl1.Location = new System.Drawing.Point(-13, 3);
-            this.triptabControl1.Name = "triptabControl1";
-            this.triptabControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.triptabControl1.RightToLeftLayout = true;
-            this.triptabControl1.SelectedIndex = 0;
-            this.triptabControl1.Size = new System.Drawing.Size(1024, 719);
-            this.triptabControl1.TabIndex = 0;
+            this.triptabControl.AccessibleRole = System.Windows.Forms.AccessibleRole.Sound;
+            this.triptabControl.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
+            this.triptabControl.Controls.Add(this.tripsTab);
+            this.triptabControl.Controls.Add(this.addingTripTab);
+            this.triptabControl.Controls.Add(this.shipsTab);
+            this.triptabControl.Controls.Add(this.agentsTab);
+            this.triptabControl.Controls.Add(this.goodsTab);
+            this.triptabControl.Controls.Add(this.portTab);
+            this.triptabControl.Controls.Add(this.platformTab);
+            this.triptabControl.Location = new System.Drawing.Point(-13, 3);
+            this.triptabControl.Name = "triptabControl";
+            this.triptabControl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.triptabControl.RightToLeftLayout = true;
+            this.triptabControl.SelectedIndex = 0;
+            this.triptabControl.Size = new System.Drawing.Size(1024, 719);
+            this.triptabControl.TabIndex = 0;
             // 
             // tripsTab
             // 
@@ -958,66 +966,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1004, 340);
             this.dataGridView1.TabIndex = 8;
-            // 
-            // namesh
-            // 
-            this.namesh.HeaderText = "اسم السفينة";
-            this.namesh.Name = "namesh";
-            // 
-            // iom11
-            // 
-            this.iom11.HeaderText = "IOM";
-            this.iom11.Name = "iom11";
-            // 
-            // typesh
-            // 
-            this.typesh.HeaderText = "نوع السفينة";
-            this.typesh.Name = "typesh";
-            // 
-            // staus
-            // 
-            this.staus.HeaderText = "حالة السفينة";
-            this.staus.Name = "staus";
-            // 
-            // dat
-            // 
-            this.dat.HeaderText = "التاريخ";
-            this.dat.Name = "dat";
-            // 
-            // agent1
-            // 
-            this.agent1.HeaderText = "اسم الوكيل الملاحي";
-            this.agent1.Name = "agent1";
-            // 
-            // nameg
-            // 
-            this.nameg.HeaderText = "اسم البضاعة";
-            this.nameg.Name = "nameg";
-            // 
-            // tyg
-            // 
-            this.tyg.HeaderText = "كمية البضاعة";
-            this.tyg.Name = "tyg";
-            // 
-            // ports
-            // 
-            this.ports.HeaderText = "الميناء";
-            this.ports.Name = "ports";
-            // 
-            // plat
-            // 
-            this.plat.HeaderText = "الرصيف";
-            this.plat.Name = "plat";
-            // 
-            // ed1
-            // 
-            this.ed1.HeaderText = "تعديل";
-            this.ed1.Name = "ed1";
-            // 
-            // del11
-            // 
-            this.del11.HeaderText = "حذف";
-            this.del11.Name = "del11";
             // 
             // panel4
             // 
@@ -1075,14 +1023,17 @@
             // 
             // shipsTab
             // 
+            this.shipsTab.Controls.Add(this.type_ship);
+            this.shipsTab.Controls.Add(this.imo);
+            this.shipsTab.Controls.Add(this.ship_name);
             this.shipsTab.Controls.Add(this.comboBox6);
-            this.shipsTab.Controls.Add(this.typeshBox7);
+            this.shipsTab.Controls.Add(this.AddShip_Typecmb);
             this.shipsTab.Controls.Add(this.label8);
-            this.shipsTab.Controls.Add(this.iomBox);
+            this.shipsTab.Controls.Add(this.AddShip_Imotxt);
             this.shipsTab.Controls.Add(this.label9);
             this.shipsTab.Controls.Add(this.label4);
-            this.shipsTab.Controls.Add(this.shnametBox);
-            this.shipsTab.Controls.Add(this.savebuttonsh);
+            this.shipsTab.Controls.Add(this.AddShip_Nametxt);
+            this.shipsTab.Controls.Add(this.AddShip_Savebtn);
             this.shipsTab.Controls.Add(this.addship);
             this.shipsTab.Controls.Add(this.shipGridView);
             this.shipsTab.Controls.Add(this.label18);
@@ -1101,14 +1052,14 @@
             this.comboBox6.Size = new System.Drawing.Size(121, 21);
             this.comboBox6.TabIndex = 10;
             // 
-            // typeshBox7
+            // AddShip_Typecmb
             // 
-            this.typeshBox7.FormattingEnabled = true;
-            this.typeshBox7.Location = new System.Drawing.Point(66, 96);
-            this.typeshBox7.Name = "typeshBox7";
-            this.typeshBox7.Size = new System.Drawing.Size(121, 21);
-            this.typeshBox7.TabIndex = 10;
-            this.typeshBox7.Visible = false;
+            this.AddShip_Typecmb.FormattingEnabled = true;
+            this.AddShip_Typecmb.Location = new System.Drawing.Point(56, 103);
+            this.AddShip_Typecmb.Name = "AddShip_Typecmb";
+            this.AddShip_Typecmb.Size = new System.Drawing.Size(121, 21);
+            this.AddShip_Typecmb.TabIndex = 10;
+            this.AddShip_Typecmb.Visible = false;
             // 
             // label8
             // 
@@ -1119,13 +1070,13 @@
             this.label8.TabIndex = 9;
             this.label8.Visible = false;
             // 
-            // iomBox
+            // AddShip_Imotxt
             // 
-            this.iomBox.Location = new System.Drawing.Point(268, 97);
-            this.iomBox.Name = "iomBox";
-            this.iomBox.Size = new System.Drawing.Size(100, 20);
-            this.iomBox.TabIndex = 8;
-            this.iomBox.Visible = false;
+            this.AddShip_Imotxt.Location = new System.Drawing.Point(287, 104);
+            this.AddShip_Imotxt.Name = "AddShip_Imotxt";
+            this.AddShip_Imotxt.Size = new System.Drawing.Size(100, 20);
+            this.AddShip_Imotxt.TabIndex = 8;
+            this.AddShip_Imotxt.Visible = false;
             // 
             // label9
             // 
@@ -1145,26 +1096,27 @@
             this.label4.TabIndex = 9;
             this.label4.Visible = false;
             // 
-            // shnametBox
+            // AddShip_Nametxt
             // 
-            this.shnametBox.Location = new System.Drawing.Point(430, 98);
-            this.shnametBox.Name = "shnametBox";
-            this.shnametBox.Size = new System.Drawing.Size(100, 20);
-            this.shnametBox.TabIndex = 8;
-            this.shnametBox.Visible = false;
+            this.AddShip_Nametxt.Location = new System.Drawing.Point(450, 102);
+            this.AddShip_Nametxt.Name = "AddShip_Nametxt";
+            this.AddShip_Nametxt.Size = new System.Drawing.Size(100, 20);
+            this.AddShip_Nametxt.TabIndex = 8;
+            this.AddShip_Nametxt.Visible = false;
             // 
-            // savebuttonsh
+            // AddShip_Savebtn
             // 
-            this.savebuttonsh.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.savebuttonsh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.savebuttonsh.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.savebuttonsh.Location = new System.Drawing.Point(276, 138);
-            this.savebuttonsh.Name = "savebuttonsh";
-            this.savebuttonsh.Size = new System.Drawing.Size(70, 34);
-            this.savebuttonsh.TabIndex = 0;
-            this.savebuttonsh.Text = "حفظ";
-            this.savebuttonsh.UseVisualStyleBackColor = true;
-            this.savebuttonsh.Visible = false;
+            this.AddShip_Savebtn.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.AddShip_Savebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddShip_Savebtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.AddShip_Savebtn.Location = new System.Drawing.Point(276, 138);
+            this.AddShip_Savebtn.Name = "AddShip_Savebtn";
+            this.AddShip_Savebtn.Size = new System.Drawing.Size(70, 34);
+            this.AddShip_Savebtn.TabIndex = 0;
+            this.AddShip_Savebtn.Text = "حفظ";
+            this.AddShip_Savebtn.UseVisualStyleBackColor = true;
+            this.AddShip_Savebtn.Visible = false;
+            this.AddShip_Savebtn.Click += new System.EventHandler(this.AddShip_Savebtn_Click);
             // 
             // addship
             // 
@@ -1182,6 +1134,12 @@
             // 
             this.shipGridView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.shipGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.shipGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.shipnameg,
+            this.imo2,
+            this.typeshipg,
+            this.update,
+            this.delete});
             this.shipGridView.Location = new System.Drawing.Point(78, 190);
             this.shipGridView.Name = "shipGridView";
             this.shipGridView.Size = new System.Drawing.Size(545, 462);
@@ -1333,17 +1291,131 @@
             this.n.HeaderText = "اسم السفينة";
             this.n.Name = "n";
             // 
+            // ship_name
+            // 
+            this.ship_name.AutoSize = true;
+            this.ship_name.Location = new System.Drawing.Point(562, 109);
+            this.ship_name.Name = "ship_name";
+            this.ship_name.Size = new System.Drawing.Size(70, 13);
+            this.ship_name.TabIndex = 11;
+            this.ship_name.Text = "اسم السفينة";
+            // 
+            // imo
+            // 
+            this.imo.AutoSize = true;
+            this.imo.Location = new System.Drawing.Point(393, 109);
+            this.imo.Name = "imo";
+            this.imo.Size = new System.Drawing.Size(27, 13);
+            this.imo.TabIndex = 11;
+            this.imo.Text = "IMO";
+            // 
+            // type_ship
+            // 
+            this.type_ship.AutoSize = true;
+            this.type_ship.Location = new System.Drawing.Point(200, 109);
+            this.type_ship.Name = "type_ship";
+            this.type_ship.Size = new System.Drawing.Size(63, 13);
+            this.type_ship.TabIndex = 11;
+            this.type_ship.Text = "نوع السفينة";
+            // 
+            // namesh
+            // 
+            this.namesh.HeaderText = "اسم السفينة";
+            this.namesh.Name = "namesh";
+            // 
+            // iom11
+            // 
+            this.iom11.HeaderText = "IMO";
+            this.iom11.Name = "iom11";
+            // 
+            // typesh
+            // 
+            this.typesh.HeaderText = "نوع السفينة";
+            this.typesh.Name = "typesh";
+            // 
+            // staus
+            // 
+            this.staus.HeaderText = "حالة السفينة";
+            this.staus.Name = "staus";
+            // 
+            // dat
+            // 
+            this.dat.HeaderText = "التاريخ";
+            this.dat.Name = "dat";
+            // 
+            // agent1
+            // 
+            this.agent1.HeaderText = "اسم الوكيل الملاحي";
+            this.agent1.Name = "agent1";
+            // 
+            // nameg
+            // 
+            this.nameg.HeaderText = "اسم البضاعة";
+            this.nameg.Name = "nameg";
+            // 
+            // tyg
+            // 
+            this.tyg.HeaderText = "كمية البضاعة";
+            this.tyg.Name = "tyg";
+            // 
+            // ports
+            // 
+            this.ports.HeaderText = "الميناء";
+            this.ports.Name = "ports";
+            // 
+            // plat
+            // 
+            this.plat.HeaderText = "الرصيف";
+            this.plat.Name = "plat";
+            // 
+            // ed1
+            // 
+            this.ed1.HeaderText = "تعديل";
+            this.ed1.Name = "ed1";
+            // 
+            // del11
+            // 
+            this.del11.HeaderText = "حذف";
+            this.del11.Name = "del11";
+            // 
+            // shipnameg
+            // 
+            this.shipnameg.HeaderText = "السفينة";
+            this.shipnameg.Name = "shipnameg";
+            // 
+            // imo2
+            // 
+            this.imo2.HeaderText = "IMO";
+            this.imo2.Name = "imo2";
+            // 
+            // typeshipg
+            // 
+            this.typeshipg.HeaderText = "نوع السفينة";
+            this.typeshipg.Name = "typeshipg";
+            // 
+            // update
+            // 
+            this.update.HeaderText = "تعديل";
+            this.update.Name = "update";
+            // 
+            // delete
+            // 
+            this.delete.HeaderText = "حذف";
+            this.delete.Name = "delete";
+            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(1004, 712);
-            this.Controls.Add(this.triptabControl1);
+            this.Controls.Add(this.triptabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.Name = "MainScreen";
-            this.Text = "Form3";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.RightToLeftLayout = true;
+            this.Text = "نظام ادارة السفن";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.platformTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.platformGridView2)).EndInit();
@@ -1363,7 +1435,7 @@
             this.loadsgroup.ResumeLayout(false);
             this.loadsgroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productGridView2)).EndInit();
-            this.triptabControl1.ResumeLayout(false);
+            this.triptabControl.ResumeLayout(false);
             this.tripsTab.ResumeLayout(false);
             this.tripsTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -1384,7 +1456,7 @@
         private System.Windows.Forms.TabPage goodsTab;
         private System.Windows.Forms.TabPage agentsTab;
         private System.Windows.Forms.TabPage addingTripTab;
-        private System.Windows.Forms.TabControl triptabControl1;
+        private System.Windows.Forms.TabControl triptabControl;
         private System.Windows.Forms.TextBox notes;
         private System.Windows.Forms.DataGridView productGridView2;
         private System.Windows.Forms.Button addbutton;
@@ -1444,18 +1516,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label searchlab;
         private System.Windows.Forms.Button searchbu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn namesh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iom11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn typesh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn staus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dat;
-        private System.Windows.Forms.DataGridViewTextBoxColumn agent1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameg;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tyg;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ports;
-        private System.Windows.Forms.DataGridViewTextBoxColumn plat;
-        private System.Windows.Forms.DataGridViewButtonColumn ed1;
-        private System.Windows.Forms.DataGridViewButtonColumn del11;
         private System.Windows.Forms.DataGridView agentsGridView4;
         private System.Windows.Forms.Button saveg;
         private System.Windows.Forms.TextBox agentsBox;
@@ -1477,13 +1537,13 @@
         private System.Windows.Forms.LinkLabel linkgoods;
         private System.Windows.Forms.TabPage shipsTab;
         private System.Windows.Forms.ComboBox comboBox6;
-        private System.Windows.Forms.ComboBox typeshBox7;
+        private System.Windows.Forms.ComboBox AddShip_Typecmb;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox iomBox;
+        private System.Windows.Forms.TextBox AddShip_Imotxt;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox shnametBox;
-        private System.Windows.Forms.Button savebuttonsh;
+        private System.Windows.Forms.TextBox AddShip_Nametxt;
+        private System.Windows.Forms.Button AddShip_Savebtn;
         private System.Windows.Forms.Button addship;
         private System.Windows.Forms.DataGridView shipGridView;
         private System.Windows.Forms.Label label18;
@@ -1513,6 +1573,25 @@
         private System.Windows.Forms.Button saveport;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label portname;
-
+        private System.Windows.Forms.Label type_ship;
+        private System.Windows.Forms.Label imo;
+        private System.Windows.Forms.Label ship_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn namesh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iom11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn typesh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn staus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn agent1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameg;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tyg;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ports;
+        private System.Windows.Forms.DataGridViewTextBoxColumn plat;
+        private System.Windows.Forms.DataGridViewButtonColumn ed1;
+        private System.Windows.Forms.DataGridViewButtonColumn del11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shipnameg;
+        private System.Windows.Forms.DataGridViewTextBoxColumn imo2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn typeshipg;
+        private System.Windows.Forms.DataGridViewButtonColumn update;
+        private System.Windows.Forms.DataGridViewButtonColumn delete;
     }
 }

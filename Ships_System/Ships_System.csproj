@@ -76,6 +76,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BL\AgentService.cs" />
+    <Compile Include="BL\IAgentService.cs" />
+    <Compile Include="BL\IPlatformService.cs" />
+    <Compile Include="BL\IPortService.cs" />
+    <Compile Include="BL\IProductService.cs" />
+    <Compile Include="BL\IShipService.cs" />
+    <Compile Include="BL\ITripService.cs" />
+    <Compile Include="BL\PlatformService.cs" />
+    <Compile Include="BL\PortService.cs" />
+    <Compile Include="BL\ProductService.cs" />
+    <Compile Include="BL\ShipService.cs" />
+    <Compile Include="BL\TripService.cs" />
     <Compile Include="DAL\Agent.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -165,9 +177,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BL\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\input.png" />
   </ItemGroup>
