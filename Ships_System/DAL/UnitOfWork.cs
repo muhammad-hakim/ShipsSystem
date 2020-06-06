@@ -86,5 +86,10 @@ namespace Ships_System.DAL
                 return new Repository<TripsStatu>(context);
             }
         }
+
+        public async Task<bool> Commit()
+        {
+            return await context.SaveChangesAsync() > 0;
+        }
     }
 }

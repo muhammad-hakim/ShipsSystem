@@ -15,7 +15,7 @@ namespace Ships_System.DAL
         public Repository(SystemContext context)
         {
             this.context = context;
-            this.context.Set<T>();
+            this.data = this.context.Set<T>();
         }
 
         public T Add(T obj)
