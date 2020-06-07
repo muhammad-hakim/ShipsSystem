@@ -1,10 +1,10 @@
-﻿using Agents_System.BL;
-using Autofac;
+﻿using Autofac;
 using Ships_System.DAL;
 using Ships_System.PL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -32,6 +32,11 @@ namespace Ships_System
             builder.RegisterType<SystemContext>().AsSelf();
             builder.RegisterType<UnitOfWork>().AsSelf();
             builder.RegisterType<MainScreen>().AsSelf();
+            foreach (var item in Assembly.GetExecutingAssembly().GetExportedTypes().Where(t => t.Namespace == "Ships_System.BL" && t.IsClass))
+            {
+                builder.RegisterType(item).As(item.GetInterface("I"+item.Name));
+            } 
+
             var resolver = builder.Build();
             return resolver;
         }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Agents_System.BL
+namespace Ships_System.BL
 {
     public interface IAgentService
     {

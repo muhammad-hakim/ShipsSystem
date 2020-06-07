@@ -110,6 +110,18 @@
             this.tripsTab = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.namesh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iom11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typesh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.staus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.agent1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tyg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ports = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.plat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ed1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.del11 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel4 = new System.Windows.Forms.Panel();
             this.by = new System.Windows.Forms.ComboBox();
             this.searcht = new System.Windows.Forms.TextBox();
@@ -117,6 +129,9 @@
             this.searchbu = new System.Windows.Forms.Button();
             this.searchlab = new System.Windows.Forms.Label();
             this.shipsTab = new System.Windows.Forms.TabPage();
+            this.type_ship = new System.Windows.Forms.Label();
+            this.imo = new System.Windows.Forms.Label();
+            this.ship_name = new System.Windows.Forms.Label();
             this.comboBox6 = new System.Windows.Forms.ComboBox();
             this.AddShip_Typecmb = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -126,7 +141,12 @@
             this.AddShip_Nametxt = new System.Windows.Forms.TextBox();
             this.AddShip_Savebtn = new System.Windows.Forms.Button();
             this.addship = new System.Windows.Forms.Button();
-            this.shipGridView = new System.Windows.Forms.DataGridView();
+            this.ShipsGridView = new System.Windows.Forms.DataGridView();
+            this.shipnameg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.imo2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeshipg = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.update = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label18 = new System.Windows.Forms.Label();
             this.bunifuImageButton2 = new Bunifu.Framework.UI.BunifuImageButton();
             this.label17 = new System.Windows.Forms.Label();
@@ -151,26 +171,6 @@
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IOM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.n = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ship_name = new System.Windows.Forms.Label();
-            this.imo = new System.Windows.Forms.Label();
-            this.type_ship = new System.Windows.Forms.Label();
-            this.namesh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iom11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.typesh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.staus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.agent1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tyg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ports = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.plat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ed1 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.del11 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.shipnameg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.imo2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.typeshipg = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.update = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.platformTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.platformGridView2)).BeginInit();
             this.panel1.SuspendLayout();
@@ -188,7 +188,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel4.SuspendLayout();
             this.shipsTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.shipGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ShipsGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -386,7 +386,7 @@
             this.portname.AutoSize = true;
             this.portname.Location = new System.Drawing.Point(672, 79);
             this.portname.Name = "portname";
-            this.portname.Size = new System.Drawing.Size(63, 13);
+            this.portname.Size = new System.Drawing.Size(59, 13);
             this.portname.TabIndex = 0;
             this.portname.Text = "اسم الميناء ";
             // 
@@ -443,7 +443,7 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(629, 66);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(67, 13);
+            this.label13.Size = new System.Drawing.Size(66, 13);
             this.label13.TabIndex = 2;
             this.label13.Text = "كمية البضاعة";
             // 
@@ -452,7 +452,7 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(844, 61);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(67, 13);
+            this.label12.Size = new System.Drawing.Size(62, 13);
             this.label12.TabIndex = 2;
             this.label12.Text = "اسم البضاعة";
             // 
@@ -542,7 +542,7 @@
             this.agentlabel.AutoSize = true;
             this.agentlabel.Location = new System.Drawing.Point(807, 54);
             this.agentlabel.Name = "agentlabel";
-            this.agentlabel.Size = new System.Drawing.Size(77, 13);
+            this.agentlabel.Size = new System.Drawing.Size(75, 13);
             this.agentlabel.TabIndex = 0;
             this.agentlabel.Text = "الوكيل الملاحي";
             // 
@@ -600,7 +600,7 @@
             this.linkgoods.AutoSize = true;
             this.linkgoods.Location = new System.Drawing.Point(94, 32);
             this.linkgoods.Name = "linkgoods";
-            this.linkgoods.Size = new System.Drawing.Size(87, 13);
+            this.linkgoods.Size = new System.Drawing.Size(85, 13);
             this.linkgoods.TabIndex = 38;
             this.linkgoods.TabStop = true;
             this.linkgoods.Text = "لاضافة منتج جديد";
@@ -716,7 +716,7 @@
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Location = new System.Drawing.Point(-293, 145);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(92, 13);
+            this.linkLabel1.Size = new System.Drawing.Size(91, 13);
             this.linkLabel1.TabIndex = 34;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "لاضافة رصيف جديد";
@@ -726,7 +726,7 @@
             this.linkLabel5.AutoSize = true;
             this.linkLabel5.Location = new System.Drawing.Point(-273, 145);
             this.linkLabel5.Name = "linkLabel5";
-            this.linkLabel5.Size = new System.Drawing.Size(87, 13);
+            this.linkLabel5.Size = new System.Drawing.Size(88, 13);
             this.linkLabel5.TabIndex = 34;
             this.linkLabel5.TabStop = true;
             this.linkLabel5.Text = "لاضافة وكيل جديد";
@@ -736,7 +736,7 @@
             this.linkplatform.AutoSize = true;
             this.linkplatform.Location = new System.Drawing.Point(60, 198);
             this.linkplatform.Name = "linkplatform";
-            this.linkplatform.Size = new System.Drawing.Size(92, 13);
+            this.linkplatform.Size = new System.Drawing.Size(91, 13);
             this.linkplatform.TabIndex = 34;
             this.linkplatform.TabStop = true;
             this.linkplatform.Text = "لاضافة رصيف جديد";
@@ -755,7 +755,7 @@
             this.linkagent.AutoSize = true;
             this.linkagent.Location = new System.Drawing.Point(69, 144);
             this.linkagent.Name = "linkagent";
-            this.linkagent.Size = new System.Drawing.Size(87, 13);
+            this.linkagent.Size = new System.Drawing.Size(88, 13);
             this.linkagent.TabIndex = 33;
             this.linkagent.TabStop = true;
             this.linkagent.Text = "لاضافة وكيل جديد";
@@ -765,7 +765,7 @@
             this.linkLship.AutoSize = true;
             this.linkLship.Location = new System.Drawing.Point(408, 141);
             this.linkLship.Name = "linkLship";
-            this.linkLship.Size = new System.Drawing.Size(101, 13);
+            this.linkLship.Size = new System.Drawing.Size(97, 13);
             this.linkLship.TabIndex = 33;
             this.linkLship.TabStop = true;
             this.linkLship.Text = "لاضافة سفينة جديدة";
@@ -775,7 +775,7 @@
             this.linkport.AutoSize = true;
             this.linkport.Location = new System.Drawing.Point(423, 195);
             this.linkport.Name = "linkport";
-            this.linkport.Size = new System.Drawing.Size(86, 13);
+            this.linkport.Size = new System.Drawing.Size(87, 13);
             this.linkport.TabIndex = 33;
             this.linkport.TabStop = true;
             this.linkport.Text = "لاضافة ميناء جديد";
@@ -917,12 +917,13 @@
             this.triptabControl.Controls.Add(this.goodsTab);
             this.triptabControl.Controls.Add(this.portTab);
             this.triptabControl.Controls.Add(this.platformTab);
-            this.triptabControl.Location = new System.Drawing.Point(-13, 3);
+            this.triptabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.triptabControl.Location = new System.Drawing.Point(0, 0);
             this.triptabControl.Name = "triptabControl";
             this.triptabControl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.triptabControl.RightToLeftLayout = true;
             this.triptabControl.SelectedIndex = 0;
-            this.triptabControl.Size = new System.Drawing.Size(1024, 719);
+            this.triptabControl.Size = new System.Drawing.Size(1004, 712);
             this.triptabControl.TabIndex = 0;
             // 
             // tripsTab
@@ -934,7 +935,7 @@
             this.tripsTab.Location = new System.Drawing.Point(4, 25);
             this.tripsTab.Name = "tripsTab";
             this.tripsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.tripsTab.Size = new System.Drawing.Size(1016, 690);
+            this.tripsTab.Size = new System.Drawing.Size(996, 683);
             this.tripsTab.TabIndex = 0;
             this.tripsTab.Text = "الرحلات";
             // 
@@ -966,6 +967,66 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1004, 340);
             this.dataGridView1.TabIndex = 8;
+            // 
+            // namesh
+            // 
+            this.namesh.HeaderText = "اسم السفينة";
+            this.namesh.Name = "namesh";
+            // 
+            // iom11
+            // 
+            this.iom11.HeaderText = "IMO";
+            this.iom11.Name = "iom11";
+            // 
+            // typesh
+            // 
+            this.typesh.HeaderText = "نوع السفينة";
+            this.typesh.Name = "typesh";
+            // 
+            // staus
+            // 
+            this.staus.HeaderText = "حالة السفينة";
+            this.staus.Name = "staus";
+            // 
+            // dat
+            // 
+            this.dat.HeaderText = "التاريخ";
+            this.dat.Name = "dat";
+            // 
+            // agent1
+            // 
+            this.agent1.HeaderText = "اسم الوكيل الملاحي";
+            this.agent1.Name = "agent1";
+            // 
+            // nameg
+            // 
+            this.nameg.HeaderText = "اسم البضاعة";
+            this.nameg.Name = "nameg";
+            // 
+            // tyg
+            // 
+            this.tyg.HeaderText = "كمية البضاعة";
+            this.tyg.Name = "tyg";
+            // 
+            // ports
+            // 
+            this.ports.HeaderText = "الميناء";
+            this.ports.Name = "ports";
+            // 
+            // plat
+            // 
+            this.plat.HeaderText = "الرصيف";
+            this.plat.Name = "plat";
+            // 
+            // ed1
+            // 
+            this.ed1.HeaderText = "تعديل";
+            this.ed1.Name = "ed1";
+            // 
+            // del11
+            // 
+            this.del11.HeaderText = "حذف";
+            this.del11.Name = "del11";
             // 
             // panel4
             // 
@@ -999,7 +1060,7 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(539, 34);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(43, 13);
+            this.label10.Size = new System.Drawing.Size(41, 13);
             this.label10.TabIndex = 1;
             this.label10.Text = "بواسطة";
             // 
@@ -1017,7 +1078,7 @@
             this.searchlab.AutoSize = true;
             this.searchlab.Location = new System.Drawing.Point(717, 32);
             this.searchlab.Name = "searchlab";
-            this.searchlab.Size = new System.Drawing.Size(34, 13);
+            this.searchlab.Size = new System.Drawing.Size(32, 13);
             this.searchlab.TabIndex = 1;
             this.searchlab.Text = "البحث";
             // 
@@ -1035,14 +1096,42 @@
             this.shipsTab.Controls.Add(this.AddShip_Nametxt);
             this.shipsTab.Controls.Add(this.AddShip_Savebtn);
             this.shipsTab.Controls.Add(this.addship);
-            this.shipsTab.Controls.Add(this.shipGridView);
+            this.shipsTab.Controls.Add(this.ShipsGridView);
             this.shipsTab.Controls.Add(this.label18);
             this.shipsTab.Location = new System.Drawing.Point(4, 25);
             this.shipsTab.Name = "shipsTab";
-            this.shipsTab.Size = new System.Drawing.Size(1016, 690);
+            this.shipsTab.Size = new System.Drawing.Size(996, 683);
             this.shipsTab.TabIndex = 2;
             this.shipsTab.Text = "السفن";
             this.shipsTab.UseVisualStyleBackColor = true;
+            
+            // 
+            // type_ship
+            // 
+            this.type_ship.AutoSize = true;
+            this.type_ship.Location = new System.Drawing.Point(200, 109);
+            this.type_ship.Name = "type_ship";
+            this.type_ship.Size = new System.Drawing.Size(60, 13);
+            this.type_ship.TabIndex = 11;
+            this.type_ship.Text = "نوع السفينة";
+            // 
+            // imo
+            // 
+            this.imo.AutoSize = true;
+            this.imo.Location = new System.Drawing.Point(393, 109);
+            this.imo.Name = "imo";
+            this.imo.Size = new System.Drawing.Size(27, 13);
+            this.imo.TabIndex = 11;
+            this.imo.Text = "IMO";
+            // 
+            // ship_name
+            // 
+            this.ship_name.AutoSize = true;
+            this.ship_name.Location = new System.Drawing.Point(562, 109);
+            this.ship_name.Name = "ship_name";
+            this.ship_name.Size = new System.Drawing.Size(60, 13);
+            this.ship_name.TabIndex = 11;
+            this.ship_name.Text = "اسم السفينة";
             // 
             // comboBox6
             // 
@@ -1130,20 +1219,45 @@
             this.addship.Text = "اضافة سفينة جديدة";
             this.addship.UseVisualStyleBackColor = true;
             // 
-            // shipGridView
+            // ShipsGridView
             // 
-            this.shipGridView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.shipGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.shipGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ShipsGridView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ShipsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ShipsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.shipnameg,
             this.imo2,
             this.typeshipg,
             this.update,
             this.delete});
-            this.shipGridView.Location = new System.Drawing.Point(78, 190);
-            this.shipGridView.Name = "shipGridView";
-            this.shipGridView.Size = new System.Drawing.Size(545, 462);
-            this.shipGridView.TabIndex = 7;
+            this.ShipsGridView.Location = new System.Drawing.Point(78, 190);
+            this.ShipsGridView.Name = "ShipsGridView";
+            this.ShipsGridView.Size = new System.Drawing.Size(545, 462);
+            this.ShipsGridView.TabIndex = 7;
+            // 
+            // shipnameg
+            // 
+            this.shipnameg.HeaderText = "السفينة";
+            this.shipnameg.Name = "shipnameg";
+            // 
+            // imo2
+            // 
+            this.imo2.HeaderText = "IMO";
+            this.imo2.Name = "imo2";
+            // 
+            // typeshipg
+            // 
+            this.typeshipg.HeaderText = "نوع السفينة";
+            this.typeshipg.Name = "typeshipg";
+            // 
+            // update
+            // 
+            this.update.HeaderText = "تعديل";
+            this.update.Name = "update";
+            // 
+            // delete
+            // 
+            this.delete.HeaderText = "حذف";
+            this.delete.Name = "delete";
             // 
             // label18
             // 
@@ -1291,118 +1405,6 @@
             this.n.HeaderText = "اسم السفينة";
             this.n.Name = "n";
             // 
-            // ship_name
-            // 
-            this.ship_name.AutoSize = true;
-            this.ship_name.Location = new System.Drawing.Point(562, 109);
-            this.ship_name.Name = "ship_name";
-            this.ship_name.Size = new System.Drawing.Size(70, 13);
-            this.ship_name.TabIndex = 11;
-            this.ship_name.Text = "اسم السفينة";
-            // 
-            // imo
-            // 
-            this.imo.AutoSize = true;
-            this.imo.Location = new System.Drawing.Point(393, 109);
-            this.imo.Name = "imo";
-            this.imo.Size = new System.Drawing.Size(27, 13);
-            this.imo.TabIndex = 11;
-            this.imo.Text = "IMO";
-            // 
-            // type_ship
-            // 
-            this.type_ship.AutoSize = true;
-            this.type_ship.Location = new System.Drawing.Point(200, 109);
-            this.type_ship.Name = "type_ship";
-            this.type_ship.Size = new System.Drawing.Size(63, 13);
-            this.type_ship.TabIndex = 11;
-            this.type_ship.Text = "نوع السفينة";
-            // 
-            // namesh
-            // 
-            this.namesh.HeaderText = "اسم السفينة";
-            this.namesh.Name = "namesh";
-            // 
-            // iom11
-            // 
-            this.iom11.HeaderText = "IMO";
-            this.iom11.Name = "iom11";
-            // 
-            // typesh
-            // 
-            this.typesh.HeaderText = "نوع السفينة";
-            this.typesh.Name = "typesh";
-            // 
-            // staus
-            // 
-            this.staus.HeaderText = "حالة السفينة";
-            this.staus.Name = "staus";
-            // 
-            // dat
-            // 
-            this.dat.HeaderText = "التاريخ";
-            this.dat.Name = "dat";
-            // 
-            // agent1
-            // 
-            this.agent1.HeaderText = "اسم الوكيل الملاحي";
-            this.agent1.Name = "agent1";
-            // 
-            // nameg
-            // 
-            this.nameg.HeaderText = "اسم البضاعة";
-            this.nameg.Name = "nameg";
-            // 
-            // tyg
-            // 
-            this.tyg.HeaderText = "كمية البضاعة";
-            this.tyg.Name = "tyg";
-            // 
-            // ports
-            // 
-            this.ports.HeaderText = "الميناء";
-            this.ports.Name = "ports";
-            // 
-            // plat
-            // 
-            this.plat.HeaderText = "الرصيف";
-            this.plat.Name = "plat";
-            // 
-            // ed1
-            // 
-            this.ed1.HeaderText = "تعديل";
-            this.ed1.Name = "ed1";
-            // 
-            // del11
-            // 
-            this.del11.HeaderText = "حذف";
-            this.del11.Name = "del11";
-            // 
-            // shipnameg
-            // 
-            this.shipnameg.HeaderText = "السفينة";
-            this.shipnameg.Name = "shipnameg";
-            // 
-            // imo2
-            // 
-            this.imo2.HeaderText = "IMO";
-            this.imo2.Name = "imo2";
-            // 
-            // typeshipg
-            // 
-            this.typeshipg.HeaderText = "نوع السفينة";
-            this.typeshipg.Name = "typeshipg";
-            // 
-            // update
-            // 
-            this.update.HeaderText = "تعديل";
-            this.update.Name = "update";
-            // 
-            // delete
-            // 
-            this.delete.HeaderText = "حذف";
-            this.delete.Name = "delete";
-            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1443,7 +1445,7 @@
             this.panel4.PerformLayout();
             this.shipsTab.ResumeLayout(false);
             this.shipsTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.shipGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ShipsGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).EndInit();
             this.ResumeLayout(false);
 
@@ -1545,7 +1547,7 @@
         private System.Windows.Forms.TextBox AddShip_Nametxt;
         private System.Windows.Forms.Button AddShip_Savebtn;
         private System.Windows.Forms.Button addship;
-        private System.Windows.Forms.DataGridView shipGridView;
+        private System.Windows.Forms.DataGridView ShipsGridView;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.DataGridViewButtonColumn del1;
         private System.Windows.Forms.DataGridViewButtonColumn edit1;

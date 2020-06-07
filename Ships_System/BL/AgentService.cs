@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Ships_System.DAL;
 
-namespace Agents_System.BL
+namespace Ships_System.BL
 {
     public class AgentService : IAgentService
     {
