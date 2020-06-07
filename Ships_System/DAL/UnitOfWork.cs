@@ -87,9 +87,9 @@ namespace Ships_System.DAL
             }
         }
 
-        public async Task<bool> Commit()
+        public bool Commit()
         {
-            return await context.SaveChangesAsync() > 0;
+            return context.SaveChanges() > 0;
         }
     }
 }
