@@ -29,15 +29,16 @@ namespace Ships_System
         {
             ContainerBuilder builder = new ContainerBuilder();
             
-            builder.RegisterType<SystemContext>().AsSelf();
-            builder.RegisterType<UnitOfWork>().AsSelf();
+            builder.RegisterType<SystemContext>().AsSelf().SingleInstance();
+            builder.RegisterType<UnitOfWork>().AsSelf().SingleInstance();
+
             builder.RegisterType<MainScreen>().AsSelf();
             foreach (var item in Assembly.GetExecutingAssembly().GetExportedTypes().Where(t => t.Namespace == "Ships_System.BL" && t.IsClass))
             {
                 builder.RegisterType(item).As(item.GetInterface("I"+item.Name));
             } 
 
-            var resolver = builder.Build();
+            var resolver = builder.Build(); 
             return resolver;
         }
     }

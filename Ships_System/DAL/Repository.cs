@@ -20,7 +20,8 @@ namespace Ships_System.DAL
 
         public T Add(T obj)
         {
-            return data.Add(obj);
+            var result = data.Add(obj);
+            return result;
         }
 
         public async Task<bool> DeleteAsync(int id)
@@ -36,7 +37,8 @@ namespace Ships_System.DAL
 
         public async Task<List<T>> GetAsync()
         {
-            return await data.ToListAsync(); ;
+            var result =  await data.ToListAsync(); ;
+            return result;
         }
 
         public async Task<T> GetByIdAsync(int id)

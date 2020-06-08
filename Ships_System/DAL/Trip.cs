@@ -25,7 +25,7 @@ namespace Ships_System.DAL
         public int TripId { get; set; }
         public int ShipId { get; set; }
         public int AgentId { get; set; }
-        public Nullable<int> Status { get; set; }
+        public int Status { get; set; }
         public string Notes { get; set; }
     
         public virtual Agent Agent { get; set; }

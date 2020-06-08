@@ -23,7 +23,6 @@ namespace Ships_System.DAL
         public int PlatformId { get; set; }
         public string Name { get; set; }
         public int PortId { get; set; }
-        public string Type { get; set; }
     
         public virtual Port Port { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

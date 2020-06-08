@@ -28,7 +28,8 @@ namespace Ships_System.BL
 
         public async Task<List<Ship>> GetAllShipsAsync()
         {
-            return await unitOfWork.Ships.GetAsync();
+            var result = await unitOfWork.Ships.GetAsync();
+            return result;
         }
 
         public async Task<Ship> GetShipByIdAsync(int id)

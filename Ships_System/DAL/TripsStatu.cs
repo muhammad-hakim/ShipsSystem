@@ -16,7 +16,7 @@ namespace Ships_System.DAL
     {
         public int Id { get; set; }
         public int TripId { get; set; }
-        public Nullable<int> Status { get; set; }
+        public int Status { get; set; }
         public System.DateTime Date { get; set; }
     
         public virtual Trip Trip { get; set; }

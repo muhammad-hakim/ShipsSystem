@@ -22,7 +22,7 @@ namespace Ships_System.DAL
     
         public int ShipId { get; set; }
         public string Name { get; set; }
-        public Nullable<int> Type { get; set; }
+        public int Type { get; set; }
         public string Imo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

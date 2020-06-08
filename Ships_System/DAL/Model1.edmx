@@ -9,56 +9,55 @@
           <Key>
             <PropertyRef Name="AgentId" />
           </Key>
-          <Property Name="AgentId" Type="int" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AgentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Platforms">
           <Key>
             <PropertyRef Name="PlatformId" />
           </Key>
-          <Property Name="PlatformId" Type="int" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="PlatformId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="PortId" Type="int" Nullable="false" />
-          <Property Name="Type" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Ports">
           <Key>
             <PropertyRef Name="PortId" />
           </Key>
-          <Property Name="PortId" Type="int" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PortId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Products">
           <Key>
             <PropertyRef Name="ProductId" />
           </Key>
-          <Property Name="ProductId" Type="int" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Ships">
           <Key>
             <PropertyRef Name="ShipId" />
           </Key>
-          <Property Name="ShipId" Type="int" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Type" Type="int" />
-          <Property Name="Imo" Type="nvarchar" MaxLength="50" />
+          <Property Name="ShipId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="Imo" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Trips">
           <Key>
             <PropertyRef Name="TripId" />
           </Key>
-          <Property Name="TripId" Type="int" Nullable="false" />
+          <Property Name="TripId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ShipId" Type="int" Nullable="false" />
           <Property Name="AgentId" Type="int" Nullable="false" />
-          <Property Name="Status" Type="int" />
+          <Property Name="Status" Type="int" Nullable="false" />
           <Property Name="Notes" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="TripsLoads">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Quantity" Type="int" Nullable="false" />
           <Property Name="ProductId" Type="int" Nullable="false" />
           <Property Name="TripId" Type="int" Nullable="false" />
@@ -67,7 +66,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TripId" Type="int" Nullable="false" />
           <Property Name="PlatformId" Type="int" Nullable="false" />
           <Property Name="Date" Type="date" Nullable="false" />
@@ -76,9 +75,9 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TripId" Type="int" Nullable="false" />
-          <Property Name="Status" Type="int" />
+          <Property Name="Status" Type="int" Nullable="false" />
           <Property Name="Date" Type="date" Nullable="false" />
         </EntityType>
         <Association Name="FK_Platforms_Ports">
@@ -229,18 +228,17 @@
           <Key>
             <PropertyRef Name="AgentId" />
           </Key>
-          <Property Name="AgentId" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AgentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Trips" Relationship="Self.FK_Trips_Agents" FromRole="Agents" ToRole="Trips" />
         </EntityType>
         <EntityType Name="Platform">
           <Key>
             <PropertyRef Name="PlatformId" />
           </Key>
-          <Property Name="PlatformId" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PlatformId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="PortId" Type="Int32" Nullable="false" />
-          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Port" Relationship="Self.FK_Platforms_Ports" FromRole="Platforms" ToRole="Ports" />
           <NavigationProperty Name="TripsPlatforms" Relationship="Self.FK_Ships_platform_Platforms" FromRole="Platforms" ToRole="TripsPlatforms" />
         </EntityType>
@@ -248,36 +246,36 @@
           <Key>
             <PropertyRef Name="PortId" />
           </Key>
-          <Property Name="PortId" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PortId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Platforms" Relationship="Self.FK_Platforms_Ports" FromRole="Ports" ToRole="Platforms" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
             <PropertyRef Name="ProductId" />
           </Key>
-          <Property Name="ProductId" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="TripsLoads" Relationship="Self.FK_TripsLoads_Products" FromRole="Products" ToRole="TripsLoads" />
         </EntityType>
         <EntityType Name="Ship">
           <Key>
             <PropertyRef Name="ShipId" />
           </Key>
-          <Property Name="ShipId" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Type" Type="Int32" />
-          <Property Name="Imo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ShipId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <Property Name="Imo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Trips" Relationship="Self.FK_Trips_Ships" FromRole="Ships" ToRole="Trips" />
         </EntityType>
         <EntityType Name="Trip">
           <Key>
             <PropertyRef Name="TripId" />
           </Key>
-          <Property Name="TripId" Type="Int32" Nullable="false" />
+          <Property Name="TripId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ShipId" Type="Int32" Nullable="false" />
           <Property Name="AgentId" Type="Int32" Nullable="false" />
-          <Property Name="Status" Type="Int32" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
           <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Agent" Relationship="Self.FK_Trips_Agents" FromRole="Trips" ToRole="Agents" />
           <NavigationProperty Name="Ship" Relationship="Self.FK_Trips_Ships" FromRole="Trips" ToRole="Ships" />
@@ -289,7 +287,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Quantity" Type="Int32" Nullable="false" />
           <Property Name="ProductId" Type="Int32" Nullable="false" />
           <Property Name="TripId" Type="Int32" Nullable="false" />
@@ -300,7 +298,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TripId" Type="Int32" Nullable="false" />
           <Property Name="PlatformId" Type="Int32" Nullable="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
@@ -311,9 +309,9 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TripId" Type="Int32" Nullable="false" />
-          <Property Name="Status" Type="Int32" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="Trip" Relationship="Self.FK_TripsStatus_Trips" FromRole="TripsStatus" ToRole="Trips" />
         </EntityType>
@@ -413,7 +411,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="SystemContext" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Ships_SٍٍystemEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Agents" EntityType="Self.Agent" />
           <EntitySet Name="Platforms" EntityType="Self.Platform" />
           <EntitySet Name="Ports" EntityType="Self.Port" />
@@ -461,7 +459,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="SystemContext">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Ships_SٍٍystemEntities">
           <EntitySetMapping Name="Agents">
             <EntityTypeMapping TypeName="Model.Agent">
               <MappingFragment StoreEntitySet="Agents">
@@ -476,7 +474,6 @@
                 <ScalarProperty Name="PlatformId" ColumnName="PlatformId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="PortId" ColumnName="PortId" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

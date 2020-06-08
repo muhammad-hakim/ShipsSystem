@@ -201,7 +201,7 @@
             this.platformTab.Location = new System.Drawing.Point(4, 25);
             this.platformTab.Name = "platformTab";
             this.platformTab.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.platformTab.Size = new System.Drawing.Size(1016, 690);
+            this.platformTab.Size = new System.Drawing.Size(996, 683);
             this.platformTab.TabIndex = 6;
             this.platformTab.Text = "الارصفة";
             this.platformTab.UseVisualStyleBackColor = true;
@@ -329,7 +329,7 @@
             this.portTab.Controls.Add(this.portname);
             this.portTab.Location = new System.Drawing.Point(4, 25);
             this.portTab.Name = "portTab";
-            this.portTab.Size = new System.Drawing.Size(1016, 690);
+            this.portTab.Size = new System.Drawing.Size(996, 683);
             this.portTab.TabIndex = 5;
             this.portTab.Text = "الموانئ";
             this.portTab.UseVisualStyleBackColor = true;
@@ -386,7 +386,7 @@
             this.portname.AutoSize = true;
             this.portname.Location = new System.Drawing.Point(672, 79);
             this.portname.Name = "portname";
-            this.portname.Size = new System.Drawing.Size(59, 13);
+            this.portname.Size = new System.Drawing.Size(63, 13);
             this.portname.TabIndex = 0;
             this.portname.Text = "اسم الميناء ";
             // 
@@ -400,7 +400,7 @@
             this.goodsTab.Controls.Add(this.savepro);
             this.goodsTab.Location = new System.Drawing.Point(4, 25);
             this.goodsTab.Name = "goodsTab";
-            this.goodsTab.Size = new System.Drawing.Size(1016, 690);
+            this.goodsTab.Size = new System.Drawing.Size(996, 683);
             this.goodsTab.TabIndex = 4;
             this.goodsTab.Text = "البضائع";
             this.goodsTab.UseVisualStyleBackColor = true;
@@ -443,7 +443,7 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(629, 66);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(66, 13);
+            this.label13.Size = new System.Drawing.Size(67, 13);
             this.label13.TabIndex = 2;
             this.label13.Text = "كمية البضاعة";
             // 
@@ -452,7 +452,7 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(844, 61);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(62, 13);
+            this.label12.Size = new System.Drawing.Size(67, 13);
             this.label12.TabIndex = 2;
             this.label12.Text = "اسم البضاعة";
             // 
@@ -487,7 +487,7 @@
             this.agentsTab.Controls.Add(this.agentlabel);
             this.agentsTab.Location = new System.Drawing.Point(4, 25);
             this.agentsTab.Name = "agentsTab";
-            this.agentsTab.Size = new System.Drawing.Size(1016, 690);
+            this.agentsTab.Size = new System.Drawing.Size(996, 683);
             this.agentsTab.TabIndex = 3;
             this.agentsTab.Text = "الوكيل الملاحي";
             this.agentsTab.UseVisualStyleBackColor = true;
@@ -542,7 +542,7 @@
             this.agentlabel.AutoSize = true;
             this.agentlabel.Location = new System.Drawing.Point(807, 54);
             this.agentlabel.Name = "agentlabel";
-            this.agentlabel.Size = new System.Drawing.Size(75, 13);
+            this.agentlabel.Size = new System.Drawing.Size(77, 13);
             this.agentlabel.TabIndex = 0;
             this.agentlabel.Text = "الوكيل الملاحي";
             // 
@@ -575,7 +575,7 @@
             this.addingTripTab.Location = new System.Drawing.Point(4, 25);
             this.addingTripTab.Name = "addingTripTab";
             this.addingTripTab.Padding = new System.Windows.Forms.Padding(3);
-            this.addingTripTab.Size = new System.Drawing.Size(1016, 690);
+            this.addingTripTab.Size = new System.Drawing.Size(996, 683);
             this.addingTripTab.TabIndex = 1;
             this.addingTripTab.Text = "اضافة رحلة";
             // 
@@ -600,7 +600,7 @@
             this.linkgoods.AutoSize = true;
             this.linkgoods.Location = new System.Drawing.Point(94, 32);
             this.linkgoods.Name = "linkgoods";
-            this.linkgoods.Size = new System.Drawing.Size(85, 13);
+            this.linkgoods.Size = new System.Drawing.Size(87, 13);
             this.linkgoods.TabIndex = 38;
             this.linkgoods.TabStop = true;
             this.linkgoods.Text = "لاضافة منتج جديد";
@@ -716,7 +716,7 @@
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Location = new System.Drawing.Point(-293, 145);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(91, 13);
+            this.linkLabel1.Size = new System.Drawing.Size(92, 13);
             this.linkLabel1.TabIndex = 34;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "لاضافة رصيف جديد";
@@ -726,7 +726,7 @@
             this.linkLabel5.AutoSize = true;
             this.linkLabel5.Location = new System.Drawing.Point(-273, 145);
             this.linkLabel5.Name = "linkLabel5";
-            this.linkLabel5.Size = new System.Drawing.Size(88, 13);
+            this.linkLabel5.Size = new System.Drawing.Size(87, 13);
             this.linkLabel5.TabIndex = 34;
             this.linkLabel5.TabStop = true;
             this.linkLabel5.Text = "لاضافة وكيل جديد";
@@ -736,7 +736,7 @@
             this.linkplatform.AutoSize = true;
             this.linkplatform.Location = new System.Drawing.Point(60, 198);
             this.linkplatform.Name = "linkplatform";
-            this.linkplatform.Size = new System.Drawing.Size(91, 13);
+            this.linkplatform.Size = new System.Drawing.Size(92, 13);
             this.linkplatform.TabIndex = 34;
             this.linkplatform.TabStop = true;
             this.linkplatform.Text = "لاضافة رصيف جديد";
@@ -755,7 +755,7 @@
             this.linkagent.AutoSize = true;
             this.linkagent.Location = new System.Drawing.Point(69, 144);
             this.linkagent.Name = "linkagent";
-            this.linkagent.Size = new System.Drawing.Size(88, 13);
+            this.linkagent.Size = new System.Drawing.Size(87, 13);
             this.linkagent.TabIndex = 33;
             this.linkagent.TabStop = true;
             this.linkagent.Text = "لاضافة وكيل جديد";
@@ -765,7 +765,7 @@
             this.linkLship.AutoSize = true;
             this.linkLship.Location = new System.Drawing.Point(408, 141);
             this.linkLship.Name = "linkLship";
-            this.linkLship.Size = new System.Drawing.Size(97, 13);
+            this.linkLship.Size = new System.Drawing.Size(101, 13);
             this.linkLship.TabIndex = 33;
             this.linkLship.TabStop = true;
             this.linkLship.Text = "لاضافة سفينة جديدة";
@@ -775,7 +775,7 @@
             this.linkport.AutoSize = true;
             this.linkport.Location = new System.Drawing.Point(423, 195);
             this.linkport.Name = "linkport";
-            this.linkport.Size = new System.Drawing.Size(87, 13);
+            this.linkport.Size = new System.Drawing.Size(86, 13);
             this.linkport.TabIndex = 33;
             this.linkport.TabStop = true;
             this.linkport.Text = "لاضافة ميناء جديد";
@@ -815,6 +815,7 @@
             this.statustxt.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.statustxt.Size = new System.Drawing.Size(121, 21);
             this.statustxt.TabIndex = 31;
+            this.statustxt.SelectedIndexChanged += new System.EventHandler(this.statustxt_SelectedIndexChanged);
             // 
             // datetxt
             // 
@@ -1060,7 +1061,7 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(539, 34);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(41, 13);
+            this.label10.Size = new System.Drawing.Size(43, 13);
             this.label10.TabIndex = 1;
             this.label10.Text = "بواسطة";
             // 
@@ -1078,7 +1079,7 @@
             this.searchlab.AutoSize = true;
             this.searchlab.Location = new System.Drawing.Point(717, 32);
             this.searchlab.Name = "searchlab";
-            this.searchlab.Size = new System.Drawing.Size(32, 13);
+            this.searchlab.Size = new System.Drawing.Size(34, 13);
             this.searchlab.TabIndex = 1;
             this.searchlab.Text = "البحث";
             // 
@@ -1104,14 +1105,15 @@
             this.shipsTab.TabIndex = 2;
             this.shipsTab.Text = "السفن";
             this.shipsTab.UseVisualStyleBackColor = true;
-            
+            this.shipsTab.Click += new System.EventHandler(this.shipsTab_Click);
+            this.shipsTab.MouseClick += new System.Windows.Forms.MouseEventHandler(this.shipsTab_MouseClick);
             // 
             // type_ship
             // 
             this.type_ship.AutoSize = true;
             this.type_ship.Location = new System.Drawing.Point(200, 109);
             this.type_ship.Name = "type_ship";
-            this.type_ship.Size = new System.Drawing.Size(60, 13);
+            this.type_ship.Size = new System.Drawing.Size(63, 13);
             this.type_ship.TabIndex = 11;
             this.type_ship.Text = "نوع السفينة";
             // 
@@ -1129,7 +1131,7 @@
             this.ship_name.AutoSize = true;
             this.ship_name.Location = new System.Drawing.Point(562, 109);
             this.ship_name.Name = "ship_name";
-            this.ship_name.Size = new System.Drawing.Size(60, 13);
+            this.ship_name.Size = new System.Drawing.Size(70, 13);
             this.ship_name.TabIndex = 11;
             this.ship_name.Text = "اسم السفينة";
             // 
@@ -1144,11 +1146,17 @@
             // AddShip_Typecmb
             // 
             this.AddShip_Typecmb.FormattingEnabled = true;
+            this.AddShip_Typecmb.Items.AddRange(new object[] {
+            "غذائية",
+            "نفطية",
+            "دوائية",
+            "بضائع عامة",
+            "اخرى"});
             this.AddShip_Typecmb.Location = new System.Drawing.Point(56, 103);
             this.AddShip_Typecmb.Name = "AddShip_Typecmb";
             this.AddShip_Typecmb.Size = new System.Drawing.Size(121, 21);
             this.AddShip_Typecmb.TabIndex = 10;
-            this.AddShip_Typecmb.Visible = false;
+            this.AddShip_Typecmb.SelectedIndexChanged += new System.EventHandler(this.AddShip_Typecmb_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -1165,7 +1173,7 @@
             this.AddShip_Imotxt.Name = "AddShip_Imotxt";
             this.AddShip_Imotxt.Size = new System.Drawing.Size(100, 20);
             this.AddShip_Imotxt.TabIndex = 8;
-            this.AddShip_Imotxt.Visible = false;
+            this.AddShip_Imotxt.TextChanged += new System.EventHandler(this.AddShip_Imotxt_TextChanged);
             // 
             // label9
             // 
@@ -1187,11 +1195,12 @@
             // 
             // AddShip_Nametxt
             // 
+            this.AddShip_Nametxt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.AddShip_Nametxt.Location = new System.Drawing.Point(450, 102);
             this.AddShip_Nametxt.Name = "AddShip_Nametxt";
             this.AddShip_Nametxt.Size = new System.Drawing.Size(100, 20);
             this.AddShip_Nametxt.TabIndex = 8;
-            this.AddShip_Nametxt.Visible = false;
+            this.AddShip_Nametxt.TextChanged += new System.EventHandler(this.AddShip_Nametxt_TextChanged);
             // 
             // AddShip_Savebtn
             // 
@@ -1204,7 +1213,6 @@
             this.AddShip_Savebtn.TabIndex = 0;
             this.AddShip_Savebtn.Text = "حفظ";
             this.AddShip_Savebtn.UseVisualStyleBackColor = true;
-            this.AddShip_Savebtn.Visible = false;
             this.AddShip_Savebtn.Click += new System.EventHandler(this.AddShip_Savebtn_Click);
             // 
             // addship
@@ -1233,6 +1241,7 @@
             this.ShipsGridView.Name = "ShipsGridView";
             this.ShipsGridView.Size = new System.Drawing.Size(545, 462);
             this.ShipsGridView.TabIndex = 7;
+            this.ShipsGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ShipsGridView_CellContentClick);
             // 
             // shipnameg
             // 
@@ -1419,6 +1428,7 @@
             this.RightToLeftLayout = true;
             this.Text = "نظام ادارة السفن";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.MainScreen_Load);
             this.platformTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.platformGridView2)).EndInit();
             this.panel1.ResumeLayout(false);
