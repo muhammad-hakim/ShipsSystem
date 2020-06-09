@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ships_System.Enums
+namespace Ships_System.Utilities
 {
     public enum ShipTypes
     {
