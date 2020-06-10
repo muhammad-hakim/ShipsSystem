@@ -142,7 +142,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utilities\ShipVM.cs" />
     <EmbeddedResource Include="PL\MainScreen.resx">
       <DependentUpon>MainScreen.cs</DependentUpon>
     </EmbeddedResource>

@@ -38,10 +38,11 @@ namespace Ships_System.PL
 
         async void FillShipsGridView()
         {
-            var data = (await shipService.GetAllShipsAsync()).Select<Ship,ShipVM>(s => new ShipVM { ShipId = s.ShipId, Name = s.Name, IMO = s.Imo, Type = Enum.GetName(typeof(ShipTypes), s.Type)}).ToList();
+            var data = (await shipService.GetAllShipsAsync()).Select(s => new { ShipId = s.ShipId, Name = s.Name, IMO = s.Imo, Type = Enum.GetName(typeof(ShipTypes), s.Type)}).ToList();
             ShipsGridView.DataSource = data;
             ShipsGridView.Columns[0].Visible = false;
             ShipsGridView.Columns[1].HeaderText = "اسم السفينة";
+            ShipsGridView.Columns[3].HeaderText = "نوع السفينة";
             //todo: rename other columns
 
             //ShipsGridView.Columns.Add(new DataGridViewColumn {HeaderText = "تعديل", CellTemplate = new  });

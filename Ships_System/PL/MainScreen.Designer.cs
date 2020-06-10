@@ -53,7 +53,6 @@
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IOM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.n = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shipsSystemDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.platformTab = new System.Windows.Forms.TabPage();
             this.label6 = new System.Windows.Forms.Label();
             this.savebutpl = new System.Windows.Forms.Button();
@@ -169,7 +168,6 @@
             this.searchlab = new System.Windows.Forms.Label();
             this.triptabControl = new System.Windows.Forms.TabControl();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shipsSystemDataSetBindingSource)).BeginInit();
             this.platformTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.platformGridView2)).BeginInit();
             this.portTab.SuspendLayout();
@@ -1097,8 +1095,6 @@
             // 
             // shiptex
             // 
-            this.shiptex.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.shipsBindingSource, "Name", true));
-            this.shiptex.DataSource = this.shipsBindingSource;
             this.shiptex.DisplayMember = "Name";
             this.shiptex.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.shiptex.FormattingEnabled = true;
@@ -1141,7 +1137,6 @@
             // 
             // comboBox2
             // 
-            this.comboBox2.DataSource = this.agentsBindingSource;
             this.comboBox2.DisplayMember = "Name";
             this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox2.FormattingEnabled = true;
@@ -1154,7 +1149,6 @@
             // 
             // platformtxt
             // 
-            this.platformtxt.DataSource = this.platformsBindingSource;
             this.platformtxt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.platformtxt.FormattingEnabled = true;
             this.platformtxt.Location = new System.Drawing.Point(175, 195);
@@ -1165,7 +1159,6 @@
             // 
             // porttxt
             // 
-            this.porttxt.DataSource = this.portsBindingSource;
             this.porttxt.DisplayMember = "Name";
             this.porttxt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.porttxt.FormattingEnabled = true;
@@ -1475,7 +1468,6 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shipsSystemDataSetBindingSource)).EndInit();
             this.platformTab.ResumeLayout(false);
             this.platformTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.platformGridView2)).EndInit();
@@ -1530,17 +1522,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Type;
         private System.Windows.Forms.DataGridViewTextBoxColumn IOM;
         private System.Windows.Forms.DataGridViewTextBoxColumn n;
-        
-        private System.Windows.Forms.BindingSource shipsBindingSource;
-        
-        private System.Windows.Forms.BindingSource shipsSystemDataSetBindingSource;
-        
-        private System.Windows.Forms.BindingSource agentsBindingSource;
-        
-        private System.Windows.Forms.BindingSource portsBindingSource;
-        
-        
-        private System.Windows.Forms.BindingSource platformsBindingSource;
         private System.Windows.Forms.TabPage platformTab;
         private System.Windows.Forms.DataGridView platformGridView2;
         private System.Windows.Forms.Button savebutpl;
