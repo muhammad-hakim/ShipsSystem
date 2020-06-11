@@ -212,7 +212,7 @@ namespace Ships_System.PL
 
         void FillAddTripCmbShips()
         {
-            var ships = shipService.GetAllShips().Select(s => new { ShipId = s.ShipId, ShipName = s.Name }).ToList();
+            var ships = shipService.GetAllShips().Select(s => new {ShipId = s.ShipId, ShipName = s.Name }).ToList();
             AddTrip_CmbShips.ValueMember = "ShipId";
             AddTrip_CmbShips.DisplayMember = "ShipName";
             AddTrip_CmbShips.DataSource = ships;
@@ -220,7 +220,7 @@ namespace Ships_System.PL
 
         private void triptabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
     }
 }
