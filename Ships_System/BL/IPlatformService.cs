@@ -9,10 +9,10 @@ namespace Ships_System.BL
 {
     public interface IPlatformService
     {
-        Task<List<Platform>> GetAllPlatformsAsync();
-        Task<Platform> GetPlatformByIdAsync(int id);
+        List<Platform> GetAllPlatforms();
+        Platform GetPlatformById(int id);
         Platform AddPlatform(Platform platform);
-        Task<Platform> UpdatePlatformAsync(Platform platform);
-        Task<bool> DeletePlatformAsync(int platformId);
+        Platform UpdatePlatform(Platform platform);
+        bool DeletePlatform(int platformId);
     }
 }

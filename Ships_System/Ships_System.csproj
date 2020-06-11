@@ -77,7 +77,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BL\AgentService.cs" />
+    <Compile Include="BL\DbService.cs" />
     <Compile Include="BL\IAgentService.cs" />
+    <Compile Include="BL\IDbService.cs" />
     <Compile Include="BL\IPlatformService.cs" />
     <Compile Include="BL\IPortService.cs" />
     <Compile Include="BL\IProductService.cs" />

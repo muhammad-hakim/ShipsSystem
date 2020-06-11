@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Ships_System.BL
 {
@@ -21,25 +20,24 @@ namespace Ships_System.BL
             return unitOfWork.Ports.Add(port);
         }
 
-        public async Task<bool> DeletePortAsync(int portId)
+        public bool DeletePort(int portId)
         {
-            return await unitOfWork.Ports.DeleteAsync(portId);
+            return  unitOfWork.Ports.Delete(portId);
         }
 
-        public async Task<List<Port>> GetAllPortsAsync()
+        public List<Port> GetAllPorts()
         {
-            return await unitOfWork.Ports.GetAsync();
+            return  unitOfWork.Ports.Get();
         }
 
-        public async Task<Port> GetPortByIdAsync(int id)
+        public Port GetPortById(int id)
         {
-            return await unitOfWork.Ports.GetByIdAsync(id);
+            return  unitOfWork.Ports.GetById(id);
         }
 
-        public async Task<Port> UpdatePortAsync(Port port)
+        public Port UpdatePort(Port port)
         {
-            return await unitOfWork.Ports.UpdateAsync(port.PortId, port);
+            return unitOfWork.Ports.Update(port.PortId, port);
         }
-
     }
 }

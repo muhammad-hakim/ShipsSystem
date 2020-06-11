@@ -20,26 +20,24 @@ namespace Ships_System.BL
         {
             return unitOfWork.Products.Add(product);
         }
-
-        public async Task<bool> DeleteProductAsync(int productId)
+        public bool DeleteProduct(int productId)
         {
-            return await unitOfWork.Products.DeleteAsync(productId);
+            return  unitOfWork.Products.Delete(productId);
         }
 
-        public async Task<List<Product>> GetAllProductsAsync()
+        public List<Product> GetAllProducts()
         {
-            return await unitOfWork.Products.GetAsync();
+            return  unitOfWork.Products.Get();
         }
 
-        public async Task<Product> GetProductByIdAsync(int id)
+        public Product GetProductById(int id)
         {
-            return await unitOfWork.Products.GetByIdAsync(id);
+            return  unitOfWork.Products.GetById(id);
         }
 
-        public async Task<Product> UpdateProductAsync(Product product)
+        public Product UpdateProduct(Product product)
         {
-            return await unitOfWork.Products.UpdateAsync(product.ProductId, product);
+            return  unitOfWork.Products.Update(product.ProductId, product);
         }
-
     }
 }

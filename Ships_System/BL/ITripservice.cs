@@ -9,10 +9,10 @@ namespace Ships_System.BL
 {
    public interface ITripService
     {
-        Task<List<Trip>> GetAllTripsAsync();
-        Task<Trip> GetTripByIdAsync(int id);
+        List<Trip> GetAllTrips();
+        Trip GetTripById(int id);
         Trip AddTrip(Trip trip);
-        Task<Trip> UpdateTripAsync(Trip trip);
-        Task<bool> DeleteTripAsync(int tripId);
+        Trip UpdateTrip(Trip trip);
+        bool DeleteTrip(int tripId);
     }
 }

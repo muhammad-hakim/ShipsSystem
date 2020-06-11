@@ -21,24 +21,24 @@ namespace Ships_System.BL
             return unitOfWork.Ships.Add(ship);
         }
 
-        public async Task<bool> DeleteShipAsync(int shipId)
+        public bool DeleteShip(int shipId)
         {
-            return await unitOfWork.Ships.DeleteAsync(shipId);
+            return  unitOfWork.Ships.Delete(shipId);
         }
 
-        public async Task<List<Ship>> GetAllShipsAsync()
+        public List<Ship> GetAllShips()
         {
-            return await unitOfWork.Ships.GetAsync();
+            return  unitOfWork.Ships.Get();
         }
 
-        public async Task<Ship> GetShipByIdAsync(int id)
+        public Ship GetShipById(int id)
         {
-            return await unitOfWork.Ships.GetByIdAsync(id);
+            return  unitOfWork.Ships.GetById(id);
         }
 
-        public async Task<Ship> UpdateShipAsync(Ship ship)
+        public Ship UpdateShip(Ship ship)
         {
-            return await unitOfWork.Ships.UpdateAsync(ship.ShipId, ship);
+            return  unitOfWork.Ships.Update(ship.ShipId, ship);
         }
     }
 }

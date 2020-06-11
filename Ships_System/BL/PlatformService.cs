@@ -21,25 +21,24 @@ namespace Ships_System.BL
             return unitOfWork.Platforms.Add(platform);
         }
 
-        public async Task<bool> DeletePlatformAsync(int platformId)
+        public bool DeletePlatform(int platformId)
         {
-            return await unitOfWork.Platforms.DeleteAsync(platformId);
+            return  unitOfWork.Platforms.Delete(platformId);
         }
 
-        public async Task<List<Platform>> GetAllPlatformsAsync()
+        public List<Platform> GetAllPlatforms()
         {
-            return await unitOfWork.Platforms.GetAsync();
+            return  unitOfWork.Platforms.Get();
         }
 
-        public async Task<Platform> GetPlatformByIdAsync(int id)
+        public Platform GetPlatformById(int id)
         {
-            return await unitOfWork.Platforms.GetByIdAsync(id);
+            return  unitOfWork.Platforms.GetById(id);
         }
 
-        public async Task<Platform> UpdatePlatformAsync(Platform platform)
+        public Platform UpdatePlatform(Platform platform)
         {
-            return await unitOfWork.Platforms.UpdateAsync(platform.PlatformId, platform);
+            return  unitOfWork.Platforms.Update(platform.PlatformId, platform);
         }
-
     }
 }

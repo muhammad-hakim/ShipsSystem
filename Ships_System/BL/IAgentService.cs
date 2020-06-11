@@ -9,10 +9,10 @@ namespace Ships_System.BL
 {
     public interface IAgentService
     {
-        Task<List<Agent>> GetAllAgentsAsync();
-        Task<Agent> GetAgentByIdAsync(int id);
+        List<Agent> GetAllAgents();
+        Agent GetAgentById(int id);
         Agent AddAgent(Agent agent);
-        Task<Agent> UpdateAgentAsync(Agent agent);
-        Task<bool> DeleteAgentAsync(int agentId);
+        Agent UpdateAgent(Agent agent);
+        bool DeleteAgent(int agentId);
     }
 }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainScreen));
             this.bunifuImageButton2 = new Bunifu.Framework.UI.BunifuImageButton();
             this.label17 = new System.Windows.Forms.Label();
@@ -96,6 +95,8 @@
             this.agentsBox = new System.Windows.Forms.TextBox();
             this.agentlabel = new System.Windows.Forms.Label();
             this.shipsTab = new System.Windows.Forms.TabPage();
+            this.ShipsTab_btnDelete = new System.Windows.Forms.Button();
+            this.ShipsTab_btnEdit = new System.Windows.Forms.Button();
             this.type_ship = new System.Windows.Forms.Label();
             this.imo = new System.Windows.Forms.Label();
             this.ship_name = new System.Windows.Forms.Label();
@@ -186,7 +187,7 @@
             this.panel4.SuspendLayout();
             this.triptabControl.SuspendLayout();
             this.SuspendLayout();
-             
+            // 
             // bunifuImageButton2
             // 
             this.bunifuImageButton2.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -323,7 +324,7 @@
             // 
             this.n.HeaderText = "اسم السفينة";
             this.n.Name = "n";
-            //  
+            // 
             // platformTab
             // 
             this.platformTab.BackColor = System.Drawing.Color.LightSteelBlue;
@@ -720,6 +721,8 @@
             // shipsTab
             // 
             this.shipsTab.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.shipsTab.Controls.Add(this.ShipsTab_btnDelete);
+            this.shipsTab.Controls.Add(this.ShipsTab_btnEdit);
             this.shipsTab.Controls.Add(this.type_ship);
             this.shipsTab.Controls.Add(this.imo);
             this.shipsTab.Controls.Add(this.ship_name);
@@ -739,8 +742,26 @@
             this.shipsTab.Size = new System.Drawing.Size(996, 681);
             this.shipsTab.TabIndex = 2;
             this.shipsTab.Text = "السفن";
-            this.shipsTab.Click += new System.EventHandler(this.shipsTab_Click);
-            this.shipsTab.MouseClick += new System.Windows.Forms.MouseEventHandler(this.shipsTab_MouseClick);
+            // 
+            // ShipsTab_btnDelete
+            // 
+            this.ShipsTab_btnDelete.Location = new System.Drawing.Point(130, 74);
+            this.ShipsTab_btnDelete.Name = "ShipsTab_btnDelete";
+            this.ShipsTab_btnDelete.Size = new System.Drawing.Size(119, 23);
+            this.ShipsTab_btnDelete.TabIndex = 13;
+            this.ShipsTab_btnDelete.Text = "حذف السفينة";
+            this.ShipsTab_btnDelete.UseVisualStyleBackColor = true;
+            this.ShipsTab_btnDelete.Click += new System.EventHandler(this.ShipsTab_btnDelete_Click);
+            // 
+            // ShipsTab_btnEdit
+            // 
+            this.ShipsTab_btnEdit.Location = new System.Drawing.Point(286, 75);
+            this.ShipsTab_btnEdit.Name = "ShipsTab_btnEdit";
+            this.ShipsTab_btnEdit.Size = new System.Drawing.Size(119, 23);
+            this.ShipsTab_btnEdit.TabIndex = 12;
+            this.ShipsTab_btnEdit.Text = "تعديل بيانات السفينة";
+            this.ShipsTab_btnEdit.UseVisualStyleBackColor = true;
+            this.ShipsTab_btnEdit.Click += new System.EventHandler(this.ShipsTab_btnEdit_Click);
             // 
             // type_ship
             // 
@@ -877,10 +898,12 @@
             this.ShipsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ShipsGridView.GridColor = System.Drawing.SystemColors.Info;
             this.ShipsGridView.Location = new System.Drawing.Point(67, 119);
+            this.ShipsGridView.MultiSelect = false;
             this.ShipsGridView.Name = "ShipsGridView";
             this.ShipsGridView.ReadOnly = true;
             this.ShipsGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ShipsGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.ShipsGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ShipsGridView.Size = new System.Drawing.Size(545, 462);
             this.ShipsGridView.TabIndex = 7;
             this.ShipsGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ShipsGridView_CellContentClick);
@@ -1636,5 +1659,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button ShipsTab_btnDelete;
+        private System.Windows.Forms.Button ShipsTab_btnEdit;
     }
 }
