@@ -9,10 +9,10 @@ namespace Ships_System.BL
 {
     public interface IShipService
     {
-        Task<List<Ship>> GetAllShipsAsync();
-        Task<Ship> GetShipByIdAsync(int id);
+        List<Ship> GetAllShips();
+        Ship GetShipById(int id);
         Ship AddShip(Ship ship);
-        Task<Ship> UpdateShipAsync(Ship ship);
-        Task<bool> DeleteShipAsync(int shipId);
+        Ship UpdateShip(Ship ship);
+        bool DeleteShip(int shipId);
     }
 }

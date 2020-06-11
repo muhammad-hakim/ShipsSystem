@@ -9,10 +9,10 @@ namespace Ships_System.BL
 {
     public interface IPortService
     {
-        Task<List<Port>> GetAllPortsAsync();
-        Task<Port> GetPortByIdAsync(int id);
+        List<Port> GetAllPorts();
+        Port GetPortById(int id);
         Port AddPort(Port port);
-        Task<Port> UpdatePortAsync(Port port);
-        Task<bool> DeletePortAsync(int portId);
+        Port UpdatePort(Port port);
+        bool DeletePort(int portId);
     }
 }

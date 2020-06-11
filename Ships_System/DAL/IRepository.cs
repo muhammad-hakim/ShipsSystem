@@ -8,10 +8,10 @@ namespace Ships_System.DAL
 {
     public interface IRepository<T> where T : class
     {
-        Task<List<T>> GetAsync();
-        Task<T> GetByIdAsync(int id);
+        List<T> Get();
+        T GetById(int id);
         T Add(T obj);
-        Task<T> UpdateAsync(int id, T obj);
-        Task<bool> DeleteAsync(int id);
+        T Update(int id, T obj);
+        bool Delete(int id);
     }
 }

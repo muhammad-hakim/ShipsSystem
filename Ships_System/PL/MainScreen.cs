@@ -16,17 +16,17 @@ namespace Ships_System.PL
 {
     public partial class MainScreen : Form
     {
-        private readonly UnitOfWork unitOfWork;
+        private readonly IDbService dbService;
         private readonly IShipService shipService;
         private readonly IAgentService agentService;
         private readonly IProductService productService;
         private readonly IPortService portService;
         private readonly IPlatformService platformService;
 
-        public MainScreen(UnitOfWork unitOfWork, IShipService shipService, IAgentService agentService, IProductService productService, IPortService portService, IPlatformService platformService)
+        public MainScreen(IDbService dbService, IShipService shipService, IAgentService agentService, IProductService productService, IPortService portService, IPlatformService platformService)
         {
             InitializeComponent();
-            this.unitOfWork = unitOfWork;
+            this.dbService = dbService;
             this.shipService = shipService;
             this.agentService = agentService;
             this.productService = productService;
@@ -36,21 +36,18 @@ namespace Ships_System.PL
             statustxt.DataSource = Enum.GetValues(typeof(TripStatus));
         }
 
-        async void FillShipsGridView()
+        void FillShipsGridView()
         {
-            var data = (await shipService.GetAllShipsAsync()).Select(s => new { ShipId = s.ShipId, Name = s.Name, IMO = s.Imo, Type = Enum.GetName(typeof(ShipTypes), s.Type)}).ToList();
+            var data = shipService.GetAllShips().Select(s => new { ShipId = s.ShipId, Name = s.Name, IMO = s.Imo, Type = Enum.GetName(typeof(ShipTypes), s.Type) }).ToList();
             ShipsGridView.DataSource = data;
             ShipsGridView.Columns[0].Visible = false;
             ShipsGridView.Columns[1].HeaderText = "اسم السفينة";
             ShipsGridView.Columns[3].HeaderText = "نوع السفينة";
-            //todo: rename other columns
-
-            //ShipsGridView.Columns.Add(new DataGridViewColumn {HeaderText = "تعديل", CellTemplate = new  });
         }
 
-        async void FillAgentGridView()
+        void FillAgentGridView()
         {
-            var data = (await agentService.GetAllAgentsAsync()).Select(x => new
+            var data = agentService.GetAllAgents().Select(x => new
             {
                 AgentID = x.AgentId,
                 Name = x.Name
@@ -60,9 +57,9 @@ namespace Ships_System.PL
             agentsGridView4.Columns[0].Visible = false;
             agentsGridView4.Columns[1].HeaderText = "اسم الوكيل";
         }
-        async void FillPortGridView()
+        void FillPortGridView()
         {
-            var data = (await portService.GetAllPortsAsync()).Select(x => new
+            var data = portService.GetAllPorts().Select(x => new
             {
                 PortId = x.PortId,
                 Name = x.Name
@@ -74,7 +71,31 @@ namespace Ships_System.PL
         }
         private void AddShip_Savebtn_Click(object sender, EventArgs e)
         {
-            
+            Ship ship = new Ship
+            {
+                Name = AddShip_Nametxt.Text.Trim(),
+                Imo = AddShip_Imotxt.Text.Trim(),
+                Type = Convert.ToInt32(AddShip_Typecmb.SelectedValue)
+            };
+            if (AddShip_Savebtn.Tag == null)
+            {
+                shipService.AddShip(ship);
+            }
+            else
+            {
+                ship.ShipId = Convert.ToInt32(AddShip_Savebtn.Tag);
+                shipService.UpdateShip(ship);
+                AddShip_Savebtn.Tag = null;
+            }
+            if (dbService.Commit())
+            {
+                FillShipsGridView();
+                MessageBox.Show("تم الحفظ بنجاح");
+            }
+            else
+            {
+                MessageBox.Show("لم يتم الحفظ");
+            }
         }
 
         private void AddShip_Typecmb_SelectedIndexChanged(object sender, EventArgs e)
@@ -107,16 +128,6 @@ namespace Ships_System.PL
             FillShipsGridView();
         }
 
-        private void shipsTab_Click(object sender, EventArgs e)
-        {
-            FillShipsGridView();
-        }
-
-        private void shipsTab_MouseClick(object sender, MouseEventArgs e)
-        {
-            FillShipsGridView();
-        }
-
         private void agentsBox_TextChanged(object sender, EventArgs e)
         {
 
@@ -124,7 +135,17 @@ namespace Ships_System.PL
 
         private void saveg_Click(object sender, EventArgs e)
         {
-           
+            Agent agent = new Agent
+            {
+                Name = agentsBox.Text,
+
+            };
+            agentService.AddAgent(agent);
+            MessageBox.Show("تم الحفظ بنجاح");
+            if (dbService.Commit())
+            {
+                FillAgentGridView();
+            }
         }
 
         private void agentsGridView4_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -229,10 +250,9 @@ namespace Ships_System.PL
             };
             portService.AddPort(port);
             MessageBox.Show("تم الحفظ بنجاح");
-            if (unitOfWork.Commit())
+            if (dbService.Commit())
             {
                 FillPortGridView();
-
             }
         }
 
@@ -240,6 +260,35 @@ namespace Ships_System.PL
         {
 
         }
+
+        private void ShipsTab_btnEdit_Click(object sender, EventArgs e)
+        {
+            if (ShipsGridView.CurrentRow != null)
+            {
+                AddShip_Savebtn.Tag = ShipsGridView.CurrentRow.Cells[0].Value;
+                AddShip_Nametxt.Text = ShipsGridView.CurrentRow.Cells[1].Value.ToString();
+                AddShip_Imotxt.Text = ShipsGridView.CurrentRow.Cells[2].Value.ToString();
+                AddShip_Typecmb.Text = ShipsGridView.CurrentRow.Cells[3].Value.ToString();
+            }
+        }
+
+        private void ShipsTab_btnDelete_Click(object sender, EventArgs e)
+        {
+            if (ShipsGridView.CurrentRow != null)
+            {
+                if (MessageBox.Show("هل تريد حذف السفينة?","حذف السفينة",MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    var shipId = Convert.ToInt32(ShipsGridView.CurrentRow.Cells[0].Value);
+                    shipService.DeleteShip(shipId);
+
+                    if (dbService.Commit())
+                    {
+                        FillShipsGridView();
+                        MessageBox.Show("تم الحذف بنجاح");
+                    }
+                }
+            }
+        }
     }
-    }
+}
 

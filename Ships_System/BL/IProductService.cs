@@ -9,10 +9,10 @@ namespace Ships_System.BL
 {
     public interface IProductService
     {
-        Task<List<Product>> GetAllProductsAsync();
-        Task<Product> GetProductByIdAsync(int id);
+        List<Product> GetAllProducts();
+        Product GetProductById(int id);
         Product AddProduct(Product Product);
-        Task<Product> UpdateProductAsync(Product Product);
-        Task<bool> DeleteProductAsync(int ProductId);
+        Product UpdateProduct(Product Product);
+        bool DeleteProduct(int ProductId);
     }
 }

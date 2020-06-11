@@ -21,25 +21,24 @@ namespace Ships_System.BL
             return unitOfWork.Trips.Add(trip);
         }
 
-        public async Task<bool> DeleteTripAsync(int TripId)
+        public bool DeleteTrip(int TripId)
         {
-            return await unitOfWork.Trips.DeleteAsync(TripId);
+            return unitOfWork.Trips.Delete(TripId);
         }
 
-        public async Task<List<Trip>> GetAllTripsAsync()
+        public List<Trip> GetAllTrips()
         {
-            return await unitOfWork.Trips.GetAsync();
+            return unitOfWork.Trips.Get();
         }
 
-        public async Task<Trip> GetTripByIdAsync(int id)
+        public Trip GetTripById(int id)
         {
-            return await unitOfWork.Trips.GetByIdAsync(id);
+            return unitOfWork.Trips.GetById(id);
         }
 
-        public async Task<Trip> UpdateTripAsync(Trip Trip)
+        public Trip UpdateTrip(Trip Trip)
         {
-            return await unitOfWork.Trips.UpdateAsync(Trip.TripId, Trip);
+            return unitOfWork.Trips.Update(Trip.TripId, Trip);
         }
-
     }
 }

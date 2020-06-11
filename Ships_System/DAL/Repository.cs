@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,13 +21,19 @@ namespace Ships_System.DAL
 
         public T Add(T obj)
         {
-            var result = data.Add(obj);
-            return result;
+            try
+            {
+                data.Add(obj);
+                return obj;
+            } catch (Exception ex)
+            {
+                return null;
+            }
         }
 
-        public async Task<bool> DeleteAsync(int id)
+        public bool Delete(int id)
         {
-            var target = await data.FindAsync(id);
+            var target = data.Find(id);
             if (target != null)
             {
                 data.Remove(target);
@@ -35,27 +42,21 @@ namespace Ships_System.DAL
             return false;
         }
 
-        public async Task<List<T>> GetAsync()
+        public List<T> Get()
         {
-            var result =  await data.ToListAsync(); ;
+            var result =  data.ToList(); ;
             return result;
         }
 
-        public async Task<T> GetByIdAsync(int id)
+        public T GetById(int id)
         {
-            return await data.FindAsync(id);
+            return data.Find(id);
         }
 
-        public async Task<T> UpdateAsync(int id, T obj)
+        public T Update(int id, T obj)
         {
-            var target = await data.FindAsync(id);
-
-            if (target != null)
-            {
-                target = obj;
-                return obj;
-            }
-            return null;
+            data.AddOrUpdate(obj);
+            return obj;
         }
     }
 }

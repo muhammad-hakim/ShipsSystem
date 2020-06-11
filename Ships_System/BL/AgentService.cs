@@ -21,24 +21,24 @@ namespace Ships_System.BL
             return unitOfWork.Agents.Add(agent);
         }
 
-        public async Task<bool> DeleteAgentAsync(int agentId)
+        public bool DeleteAgent(int agentId)
         {
-            return await unitOfWork.Agents.DeleteAsync(agentId);
+            return unitOfWork.Agents.Delete(agentId);
         }
 
-        public async Task<List<Agent>> GetAllAgentsAsync()
+        public List<Agent> GetAllAgents()
         {
-            return await unitOfWork.Agents.GetAsync();
+            return unitOfWork.Agents.Get();
         }
 
-        public async Task<Agent> GetAgentByIdAsync(int id)
+        public Agent GetAgentById(int id)
         {
-            return await unitOfWork.Agents.GetByIdAsync(id);
+            return unitOfWork.Agents.GetById(id);
         }
 
-        public async Task<Agent> UpdateAgentAsync(Agent agent)
+        public Agent UpdateAgent(Agent agent)
         {
-            return await unitOfWork.Agents.UpdateAsync(agent.AgentId, agent);
+            return unitOfWork.Agents.Update(agent.AgentId, agent);
         }
     }
 }
