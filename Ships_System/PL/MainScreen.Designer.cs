@@ -129,7 +129,7 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.linkLabel5 = new System.Windows.Forms.LinkLabel();
             this.linkplatform = new System.Windows.Forms.LinkLabel();
-            this.shiptex = new System.Windows.Forms.ComboBox();
+            this.AddTrip_CmbShips = new System.Windows.Forms.ComboBox();
             this.linkagent = new System.Windows.Forms.LinkLabel();
             this.linkLship = new System.Windows.Forms.LinkLabel();
             this.linkport = new System.Windows.Forms.LinkLabel();
@@ -926,7 +926,7 @@
             this.addingTripTab.Controls.Add(this.linkLabel1);
             this.addingTripTab.Controls.Add(this.linkLabel5);
             this.addingTripTab.Controls.Add(this.linkplatform);
-            this.addingTripTab.Controls.Add(this.shiptex);
+            this.addingTripTab.Controls.Add(this.AddTrip_CmbShips);
             this.addingTripTab.Controls.Add(this.linkagent);
             this.addingTripTab.Controls.Add(this.linkLship);
             this.addingTripTab.Controls.Add(this.linkport);
@@ -1116,16 +1116,16 @@
             this.linkplatform.TabStop = true;
             this.linkplatform.Text = "لاضافة رصيف جديد";
             // 
-            // shiptex
+            // AddTrip_CmbShips
             // 
-            this.shiptex.DisplayMember = "Name";
-            this.shiptex.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.shiptex.FormattingEnabled = true;
-            this.shiptex.Location = new System.Drawing.Point(526, 138);
-            this.shiptex.Name = "shiptex";
-            this.shiptex.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.shiptex.Size = new System.Drawing.Size(121, 23);
-            this.shiptex.TabIndex = 32;
+            this.AddTrip_CmbShips.DisplayMember = "Name";
+            this.AddTrip_CmbShips.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddTrip_CmbShips.FormattingEnabled = true;
+            this.AddTrip_CmbShips.Location = new System.Drawing.Point(526, 138);
+            this.AddTrip_CmbShips.Name = "AddTrip_CmbShips";
+            this.AddTrip_CmbShips.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.AddTrip_CmbShips.Size = new System.Drawing.Size(121, 23);
+            this.AddTrip_CmbShips.TabIndex = 32;
             // 
             // linkagent
             // 
@@ -1474,6 +1474,7 @@
             this.triptabControl.SelectedIndex = 0;
             this.triptabControl.Size = new System.Drawing.Size(1004, 712);
             this.triptabControl.TabIndex = 0;
+            this.triptabControl.SelectedIndexChanged += new System.EventHandler(this.triptabControl_SelectedIndexChanged);
             // 
             // MainScreen
             // 
@@ -1612,7 +1613,7 @@
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.LinkLabel linkLabel5;
         private System.Windows.Forms.LinkLabel linkplatform;
-        private System.Windows.Forms.ComboBox shiptex;
+        private System.Windows.Forms.ComboBox AddTrip_CmbShips;
         private System.Windows.Forms.LinkLabel linkagent;
         private System.Windows.Forms.LinkLabel linkLship;
         private System.Windows.Forms.LinkLabel linkport;

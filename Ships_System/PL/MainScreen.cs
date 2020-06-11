@@ -112,6 +112,7 @@ namespace Ships_System.PL
         private void MainScreen_Load(object sender, EventArgs e)
         {
             FillShipsGridView();
+            FillAddTripCmbShips();
         }
 
         private void agentsBox_TextChanged(object sender, EventArgs e)
@@ -207,6 +208,19 @@ namespace Ships_System.PL
                     }
                 }
             }
+        }
+
+        void FillAddTripCmbShips()
+        {
+            var ships = shipService.GetAllShips().Select(s => new {ShipId = s.ShipId, ShipName = s.Name }).ToList();
+            AddTrip_CmbShips.ValueMember = "ShipId";
+            AddTrip_CmbShips.DisplayMember = "ShipName";
+            AddTrip_CmbShips.DataSource = ships;
+        }
+
+        private void triptabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
