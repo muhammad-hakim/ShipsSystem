@@ -50,29 +50,31 @@ namespace Ships_System.PL
 
         async void FillAgentGridView()
         {
-            var data = await agentService.GetAllAgentsAsync();
+            var data = (await agentService.GetAllAgentsAsync()).Select(x => new
+            {
+                AgentID = x.AgentId,
+                Name = x.Name
+             }).ToList();
+            
             agentsGridView4.DataSource = data;
+            agentsGridView4.Columns[0].Visible = false;
+            agentsGridView4.Columns[1].HeaderText = "اسم الوكيل";
         }
         async void FillPortGridView()
         {
-            var data = await portService.GetAllPortsAsync();
+            var data = (await portService.GetAllPortsAsync()).Select(x => new
+            {
+                PortId = x.PortId,
+                Name = x.Name
+                 }).ToList();
             dataGridView2.DataSource = data;
+            dataGridView2.Columns[0].Visible = false;
+            dataGridView2.Columns[1].HeaderText = "اسم الميناء";
+            
         }
         private void AddShip_Savebtn_Click(object sender, EventArgs e)
         {
-            Ship ship = new Ship
-            {
-                Name = AddShip_Nametxt.Text.Trim(),
-                Imo = AddShip_Imotxt.Text.Trim(),
-                Type = Convert.ToInt32(AddShip_Typecmb.SelectedValue)
-            };
-
-            shipService.AddShip(ship);
-            MessageBox.Show("تم الحفظ بنجاح");
-            if (unitOfWork.Commit())
-            {
-                FillShipsGridView();
-            }
+            
         }
 
         private void AddShip_Typecmb_SelectedIndexChanged(object sender, EventArgs e)
@@ -122,17 +124,7 @@ namespace Ships_System.PL
 
         private void saveg_Click(object sender, EventArgs e)
         {
-            Agent agent = new Agent
-            {
-                Name = agentsBox.Text,
-
-            };
-            agentService.AddAgent(agent);
-            MessageBox.Show("تم الحفظ بنجاح");
-            if (unitOfWork.Commit())
-            {
-                FillAgentGridView();
-            }
+           
         }
 
         private void agentsGridView4_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -164,6 +156,73 @@ namespace Ships_System.PL
 
         private void saveport_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void linkLship_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            //System.Diagnostics.Process.Start();
+        }
+
+        private void bunifuImageButton8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void triptabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void deleteproduct_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void updateproduct_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cancelproduct_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddShip_Savebtn_Click_1(object sender, EventArgs e)
+        {
+            Ship ship = new Ship
+            {
+                Name = AddShip_Nametxt.Text.Trim(),
+                Imo = AddShip_Imotxt.Text.Trim(),
+                Type = Convert.ToInt32(AddShip_Typecmb.SelectedValue)
+            };
+
+            shipService.AddShip(ship);
+            MessageBox.Show("تم الحفظ بنجاح");
+            if (unitOfWork.Commit())
+            {
+                FillShipsGridView();
+            }
+        }
+
+        private void saveg_Click_1(object sender, EventArgs e)
+        {
+            Agent agent = new Agent
+            {
+                Name = agentsBox.Text,
+
+            };
+            agentService.AddAgent(agent);
+            MessageBox.Show("تم الحفظ بنجاح");
+            if (unitOfWork.Commit())
+            {
+                FillAgentGridView();
+            }
+        }
+
+        private void bunifuImageButton8_Click_1(object sender, EventArgs e)
+        {
             Port port = new Port
             {
                 Name = textBox1.Text
@@ -177,9 +236,9 @@ namespace Ships_System.PL
             }
         }
 
-        private void linkLship_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void savebutpl12_Click(object sender, EventArgs e)
         {
-            //System.Diagnostics.Process.Start();
+
         }
     }
     }
