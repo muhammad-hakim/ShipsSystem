@@ -82,15 +82,13 @@
             this.del3 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.qauntitiyptBox7 = new System.Windows.Forms.TextBox();
             this.productBox6 = new System.Windows.Forms.TextBox();
             this.savepro = new System.Windows.Forms.Button();
             this.agentsTab = new System.Windows.Forms.TabPage();
+            this.Edit_agent = new System.Windows.Forms.Button();
+            this.Del_agent = new System.Windows.Forms.Button();
+            this.ListBox_agents = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.agentsGridView4 = new System.Windows.Forms.DataGridView();
-            this.agentn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.edit2 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.del2 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.saveg = new System.Windows.Forms.Button();
             this.agentsBox = new System.Windows.Forms.TextBox();
             this.agentlabel = new System.Windows.Forms.Label();
@@ -168,6 +166,9 @@
             this.searchlab = new System.Windows.Forms.Label();
             this.triptabControl = new System.Windows.Forms.TabControl();
             this.AddTrip_nudProductQuantity = new System.Windows.Forms.NumericUpDown();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.listView_Product = new System.Windows.Forms.ListView();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
             this.platformTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PlatformTab_DGVPlatforms)).BeginInit();
@@ -176,7 +177,6 @@
             this.goodsTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProductsTab_ProductsDGV)).BeginInit();
             this.agentsTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.agentsGridView4)).BeginInit();
             this.shipsTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShipsGridView)).BeginInit();
             this.addingTripTab.SuspendLayout();
@@ -497,11 +497,11 @@
             // 
             this.saveport.FlatAppearance.BorderSize = 0;
             this.saveport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveport.Image = ((System.Drawing.Image)(resources.GetObject("saveport.Image")));
-            this.saveport.Location = new System.Drawing.Point(730, 262);
+            this.saveport.Location = new System.Drawing.Point(850, 259);
             this.saveport.Name = "saveport";
-            this.saveport.Size = new System.Drawing.Size(212, 42);
+            this.saveport.Size = new System.Drawing.Size(116, 42);
             this.saveport.TabIndex = 3;
+            this.saveport.Text = "حفظ";
             this.saveport.UseVisualStyleBackColor = true;
             this.saveport.Click += new System.EventHandler(this.saveport_Click);
             // 
@@ -525,11 +525,13 @@
             // goodsTab
             // 
             this.goodsTab.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.goodsTab.Controls.Add(this.listView_Product);
+            this.goodsTab.Controls.Add(this.button1);
+            this.goodsTab.Controls.Add(this.button2);
             this.goodsTab.Controls.Add(this.label2);
             this.goodsTab.Controls.Add(this.ProductsTab_ProductsDGV);
             this.goodsTab.Controls.Add(this.label13);
             this.goodsTab.Controls.Add(this.label12);
-            this.goodsTab.Controls.Add(this.qauntitiyptBox7);
             this.goodsTab.Controls.Add(this.productBox6);
             this.goodsTab.Controls.Add(this.savepro);
             this.goodsTab.Location = new System.Drawing.Point(4, 27);
@@ -604,13 +606,6 @@
             this.label12.TabIndex = 2;
             this.label12.Text = "اسم البضاعة";
             // 
-            // qauntitiyptBox7
-            // 
-            this.qauntitiyptBox7.Location = new System.Drawing.Point(680, 272);
-            this.qauntitiyptBox7.Name = "qauntitiyptBox7";
-            this.qauntitiyptBox7.Size = new System.Drawing.Size(129, 22);
-            this.qauntitiyptBox7.TabIndex = 1;
-            // 
             // productBox6
             // 
             this.productBox6.Location = new System.Drawing.Point(680, 163);
@@ -622,12 +617,12 @@
             // savepro
             // 
             this.savepro.FlatAppearance.BorderSize = 0;
-            this.savepro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.savepro.Image = ((System.Drawing.Image)(resources.GetObject("savepro.Image")));
-            this.savepro.Location = new System.Drawing.Point(708, 354);
+            this.savepro.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.savepro.Location = new System.Drawing.Point(704, 238);
             this.savepro.Name = "savepro";
-            this.savepro.Size = new System.Drawing.Size(160, 52);
+            this.savepro.Size = new System.Drawing.Size(105, 23);
             this.savepro.TabIndex = 0;
+            this.savepro.Text = "حفظ";
             this.savepro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.savepro.UseVisualStyleBackColor = true;
             this.savepro.Click += new System.EventHandler(this.savepro_Click);
@@ -635,8 +630,10 @@
             // agentsTab
             // 
             this.agentsTab.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.agentsTab.Controls.Add(this.Edit_agent);
+            this.agentsTab.Controls.Add(this.Del_agent);
+            this.agentsTab.Controls.Add(this.ListBox_agents);
             this.agentsTab.Controls.Add(this.label1);
-            this.agentsTab.Controls.Add(this.agentsGridView4);
             this.agentsTab.Controls.Add(this.saveg);
             this.agentsTab.Controls.Add(this.agentsBox);
             this.agentsTab.Controls.Add(this.agentlabel);
@@ -645,6 +642,35 @@
             this.agentsTab.Size = new System.Drawing.Size(996, 681);
             this.agentsTab.TabIndex = 3;
             this.agentsTab.Text = "الوكيل الملاحي";
+            // 
+            // Edit_agent
+            // 
+            this.Edit_agent.Location = new System.Drawing.Point(581, 307);
+            this.Edit_agent.Name = "Edit_agent";
+            this.Edit_agent.Size = new System.Drawing.Size(75, 23);
+            this.Edit_agent.TabIndex = 6;
+            this.Edit_agent.Text = "تعديل";
+            this.Edit_agent.UseVisualStyleBackColor = true;
+            this.Edit_agent.Click += new System.EventHandler(this.Edit_agent_Click);
+            // 
+            // Del_agent
+            // 
+            this.Del_agent.Location = new System.Drawing.Point(681, 307);
+            this.Del_agent.Name = "Del_agent";
+            this.Del_agent.Size = new System.Drawing.Size(75, 23);
+            this.Del_agent.TabIndex = 6;
+            this.Del_agent.Text = "حذف ";
+            this.Del_agent.UseVisualStyleBackColor = true;
+            this.Del_agent.Click += new System.EventHandler(this.Del_agent_Click);
+            // 
+            // ListBox_agents
+            // 
+            this.ListBox_agents.FormattingEnabled = true;
+            this.ListBox_agents.ItemHeight = 15;
+            this.ListBox_agents.Location = new System.Drawing.Point(286, 130);
+            this.ListBox_agents.Name = "ListBox_agents";
+            this.ListBox_agents.Size = new System.Drawing.Size(257, 259);
+            this.ListBox_agents.TabIndex = 5;
             // 
             // label1
             // 
@@ -656,37 +682,6 @@
             this.label1.Size = new System.Drawing.Size(140, 22);
             this.label1.TabIndex = 4;
             this.label1.Text = "بيانات الوكيل الملاحي";
-            // 
-            // agentsGridView4
-            // 
-            this.agentsGridView4.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.agentsGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.agentsGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.agentn,
-            this.edit2,
-            this.del2});
-            this.agentsGridView4.Location = new System.Drawing.Point(195, 89);
-            this.agentsGridView4.Name = "agentsGridView4";
-            this.agentsGridView4.Size = new System.Drawing.Size(347, 288);
-            this.agentsGridView4.TabIndex = 3;
-            this.agentsGridView4.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.agentsGridView4_CellContentClick);
-            // 
-            // agentn
-            // 
-            this.agentn.HeaderText = "اسم الوكيل";
-            this.agentn.Name = "agentn";
-            // 
-            // edit2
-            // 
-            this.edit2.HeaderText = "تعديل";
-            this.edit2.Name = "edit2";
-            this.edit2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.edit2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // del2
-            // 
-            this.del2.HeaderText = "حذف";
-            this.del2.Name = "del2";
             // 
             // saveg
             // 
@@ -756,7 +751,7 @@
             // 
             // ShipsTab_btnEdit
             // 
-            this.ShipsTab_btnEdit.Location = new System.Drawing.Point(286, 75);
+            this.ShipsTab_btnEdit.Location = new System.Drawing.Point(295, 75);
             this.ShipsTab_btnEdit.Name = "ShipsTab_btnEdit";
             this.ShipsTab_btnEdit.Size = new System.Drawing.Size(119, 23);
             this.ShipsTab_btnEdit.TabIndex = 12;
@@ -1498,6 +1493,33 @@
             0,
             0});
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(704, 391);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(119, 23);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "حذف البضاعة";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(704, 319);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(119, 23);
+            this.button2.TabIndex = 14;
+            this.button2.Text = "تعديل بيانات البضاعة";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // listView_Product
+            // 
+            this.listView_Product.HideSelection = false;
+            this.listView_Product.Location = new System.Drawing.Point(340, 163);
+            this.listView_Product.Name = "listView_Product";
+            this.listView_Product.Size = new System.Drawing.Size(271, 303);
+            this.listView_Product.TabIndex = 16;
+            this.listView_Product.UseCompatibleStateImageBehavior = false;
+            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1525,7 +1547,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ProductsTab_ProductsDGV)).EndInit();
             this.agentsTab.ResumeLayout(false);
             this.agentsTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.agentsGridView4)).EndInit();
             this.shipsTab.ResumeLayout(false);
             this.shipsTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShipsGridView)).EndInit();
@@ -1592,14 +1613,9 @@
         private System.Windows.Forms.DataGridViewButtonColumn del3;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox qauntitiyptBox7;
         private System.Windows.Forms.TextBox productBox6;
         private System.Windows.Forms.Button savepro;
         private System.Windows.Forms.TabPage agentsTab;
-        private System.Windows.Forms.DataGridView agentsGridView4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn agentn;
-        private System.Windows.Forms.DataGridViewButtonColumn edit2;
-        private System.Windows.Forms.DataGridViewButtonColumn del2;
         private System.Windows.Forms.Button saveg;
         private System.Windows.Forms.TextBox agentsBox;
         private System.Windows.Forms.Label agentlabel;
@@ -1685,5 +1701,11 @@
         private System.Windows.Forms.Button ShipsTab_btnEdit;
         private System.Windows.Forms.DateTimePicker AddTrip_dtpDate;
         private System.Windows.Forms.NumericUpDown AddTrip_nudProductQuantity;
+        private System.Windows.Forms.ListBox ListBox_agents;
+        private System.Windows.Forms.Button Edit_agent;
+        private System.Windows.Forms.Button Del_agent;
+        private System.Windows.Forms.ListView listView_Product;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
