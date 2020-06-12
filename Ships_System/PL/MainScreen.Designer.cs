@@ -53,16 +53,29 @@
             this.IOM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.n = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.portTab = new System.Windows.Forms.TabPage();
-            this.label5 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.nameport = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.edit7 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.del7 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.saveport = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.Platforms_btnCancel = new System.Windows.Forms.Button();
+            this.Platforms_btnSave = new System.Windows.Forms.Button();
+            this.Platforms_btnDelete = new System.Windows.Forms.Button();
+            this.Platforms_btnEdit = new System.Windows.Forms.Button();
+            this.Platforms_dgvPlatforms = new System.Windows.Forms.DataGridView();
+            this.platformlab = new System.Windows.Forms.Label();
+            this.nameplatform1 = new System.Windows.Forms.Label();
+            this.Platforms_txtName = new System.Windows.Forms.TextBox();
+            this.Platforms_cmbPort = new System.Windows.Forms.ComboBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.Ports_btnEdit = new System.Windows.Forms.Button();
+            this.Ports_btnDelete = new System.Windows.Forms.Button();
+            this.Ports_btnCancel = new System.Windows.Forms.Button();
+            this.Ports_btnSave = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.Ports_lstPorts = new System.Windows.Forms.ListBox();
+            this.Ports_txtName = new System.Windows.Forms.TextBox();
             this.portname = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.agentsTab = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.Agents_btnCancel = new System.Windows.Forms.Button();
             this.Agents_btnSave = new System.Windows.Forms.Button();
             this.Agents_txtAgentName = new System.Windows.Forms.TextBox();
@@ -157,7 +170,9 @@
             this.triptabControl = new System.Windows.Forms.TabControl();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
             this.portTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Platforms_dgvPlatforms)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.agentsTab.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -313,87 +328,235 @@
             // portTab
             // 
             this.portTab.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.portTab.Controls.Add(this.label5);
-            this.portTab.Controls.Add(this.dataGridView2);
-            this.portTab.Controls.Add(this.saveport);
-            this.portTab.Controls.Add(this.textBox1);
-            this.portTab.Controls.Add(this.portname);
+            this.portTab.Controls.Add(this.groupBox4);
+            this.portTab.Controls.Add(this.groupBox3);
+            this.portTab.Controls.Add(this.label6);
             this.portTab.Location = new System.Drawing.Point(4, 27);
             this.portTab.Name = "portTab";
             this.portTab.Size = new System.Drawing.Size(996, 681);
             this.portTab.TabIndex = 5;
             this.portTab.Text = "الموانئ / الأرصفة";
             // 
-            // label5
+            // groupBox4
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label5.Location = new System.Drawing.Point(434, 31);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(108, 24);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "بيانات الموانئ";
+            this.groupBox4.Controls.Add(this.Platforms_btnCancel);
+            this.groupBox4.Controls.Add(this.Platforms_btnSave);
+            this.groupBox4.Controls.Add(this.Platforms_btnDelete);
+            this.groupBox4.Controls.Add(this.Platforms_btnEdit);
+            this.groupBox4.Controls.Add(this.Platforms_dgvPlatforms);
+            this.groupBox4.Controls.Add(this.platformlab);
+            this.groupBox4.Controls.Add(this.nameplatform1);
+            this.groupBox4.Controls.Add(this.Platforms_txtName);
+            this.groupBox4.Controls.Add(this.Platforms_cmbPort);
+            this.groupBox4.Location = new System.Drawing.Point(8, 50);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(546, 615);
+            this.groupBox4.TabIndex = 14;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "الأرصفة";
             // 
-            // dataGridView2
+            // Platforms_btnCancel
             // 
-            this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nameport,
-            this.edit7,
-            this.del7});
-            this.dataGridView2.Location = new System.Drawing.Point(272, 153);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(345, 197);
-            this.dataGridView2.TabIndex = 4;
+            this.Platforms_btnCancel.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Platforms_btnCancel.Location = new System.Drawing.Point(325, 196);
+            this.Platforms_btnCancel.Name = "Platforms_btnCancel";
+            this.Platforms_btnCancel.Size = new System.Drawing.Size(75, 35);
+            this.Platforms_btnCancel.TabIndex = 29;
+            this.Platforms_btnCancel.Text = "إلغاء";
+            this.Platforms_btnCancel.UseVisualStyleBackColor = true;
+            this.Platforms_btnCancel.Click += new System.EventHandler(this.Platforms_btnCancel_Click);
             // 
-            // nameport
+            // Platforms_btnSave
             // 
-            this.nameport.HeaderText = "اسم الميناء";
-            this.nameport.Name = "nameport";
+            this.Platforms_btnSave.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Platforms_btnSave.Location = new System.Drawing.Point(439, 194);
+            this.Platforms_btnSave.Name = "Platforms_btnSave";
+            this.Platforms_btnSave.Size = new System.Drawing.Size(75, 37);
+            this.Platforms_btnSave.TabIndex = 28;
+            this.Platforms_btnSave.Text = "حفظ";
+            this.Platforms_btnSave.UseVisualStyleBackColor = true;
+            this.Platforms_btnSave.Click += new System.EventHandler(this.Platforms_btnSave_Click);
             // 
-            // edit7
+            // Platforms_btnDelete
             // 
-            this.edit7.HeaderText = "تعديل";
-            this.edit7.Name = "edit7";
-            this.edit7.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.edit7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Platforms_btnDelete.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Platforms_btnDelete.Location = new System.Drawing.Point(6, 25);
+            this.Platforms_btnDelete.Name = "Platforms_btnDelete";
+            this.Platforms_btnDelete.Size = new System.Drawing.Size(110, 40);
+            this.Platforms_btnDelete.TabIndex = 13;
+            this.Platforms_btnDelete.Text = "حذف الرصيف";
+            this.Platforms_btnDelete.UseVisualStyleBackColor = true;
+            this.Platforms_btnDelete.Click += new System.EventHandler(this.Platforms_btnDelete_Click);
             // 
-            // del7
+            // Platforms_btnEdit
             // 
-            this.del7.HeaderText = "حذف";
-            this.del7.Name = "del7";
-            this.del7.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.del7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Platforms_btnEdit.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Platforms_btnEdit.Location = new System.Drawing.Point(157, 25);
+            this.Platforms_btnEdit.Name = "Platforms_btnEdit";
+            this.Platforms_btnEdit.Size = new System.Drawing.Size(154, 40);
+            this.Platforms_btnEdit.TabIndex = 12;
+            this.Platforms_btnEdit.Text = "تعديل بيانات الرصيف";
+            this.Platforms_btnEdit.UseVisualStyleBackColor = true;
+            this.Platforms_btnEdit.Click += new System.EventHandler(this.Platforms_btnEdit_Click);
             // 
-            // saveport
+            // Platforms_dgvPlatforms
             // 
-            this.saveport.FlatAppearance.BorderSize = 0;
-            this.saveport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveport.Location = new System.Drawing.Point(850, 259);
-            this.saveport.Name = "saveport";
-            this.saveport.Size = new System.Drawing.Size(116, 42);
-            this.saveport.TabIndex = 3;
-            this.saveport.Text = "حفظ";
-            this.saveport.UseVisualStyleBackColor = true;
-            this.saveport.Click += new System.EventHandler(this.saveport_Click);
+            this.Platforms_dgvPlatforms.AllowUserToAddRows = false;
+            this.Platforms_dgvPlatforms.AllowUserToDeleteRows = false;
+            this.Platforms_dgvPlatforms.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.Platforms_dgvPlatforms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Platforms_dgvPlatforms.Location = new System.Drawing.Point(6, 71);
+            this.Platforms_dgvPlatforms.Name = "Platforms_dgvPlatforms";
+            this.Platforms_dgvPlatforms.ReadOnly = true;
+            this.Platforms_dgvPlatforms.Size = new System.Drawing.Size(305, 524);
+            this.Platforms_dgvPlatforms.TabIndex = 8;
             // 
-            // textBox1
+            // platformlab
             // 
-            this.textBox1.Location = new System.Drawing.Point(711, 180);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(122, 22);
-            this.textBox1.TabIndex = 2;
+            this.platformlab.AutoSize = true;
+            this.platformlab.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.platformlab.Location = new System.Drawing.Point(467, 118);
+            this.platformlab.Name = "platformlab";
+            this.platformlab.Size = new System.Drawing.Size(51, 23);
+            this.platformlab.TabIndex = 7;
+            this.platformlab.Text = "الميناء";
+            // 
+            // nameplatform1
+            // 
+            this.nameplatform1.AutoSize = true;
+            this.nameplatform1.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.nameplatform1.Location = new System.Drawing.Point(427, 46);
+            this.nameplatform1.Name = "nameplatform1";
+            this.nameplatform1.Size = new System.Drawing.Size(91, 23);
+            this.nameplatform1.TabIndex = 6;
+            this.nameplatform1.Text = "اسم الرصيف";
+            // 
+            // Platforms_txtName
+            // 
+            this.Platforms_txtName.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Platforms_txtName.Location = new System.Drawing.Point(327, 72);
+            this.Platforms_txtName.Name = "Platforms_txtName";
+            this.Platforms_txtName.Size = new System.Drawing.Size(187, 30);
+            this.Platforms_txtName.TabIndex = 9;
+            // 
+            // Platforms_cmbPort
+            // 
+            this.Platforms_cmbPort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Platforms_cmbPort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Platforms_cmbPort.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Platforms_cmbPort.FormattingEnabled = true;
+            this.Platforms_cmbPort.Location = new System.Drawing.Point(327, 144);
+            this.Platforms_cmbPort.Name = "Platforms_cmbPort";
+            this.Platforms_cmbPort.Size = new System.Drawing.Size(187, 31);
+            this.Platforms_cmbPort.TabIndex = 10;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.Ports_btnEdit);
+            this.groupBox3.Controls.Add(this.Ports_btnDelete);
+            this.groupBox3.Controls.Add(this.Ports_btnCancel);
+            this.groupBox3.Controls.Add(this.Ports_btnSave);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.Ports_lstPorts);
+            this.groupBox3.Controls.Add(this.Ports_txtName);
+            this.groupBox3.Controls.Add(this.portname);
+            this.groupBox3.Location = new System.Drawing.Point(560, 50);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(424, 615);
+            this.groupBox3.TabIndex = 13;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "الموانئ";
+            // 
+            // Ports_btnEdit
+            // 
+            this.Ports_btnEdit.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Ports_btnEdit.Location = new System.Drawing.Point(180, 158);
+            this.Ports_btnEdit.Name = "Ports_btnEdit";
+            this.Ports_btnEdit.Size = new System.Drawing.Size(177, 34);
+            this.Ports_btnEdit.TabIndex = 32;
+            this.Ports_btnEdit.Text = "تعديل اسم الميناء";
+            this.Ports_btnEdit.UseVisualStyleBackColor = true;
+            this.Ports_btnEdit.Click += new System.EventHandler(this.Ports_btnEdit_Click);
+            // 
+            // Ports_btnDelete
+            // 
+            this.Ports_btnDelete.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Ports_btnDelete.Location = new System.Drawing.Point(180, 199);
+            this.Ports_btnDelete.Name = "Ports_btnDelete";
+            this.Ports_btnDelete.Size = new System.Drawing.Size(177, 37);
+            this.Ports_btnDelete.TabIndex = 33;
+            this.Ports_btnDelete.Text = "حذف الميناء";
+            this.Ports_btnDelete.UseVisualStyleBackColor = true;
+            this.Ports_btnDelete.Click += new System.EventHandler(this.Ports_btnDelete_Click);
+            // 
+            // Ports_btnCancel
+            // 
+            this.Ports_btnCancel.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Ports_btnCancel.Location = new System.Drawing.Point(180, 101);
+            this.Ports_btnCancel.Name = "Ports_btnCancel";
+            this.Ports_btnCancel.Size = new System.Drawing.Size(75, 35);
+            this.Ports_btnCancel.TabIndex = 31;
+            this.Ports_btnCancel.Text = "إلغاء";
+            this.Ports_btnCancel.UseVisualStyleBackColor = true;
+            this.Ports_btnCancel.Click += new System.EventHandler(this.Ports_btnCancel_Click);
+            // 
+            // Ports_btnSave
+            // 
+            this.Ports_btnSave.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Ports_btnSave.Location = new System.Drawing.Point(266, 99);
+            this.Ports_btnSave.Name = "Ports_btnSave";
+            this.Ports_btnSave.Size = new System.Drawing.Size(75, 37);
+            this.Ports_btnSave.TabIndex = 30;
+            this.Ports_btnSave.Text = "حفظ";
+            this.Ports_btnSave.UseVisualStyleBackColor = true;
+            this.Ports_btnSave.Click += new System.EventHandler(this.Ports_btnSave_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label7.Location = new System.Drawing.Point(41, 25);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(94, 23);
+            this.label7.TabIndex = 25;
+            this.label7.Text = "قائمة الموانئ";
+            // 
+            // Ports_lstPorts
+            // 
+            this.Ports_lstPorts.FormattingEnabled = true;
+            this.Ports_lstPorts.ItemHeight = 15;
+            this.Ports_lstPorts.Location = new System.Drawing.Point(12, 51);
+            this.Ports_lstPorts.Name = "Ports_lstPorts";
+            this.Ports_lstPorts.Size = new System.Drawing.Size(162, 544);
+            this.Ports_lstPorts.TabIndex = 4;
+            // 
+            // Ports_txtName
+            // 
+            this.Ports_txtName.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Ports_txtName.Location = new System.Drawing.Point(180, 51);
+            this.Ports_txtName.Name = "Ports_txtName";
+            this.Ports_txtName.Size = new System.Drawing.Size(161, 30);
+            this.Ports_txtName.TabIndex = 2;
             // 
             // portname
             // 
             this.portname.AutoSize = true;
             this.portname.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.portname.Location = new System.Drawing.Point(888, 178);
+            this.portname.Location = new System.Drawing.Point(336, 55);
             this.portname.Name = "portname";
             this.portname.Size = new System.Drawing.Size(82, 22);
             this.portname.TabIndex = 0;
             this.portname.Text = "اسم الميناء ";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label6.Location = new System.Drawing.Point(470, 6);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(227, 31);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "بيانات الموانئ والأرصفة";
             // 
             // agentsTab
             // 
@@ -409,6 +572,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.Agents_btnCancel);
             this.groupBox2.Controls.Add(this.Agents_btnSave);
             this.groupBox2.Controls.Add(this.Agents_txtAgentName);
@@ -422,6 +586,16 @@
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "الوكلاء الملاحيين";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label5.Location = new System.Drawing.Point(20, 31);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(156, 23);
+            this.label5.TabIndex = 28;
+            this.label5.Text = "قائمة الوكلاء الملاحيين";
             // 
             // Agents_btnCancel
             // 
@@ -469,7 +643,7 @@
             this.Agents_lstAgents.ItemHeight = 15;
             this.Agents_lstAgents.Location = new System.Drawing.Point(6, 57);
             this.Agents_lstAgents.Name = "Agents_lstAgents";
-            this.Agents_lstAgents.Size = new System.Drawing.Size(180, 439);
+            this.Agents_lstAgents.Size = new System.Drawing.Size(180, 544);
             this.Agents_lstAgents.TabIndex = 5;
             // 
             // Agents_btnEdit
@@ -780,7 +954,7 @@
             this.addship.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.addship.Image = ((System.Drawing.Image)(resources.GetObject("addship.Image")));
             this.addship.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addship.Location = new System.Drawing.Point(163, 11);
+            this.addship.Location = new System.Drawing.Point(439, 11);
             this.addship.Name = "addship";
             this.addship.Size = new System.Drawing.Size(267, 46);
             this.addship.TabIndex = 0;
@@ -802,7 +976,7 @@
             this.ShipsGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ShipsGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.ShipsGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.ShipsGridView.Size = new System.Drawing.Size(538, 462);
+            this.ShipsGridView.Size = new System.Drawing.Size(538, 554);
             this.ShipsGridView.TabIndex = 7;
             // 
             // label18
@@ -1127,7 +1301,6 @@
             this.AddTrip_CmbStatus.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.AddTrip_CmbStatus.Size = new System.Drawing.Size(121, 23);
             this.AddTrip_CmbStatus.TabIndex = 31;
-            this.AddTrip_CmbStatus.SelectedIndexChanged += new System.EventHandler(this.statustxt_SelectedIndexChanged);
             // 
             // portlab
             // 
@@ -1408,7 +1581,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).EndInit();
             this.portTab.ResumeLayout(false);
             this.portTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Platforms_dgvPlatforms)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.agentsTab.ResumeLayout(false);
             this.agentsTab.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -1459,12 +1636,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn IOM;
         private System.Windows.Forms.DataGridViewTextBoxColumn n;
         private System.Windows.Forms.TabPage portTab;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameport;
-        private System.Windows.Forms.DataGridViewButtonColumn edit7;
-        private System.Windows.Forms.DataGridViewButtonColumn del7;
-        private System.Windows.Forms.Button saveport;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Ports_txtName;
         private System.Windows.Forms.Label portname;
         private System.Windows.Forms.TabPage agentsTab;
         private System.Windows.Forms.TextBox Agents_txtAgentName;
@@ -1539,7 +1711,6 @@
         private System.Windows.Forms.Label searchlab;
         private System.Windows.Forms.TabControl triptabControl;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button ShipsTab_btnDelete;
         private System.Windows.Forms.Button ShipsTab_btnEdit;
         private System.Windows.Forms.DateTimePicker AddTrip_dtpDate;
@@ -1561,5 +1732,24 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button Agents_btnSave;
         private System.Windows.Forms.Button Agents_btnCancel;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.DataGridView Platforms_dgvPlatforms;
+        private System.Windows.Forms.Label platformlab;
+        private System.Windows.Forms.Label nameplatform1;
+        private System.Windows.Forms.TextBox Platforms_txtName;
+        private System.Windows.Forms.ComboBox Platforms_cmbPort;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ListBox Ports_lstPorts;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button Platforms_btnCancel;
+        private System.Windows.Forms.Button Platforms_btnSave;
+        private System.Windows.Forms.Button Platforms_btnDelete;
+        private System.Windows.Forms.Button Platforms_btnEdit;
+        private System.Windows.Forms.Button Ports_btnEdit;
+        private System.Windows.Forms.Button Ports_btnDelete;
+        private System.Windows.Forms.Button Ports_btnCancel;
+        private System.Windows.Forms.Button Ports_btnSave;
     }
 }

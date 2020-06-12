@@ -1,6 +1,7 @@
 ﻿using Ships_System.DAL;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,7 +29,7 @@ namespace Ships_System.BL
 
         public List<Platform> GetAllPlatforms()
         {
-            return  unitOfWork.Platforms.Get();
+            return  unitOfWork.Platforms.Get().AsQueryable().Include("Port").ToList();
         }
 
         public List<Platform> GetByPortId(int portId)

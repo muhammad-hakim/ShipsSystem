@@ -23,9 +23,9 @@ namespace Ships_System.PL
         private readonly IProductService productService;
         private readonly IPortService portService;
         private readonly IPlatformService platformService;
-        
 
-        public MainScreen(IDbService dbService,ITripService tripService, IShipService shipService, IAgentService agentService, IProductService productService, IPortService portService, IPlatformService platformService)
+
+        public MainScreen(IDbService dbService, ITripService tripService, IShipService shipService, IAgentService agentService, IProductService productService, IPortService portService, IPlatformService platformService)
         {
             InitializeComponent();
             this.dbService = dbService;
@@ -49,17 +49,15 @@ namespace Ships_System.PL
 
         void FillAgentsList()
         {
-            var data = agentService.GetAllAgents().Select(a => new { AgentId = a.AgentId, AgentName = a.Name }).ToList();
-            Agents_lstAgents.ValueMember = "AgentId";
-            Agents_lstAgents.DisplayMember = "AgentName";
-            Agents_lstAgents.DataSource = data;
+            var agents = agentService.GetAllAgents().Select(a => new { AgentId = a.AgentId, AgentName = a.Name }).ToList();
+            FillList(Agents_lstAgents, agents, "AgentId", "AgentName");
         }
-        void FillPortGridView()
+        void FillPortsList()
         {
-            var data = portService.GetAllPorts().Select(x=>new { x.Name }).ToList();
-            dataGridView2.DataSource = data;
+            var ports = portService.GetAllPorts().Select(p => new { PortId = p.PortId, PortName = p.Name }).ToList();
+            FillList(Ports_lstPorts, ports, "PortId", "PortName");
         }
-        
+
         private void AddShip_Savebtn_Click(object sender, EventArgs e)
         {
             Ship ship = new Ship
@@ -93,11 +91,6 @@ namespace Ships_System.PL
             }
         }
 
-        private void statustxt_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            AddTrip_CmbStatus.SelectedItem = TripStatus.LeftDGebouti;
-        }
-
         private void MainScreen_Load(object sender, EventArgs e)
         {
             FillShipsGridView();
@@ -105,6 +98,10 @@ namespace Ships_System.PL
             FillAddTripCmbAgents();
             FillAddTripCmbPorts();
             FillAddTripCmbProducts();
+            FillPortsList();
+            FillProductsList();
+            FillPlatformsDataGridView();
+            FillAgentsList();
             AddTrip_CmbStatus.DataSource = Enum.GetValues(typeof(TripStatus));
             AddShip_Typecmb.DataSource = Enum.GetValues(typeof(ShipTypes));
         }
@@ -140,11 +137,8 @@ namespace Ships_System.PL
 
         void FillProductsList()
         {
-            var products = productService.GetAllProducts().Select(p =>new {ProductId = p.ProductId, ProdcutName = p.Name }).ToList();
-            Products_lstProducts.Items.Clear();
-            Products_lstProducts.ValueMember = "ProductId";
-            Products_lstProducts.DisplayMember = "ProductName";
-            Products_lstProducts.DataSource = products;
+            var products = productService.GetAllProducts().Select(p => new { ProductId = p.ProductId, ProdcutName = p.Name }).ToList();
+            FillList(Products_lstProducts, products, "ProductId", "ProdcutName");
         }
 
         private void Products_btnSave_Click(object sender, EventArgs e)
@@ -153,9 +147,9 @@ namespace Ships_System.PL
             {
                 Name = Products_txtProductName.Text,
             };
-            if (Products_btnSave.Tag==null)
+            if (Products_btnSave.Tag == null)
             {
-                productService.AddProduct(product);  
+                productService.AddProduct(product);
             }
             else
             {
@@ -174,42 +168,65 @@ namespace Ships_System.PL
             {
                 MessageBox.Show("لم يتم الحفظ", "فشل الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
         }
 
-        private void savebutpl_Click(object sender, EventArgs e)
+        private void Platforms_btnSave_Click(object sender, EventArgs e)
         {
-            //var platform = new Platform {PortId = Convert.ToInt32(PlatformTab_cmbPort.SelectedValue), Name = PlatformTab_txtName.Text };
-            //platformService.AddPlatform(platform);
+            var platform = new Platform { PortId = Convert.ToInt32(Platforms_cmbPort.SelectedValue), Name = Platforms_txtName.Text };
 
-            //if (dbService.Commit())
-            //{
-            //    FillAddTripCmbPlatforms();
-            //    FillPlatformsDataGridView();
-            //    MessageBox.Show("تم الحفظ بنجاح", "تم الحفظ", MessageBoxButtons.OK , MessageBoxIcon.Information);
-            //}
-            //else
-            //{
-            //    MessageBox.Show("لم يتم الحفظ", "فشل الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+            if (Platforms_btnSave.Tag == null)
+            {
+                platformService.AddPlatform(platform);
+            }
+            else
+            {
+                platform.PlatformId = Convert.ToInt32(Platforms_btnSave.Tag);
+                platformService.UpdatePlatform(platform);
+                Platforms_btnSave.Tag = null;
+            }
+
+            if (dbService.Commit())
+            {
+                FillAddTripCmbPlatforms();
+                FillPlatformsDataGridView();
+                MessageBox.Show("تم الحفظ بنجاح", "تم الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("لم يتم الحفظ", "فشل الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         void FillPlatformsDataGridView()
         {
-            var platforms = platformService.GetAllPlatforms().Select(p => new { platformId = p.PlatformId, PlatformName = p.Name});
-            //PlatformTab_DGVPlatforms.DataSource = platforms;
+            var platforms = platformService.GetAllPlatforms().Select(p => new { platformId = p.PlatformId, PlatformName = p.Name , PortName = p.Port.Name}).ToList();
+            Platforms_dgvPlatforms.DataSource = platforms;
+            Platforms_dgvPlatforms.Columns[0].Visible = false;
+            Platforms_dgvPlatforms.Columns[1].HeaderText = "اسم الرصيف";
+            Platforms_dgvPlatforms.Columns[2].HeaderText = "اسم الميناء";
+            Platforms_dgvPlatforms.Columns[1].Width = Platforms_dgvPlatforms.Columns[2].Width = 130;
         }
 
-        private void saveport_Click(object sender, EventArgs e)
+        private void Ports_btnSave_Click(object sender, EventArgs e)
         {
             Port port = new Port
             {
-                Name = textBox1.Text
+                Name = Ports_txtName.Text
             };
-            portService.AddPort(port);
+            if (Ports_btnSave.Tag == null)
+            {
+                portService.AddPort(port);
+            }
+            else
+            {
+                port.PortId = Convert.ToInt32(Ports_btnSave.Tag);
+                portService.UpdatePort(port);
+                Ports_btnSave.Tag = null;
+            }
             if (dbService.Commit())
             {
-                FillPortGridView();
+                FillPortsList();
                 FillAddTripCmbPorts();
                 MessageBox.Show("تم الحفظ بنجاح", "تم الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -224,14 +241,12 @@ namespace Ships_System.PL
             switch ((sender as LinkLabel).Name)
             {
                 case "AddTrip_lnkAddShip":
-            triptabControl.SelectedTab = shipsTab;
+                    triptabControl.SelectedTab = shipsTab;
                     break;
                 case "AddTrip_lnkAddPort":
                     triptabControl.SelectedTab = portTab;
                     break;
                 case "AddTrip_lnkAddProduct":
-                    //triptabControl.SelectedTab = goodsTab;
-                    break;
                 case "AddTrip_lnkAddAgent":
                     triptabControl.SelectedTab = agentsTab;
                     break;
@@ -274,7 +289,7 @@ namespace Ships_System.PL
 
         void FillAddTripCmbShips()
         {
-            var ships = shipService.GetAllShips().Select(s => new {ShipId = s.ShipId, ShipName = s.Name }).ToList();
+            var ships = shipService.GetAllShips().Select(s => new { ShipId = s.ShipId, ShipName = s.Name }).ToList();
             AddTrip_CmbShips.ValueMember = "ShipId";
             AddTrip_CmbShips.DisplayMember = "ShipName";
             AddTrip_CmbShips.DataSource = ships;
@@ -283,18 +298,13 @@ namespace Ships_System.PL
         void FillAddTripCmbAgents()
         {
             var agents = agentService.GetAllAgents().Select(a => new { AgentId = a.AgentId, AgentName = a.Name }).ToList();
-            FillComboBox(AddTrip_CmbAgents, agents, "AgentId", "AgentName");
-        }
-
-        void FillPorts(ComboBox cmb)
-        {
-            var ports = portService.GetAllPorts().Select(p => new { PortId = p.PortId, PortName = p.Name }).ToList();
-            FillComboBox(cmb, ports, "PortId", "PortName");
+            FillList(AddTrip_CmbAgents, agents, "AgentId", "AgentName");
         }
 
         void FillAddTripCmbPorts()
         {
-            FillPorts(AddTrip_CmbPorts);
+            var ports = portService.GetAllPorts().Select(p => new { PortId = p.PortId, PortName = p.Name }).ToList();
+            FillList(AddTrip_CmbPorts, ports, "PortId", "PortName");
         }
 
         void FillAddTripCmbPlatforms()
@@ -302,23 +312,23 @@ namespace Ships_System.PL
             if (AddTrip_CmbPorts.SelectedValue != null)
             {
                 var platforms = platformService.GetByPortId(Convert.ToInt32(AddTrip_CmbPorts.SelectedValue)).Select(p => new { PlatformId = p.PlatformId, PlatformName = p.Name }).ToList();
-                FillComboBox(AddTrip_CmbPlatforms, platforms, "PlatformId", "PlatformName");
+                FillList(AddTrip_CmbPlatforms, platforms, "PlatformId", "PlatformName");
             }
         }
 
         void FillAddTripCmbProducts()
         {
             var products = productService.GetAllProducts().Select(p => new { ProductId = p.ProductId, ProductName = p.Name }).ToList();
-            FillComboBox(AddTrip_CmbProducts, products, "ProductId" , "ProductName");
+            FillList(AddTrip_CmbProducts, products, "ProductId", "ProductName");
         }
 
         private void AddTrip_lnkAddPlatform_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if(AddTrip_CmbPorts.SelectedValue != null && Convert.ToInt32(AddTrip_CmbPorts.SelectedValue) > 0)
+            if (AddTrip_CmbPorts.SelectedValue != null && Convert.ToInt32(AddTrip_CmbPorts.SelectedValue) > 0)
             {
-                //FillPorts(PlatformTab_cmbPort);
-                //PlatformTab_cmbPort.SelectedValue = AddTrip_CmbPorts.SelectedValue;
-                //triptabControl.SelectedTab = platformTab;
+                FillPortsList();
+                Platforms_cmbPort.SelectedValue = AddTrip_CmbPorts.SelectedValue;
+                triptabControl.SelectedTab = portTab;
             }
         }
 
@@ -328,11 +338,11 @@ namespace Ships_System.PL
             FillAddTripCmbPlatforms();
         }
 
-        void FillComboBox(ComboBox cmb, object dataSource, string dataFieldName, string textFieldName)
+        void FillList(ListControl lst, object dataSource, string dataFieldName, string textFieldName)
         {
-            cmb.ValueMember = dataFieldName;
-            cmb.DisplayMember = textFieldName;
-            cmb.DataSource = dataSource;
+            lst.ValueMember = dataFieldName;
+            lst.DisplayMember = textFieldName;
+            lst.DataSource = dataSource;
         }
 
         Dictionary<int, int> TripGoodsQuantities = new Dictionary<int, int>();
@@ -376,22 +386,28 @@ namespace Ships_System.PL
             AddShip_Imotxt.Clear();
             AddShip_Nametxt.Clear();
             AddShip_Typecmb.SelectedIndex = 0;
+            AddShip_Savebtn.Tag = null;
         }
 
         private void Agents_btnCancel_Click(object sender, EventArgs e)
         {
             Agents_txtAgentName.Clear();
+            Agents_btnSave.Tag = null;
         }
 
         private void Products_btnCancel_Click(object sender, EventArgs e)
         {
             Products_txtProductName.Clear();
+            Products_btnSave.Tag = null;
         }
 
         private void Products_btnEdit_Click(object sender, EventArgs e)
         {
             if (Products_lstProducts.SelectedItem != null)
+            {
+                Products_btnSave.Tag = Products_lstProducts.SelectedValue;
                 Products_txtProductName.Text = Products_lstProducts.Text.ToString();
+            }
         }
 
         private void Products_btnDelete_Click(object sender, EventArgs e)
@@ -419,7 +435,10 @@ namespace Ships_System.PL
         private void Agents_btnEdit_Click(object sender, EventArgs e)
         {
             if (Agents_lstAgents.SelectedItem != null)
+            {
+                Agents_btnSave.Tag = Agents_lstAgents.SelectedValue;
                 Agents_txtAgentName.Text = Agents_lstAgents.Text.ToString();
+            }
         }
 
         private void Agents_btnDelete_Click(object sender, EventArgs e)
@@ -442,6 +461,83 @@ namespace Ships_System.PL
                     }
                 }
             }
+        }
+
+        private void Ports_btnEdit_Click(object sender, EventArgs e)
+        {
+            if (Ports_lstPorts.SelectedItem != null)
+            {
+                Ports_btnSave.Tag = Ports_lstPorts.SelectedValue;
+                Ports_txtName.Text = Ports_lstPorts.Text;
+            }
+        }
+
+        private void Ports_btnCancel_Click(object sender, EventArgs e)
+        {
+            Ports_btnSave.Tag = null;
+            Ports_txtName.Clear();
+        }
+
+        private void Ports_btnDelete_Click(object sender, EventArgs e)
+        {
+            if (Ports_lstPorts.SelectedItem != null)
+            {
+                if (MessageBox.Show("هل تريد حذف الميناء?", "حذف الميناء", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    var portId = Convert.ToInt32(Ports_lstPorts.SelectedValue);
+                    portService.DeletePort(portId);
+
+                    if (dbService.Commit())
+                    {
+                        FillPortsList();
+                        FillAddTripCmbPorts();
+                        MessageBox.Show("تم الحذف بنجاح", "تم الحذف", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("لم يتم الحذف", "فشل الحذف", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void Platforms_btnEdit_Click(object sender, EventArgs e)
+        {
+            if (Platforms_dgvPlatforms.CurrentRow != null)
+            {
+                Platforms_btnSave.Tag = Platforms_dgvPlatforms.CurrentRow.Cells[0].Value;
+                Platforms_txtName.Text = Platforms_dgvPlatforms.CurrentRow.Cells[1].Value.ToString();
+                Platforms_cmbPort.Text = Platforms_dgvPlatforms.CurrentRow.Cells[2].Value.ToString();
+            }
+        }
+
+        private void Platforms_btnDelete_Click(object sender, EventArgs e)
+        {
+            if (Platforms_dgvPlatforms.CurrentRow != null)
+            {
+                if (MessageBox.Show("هل تريد حذف الرصيف?", "حذف الرصيف", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    var platformId = Convert.ToInt32(Platforms_dgvPlatforms.CurrentRow.Cells[0].Value);
+                    platformService.DeletePlatform(platformId);
+
+                    if (dbService.Commit())
+                    {
+                        FillPlatformsDataGridView();
+                        MessageBox.Show("تم الحذف بنجاح", "تم الحذف", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("لم يتم الحذف", "فشل الحذف", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void Platforms_btnCancel_Click(object sender, EventArgs e)
+        {
+            Platforms_btnSave.Tag = null;
+            Platforms_txtName.Clear();
+            Platforms_cmbPort.SelectedIndex = 0;
         }
     }
 }
