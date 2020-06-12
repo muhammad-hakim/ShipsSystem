@@ -47,13 +47,24 @@ namespace Ships_System.PL
 
         void FillAgentGridView()
         {
-            var data = agentService.GetAllAgents();
-            agentsGridView4.DataSource = data;
+            var data = agentService.GetAllAgents().Select(x => new { x.Name }).ToList();
+           ListBox_agents.DataSource =data;
+            //ListBox_agents.ToString();
         }
         void FillPortGridView()
         {
-            var data = portService.GetAllPorts();
+            var data = portService.GetAllPorts().Select(x=>new { x.Name }).ToList();
             dataGridView2.DataSource = data;
+
+        }
+        void FillProductListview()
+        {
+            var data = productService.GetAllProducts().Select(x => new
+            {
+                x.Name
+            }).ToList();
+            //listView_Product = data;
+
         }
         private void AddShip_Savebtn_Click(object sender, EventArgs e)
         {
@@ -127,12 +138,26 @@ namespace Ships_System.PL
                 Name = agentsBox.Text,
 
             };
-            agentService.AddAgent(agent);
-            MessageBox.Show("تم الحفظ بنجاح");
+            if (saveg.Tag == null)
+            {
+                agentService.AddAgent(agent);
+            }
+            else
+            {
+                agent.AgentId = Convert.ToInt32(saveg.Tag);
+                agentService.UpdateAgent(agent);
+               saveg.Tag = null;
+            }
             if (dbService.Commit())
             {
                 FillAgentGridView();
+                MessageBox.Show("تم الحفظ بنجاح");
             }
+            else
+            {
+                MessageBox.Show("لم يتم الحفظ");
+            }
+            
         }
 
         private void agentsGridView4_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -152,8 +177,26 @@ namespace Ships_System.PL
                 Name = productBox6.Text,
 
             };
-            productService.AddProduct(product);
-            MessageBox.Show("تم الحفظ بنجاح");
+            if (savepro.Tag==null)
+            {
+                productService.AddProduct(product);  
+            }
+            else
+            {
+                product.ProductId = Convert.ToInt32(savepro.Tag);
+                productService.UpdateProduct(product); ;
+                savepro.Tag = null;
+            }
+            if (dbService.Commit())
+            {
+                FillProductListview();
+                MessageBox.Show("تم الحفظ بنجاح");
+            }
+            else
+            {
+                MessageBox.Show("لم يتم الحفظ");
+            }
+            
         }
 
         private void savebutpl_Click(object sender, EventArgs e)
@@ -221,6 +264,16 @@ namespace Ships_System.PL
         private void triptabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void Edit_agent_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void Del_agent_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }
