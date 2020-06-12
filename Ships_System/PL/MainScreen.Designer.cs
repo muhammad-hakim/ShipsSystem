@@ -52,18 +52,6 @@
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IOM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.n = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.platformTab = new System.Windows.Forms.TabPage();
-            this.label6 = new System.Windows.Forms.Label();
-            this.savebutpl = new System.Windows.Forms.Button();
-            this.PlatformTab_DGVPlatforms = new System.Windows.Forms.DataGridView();
-            this.portno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.platname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.edit6 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.del6 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.PlatformTab_txtName = new System.Windows.Forms.TextBox();
-            this.PlatformTab_cmbPort = new System.Windows.Forms.ComboBox();
-            this.nameplatform1 = new System.Windows.Forms.Label();
-            this.platformlab = new System.Windows.Forms.Label();
             this.portTab = new System.Windows.Forms.TabPage();
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
@@ -73,28 +61,25 @@
             this.saveport = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.portname = new System.Windows.Forms.Label();
-            this.goodsTab = new System.Windows.Forms.TabPage();
-            this.listView_Product = new System.Windows.Forms.ListView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.ProductsTab_ProductsDGV = new System.Windows.Forms.DataGridView();
-            this.gooname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qaun = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.edit4 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.del3 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.productBox6 = new System.Windows.Forms.TextBox();
-            this.savepro = new System.Windows.Forms.Button();
             this.agentsTab = new System.Windows.Forms.TabPage();
-            this.Edit_agent = new System.Windows.Forms.Button();
-            this.Del_agent = new System.Windows.Forms.Button();
-            this.ListBox_agents = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.saveg = new System.Windows.Forms.Button();
-            this.agentsBox = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.Agents_btnCancel = new System.Windows.Forms.Button();
+            this.Agents_btnSave = new System.Windows.Forms.Button();
+            this.Agents_txtAgentName = new System.Windows.Forms.TextBox();
             this.agentlabel = new System.Windows.Forms.Label();
+            this.Agents_lstAgents = new System.Windows.Forms.ListBox();
+            this.Agents_btnEdit = new System.Windows.Forms.Button();
+            this.Agents_btnDelete = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Products_lstProducts = new System.Windows.Forms.ListBox();
+            this.Products_btnCancel = new System.Windows.Forms.Button();
+            this.Products_btnSave = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.Products_btnDelete = new System.Windows.Forms.Button();
+            this.Products_btnEdit = new System.Windows.Forms.Button();
+            this.Products_txtProductName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.shipsTab = new System.Windows.Forms.TabPage();
             this.AddShip_cancelbtn = new System.Windows.Forms.Button();
             this.AddShip_Savebtn = new System.Windows.Forms.Button();
@@ -171,13 +156,11 @@
             this.searchlab = new System.Windows.Forms.Label();
             this.triptabControl = new System.Windows.Forms.TabControl();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
-            this.platformTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PlatformTab_DGVPlatforms)).BeginInit();
             this.portTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.goodsTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ProductsTab_ProductsDGV)).BeginInit();
             this.agentsTab.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.shipsTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShipsGridView)).BeginInit();
             this.addingTripTab.SuspendLayout();
@@ -327,117 +310,6 @@
             this.n.HeaderText = "اسم السفينة";
             this.n.Name = "n";
             // 
-            // platformTab
-            // 
-            this.platformTab.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.platformTab.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.platformTab.Controls.Add(this.label6);
-            this.platformTab.Controls.Add(this.savebutpl);
-            this.platformTab.Controls.Add(this.PlatformTab_DGVPlatforms);
-            this.platformTab.Controls.Add(this.PlatformTab_txtName);
-            this.platformTab.Controls.Add(this.PlatformTab_cmbPort);
-            this.platformTab.Controls.Add(this.nameplatform1);
-            this.platformTab.Controls.Add(this.platformlab);
-            this.platformTab.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.platformTab.Location = new System.Drawing.Point(4, 27);
-            this.platformTab.Name = "platformTab";
-            this.platformTab.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.platformTab.Size = new System.Drawing.Size(996, 681);
-            this.platformTab.TabIndex = 6;
-            this.platformTab.Text = "الارصفة";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label6.Location = new System.Drawing.Point(326, 36);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(237, 24);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "بيانات الأرصفة الموجودة بالميناء";
-            // 
-            // savebutpl
-            // 
-            this.savebutpl.FlatAppearance.BorderSize = 0;
-            this.savebutpl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.savebutpl.Image = ((System.Drawing.Image)(resources.GetObject("savebutpl.Image")));
-            this.savebutpl.Location = new System.Drawing.Point(700, 376);
-            this.savebutpl.Name = "savebutpl";
-            this.savebutpl.Size = new System.Drawing.Size(144, 50);
-            this.savebutpl.TabIndex = 3;
-            this.savebutpl.UseVisualStyleBackColor = true;
-            this.savebutpl.Click += new System.EventHandler(this.savebutpl_Click);
-            // 
-            // PlatformTab_DGVPlatforms
-            // 
-            this.PlatformTab_DGVPlatforms.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.PlatformTab_DGVPlatforms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.PlatformTab_DGVPlatforms.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.portno,
-            this.platname,
-            this.edit6,
-            this.del6});
-            this.PlatformTab_DGVPlatforms.Location = new System.Drawing.Point(113, 173);
-            this.PlatformTab_DGVPlatforms.Name = "PlatformTab_DGVPlatforms";
-            this.PlatformTab_DGVPlatforms.Size = new System.Drawing.Size(446, 227);
-            this.PlatformTab_DGVPlatforms.TabIndex = 1;
-            // 
-            // portno
-            // 
-            this.portno.Frozen = true;
-            this.portno.HeaderText = "رقم الميناء";
-            this.portno.Name = "portno";
-            // 
-            // platname
-            // 
-            this.platname.Frozen = true;
-            this.platname.HeaderText = "اسم الرصيف";
-            this.platname.Name = "platname";
-            // 
-            // edit6
-            // 
-            this.edit6.HeaderText = "تعديل";
-            this.edit6.Name = "edit6";
-            // 
-            // del6
-            // 
-            this.del6.HeaderText = "حذف";
-            this.del6.Name = "del6";
-            // 
-            // PlatformTab_txtName
-            // 
-            this.PlatformTab_txtName.Location = new System.Drawing.Point(689, 297);
-            this.PlatformTab_txtName.Name = "PlatformTab_txtName";
-            this.PlatformTab_txtName.Size = new System.Drawing.Size(121, 26);
-            this.PlatformTab_txtName.TabIndex = 1;
-            // 
-            // PlatformTab_cmbPort
-            // 
-            this.PlatformTab_cmbPort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PlatformTab_cmbPort.FormattingEnabled = true;
-            this.PlatformTab_cmbPort.Location = new System.Drawing.Point(689, 170);
-            this.PlatformTab_cmbPort.Name = "PlatformTab_cmbPort";
-            this.PlatformTab_cmbPort.Size = new System.Drawing.Size(121, 27);
-            this.PlatformTab_cmbPort.TabIndex = 2;
-            // 
-            // nameplatform1
-            // 
-            this.nameplatform1.AutoSize = true;
-            this.nameplatform1.Location = new System.Drawing.Point(862, 304);
-            this.nameplatform1.Name = "nameplatform1";
-            this.nameplatform1.Size = new System.Drawing.Size(76, 19);
-            this.nameplatform1.TabIndex = 0;
-            this.nameplatform1.Text = "اسم الرصيف";
-            // 
-            // platformlab
-            // 
-            this.platformlab.AutoSize = true;
-            this.platformlab.Location = new System.Drawing.Point(852, 173);
-            this.platformlab.Name = "platformlab";
-            this.platformlab.Size = new System.Drawing.Size(66, 19);
-            this.platformlab.TabIndex = 0;
-            this.platformlab.Text = "رقم الميناء";
-            // 
             // portTab
             // 
             this.portTab.BackColor = System.Drawing.Color.LightSteelBlue;
@@ -450,7 +322,7 @@
             this.portTab.Name = "portTab";
             this.portTab.Size = new System.Drawing.Size(996, 681);
             this.portTab.TabIndex = 5;
-            this.portTab.Text = "الموانئ";
+            this.portTab.Text = "الموانئ / الأرصفة";
             // 
             // label5
             // 
@@ -523,224 +395,213 @@
             this.portname.TabIndex = 0;
             this.portname.Text = "اسم الميناء ";
             // 
-            // goodsTab
-            // 
-            this.goodsTab.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.goodsTab.Controls.Add(this.listView_Product);
-            this.goodsTab.Controls.Add(this.button1);
-            this.goodsTab.Controls.Add(this.button2);
-            this.goodsTab.Controls.Add(this.label2);
-            this.goodsTab.Controls.Add(this.ProductsTab_ProductsDGV);
-            this.goodsTab.Controls.Add(this.label13);
-            this.goodsTab.Controls.Add(this.label12);
-            this.goodsTab.Controls.Add(this.productBox6);
-            this.goodsTab.Controls.Add(this.savepro);
-            this.goodsTab.Location = new System.Drawing.Point(4, 27);
-            this.goodsTab.Name = "goodsTab";
-            this.goodsTab.Size = new System.Drawing.Size(996, 681);
-            this.goodsTab.TabIndex = 4;
-            this.goodsTab.Text = "البضائع";
-            // 
-            // listView_Product
-            // 
-            this.listView_Product.HideSelection = false;
-            this.listView_Product.Location = new System.Drawing.Point(340, 163);
-            this.listView_Product.Name = "listView_Product";
-            this.listView_Product.Size = new System.Drawing.Size(271, 303);
-            this.listView_Product.TabIndex = 16;
-            this.listView_Product.UseCompatibleStateImageBehavior = false;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(704, 391);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 23);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "حذف البضاعة";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(704, 319);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(119, 23);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "تعديل بيانات البضاعة";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label2.Location = new System.Drawing.Point(391, 27);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(181, 24);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "بيانات البضاعة المحمولة";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // ProductsTab_ProductsDGV
-            // 
-            this.ProductsTab_ProductsDGV.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.ProductsTab_ProductsDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ProductsTab_ProductsDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.gooname,
-            this.qaun,
-            this.edit4,
-            this.del3});
-            this.ProductsTab_ProductsDGV.Location = new System.Drawing.Point(123, 163);
-            this.ProductsTab_ProductsDGV.Name = "ProductsTab_ProductsDGV";
-            this.ProductsTab_ProductsDGV.Size = new System.Drawing.Size(445, 284);
-            this.ProductsTab_ProductsDGV.TabIndex = 3;
-            // 
-            // gooname
-            // 
-            this.gooname.HeaderText = "اسم البضاعة";
-            this.gooname.Name = "gooname";
-            // 
-            // qaun
-            // 
-            this.qaun.HeaderText = "كميتها";
-            this.qaun.Name = "qaun";
-            // 
-            // edit4
-            // 
-            this.edit4.HeaderText = "تعديل";
-            this.edit4.Name = "edit4";
-            // 
-            // del3
-            // 
-            this.del3.HeaderText = "حذف";
-            this.del3.Name = "del3";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label13.Location = new System.Drawing.Point(869, 275);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(81, 19);
-            this.label13.TabIndex = 2;
-            this.label13.Text = "كمية البضاعة";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label12.Location = new System.Drawing.Point(869, 166);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(77, 19);
-            this.label12.TabIndex = 2;
-            this.label12.Text = "اسم البضاعة";
-            // 
-            // productBox6
-            // 
-            this.productBox6.Location = new System.Drawing.Point(680, 163);
-            this.productBox6.Name = "productBox6";
-            this.productBox6.Size = new System.Drawing.Size(129, 22);
-            this.productBox6.TabIndex = 1;
-            this.productBox6.TextChanged += new System.EventHandler(this.productBox6_TextChanged);
-            // 
-            // savepro
-            // 
-            this.savepro.FlatAppearance.BorderSize = 0;
-            this.savepro.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.savepro.Location = new System.Drawing.Point(704, 238);
-            this.savepro.Name = "savepro";
-            this.savepro.Size = new System.Drawing.Size(105, 23);
-            this.savepro.TabIndex = 0;
-            this.savepro.Text = "حفظ";
-            this.savepro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.savepro.UseVisualStyleBackColor = true;
-            this.savepro.Click += new System.EventHandler(this.savepro_Click);
-            // 
             // agentsTab
             // 
             this.agentsTab.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.agentsTab.Controls.Add(this.Edit_agent);
-            this.agentsTab.Controls.Add(this.Del_agent);
-            this.agentsTab.Controls.Add(this.ListBox_agents);
+            this.agentsTab.Controls.Add(this.groupBox2);
+            this.agentsTab.Controls.Add(this.groupBox1);
             this.agentsTab.Controls.Add(this.label1);
-            this.agentsTab.Controls.Add(this.saveg);
-            this.agentsTab.Controls.Add(this.agentsBox);
-            this.agentsTab.Controls.Add(this.agentlabel);
             this.agentsTab.Location = new System.Drawing.Point(4, 27);
             this.agentsTab.Name = "agentsTab";
             this.agentsTab.Size = new System.Drawing.Size(996, 681);
             this.agentsTab.TabIndex = 3;
-            this.agentsTab.Text = "الوكيل الملاحي";
+            this.agentsTab.Text = "الأصناف / الوكلاء الملاحيين";
             // 
-            // Edit_agent
+            // groupBox2
             // 
-            this.Edit_agent.Location = new System.Drawing.Point(581, 307);
-            this.Edit_agent.Name = "Edit_agent";
-            this.Edit_agent.Size = new System.Drawing.Size(75, 23);
-            this.Edit_agent.TabIndex = 6;
-            this.Edit_agent.Text = "تعديل";
-            this.Edit_agent.UseVisualStyleBackColor = true;
-            this.Edit_agent.Click += new System.EventHandler(this.Edit_agent_Click);
+            this.groupBox2.Controls.Add(this.Agents_btnCancel);
+            this.groupBox2.Controls.Add(this.Agents_btnSave);
+            this.groupBox2.Controls.Add(this.Agents_txtAgentName);
+            this.groupBox2.Controls.Add(this.agentlabel);
+            this.groupBox2.Controls.Add(this.Agents_lstAgents);
+            this.groupBox2.Controls.Add(this.Agents_btnEdit);
+            this.groupBox2.Controls.Add(this.Agents_btnDelete);
+            this.groupBox2.Location = new System.Drawing.Point(505, 55);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(483, 618);
+            this.groupBox2.TabIndex = 25;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "الوكلاء الملاحيين";
             // 
-            // Del_agent
+            // Agents_btnCancel
             // 
-            this.Del_agent.Location = new System.Drawing.Point(681, 307);
-            this.Del_agent.Name = "Del_agent";
-            this.Del_agent.Size = new System.Drawing.Size(75, 23);
-            this.Del_agent.TabIndex = 6;
-            this.Del_agent.Text = "حذف ";
-            this.Del_agent.UseVisualStyleBackColor = true;
-            this.Del_agent.Click += new System.EventHandler(this.Del_agent_Click);
+            this.Agents_btnCancel.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Agents_btnCancel.Location = new System.Drawing.Point(205, 107);
+            this.Agents_btnCancel.Name = "Agents_btnCancel";
+            this.Agents_btnCancel.Size = new System.Drawing.Size(75, 35);
+            this.Agents_btnCancel.TabIndex = 27;
+            this.Agents_btnCancel.Text = "إلغاء";
+            this.Agents_btnCancel.UseVisualStyleBackColor = true;
+            this.Agents_btnCancel.Click += new System.EventHandler(this.Agents_btnCancel_Click);
             // 
-            // ListBox_agents
+            // Agents_btnSave
             // 
-            this.ListBox_agents.FormattingEnabled = true;
-            this.ListBox_agents.ItemHeight = 15;
-            this.ListBox_agents.Location = new System.Drawing.Point(294, 80);
-            this.ListBox_agents.Name = "ListBox_agents";
-            this.ListBox_agents.Size = new System.Drawing.Size(257, 259);
-            this.ListBox_agents.TabIndex = 5;
+            this.Agents_btnSave.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Agents_btnSave.Location = new System.Drawing.Point(307, 105);
+            this.Agents_btnSave.Name = "Agents_btnSave";
+            this.Agents_btnSave.Size = new System.Drawing.Size(75, 37);
+            this.Agents_btnSave.TabIndex = 7;
+            this.Agents_btnSave.Text = "حفظ";
+            this.Agents_btnSave.UseVisualStyleBackColor = true;
+            this.Agents_btnSave.Click += new System.EventHandler(this.Agents_btnSave_Click);
             // 
-            // label1
+            // Agents_txtAgentName
             // 
-            this.label1.AutoSize = true;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label1.Location = new System.Drawing.Point(389, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(140, 22);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "بيانات الوكيل الملاحي";
-            // 
-            // saveg
-            // 
-            this.saveg.FlatAppearance.BorderSize = 0;
-            this.saveg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveg.Image = ((System.Drawing.Image)(resources.GetObject("saveg.Image")));
-            this.saveg.Location = new System.Drawing.Point(701, 285);
-            this.saveg.Name = "saveg";
-            this.saveg.Size = new System.Drawing.Size(189, 45);
-            this.saveg.TabIndex = 2;
-            this.saveg.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.saveg.UseVisualStyleBackColor = true;
-            this.saveg.Click += new System.EventHandler(this.saveg_Click);
-            // 
-            // agentsBox
-            // 
-            this.agentsBox.Location = new System.Drawing.Point(681, 155);
-            this.agentsBox.Name = "agentsBox";
-            this.agentsBox.Size = new System.Drawing.Size(115, 22);
-            this.agentsBox.TabIndex = 1;
-            this.agentsBox.TextChanged += new System.EventHandler(this.agentsBox_TextChanged);
+            this.Agents_txtAgentName.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Agents_txtAgentName.Location = new System.Drawing.Point(205, 59);
+            this.Agents_txtAgentName.Name = "Agents_txtAgentName";
+            this.Agents_txtAgentName.Size = new System.Drawing.Size(177, 30);
+            this.Agents_txtAgentName.TabIndex = 1;
             // 
             // agentlabel
             // 
             this.agentlabel.AutoSize = true;
             this.agentlabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.agentlabel.Location = new System.Drawing.Point(851, 155);
+            this.agentlabel.Location = new System.Drawing.Point(382, 62);
             this.agentlabel.Name = "agentlabel";
             this.agentlabel.Size = new System.Drawing.Size(100, 22);
             this.agentlabel.TabIndex = 0;
             this.agentlabel.Text = "الوكيل الملاحي";
+            // 
+            // Agents_lstAgents
+            // 
+            this.Agents_lstAgents.FormattingEnabled = true;
+            this.Agents_lstAgents.ItemHeight = 15;
+            this.Agents_lstAgents.Location = new System.Drawing.Point(6, 57);
+            this.Agents_lstAgents.Name = "Agents_lstAgents";
+            this.Agents_lstAgents.Size = new System.Drawing.Size(180, 439);
+            this.Agents_lstAgents.TabIndex = 5;
+            // 
+            // Agents_btnEdit
+            // 
+            this.Agents_btnEdit.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Agents_btnEdit.Location = new System.Drawing.Point(205, 164);
+            this.Agents_btnEdit.Name = "Agents_btnEdit";
+            this.Agents_btnEdit.Size = new System.Drawing.Size(177, 34);
+            this.Agents_btnEdit.TabIndex = 6;
+            this.Agents_btnEdit.Text = "تعديل اسم الوكيل الملاحى";
+            this.Agents_btnEdit.UseVisualStyleBackColor = true;
+            this.Agents_btnEdit.Click += new System.EventHandler(this.Agents_btnEdit_Click);
+            // 
+            // Agents_btnDelete
+            // 
+            this.Agents_btnDelete.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Agents_btnDelete.Location = new System.Drawing.Point(205, 205);
+            this.Agents_btnDelete.Name = "Agents_btnDelete";
+            this.Agents_btnDelete.Size = new System.Drawing.Size(177, 37);
+            this.Agents_btnDelete.TabIndex = 6;
+            this.Agents_btnDelete.Text = "حذف الوكيل الملاحى";
+            this.Agents_btnDelete.UseVisualStyleBackColor = true;
+            this.Agents_btnDelete.Click += new System.EventHandler(this.Agents_btnDelete_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.Products_lstProducts);
+            this.groupBox1.Controls.Add(this.Products_btnCancel);
+            this.groupBox1.Controls.Add(this.Products_btnSave);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.Products_btnDelete);
+            this.groupBox1.Controls.Add(this.Products_btnEdit);
+            this.groupBox1.Controls.Add(this.Products_txtProductName);
+            this.groupBox1.Location = new System.Drawing.Point(8, 55);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(479, 618);
+            this.groupBox1.TabIndex = 24;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "الأصناف";
+            // 
+            // Products_lstProducts
+            // 
+            this.Products_lstProducts.FormattingEnabled = true;
+            this.Products_lstProducts.ItemHeight = 15;
+            this.Products_lstProducts.Location = new System.Drawing.Point(10, 62);
+            this.Products_lstProducts.Name = "Products_lstProducts";
+            this.Products_lstProducts.Size = new System.Drawing.Size(176, 529);
+            this.Products_lstProducts.TabIndex = 27;
+            // 
+            // Products_btnCancel
+            // 
+            this.Products_btnCancel.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Products_btnCancel.Location = new System.Drawing.Point(205, 105);
+            this.Products_btnCancel.Name = "Products_btnCancel";
+            this.Products_btnCancel.Size = new System.Drawing.Size(75, 35);
+            this.Products_btnCancel.TabIndex = 26;
+            this.Products_btnCancel.Text = "إلغاء";
+            this.Products_btnCancel.UseVisualStyleBackColor = true;
+            this.Products_btnCancel.Click += new System.EventHandler(this.Products_btnCancel_Click);
+            // 
+            // Products_btnSave
+            // 
+            this.Products_btnSave.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Products_btnSave.Location = new System.Drawing.Point(313, 105);
+            this.Products_btnSave.Name = "Products_btnSave";
+            this.Products_btnSave.Size = new System.Drawing.Size(75, 35);
+            this.Products_btnSave.TabIndex = 25;
+            this.Products_btnSave.Text = "حفظ";
+            this.Products_btnSave.UseVisualStyleBackColor = true;
+            this.Products_btnSave.Click += new System.EventHandler(this.Products_btnSave_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label2.Location = new System.Drawing.Point(49, 33);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(101, 23);
+            this.label2.TabIndex = 24;
+            this.label2.Text = "قائمة الأصناف";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label12.Location = new System.Drawing.Point(394, 62);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(82, 23);
+            this.label12.TabIndex = 20;
+            this.label12.Text = "اسم الصنف";
+            // 
+            // Products_btnDelete
+            // 
+            this.Products_btnDelete.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Products_btnDelete.Location = new System.Drawing.Point(205, 204);
+            this.Products_btnDelete.Name = "Products_btnDelete";
+            this.Products_btnDelete.Size = new System.Drawing.Size(183, 38);
+            this.Products_btnDelete.TabIndex = 22;
+            this.Products_btnDelete.Text = "حذف الصنف";
+            this.Products_btnDelete.UseVisualStyleBackColor = true;
+            this.Products_btnDelete.Click += new System.EventHandler(this.Products_btnDelete_Click);
+            // 
+            // Products_btnEdit
+            // 
+            this.Products_btnEdit.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Products_btnEdit.Location = new System.Drawing.Point(205, 160);
+            this.Products_btnEdit.Name = "Products_btnEdit";
+            this.Products_btnEdit.Size = new System.Drawing.Size(183, 38);
+            this.Products_btnEdit.TabIndex = 21;
+            this.Products_btnEdit.Text = "تعديل اسم الصنف";
+            this.Products_btnEdit.UseVisualStyleBackColor = true;
+            this.Products_btnEdit.Click += new System.EventHandler(this.Products_btnEdit_Click);
+            // 
+            // Products_txtProductName
+            // 
+            this.Products_txtProductName.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Products_txtProductName.Location = new System.Drawing.Point(205, 59);
+            this.Products_txtProductName.Name = "Products_txtProductName";
+            this.Products_txtProductName.Size = new System.Drawing.Size(183, 30);
+            this.Products_txtProductName.TabIndex = 18;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label1.Location = new System.Drawing.Point(342, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(388, 31);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "بيانات  الوكلاء الملاحيين و أصناف البضائع";
             // 
             // shipsTab
             // 
@@ -866,7 +727,6 @@
             this.AddShip_Typecmb.Name = "AddShip_Typecmb";
             this.AddShip_Typecmb.Size = new System.Drawing.Size(269, 27);
             this.AddShip_Typecmb.TabIndex = 10;
-            this.AddShip_Typecmb.SelectedIndexChanged += new System.EventHandler(this.AddShip_Typecmb_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -885,7 +745,6 @@
             this.AddShip_Imotxt.Name = "AddShip_Imotxt";
             this.AddShip_Imotxt.Size = new System.Drawing.Size(269, 26);
             this.AddShip_Imotxt.TabIndex = 8;
-            this.AddShip_Imotxt.TextChanged += new System.EventHandler(this.AddShip_Imotxt_TextChanged);
             // 
             // label9
             // 
@@ -913,7 +772,6 @@
             this.AddShip_Nametxt.Name = "AddShip_Nametxt";
             this.AddShip_Nametxt.Size = new System.Drawing.Size(269, 26);
             this.AddShip_Nametxt.TabIndex = 8;
-            this.AddShip_Nametxt.TextChanged += new System.EventHandler(this.AddShip_Nametxt_TextChanged);
             // 
             // addship
             // 
@@ -946,8 +804,6 @@
             this.ShipsGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ShipsGridView.Size = new System.Drawing.Size(538, 462);
             this.ShipsGridView.TabIndex = 7;
-            this.ShipsGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ShipsGridView_CellContentClick);
-            this.ShipsGridView.CurrentCellChanged += new System.EventHandler(this.ShipsGridView_CurrentCellChanged);
             // 
             // label18
             // 
@@ -1524,9 +1380,7 @@
             this.triptabControl.Controls.Add(this.addingTripTab);
             this.triptabControl.Controls.Add(this.shipsTab);
             this.triptabControl.Controls.Add(this.agentsTab);
-            this.triptabControl.Controls.Add(this.goodsTab);
             this.triptabControl.Controls.Add(this.portTab);
-            this.triptabControl.Controls.Add(this.platformTab);
             this.triptabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.triptabControl.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.triptabControl.Location = new System.Drawing.Point(0, 0);
@@ -1536,7 +1390,6 @@
             this.triptabControl.SelectedIndex = 0;
             this.triptabControl.Size = new System.Drawing.Size(1004, 712);
             this.triptabControl.TabIndex = 0;
-            this.triptabControl.SelectedIndexChanged += new System.EventHandler(this.triptabControl_SelectedIndexChanged);
             // 
             // MainScreen
             // 
@@ -1553,17 +1406,15 @@
             this.Text = "نظام ادارة السفن";
             this.Load += new System.EventHandler(this.MainScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).EndInit();
-            this.platformTab.ResumeLayout(false);
-            this.platformTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PlatformTab_DGVPlatforms)).EndInit();
             this.portTab.ResumeLayout(false);
             this.portTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.goodsTab.ResumeLayout(false);
-            this.goodsTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ProductsTab_ProductsDGV)).EndInit();
             this.agentsTab.ResumeLayout(false);
             this.agentsTab.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.shipsTab.ResumeLayout(false);
             this.shipsTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShipsGridView)).EndInit();
@@ -1607,13 +1458,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Type;
         private System.Windows.Forms.DataGridViewTextBoxColumn IOM;
         private System.Windows.Forms.DataGridViewTextBoxColumn n;
-        private System.Windows.Forms.TabPage platformTab;
-        private System.Windows.Forms.DataGridView PlatformTab_DGVPlatforms;
-        private System.Windows.Forms.Button savebutpl;
-        private System.Windows.Forms.ComboBox PlatformTab_cmbPort;
-        private System.Windows.Forms.TextBox PlatformTab_txtName;
-        private System.Windows.Forms.Label nameplatform1;
-        private System.Windows.Forms.Label platformlab;
         private System.Windows.Forms.TabPage portTab;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameport;
@@ -1622,19 +1466,8 @@
         private System.Windows.Forms.Button saveport;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label portname;
-        private System.Windows.Forms.TabPage goodsTab;
-        private System.Windows.Forms.DataGridView ProductsTab_ProductsDGV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gooname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn qaun;
-        private System.Windows.Forms.DataGridViewButtonColumn edit4;
-        private System.Windows.Forms.DataGridViewButtonColumn del3;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox productBox6;
-        private System.Windows.Forms.Button savepro;
         private System.Windows.Forms.TabPage agentsTab;
-        private System.Windows.Forms.Button saveg;
-        private System.Windows.Forms.TextBox agentsBox;
+        private System.Windows.Forms.TextBox Agents_txtAgentName;
         private System.Windows.Forms.Label agentlabel;
         private System.Windows.Forms.TabPage shipsTab;
         private System.Windows.Forms.Label type_ship;
@@ -1705,25 +1538,28 @@
         private System.Windows.Forms.Button searchbu;
         private System.Windows.Forms.Label searchlab;
         private System.Windows.Forms.TabControl triptabControl;
-        private System.Windows.Forms.DataGridViewTextBoxColumn portno;
-        private System.Windows.Forms.DataGridViewTextBoxColumn platname;
-        private System.Windows.Forms.DataGridViewButtonColumn edit6;
-        private System.Windows.Forms.DataGridViewButtonColumn del6;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button ShipsTab_btnDelete;
         private System.Windows.Forms.Button ShipsTab_btnEdit;
         private System.Windows.Forms.DateTimePicker AddTrip_dtpDate;
         private System.Windows.Forms.NumericUpDown AddTrip_nudProductQuantity;
-        private System.Windows.Forms.ListBox ListBox_agents;
-        private System.Windows.Forms.Button Edit_agent;
-        private System.Windows.Forms.Button Del_agent;
-        private System.Windows.Forms.ListView listView_Product;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ListBox Agents_lstAgents;
+        private System.Windows.Forms.Button Agents_btnEdit;
+        private System.Windows.Forms.Button Agents_btnDelete;
         private System.Windows.Forms.Button AddShip_cancelbtn;
         private System.Windows.Forms.Button AddShip_Savebtn;
+        private System.Windows.Forms.Button Products_btnDelete;
+        private System.Windows.Forms.Button Products_btnEdit;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox Products_txtProductName;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button Products_btnCancel;
+        private System.Windows.Forms.Button Products_btnSave;
+        private System.Windows.Forms.ListBox Products_lstProducts;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button Agents_btnSave;
+        private System.Windows.Forms.Button Agents_btnCancel;
     }
 }
