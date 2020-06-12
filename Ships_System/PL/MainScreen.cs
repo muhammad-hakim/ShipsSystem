@@ -45,6 +45,7 @@ namespace Ships_System.PL
             ShipsGridView.Columns[0].Visible = false;
             ShipsGridView.Columns[1].HeaderText = "اسم السفينة";
             ShipsGridView.Columns[3].HeaderText = "نوع السفينة";
+            ShipsGridView.Columns[1].Width = ShipsGridView.Columns[2].Width = ShipsGridView.Columns[3].Width = 165;
         }
 
         void FillAgentGridView()
@@ -90,6 +91,9 @@ namespace Ships_System.PL
             {
                 FillShipsGridView();
                 FillAddTripCmbShips();
+                AddShip_Imotxt.Clear();
+                AddShip_Nametxt.Clear();
+                AddShip_Typecmb.SelectedIndex = 0;
                 MessageBox.Show("تم الحفظ بنجاح", "تم الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
@@ -412,6 +416,18 @@ namespace Ships_System.PL
         private void Del_agent_Click(object sender, EventArgs e)
         {
            
+        }
+
+        private void ShipsGridView_CurrentCellChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void AddShip_cancelbtn_Click(object sender, EventArgs e)
+        {
+            AddShip_Imotxt.Clear();
+            AddShip_Nametxt.Clear();
+            AddShip_Typecmb.SelectedIndex = 0;
         }
     }
 }

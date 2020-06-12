@@ -74,6 +74,9 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.portname = new System.Windows.Forms.Label();
             this.goodsTab = new System.Windows.Forms.TabPage();
+            this.listView_Product = new System.Windows.Forms.ListView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.ProductsTab_ProductsDGV = new System.Windows.Forms.DataGridView();
             this.gooname = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -93,6 +96,8 @@
             this.agentsBox = new System.Windows.Forms.TextBox();
             this.agentlabel = new System.Windows.Forms.Label();
             this.shipsTab = new System.Windows.Forms.TabPage();
+            this.AddShip_cancelbtn = new System.Windows.Forms.Button();
+            this.AddShip_Savebtn = new System.Windows.Forms.Button();
             this.ShipsTab_btnDelete = new System.Windows.Forms.Button();
             this.ShipsTab_btnEdit = new System.Windows.Forms.Button();
             this.type_ship = new System.Windows.Forms.Label();
@@ -105,13 +110,13 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.AddShip_Nametxt = new System.Windows.Forms.TextBox();
-            this.AddShip_Savebtn = new System.Windows.Forms.Button();
             this.addship = new System.Windows.Forms.Button();
             this.ShipsGridView = new System.Windows.Forms.DataGridView();
             this.label18 = new System.Windows.Forms.Label();
             this.addingTripTab = new System.Windows.Forms.TabPage();
             this.AddTrip_dtpDate = new System.Windows.Forms.DateTimePicker();
             this.loadsgroup = new System.Windows.Forms.GroupBox();
+            this.AddTrip_nudProductQuantity = new System.Windows.Forms.NumericUpDown();
             this.AddTrip_lnkAddProduct = new System.Windows.Forms.LinkLabel();
             this.goodslab = new System.Windows.Forms.Label();
             this.AddTrip_CmbProducts = new System.Windows.Forms.ComboBox();
@@ -165,10 +170,6 @@
             this.searchbu = new System.Windows.Forms.Button();
             this.searchlab = new System.Windows.Forms.Label();
             this.triptabControl = new System.Windows.Forms.TabControl();
-            this.AddTrip_nudProductQuantity = new System.Windows.Forms.NumericUpDown();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.listView_Product = new System.Windows.Forms.ListView();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
             this.platformTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PlatformTab_DGVPlatforms)).BeginInit();
@@ -181,12 +182,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.ShipsGridView)).BeginInit();
             this.addingTripTab.SuspendLayout();
             this.loadsgroup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AddTrip_nudProductQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AddTrip_DGVProducts)).BeginInit();
             this.tripsTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel4.SuspendLayout();
             this.triptabControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.AddTrip_nudProductQuantity)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuImageButton2
@@ -540,6 +541,33 @@
             this.goodsTab.TabIndex = 4;
             this.goodsTab.Text = "البضائع";
             // 
+            // listView_Product
+            // 
+            this.listView_Product.HideSelection = false;
+            this.listView_Product.Location = new System.Drawing.Point(340, 163);
+            this.listView_Product.Name = "listView_Product";
+            this.listView_Product.Size = new System.Drawing.Size(271, 303);
+            this.listView_Product.TabIndex = 16;
+            this.listView_Product.UseCompatibleStateImageBehavior = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(704, 391);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(119, 23);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "حذف البضاعة";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(704, 319);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(119, 23);
+            this.button2.TabIndex = 14;
+            this.button2.Text = "تعديل بيانات البضاعة";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -667,7 +695,7 @@
             // 
             this.ListBox_agents.FormattingEnabled = true;
             this.ListBox_agents.ItemHeight = 15;
-            this.ListBox_agents.Location = new System.Drawing.Point(286, 130);
+            this.ListBox_agents.Location = new System.Drawing.Point(294, 80);
             this.ListBox_agents.Name = "ListBox_agents";
             this.ListBox_agents.Size = new System.Drawing.Size(257, 259);
             this.ListBox_agents.TabIndex = 5;
@@ -677,7 +705,7 @@
             this.label1.AutoSize = true;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label1.Location = new System.Drawing.Point(458, 26);
+            this.label1.Location = new System.Drawing.Point(389, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(140, 22);
             this.label1.TabIndex = 4;
@@ -717,6 +745,8 @@
             // shipsTab
             // 
             this.shipsTab.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.shipsTab.Controls.Add(this.AddShip_cancelbtn);
+            this.shipsTab.Controls.Add(this.AddShip_Savebtn);
             this.shipsTab.Controls.Add(this.ShipsTab_btnDelete);
             this.shipsTab.Controls.Add(this.ShipsTab_btnEdit);
             this.shipsTab.Controls.Add(this.type_ship);
@@ -729,7 +759,6 @@
             this.shipsTab.Controls.Add(this.label9);
             this.shipsTab.Controls.Add(this.label4);
             this.shipsTab.Controls.Add(this.AddShip_Nametxt);
-            this.shipsTab.Controls.Add(this.AddShip_Savebtn);
             this.shipsTab.Controls.Add(this.addship);
             this.shipsTab.Controls.Add(this.ShipsGridView);
             this.shipsTab.Controls.Add(this.label18);
@@ -739,11 +768,34 @@
             this.shipsTab.TabIndex = 2;
             this.shipsTab.Text = "السفن";
             // 
+            // AddShip_cancelbtn
+            // 
+            this.AddShip_cancelbtn.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.AddShip_cancelbtn.Location = new System.Drawing.Point(698, 265);
+            this.AddShip_cancelbtn.Name = "AddShip_cancelbtn";
+            this.AddShip_cancelbtn.Size = new System.Drawing.Size(75, 35);
+            this.AddShip_cancelbtn.TabIndex = 15;
+            this.AddShip_cancelbtn.Text = "إلغاء";
+            this.AddShip_cancelbtn.UseVisualStyleBackColor = true;
+            this.AddShip_cancelbtn.Click += new System.EventHandler(this.AddShip_cancelbtn_Click);
+            // 
+            // AddShip_Savebtn
+            // 
+            this.AddShip_Savebtn.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.AddShip_Savebtn.Location = new System.Drawing.Point(779, 265);
+            this.AddShip_Savebtn.Name = "AddShip_Savebtn";
+            this.AddShip_Savebtn.Size = new System.Drawing.Size(75, 35);
+            this.AddShip_Savebtn.TabIndex = 14;
+            this.AddShip_Savebtn.Text = "حفظ";
+            this.AddShip_Savebtn.UseVisualStyleBackColor = true;
+            this.AddShip_Savebtn.Click += new System.EventHandler(this.AddShip_Savebtn_Click);
+            // 
             // ShipsTab_btnDelete
             // 
-            this.ShipsTab_btnDelete.Location = new System.Drawing.Point(130, 74);
+            this.ShipsTab_btnDelete.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.ShipsTab_btnDelete.Location = new System.Drawing.Point(129, 72);
             this.ShipsTab_btnDelete.Name = "ShipsTab_btnDelete";
-            this.ShipsTab_btnDelete.Size = new System.Drawing.Size(119, 23);
+            this.ShipsTab_btnDelete.Size = new System.Drawing.Size(159, 39);
             this.ShipsTab_btnDelete.TabIndex = 13;
             this.ShipsTab_btnDelete.Text = "حذف السفينة";
             this.ShipsTab_btnDelete.UseVisualStyleBackColor = true;
@@ -751,9 +803,10 @@
             // 
             // ShipsTab_btnEdit
             // 
-            this.ShipsTab_btnEdit.Location = new System.Drawing.Point(295, 75);
+            this.ShipsTab_btnEdit.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.ShipsTab_btnEdit.Location = new System.Drawing.Point(303, 72);
             this.ShipsTab_btnEdit.Name = "ShipsTab_btnEdit";
-            this.ShipsTab_btnEdit.Size = new System.Drawing.Size(119, 23);
+            this.ShipsTab_btnEdit.Size = new System.Drawing.Size(159, 39);
             this.ShipsTab_btnEdit.TabIndex = 12;
             this.ShipsTab_btnEdit.Text = "تعديل بيانات السفينة";
             this.ShipsTab_btnEdit.UseVisualStyleBackColor = true;
@@ -762,30 +815,30 @@
             // type_ship
             // 
             this.type_ship.AutoSize = true;
-            this.type_ship.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 10F);
-            this.type_ship.Location = new System.Drawing.Point(878, 292);
+            this.type_ship.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.type_ship.Location = new System.Drawing.Point(903, 229);
             this.type_ship.Name = "type_ship";
-            this.type_ship.Size = new System.Drawing.Size(59, 19);
+            this.type_ship.Size = new System.Drawing.Size(73, 16);
             this.type_ship.TabIndex = 11;
             this.type_ship.Text = "نوع السفينة";
             // 
             // imo
             // 
             this.imo.AutoSize = true;
-            this.imo.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.imo.Location = new System.Drawing.Point(889, 210);
+            this.imo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.imo.Location = new System.Drawing.Point(905, 177);
             this.imo.Name = "imo";
-            this.imo.Size = new System.Drawing.Size(37, 19);
+            this.imo.Size = new System.Drawing.Size(35, 16);
             this.imo.TabIndex = 11;
             this.imo.Text = "IMO";
             // 
             // ship_name
             // 
             this.ship_name.AutoSize = true;
-            this.ship_name.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 10F);
-            this.ship_name.Location = new System.Drawing.Point(868, 131);
+            this.ship_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ship_name.Location = new System.Drawing.Point(904, 124);
             this.ship_name.Name = "ship_name";
-            this.ship_name.Size = new System.Drawing.Size(58, 19);
+            this.ship_name.Size = new System.Drawing.Size(72, 16);
             this.ship_name.TabIndex = 11;
             this.ship_name.Text = "اسم السفينة";
             // 
@@ -799,7 +852,9 @@
             // 
             // AddShip_Typecmb
             // 
+            this.AddShip_Typecmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.AddShip_Typecmb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddShip_Typecmb.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.AddShip_Typecmb.FormattingEnabled = true;
             this.AddShip_Typecmb.Items.AddRange(new object[] {
             "غذائية",
@@ -807,9 +862,9 @@
             "دوائية",
             "بضائع عامة",
             "اخرى"});
-            this.AddShip_Typecmb.Location = new System.Drawing.Point(698, 289);
+            this.AddShip_Typecmb.Location = new System.Drawing.Point(630, 225);
             this.AddShip_Typecmb.Name = "AddShip_Typecmb";
-            this.AddShip_Typecmb.Size = new System.Drawing.Size(121, 23);
+            this.AddShip_Typecmb.Size = new System.Drawing.Size(269, 27);
             this.AddShip_Typecmb.TabIndex = 10;
             this.AddShip_Typecmb.SelectedIndexChanged += new System.EventHandler(this.AddShip_Typecmb_SelectedIndexChanged);
             // 
@@ -825,9 +880,10 @@
             // AddShip_Imotxt
             // 
             this.AddShip_Imotxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.AddShip_Imotxt.Location = new System.Drawing.Point(698, 209);
+            this.AddShip_Imotxt.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.AddShip_Imotxt.Location = new System.Drawing.Point(630, 173);
             this.AddShip_Imotxt.Name = "AddShip_Imotxt";
-            this.AddShip_Imotxt.Size = new System.Drawing.Size(121, 22);
+            this.AddShip_Imotxt.Size = new System.Drawing.Size(269, 26);
             this.AddShip_Imotxt.TabIndex = 8;
             this.AddShip_Imotxt.TextChanged += new System.EventHandler(this.AddShip_Imotxt_TextChanged);
             // 
@@ -852,37 +908,25 @@
             // AddShip_Nametxt
             // 
             this.AddShip_Nametxt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.AddShip_Nametxt.Location = new System.Drawing.Point(698, 131);
+            this.AddShip_Nametxt.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.AddShip_Nametxt.Location = new System.Drawing.Point(630, 119);
             this.AddShip_Nametxt.Name = "AddShip_Nametxt";
-            this.AddShip_Nametxt.Size = new System.Drawing.Size(121, 22);
+            this.AddShip_Nametxt.Size = new System.Drawing.Size(269, 26);
             this.AddShip_Nametxt.TabIndex = 8;
             this.AddShip_Nametxt.TextChanged += new System.EventHandler(this.AddShip_Nametxt_TextChanged);
-            // 
-            // AddShip_Savebtn
-            // 
-            this.AddShip_Savebtn.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.AddShip_Savebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddShip_Savebtn.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.AddShip_Savebtn.Image = ((System.Drawing.Image)(resources.GetObject("AddShip_Savebtn.Image")));
-            this.AddShip_Savebtn.Location = new System.Drawing.Point(698, 422);
-            this.AddShip_Savebtn.Name = "AddShip_Savebtn";
-            this.AddShip_Savebtn.Size = new System.Drawing.Size(224, 53);
-            this.AddShip_Savebtn.TabIndex = 0;
-            this.AddShip_Savebtn.UseVisualStyleBackColor = true;
-            this.AddShip_Savebtn.Click += new System.EventHandler(this.AddShip_Savebtn_Click);
             // 
             // addship
             // 
             this.addship.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
             this.addship.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addship.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.addship.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.addship.Image = ((System.Drawing.Image)(resources.GetObject("addship.Image")));
             this.addship.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addship.Location = new System.Drawing.Point(269, 36);
+            this.addship.Location = new System.Drawing.Point(163, 11);
             this.addship.Name = "addship";
-            this.addship.Size = new System.Drawing.Size(195, 31);
+            this.addship.Size = new System.Drawing.Size(267, 46);
             this.addship.TabIndex = 0;
-            this.addship.Text = "اضافة سفينة جديدة";
+            this.addship.Text = "بيانات السفن";
             this.addship.UseVisualStyleBackColor = true;
             // 
             // ShipsGridView
@@ -893,22 +937,23 @@
             this.ShipsGridView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ShipsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ShipsGridView.GridColor = System.Drawing.SystemColors.Info;
-            this.ShipsGridView.Location = new System.Drawing.Point(67, 119);
+            this.ShipsGridView.Location = new System.Drawing.Point(45, 119);
             this.ShipsGridView.MultiSelect = false;
             this.ShipsGridView.Name = "ShipsGridView";
             this.ShipsGridView.ReadOnly = true;
             this.ShipsGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ShipsGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.ShipsGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.ShipsGridView.Size = new System.Drawing.Size(545, 462);
+            this.ShipsGridView.Size = new System.Drawing.Size(538, 462);
             this.ShipsGridView.TabIndex = 7;
             this.ShipsGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ShipsGridView_CellContentClick);
+            this.ShipsGridView.CurrentCellChanged += new System.EventHandler(this.ShipsGridView_CurrentCellChanged);
             // 
             // label18
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(374, 11);
+            this.label18.Location = new System.Drawing.Point(312, 11);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(0, 22);
             this.label18.TabIndex = 4;
@@ -969,6 +1014,28 @@
             this.loadsgroup.TabIndex = 39;
             this.loadsgroup.TabStop = false;
             this.loadsgroup.Text = "حمولة السفينة";
+            // 
+            // AddTrip_nudProductQuantity
+            // 
+            this.AddTrip_nudProductQuantity.Location = new System.Drawing.Point(252, 28);
+            this.AddTrip_nudProductQuantity.Maximum = new decimal(new int[] {
+            1661992960,
+            1808227885,
+            5,
+            0});
+            this.AddTrip_nudProductQuantity.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.AddTrip_nudProductQuantity.Name = "AddTrip_nudProductQuantity";
+            this.AddTrip_nudProductQuantity.Size = new System.Drawing.Size(120, 22);
+            this.AddTrip_nudProductQuantity.TabIndex = 41;
+            this.AddTrip_nudProductQuantity.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // AddTrip_lnkAddProduct
             // 
@@ -1471,55 +1538,6 @@
             this.triptabControl.TabIndex = 0;
             this.triptabControl.SelectedIndexChanged += new System.EventHandler(this.triptabControl_SelectedIndexChanged);
             // 
-            // AddTrip_nudProductQuantity
-            // 
-            this.AddTrip_nudProductQuantity.Location = new System.Drawing.Point(252, 28);
-            this.AddTrip_nudProductQuantity.Maximum = new decimal(new int[] {
-            1661992960,
-            1808227885,
-            5,
-            0});
-            this.AddTrip_nudProductQuantity.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.AddTrip_nudProductQuantity.Name = "AddTrip_nudProductQuantity";
-            this.AddTrip_nudProductQuantity.Size = new System.Drawing.Size(120, 22);
-            this.AddTrip_nudProductQuantity.TabIndex = 41;
-            this.AddTrip_nudProductQuantity.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(704, 391);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 23);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "حذف البضاعة";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(704, 319);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(119, 23);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "تعديل بيانات البضاعة";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // listView_Product
-            // 
-            this.listView_Product.HideSelection = false;
-            this.listView_Product.Location = new System.Drawing.Point(340, 163);
-            this.listView_Product.Name = "listView_Product";
-            this.listView_Product.Size = new System.Drawing.Size(271, 303);
-            this.listView_Product.TabIndex = 16;
-            this.listView_Product.UseCompatibleStateImageBehavior = false;
-            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1533,7 +1551,6 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.Text = "نظام ادارة السفن";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).EndInit();
             this.platformTab.ResumeLayout(false);
@@ -1554,6 +1571,7 @@
             this.addingTripTab.PerformLayout();
             this.loadsgroup.ResumeLayout(false);
             this.loadsgroup.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AddTrip_nudProductQuantity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AddTrip_DGVProducts)).EndInit();
             this.tripsTab.ResumeLayout(false);
             this.tripsTab.PerformLayout();
@@ -1561,7 +1579,6 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.triptabControl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.AddTrip_nudProductQuantity)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1630,7 +1647,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox AddShip_Nametxt;
-        private System.Windows.Forms.Button AddShip_Savebtn;
         private System.Windows.Forms.Button addship;
         private System.Windows.Forms.DataGridView ShipsGridView;
         private System.Windows.Forms.Label label18;
@@ -1707,5 +1723,7 @@
         private System.Windows.Forms.ListView listView_Product;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button AddShip_cancelbtn;
+        private System.Windows.Forms.Button AddShip_Savebtn;
     }
 }
