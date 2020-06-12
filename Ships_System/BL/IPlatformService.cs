@@ -14,5 +14,6 @@ namespace Ships_System.BL
         Platform AddPlatform(Platform platform);
         Platform UpdatePlatform(Platform platform);
         bool DeletePlatform(int platformId);
+        List<Platform> GetByPortId(int portId);
     }
 }

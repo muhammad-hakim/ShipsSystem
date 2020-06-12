@@ -55,13 +55,13 @@
             this.platformTab = new System.Windows.Forms.TabPage();
             this.label6 = new System.Windows.Forms.Label();
             this.savebutpl = new System.Windows.Forms.Button();
-            this.platformGridView2 = new System.Windows.Forms.DataGridView();
+            this.PlatformTab_DGVPlatforms = new System.Windows.Forms.DataGridView();
             this.portno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.platname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.edit6 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.del6 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.portnum1 = new System.Windows.Forms.TextBox();
-            this.typeplatBox1 = new System.Windows.Forms.ComboBox();
+            this.PlatformTab_txtName = new System.Windows.Forms.TextBox();
+            this.PlatformTab_cmbPort = new System.Windows.Forms.ComboBox();
             this.nameplatform1 = new System.Windows.Forms.Label();
             this.platformlab = new System.Windows.Forms.Label();
             this.portTab = new System.Windows.Forms.TabPage();
@@ -75,7 +75,7 @@
             this.portname = new System.Windows.Forms.Label();
             this.goodsTab = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView5 = new System.Windows.Forms.DataGridView();
+            this.ProductsTab_ProductsDGV = new System.Windows.Forms.DataGridView();
             this.gooname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qaun = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.edit4 = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -112,32 +112,31 @@
             this.ShipsGridView = new System.Windows.Forms.DataGridView();
             this.label18 = new System.Windows.Forms.Label();
             this.addingTripTab = new System.Windows.Forms.TabPage();
+            this.AddTrip_dtpDate = new System.Windows.Forms.DateTimePicker();
             this.loadsgroup = new System.Windows.Forms.GroupBox();
-            this.linkgoods = new System.Windows.Forms.LinkLabel();
+            this.AddTrip_lnkAddProduct = new System.Windows.Forms.LinkLabel();
             this.goodslab = new System.Windows.Forms.Label();
-            this.goodBox = new System.Windows.Forms.ComboBox();
-            this.productGridView2 = new System.Windows.Forms.DataGridView();
+            this.AddTrip_CmbProducts = new System.Windows.Forms.ComboBox();
+            this.AddTrip_DGVProducts = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.quantitylabel = new System.Windows.Forms.Label();
-            this.quantitityBox = new System.Windows.Forms.TextBox();
-            this.addbutton = new System.Windows.Forms.Button();
-            this.notes = new System.Windows.Forms.TextBox();
-            this.savetrip = new System.Windows.Forms.Button();
+            this.AddTrip_btnAddProduct = new System.Windows.Forms.Button();
+            this.AddTrip_txtNotes = new System.Windows.Forms.TextBox();
+            this.AddTrip_btnSaveTrip = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.linkLabel5 = new System.Windows.Forms.LinkLabel();
-            this.linkplatform = new System.Windows.Forms.LinkLabel();
+            this.AddTrip_lnkAddPlatform = new System.Windows.Forms.LinkLabel();
             this.AddTrip_CmbShips = new System.Windows.Forms.ComboBox();
-            this.linkagent = new System.Windows.Forms.LinkLabel();
-            this.linkLship = new System.Windows.Forms.LinkLabel();
-            this.linkport = new System.Windows.Forms.LinkLabel();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.platformtxt = new System.Windows.Forms.ComboBox();
-            this.porttxt = new System.Windows.Forms.ComboBox();
-            this.statustxt = new System.Windows.Forms.ComboBox();
-            this.datetxt = new System.Windows.Forms.TextBox();
+            this.AddTrip_lnkAddAgent = new System.Windows.Forms.LinkLabel();
+            this.AddTrip_lnkAddShip = new System.Windows.Forms.LinkLabel();
+            this.AddTrip_lnkAddPort = new System.Windows.Forms.LinkLabel();
+            this.AddTrip_CmbAgents = new System.Windows.Forms.ComboBox();
+            this.AddTrip_CmbPlatforms = new System.Windows.Forms.ComboBox();
+            this.AddTrip_CmbPorts = new System.Windows.Forms.ComboBox();
+            this.AddTrip_CmbStatus = new System.Windows.Forms.ComboBox();
             this.portlab = new System.Windows.Forms.Label();
             this.agentlab = new System.Windows.Forms.Label();
             this.platlab = new System.Windows.Forms.Label();
@@ -168,24 +167,26 @@
             this.searchbu = new System.Windows.Forms.Button();
             this.searchlab = new System.Windows.Forms.Label();
             this.triptabControl = new System.Windows.Forms.TabControl();
+            this.AddTrip_nudProductQuantity = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
             this.platformTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.platformGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PlatformTab_DGVPlatforms)).BeginInit();
             this.portTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.goodsTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProductsTab_ProductsDGV)).BeginInit();
             this.agentsTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.agentsGridView4)).BeginInit();
             this.shipsTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShipsGridView)).BeginInit();
             this.addingTripTab.SuspendLayout();
             this.loadsgroup.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.productGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AddTrip_DGVProducts)).BeginInit();
             this.tripsTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel4.SuspendLayout();
             this.triptabControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AddTrip_nudProductQuantity)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuImageButton2
@@ -331,9 +332,9 @@
             this.platformTab.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.platformTab.Controls.Add(this.label6);
             this.platformTab.Controls.Add(this.savebutpl);
-            this.platformTab.Controls.Add(this.platformGridView2);
-            this.platformTab.Controls.Add(this.portnum1);
-            this.platformTab.Controls.Add(this.typeplatBox1);
+            this.platformTab.Controls.Add(this.PlatformTab_DGVPlatforms);
+            this.platformTab.Controls.Add(this.PlatformTab_txtName);
+            this.platformTab.Controls.Add(this.PlatformTab_cmbPort);
             this.platformTab.Controls.Add(this.nameplatform1);
             this.platformTab.Controls.Add(this.platformlab);
             this.platformTab.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
@@ -366,19 +367,19 @@
             this.savebutpl.UseVisualStyleBackColor = true;
             this.savebutpl.Click += new System.EventHandler(this.savebutpl_Click);
             // 
-            // platformGridView2
+            // PlatformTab_DGVPlatforms
             // 
-            this.platformGridView2.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.platformGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.platformGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PlatformTab_DGVPlatforms.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.PlatformTab_DGVPlatforms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.PlatformTab_DGVPlatforms.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.portno,
             this.platname,
             this.edit6,
             this.del6});
-            this.platformGridView2.Location = new System.Drawing.Point(113, 173);
-            this.platformGridView2.Name = "platformGridView2";
-            this.platformGridView2.Size = new System.Drawing.Size(446, 227);
-            this.platformGridView2.TabIndex = 1;
+            this.PlatformTab_DGVPlatforms.Location = new System.Drawing.Point(113, 173);
+            this.PlatformTab_DGVPlatforms.Name = "PlatformTab_DGVPlatforms";
+            this.PlatformTab_DGVPlatforms.Size = new System.Drawing.Size(446, 227);
+            this.PlatformTab_DGVPlatforms.TabIndex = 1;
             // 
             // portno
             // 
@@ -402,21 +403,21 @@
             this.del6.HeaderText = "حذف";
             this.del6.Name = "del6";
             // 
-            // portnum1
+            // PlatformTab_txtName
             // 
-            this.portnum1.Location = new System.Drawing.Point(689, 297);
-            this.portnum1.Name = "portnum1";
-            this.portnum1.Size = new System.Drawing.Size(121, 26);
-            this.portnum1.TabIndex = 1;
+            this.PlatformTab_txtName.Location = new System.Drawing.Point(689, 297);
+            this.PlatformTab_txtName.Name = "PlatformTab_txtName";
+            this.PlatformTab_txtName.Size = new System.Drawing.Size(121, 26);
+            this.PlatformTab_txtName.TabIndex = 1;
             // 
-            // typeplatBox1
+            // PlatformTab_cmbPort
             // 
-            this.typeplatBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.typeplatBox1.FormattingEnabled = true;
-            this.typeplatBox1.Location = new System.Drawing.Point(689, 170);
-            this.typeplatBox1.Name = "typeplatBox1";
-            this.typeplatBox1.Size = new System.Drawing.Size(121, 27);
-            this.typeplatBox1.TabIndex = 2;
+            this.PlatformTab_cmbPort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PlatformTab_cmbPort.FormattingEnabled = true;
+            this.PlatformTab_cmbPort.Location = new System.Drawing.Point(689, 170);
+            this.PlatformTab_cmbPort.Name = "PlatformTab_cmbPort";
+            this.PlatformTab_cmbPort.Size = new System.Drawing.Size(121, 27);
+            this.PlatformTab_cmbPort.TabIndex = 2;
             // 
             // nameplatform1
             // 
@@ -525,7 +526,7 @@
             // 
             this.goodsTab.BackColor = System.Drawing.Color.LightSteelBlue;
             this.goodsTab.Controls.Add(this.label2);
-            this.goodsTab.Controls.Add(this.dataGridView5);
+            this.goodsTab.Controls.Add(this.ProductsTab_ProductsDGV);
             this.goodsTab.Controls.Add(this.label13);
             this.goodsTab.Controls.Add(this.label12);
             this.goodsTab.Controls.Add(this.qauntitiyptBox7);
@@ -549,19 +550,19 @@
             this.label2.Text = "بيانات البضاعة المحمولة";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // dataGridView5
+            // ProductsTab_ProductsDGV
             // 
-            this.dataGridView5.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView5.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ProductsTab_ProductsDGV.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.ProductsTab_ProductsDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ProductsTab_ProductsDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.gooname,
             this.qaun,
             this.edit4,
             this.del3});
-            this.dataGridView5.Location = new System.Drawing.Point(123, 163);
-            this.dataGridView5.Name = "dataGridView5";
-            this.dataGridView5.Size = new System.Drawing.Size(445, 284);
-            this.dataGridView5.TabIndex = 3;
+            this.ProductsTab_ProductsDGV.Location = new System.Drawing.Point(123, 163);
+            this.ProductsTab_ProductsDGV.Name = "ProductsTab_ProductsDGV";
+            this.ProductsTab_ProductsDGV.Size = new System.Drawing.Size(445, 284);
+            this.ProductsTab_ProductsDGV.TabIndex = 3;
             // 
             // gooname
             // 
@@ -920,21 +921,21 @@
             // addingTripTab
             // 
             this.addingTripTab.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.addingTripTab.Controls.Add(this.AddTrip_dtpDate);
             this.addingTripTab.Controls.Add(this.loadsgroup);
-            this.addingTripTab.Controls.Add(this.notes);
-            this.addingTripTab.Controls.Add(this.savetrip);
+            this.addingTripTab.Controls.Add(this.AddTrip_txtNotes);
+            this.addingTripTab.Controls.Add(this.AddTrip_btnSaveTrip);
             this.addingTripTab.Controls.Add(this.linkLabel1);
             this.addingTripTab.Controls.Add(this.linkLabel5);
-            this.addingTripTab.Controls.Add(this.linkplatform);
+            this.addingTripTab.Controls.Add(this.AddTrip_lnkAddPlatform);
             this.addingTripTab.Controls.Add(this.AddTrip_CmbShips);
-            this.addingTripTab.Controls.Add(this.linkagent);
-            this.addingTripTab.Controls.Add(this.linkLship);
-            this.addingTripTab.Controls.Add(this.linkport);
-            this.addingTripTab.Controls.Add(this.comboBox2);
-            this.addingTripTab.Controls.Add(this.platformtxt);
-            this.addingTripTab.Controls.Add(this.porttxt);
-            this.addingTripTab.Controls.Add(this.statustxt);
-            this.addingTripTab.Controls.Add(this.datetxt);
+            this.addingTripTab.Controls.Add(this.AddTrip_lnkAddAgent);
+            this.addingTripTab.Controls.Add(this.AddTrip_lnkAddShip);
+            this.addingTripTab.Controls.Add(this.AddTrip_lnkAddPort);
+            this.addingTripTab.Controls.Add(this.AddTrip_CmbAgents);
+            this.addingTripTab.Controls.Add(this.AddTrip_CmbPlatforms);
+            this.addingTripTab.Controls.Add(this.AddTrip_CmbPorts);
+            this.addingTripTab.Controls.Add(this.AddTrip_CmbStatus);
             this.addingTripTab.Controls.Add(this.portlab);
             this.addingTripTab.Controls.Add(this.agentlab);
             this.addingTripTab.Controls.Add(this.platlab);
@@ -950,15 +951,23 @@
             this.addingTripTab.TabIndex = 1;
             this.addingTripTab.Text = "اضافة رحلة";
             // 
+            // AddTrip_dtpDate
+            // 
+            this.AddTrip_dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.AddTrip_dtpDate.Location = new System.Drawing.Point(174, 260);
+            this.AddTrip_dtpDate.Name = "AddTrip_dtpDate";
+            this.AddTrip_dtpDate.Size = new System.Drawing.Size(120, 22);
+            this.AddTrip_dtpDate.TabIndex = 40;
+            // 
             // loadsgroup
             // 
-            this.loadsgroup.Controls.Add(this.linkgoods);
+            this.loadsgroup.Controls.Add(this.AddTrip_nudProductQuantity);
+            this.loadsgroup.Controls.Add(this.AddTrip_lnkAddProduct);
             this.loadsgroup.Controls.Add(this.goodslab);
-            this.loadsgroup.Controls.Add(this.goodBox);
-            this.loadsgroup.Controls.Add(this.productGridView2);
+            this.loadsgroup.Controls.Add(this.AddTrip_CmbProducts);
+            this.loadsgroup.Controls.Add(this.AddTrip_DGVProducts);
             this.loadsgroup.Controls.Add(this.quantitylabel);
-            this.loadsgroup.Controls.Add(this.quantitityBox);
-            this.loadsgroup.Controls.Add(this.addbutton);
+            this.loadsgroup.Controls.Add(this.AddTrip_btnAddProduct);
             this.loadsgroup.Location = new System.Drawing.Point(60, 286);
             this.loadsgroup.Name = "loadsgroup";
             this.loadsgroup.Size = new System.Drawing.Size(695, 139);
@@ -966,15 +975,16 @@
             this.loadsgroup.TabStop = false;
             this.loadsgroup.Text = "حمولة السفينة";
             // 
-            // linkgoods
+            // AddTrip_lnkAddProduct
             // 
-            this.linkgoods.AutoSize = true;
-            this.linkgoods.Location = new System.Drawing.Point(94, 32);
-            this.linkgoods.Name = "linkgoods";
-            this.linkgoods.Size = new System.Drawing.Size(80, 15);
-            this.linkgoods.TabIndex = 38;
-            this.linkgoods.TabStop = true;
-            this.linkgoods.Text = "لاضافة منتج جديد";
+            this.AddTrip_lnkAddProduct.AutoSize = true;
+            this.AddTrip_lnkAddProduct.Location = new System.Drawing.Point(63, 32);
+            this.AddTrip_lnkAddProduct.Name = "AddTrip_lnkAddProduct";
+            this.AddTrip_lnkAddProduct.Size = new System.Drawing.Size(80, 15);
+            this.AddTrip_lnkAddProduct.TabIndex = 38;
+            this.AddTrip_lnkAddProduct.TabStop = true;
+            this.AddTrip_lnkAddProduct.Text = "لاضافة منتج جديد";
+            this.AddTrip_lnkAddProduct.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLship_LinkClicked);
             // 
             // goodslab
             // 
@@ -986,29 +996,29 @@
             this.goodslab.TabIndex = 16;
             this.goodslab.Text = "اسم المنتج";
             // 
-            // goodBox
+            // AddTrip_CmbProducts
             // 
-            this.goodBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.goodBox.FormattingEnabled = true;
-            this.goodBox.Location = new System.Drawing.Point(466, 29);
-            this.goodBox.Name = "goodBox";
-            this.goodBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.goodBox.Size = new System.Drawing.Size(121, 23);
-            this.goodBox.TabIndex = 30;
+            this.AddTrip_CmbProducts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddTrip_CmbProducts.FormattingEnabled = true;
+            this.AddTrip_CmbProducts.Location = new System.Drawing.Point(466, 29);
+            this.AddTrip_CmbProducts.Name = "AddTrip_CmbProducts";
+            this.AddTrip_CmbProducts.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.AddTrip_CmbProducts.Size = new System.Drawing.Size(121, 23);
+            this.AddTrip_CmbProducts.TabIndex = 30;
             // 
-            // productGridView2
+            // AddTrip_DGVProducts
             // 
-            this.productGridView2.AllowUserToOrderColumns = true;
-            this.productGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.productGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.AddTrip_DGVProducts.AllowUserToOrderColumns = true;
+            this.AddTrip_DGVProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.AddTrip_DGVProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4});
-            this.productGridView2.Location = new System.Drawing.Point(198, 68);
-            this.productGridView2.Name = "productGridView2";
-            this.productGridView2.Size = new System.Drawing.Size(411, 46);
-            this.productGridView2.TabIndex = 37;
+            this.AddTrip_DGVProducts.Location = new System.Drawing.Point(198, 68);
+            this.AddTrip_DGVProducts.Name = "AddTrip_DGVProducts";
+            this.AddTrip_DGVProducts.Size = new System.Drawing.Size(411, 46);
+            this.AddTrip_DGVProducts.TabIndex = 37;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1049,42 +1059,36 @@
             this.quantitylabel.TabIndex = 14;
             this.quantitylabel.Text = "الكمية";
             // 
-            // quantitityBox
+            // AddTrip_btnAddProduct
             // 
-            this.quantitityBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.quantitityBox.Location = new System.Drawing.Point(250, 30);
-            this.quantitityBox.Name = "quantitityBox";
-            this.quantitityBox.Size = new System.Drawing.Size(121, 22);
-            this.quantitityBox.TabIndex = 26;
+            this.AddTrip_btnAddProduct.Location = new System.Drawing.Point(169, 28);
+            this.AddTrip_btnAddProduct.Name = "AddTrip_btnAddProduct";
+            this.AddTrip_btnAddProduct.Size = new System.Drawing.Size(75, 21);
+            this.AddTrip_btnAddProduct.TabIndex = 36;
+            this.AddTrip_btnAddProduct.Text = "إضافة حمولة";
+            this.AddTrip_btnAddProduct.UseVisualStyleBackColor = true;
+            this.AddTrip_btnAddProduct.Click += new System.EventHandler(this.AddTrip_btnAddProduct_Click);
             // 
-            // addbutton
+            // AddTrip_txtNotes
             // 
-            this.addbutton.Location = new System.Drawing.Point(198, 28);
-            this.addbutton.Name = "addbutton";
-            this.addbutton.Size = new System.Drawing.Size(46, 21);
-            this.addbutton.TabIndex = 36;
-            this.addbutton.Text = "اضافة";
-            this.addbutton.UseVisualStyleBackColor = true;
+            this.AddTrip_txtNotes.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.AddTrip_txtNotes.Location = new System.Drawing.Point(505, 444);
+            this.AddTrip_txtNotes.Multiline = true;
+            this.AddTrip_txtNotes.Name = "AddTrip_txtNotes";
+            this.AddTrip_txtNotes.Size = new System.Drawing.Size(189, 109);
+            this.AddTrip_txtNotes.TabIndex = 38;
             // 
-            // notes
+            // AddTrip_btnSaveTrip
             // 
-            this.notes.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.notes.Location = new System.Drawing.Point(505, 444);
-            this.notes.Multiline = true;
-            this.notes.Name = "notes";
-            this.notes.Size = new System.Drawing.Size(189, 109);
-            this.notes.TabIndex = 38;
-            // 
-            // savetrip
-            // 
-            this.savetrip.FlatAppearance.BorderSize = 0;
-            this.savetrip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.savetrip.Image = ((System.Drawing.Image)(resources.GetObject("savetrip.Image")));
-            this.savetrip.Location = new System.Drawing.Point(312, 602);
-            this.savetrip.Name = "savetrip";
-            this.savetrip.Size = new System.Drawing.Size(147, 54);
-            this.savetrip.TabIndex = 36;
-            this.savetrip.UseVisualStyleBackColor = true;
+            this.AddTrip_btnSaveTrip.FlatAppearance.BorderSize = 0;
+            this.AddTrip_btnSaveTrip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddTrip_btnSaveTrip.Image = ((System.Drawing.Image)(resources.GetObject("AddTrip_btnSaveTrip.Image")));
+            this.AddTrip_btnSaveTrip.Location = new System.Drawing.Point(312, 602);
+            this.AddTrip_btnSaveTrip.Name = "AddTrip_btnSaveTrip";
+            this.AddTrip_btnSaveTrip.Size = new System.Drawing.Size(147, 54);
+            this.AddTrip_btnSaveTrip.TabIndex = 36;
+            this.AddTrip_btnSaveTrip.UseVisualStyleBackColor = true;
+            this.AddTrip_btnSaveTrip.Click += new System.EventHandler(this.AddTrip_btnSaveTrip_Click);
             // 
             // linkLabel1
             // 
@@ -1106,15 +1110,16 @@
             this.linkLabel5.TabStop = true;
             this.linkLabel5.Text = "لاضافة وكيل جديد";
             // 
-            // linkplatform
+            // AddTrip_lnkAddPlatform
             // 
-            this.linkplatform.AutoSize = true;
-            this.linkplatform.Location = new System.Drawing.Point(60, 198);
-            this.linkplatform.Name = "linkplatform";
-            this.linkplatform.Size = new System.Drawing.Size(90, 15);
-            this.linkplatform.TabIndex = 34;
-            this.linkplatform.TabStop = true;
-            this.linkplatform.Text = "لاضافة رصيف جديد";
+            this.AddTrip_lnkAddPlatform.AutoSize = true;
+            this.AddTrip_lnkAddPlatform.Location = new System.Drawing.Point(60, 198);
+            this.AddTrip_lnkAddPlatform.Name = "AddTrip_lnkAddPlatform";
+            this.AddTrip_lnkAddPlatform.Size = new System.Drawing.Size(90, 15);
+            this.AddTrip_lnkAddPlatform.TabIndex = 34;
+            this.AddTrip_lnkAddPlatform.TabStop = true;
+            this.AddTrip_lnkAddPlatform.Text = "لاضافة رصيف جديد";
+            this.AddTrip_lnkAddPlatform.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.AddTrip_lnkAddPlatform_LinkClicked);
             // 
             // AddTrip_CmbShips
             // 
@@ -1127,89 +1132,84 @@
             this.AddTrip_CmbShips.Size = new System.Drawing.Size(121, 23);
             this.AddTrip_CmbShips.TabIndex = 32;
             // 
-            // linkagent
+            // AddTrip_lnkAddAgent
             // 
-            this.linkagent.AutoSize = true;
-            this.linkagent.Location = new System.Drawing.Point(69, 144);
-            this.linkagent.Name = "linkagent";
-            this.linkagent.Size = new System.Drawing.Size(81, 15);
-            this.linkagent.TabIndex = 33;
-            this.linkagent.TabStop = true;
-            this.linkagent.Text = "لاضافة وكيل جديد";
+            this.AddTrip_lnkAddAgent.AutoSize = true;
+            this.AddTrip_lnkAddAgent.Location = new System.Drawing.Point(69, 144);
+            this.AddTrip_lnkAddAgent.Name = "AddTrip_lnkAddAgent";
+            this.AddTrip_lnkAddAgent.Size = new System.Drawing.Size(81, 15);
+            this.AddTrip_lnkAddAgent.TabIndex = 33;
+            this.AddTrip_lnkAddAgent.TabStop = true;
+            this.AddTrip_lnkAddAgent.Text = "لاضافة وكيل جديد";
+            this.AddTrip_lnkAddAgent.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLship_LinkClicked);
             // 
-            // linkLship
+            // AddTrip_lnkAddShip
             // 
-            this.linkLship.AutoSize = true;
-            this.linkLship.Location = new System.Drawing.Point(408, 141);
-            this.linkLship.Name = "linkLship";
-            this.linkLship.Size = new System.Drawing.Size(89, 15);
-            this.linkLship.TabIndex = 33;
-            this.linkLship.TabStop = true;
-            this.linkLship.Text = "لاضافة سفينة جديدة";
-            this.linkLship.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLship_LinkClicked);
+            this.AddTrip_lnkAddShip.AutoSize = true;
+            this.AddTrip_lnkAddShip.Location = new System.Drawing.Point(408, 141);
+            this.AddTrip_lnkAddShip.Name = "AddTrip_lnkAddShip";
+            this.AddTrip_lnkAddShip.Size = new System.Drawing.Size(89, 15);
+            this.AddTrip_lnkAddShip.TabIndex = 33;
+            this.AddTrip_lnkAddShip.TabStop = true;
+            this.AddTrip_lnkAddShip.Text = "لاضافة سفينة جديدة";
+            this.AddTrip_lnkAddShip.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLship_LinkClicked);
             // 
-            // linkport
+            // AddTrip_lnkAddPort
             // 
-            this.linkport.AutoSize = true;
-            this.linkport.Location = new System.Drawing.Point(423, 195);
-            this.linkport.Name = "linkport";
-            this.linkport.Size = new System.Drawing.Size(82, 15);
-            this.linkport.TabIndex = 33;
-            this.linkport.TabStop = true;
-            this.linkport.Text = "لاضافة ميناء جديد";
+            this.AddTrip_lnkAddPort.AutoSize = true;
+            this.AddTrip_lnkAddPort.Location = new System.Drawing.Point(423, 195);
+            this.AddTrip_lnkAddPort.Name = "AddTrip_lnkAddPort";
+            this.AddTrip_lnkAddPort.Size = new System.Drawing.Size(82, 15);
+            this.AddTrip_lnkAddPort.TabIndex = 33;
+            this.AddTrip_lnkAddPort.TabStop = true;
+            this.AddTrip_lnkAddPort.Text = "لاضافة ميناء جديد";
+            this.AddTrip_lnkAddPort.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLship_LinkClicked);
             // 
-            // comboBox2
+            // AddTrip_CmbAgents
             // 
-            this.comboBox2.DisplayMember = "Name";
-            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(174, 138);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.comboBox2.Size = new System.Drawing.Size(121, 23);
-            this.comboBox2.TabIndex = 32;
-            this.comboBox2.ValueMember = "Name";
+            this.AddTrip_CmbAgents.DisplayMember = "Name";
+            this.AddTrip_CmbAgents.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddTrip_CmbAgents.FormattingEnabled = true;
+            this.AddTrip_CmbAgents.Location = new System.Drawing.Point(174, 138);
+            this.AddTrip_CmbAgents.Name = "AddTrip_CmbAgents";
+            this.AddTrip_CmbAgents.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.AddTrip_CmbAgents.Size = new System.Drawing.Size(121, 23);
+            this.AddTrip_CmbAgents.TabIndex = 32;
+            this.AddTrip_CmbAgents.ValueMember = "Name";
             // 
-            // platformtxt
+            // AddTrip_CmbPlatforms
             // 
-            this.platformtxt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.platformtxt.FormattingEnabled = true;
-            this.platformtxt.Location = new System.Drawing.Point(175, 195);
-            this.platformtxt.Name = "platformtxt";
-            this.platformtxt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.platformtxt.Size = new System.Drawing.Size(121, 23);
-            this.platformtxt.TabIndex = 31;
+            this.AddTrip_CmbPlatforms.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddTrip_CmbPlatforms.FormattingEnabled = true;
+            this.AddTrip_CmbPlatforms.Location = new System.Drawing.Point(175, 195);
+            this.AddTrip_CmbPlatforms.Name = "AddTrip_CmbPlatforms";
+            this.AddTrip_CmbPlatforms.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.AddTrip_CmbPlatforms.Size = new System.Drawing.Size(121, 23);
+            this.AddTrip_CmbPlatforms.TabIndex = 31;
             // 
-            // porttxt
+            // AddTrip_CmbPorts
             // 
-            this.porttxt.DisplayMember = "Name";
-            this.porttxt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.porttxt.FormattingEnabled = true;
-            this.porttxt.Location = new System.Drawing.Point(526, 189);
-            this.porttxt.Name = "porttxt";
-            this.porttxt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.porttxt.Size = new System.Drawing.Size(121, 23);
-            this.porttxt.TabIndex = 32;
-            this.porttxt.ValueMember = "Name";
+            this.AddTrip_CmbPorts.DisplayMember = "Name";
+            this.AddTrip_CmbPorts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddTrip_CmbPorts.FormattingEnabled = true;
+            this.AddTrip_CmbPorts.Location = new System.Drawing.Point(526, 189);
+            this.AddTrip_CmbPorts.Name = "AddTrip_CmbPorts";
+            this.AddTrip_CmbPorts.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.AddTrip_CmbPorts.Size = new System.Drawing.Size(121, 23);
+            this.AddTrip_CmbPorts.TabIndex = 32;
+            this.AddTrip_CmbPorts.ValueMember = "Name";
+            this.AddTrip_CmbPorts.SelectedIndexChanged += new System.EventHandler(this.AddTrip_CmbPorts_SelectedIndexChanged);
             // 
-            // statustxt
+            // AddTrip_CmbStatus
             // 
-            this.statustxt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.statustxt.FormattingEnabled = true;
-            this.statustxt.Location = new System.Drawing.Point(526, 259);
-            this.statustxt.Name = "statustxt";
-            this.statustxt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.statustxt.Size = new System.Drawing.Size(121, 23);
-            this.statustxt.TabIndex = 31;
-            this.statustxt.SelectedIndexChanged += new System.EventHandler(this.statustxt_SelectedIndexChanged);
-            // 
-            // datetxt
-            // 
-            this.datetxt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.datetxt.Location = new System.Drawing.Point(175, 260);
-            this.datetxt.Name = "datetxt";
-            this.datetxt.Size = new System.Drawing.Size(121, 22);
-            this.datetxt.TabIndex = 25;
+            this.AddTrip_CmbStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddTrip_CmbStatus.FormattingEnabled = true;
+            this.AddTrip_CmbStatus.Location = new System.Drawing.Point(526, 259);
+            this.AddTrip_CmbStatus.Name = "AddTrip_CmbStatus";
+            this.AddTrip_CmbStatus.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.AddTrip_CmbStatus.Size = new System.Drawing.Size(121, 23);
+            this.AddTrip_CmbStatus.TabIndex = 31;
+            this.AddTrip_CmbStatus.SelectedIndexChanged += new System.EventHandler(this.statustxt_SelectedIndexChanged);
             // 
             // portlab
             // 
@@ -1476,6 +1476,28 @@
             this.triptabControl.TabIndex = 0;
             this.triptabControl.SelectedIndexChanged += new System.EventHandler(this.triptabControl_SelectedIndexChanged);
             // 
+            // AddTrip_nudProductQuantity
+            // 
+            this.AddTrip_nudProductQuantity.Location = new System.Drawing.Point(252, 28);
+            this.AddTrip_nudProductQuantity.Maximum = new decimal(new int[] {
+            1661992960,
+            1808227885,
+            5,
+            0});
+            this.AddTrip_nudProductQuantity.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.AddTrip_nudProductQuantity.Name = "AddTrip_nudProductQuantity";
+            this.AddTrip_nudProductQuantity.Size = new System.Drawing.Size(120, 22);
+            this.AddTrip_nudProductQuantity.TabIndex = 41;
+            this.AddTrip_nudProductQuantity.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1494,13 +1516,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).EndInit();
             this.platformTab.ResumeLayout(false);
             this.platformTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.platformGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PlatformTab_DGVPlatforms)).EndInit();
             this.portTab.ResumeLayout(false);
             this.portTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.goodsTab.ResumeLayout(false);
             this.goodsTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProductsTab_ProductsDGV)).EndInit();
             this.agentsTab.ResumeLayout(false);
             this.agentsTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.agentsGridView4)).EndInit();
@@ -1511,13 +1533,14 @@
             this.addingTripTab.PerformLayout();
             this.loadsgroup.ResumeLayout(false);
             this.loadsgroup.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.productGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AddTrip_DGVProducts)).EndInit();
             this.tripsTab.ResumeLayout(false);
             this.tripsTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.triptabControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.AddTrip_nudProductQuantity)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1547,10 +1570,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn IOM;
         private System.Windows.Forms.DataGridViewTextBoxColumn n;
         private System.Windows.Forms.TabPage platformTab;
-        private System.Windows.Forms.DataGridView platformGridView2;
+        private System.Windows.Forms.DataGridView PlatformTab_DGVPlatforms;
         private System.Windows.Forms.Button savebutpl;
-        private System.Windows.Forms.ComboBox typeplatBox1;
-        private System.Windows.Forms.TextBox portnum1;
+        private System.Windows.Forms.ComboBox PlatformTab_cmbPort;
+        private System.Windows.Forms.TextBox PlatformTab_txtName;
         private System.Windows.Forms.Label nameplatform1;
         private System.Windows.Forms.Label platformlab;
         private System.Windows.Forms.TabPage portTab;
@@ -1562,7 +1585,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label portname;
         private System.Windows.Forms.TabPage goodsTab;
-        private System.Windows.Forms.DataGridView dataGridView5;
+        private System.Windows.Forms.DataGridView ProductsTab_ProductsDGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn gooname;
         private System.Windows.Forms.DataGridViewTextBoxColumn qaun;
         private System.Windows.Forms.DataGridViewButtonColumn edit4;
@@ -1597,31 +1620,29 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TabPage addingTripTab;
         private System.Windows.Forms.GroupBox loadsgroup;
-        private System.Windows.Forms.LinkLabel linkgoods;
+        private System.Windows.Forms.LinkLabel AddTrip_lnkAddProduct;
         private System.Windows.Forms.Label goodslab;
-        private System.Windows.Forms.ComboBox goodBox;
-        private System.Windows.Forms.DataGridView productGridView2;
+        private System.Windows.Forms.ComboBox AddTrip_CmbProducts;
+        private System.Windows.Forms.DataGridView AddTrip_DGVProducts;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewButtonColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewButtonColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.Label quantitylabel;
-        private System.Windows.Forms.TextBox quantitityBox;
-        private System.Windows.Forms.Button addbutton;
-        private System.Windows.Forms.TextBox notes;
-        private System.Windows.Forms.Button savetrip;
+        private System.Windows.Forms.Button AddTrip_btnAddProduct;
+        private System.Windows.Forms.TextBox AddTrip_txtNotes;
+        private System.Windows.Forms.Button AddTrip_btnSaveTrip;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.LinkLabel linkLabel5;
-        private System.Windows.Forms.LinkLabel linkplatform;
+        private System.Windows.Forms.LinkLabel AddTrip_lnkAddPlatform;
         private System.Windows.Forms.ComboBox AddTrip_CmbShips;
-        private System.Windows.Forms.LinkLabel linkagent;
-        private System.Windows.Forms.LinkLabel linkLship;
-        private System.Windows.Forms.LinkLabel linkport;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox platformtxt;
-        private System.Windows.Forms.ComboBox porttxt;
-        private System.Windows.Forms.ComboBox statustxt;
-        private System.Windows.Forms.TextBox datetxt;
+        private System.Windows.Forms.LinkLabel AddTrip_lnkAddAgent;
+        private System.Windows.Forms.LinkLabel AddTrip_lnkAddShip;
+        private System.Windows.Forms.LinkLabel AddTrip_lnkAddPort;
+        private System.Windows.Forms.ComboBox AddTrip_CmbAgents;
+        private System.Windows.Forms.ComboBox AddTrip_CmbPlatforms;
+        private System.Windows.Forms.ComboBox AddTrip_CmbPorts;
+        private System.Windows.Forms.ComboBox AddTrip_CmbStatus;
         private System.Windows.Forms.Label portlab;
         private System.Windows.Forms.Label agentlab;
         private System.Windows.Forms.Label platlab;
@@ -1662,5 +1683,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button ShipsTab_btnDelete;
         private System.Windows.Forms.Button ShipsTab_btnEdit;
+        private System.Windows.Forms.DateTimePicker AddTrip_dtpDate;
+        private System.Windows.Forms.NumericUpDown AddTrip_nudProductQuantity;
     }
 }

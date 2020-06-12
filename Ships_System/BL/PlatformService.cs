@@ -31,6 +31,11 @@ namespace Ships_System.BL
             return  unitOfWork.Platforms.Get();
         }
 
+        public List<Platform> GetByPortId(int portId)
+        {
+            return unitOfWork.Platforms.Get().Where(p => p.PortId == portId).ToList();
+        }
+
         public Platform GetPlatformById(int id)
         {
             return  unitOfWork.Platforms.GetById(id);
@@ -39,6 +44,6 @@ namespace Ships_System.BL
         public Platform UpdatePlatform(Platform platform)
         {
             return  unitOfWork.Platforms.Update(platform.PlatformId, platform);
-        }
+        }        
     }
 }
