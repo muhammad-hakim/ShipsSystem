@@ -268,7 +268,7 @@ namespace Ships_System.PL
         {
             if (ShipsGridView.CurrentRow != null)
             {
-                if (MessageBox.Show("هل تريد حذف السفينة?", "حذف السفينة", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (MessageBox.Show("هل تريد حذف السفينة?", "حذف السفينة", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
                 {
                     var shipId = Convert.ToInt32(ShipsGridView.CurrentRow.Cells[0].Value);
                     shipService.DeleteShip(shipId);
@@ -345,11 +345,41 @@ namespace Ships_System.PL
             lst.DataSource = dataSource;
         }
 
-        Dictionary<int, int> TripGoodsQuantities = new Dictionary<int, int>();
+        Dictionary<int, int> TripShipLoad = new Dictionary<int, int>();
+
+        void FillAddTripDGVShipLoad()
+        {
+            var allProducts = productService.GetAllProducts();
+            var shipLoad = new List<dynamic>();
+            foreach (var item in TripShipLoad)
+            {
+                shipLoad.Add(new { productId = item.Key, ProductName = allProducts.Find(p => p.ProductId == item.Key).Name, Quantity = item.Value });
+            }
+
+            AddTrip_DGVProducts.DataSource = shipLoad;
+            AddTrip_DGVProducts.Columns[0].Visible = false;
+            AddTrip_DGVProducts.Columns[1].HeaderText = "الصنف";
+            AddTrip_DGVProducts.Columns[2].HeaderText = "الكمية";
+            AddTrip_DGVProducts.Columns[1].Width = AddTrip_DGVProducts.Columns[2].Width = 120;
+        }
 
         private void AddTrip_btnAddProduct_Click(object sender, EventArgs e)
         {
-            TripGoodsQuantities.Add(Convert.ToInt32(AddTrip_CmbProducts.SelectedValue), Convert.ToInt32(AddTrip_nudProductQuantity.Value));
+            int productId = Convert.ToInt32(AddTrip_CmbProducts.SelectedValue);
+            int quantity = Convert.ToInt32(AddTrip_nudProductQuantity.Value);
+
+            if (TripShipLoad.ContainsKey(productId))
+            {
+                TripShipLoad[productId] = quantity;
+                AddTrip_btnAddProduct.Text = "إضافة حمولة";
+            }
+            else
+            {
+                TripShipLoad.Add(productId, quantity);
+            }
+            AddTrip_CmbProducts.SelectedIndex = 0;
+            AddTrip_nudProductQuantity.Value = AddTrip_nudProductQuantity.Minimum;
+            FillAddTripDGVShipLoad();
         }
 
         private void AddTrip_btnSaveTrip_Click(object sender, EventArgs e)
@@ -362,7 +392,7 @@ namespace Ships_System.PL
                 Status = Convert.ToInt32(AddTrip_CmbStatus.SelectedValue)
             };
 
-            foreach (var item in TripGoodsQuantities)
+            foreach (var item in TripShipLoad)
             {
                 trip.TripsLoads.Add(new TripsLoad { ProductId = item.Key, Quantity = item.Value, TripId = trip.TripId });
             }
@@ -538,6 +568,27 @@ namespace Ships_System.PL
             Platforms_btnSave.Tag = null;
             Platforms_txtName.Clear();
             Platforms_cmbPort.SelectedIndex = 0;
+        }
+
+        private void AddTrip_btnEditProduct_Click(object sender, EventArgs e)
+        {
+            if (AddTrip_DGVProducts.CurrentRow != null)
+            {
+                AddTrip_btnAddProduct.Text = "تعديل الحمولة";
+                AddTrip_CmbProducts.SelectedValue = AddTrip_DGVProducts.CurrentRow.Cells[0].Value;
+                AddTrip_nudProductQuantity.Value = Convert.ToDecimal(AddTrip_DGVProducts.CurrentRow.Cells[2].Value);
+            }
+        }
+
+        private void AddTrip_btnRemoveProduct_Click(object sender, EventArgs e)
+        {
+            if (AddTrip_DGVProducts.CurrentRow != null)
+            {
+                if (MessageBox.Show("هل تريد إزالة هذا المنتج؟", "إزالة منتح", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                {
+                    TripShipLoad.Remove(Convert.ToInt32(AddTrip_DGVProducts.CurrentRow.Cells[0].Value));
+                }
+            }
         }
     }
 }
