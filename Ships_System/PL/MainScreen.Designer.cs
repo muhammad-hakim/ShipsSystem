@@ -1030,6 +1030,7 @@
             this.AddTrip_btnCancelTrip.TabIndex = 42;
             this.AddTrip_btnCancelTrip.Text = "إلغاء";
             this.AddTrip_btnCancelTrip.UseVisualStyleBackColor = true;
+            this.AddTrip_btnCancelTrip.Click += new System.EventHandler(this.AddTrip_btnCancelTrip_Click);
             // 
             // AddTrip_btnSaveTrip
             // 
@@ -1070,7 +1071,7 @@
             // 
             // AddTrip_nudProductQuantity
             // 
-            this.AddTrip_nudProductQuantity.Location = new System.Drawing.Point(243, 28);
+            this.AddTrip_nudProductQuantity.Location = new System.Drawing.Point(271, 28);
             this.AddTrip_nudProductQuantity.Maximum = new decimal(new int[] {
             1661992960,
             1808227885,
@@ -1137,7 +1138,7 @@
             // 
             this.quantitylabel.AutoSize = true;
             this.quantitylabel.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.quantitylabel.Location = new System.Drawing.Point(391, 28);
+            this.quantitylabel.Location = new System.Drawing.Point(419, 28);
             this.quantitylabel.Name = "quantitylabel";
             this.quantitylabel.Size = new System.Drawing.Size(47, 23);
             this.quantitylabel.TabIndex = 14;
@@ -1146,11 +1147,11 @@
             // AddTrip_btnAddProduct
             // 
             this.AddTrip_btnAddProduct.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.AddTrip_btnAddProduct.Location = new System.Drawing.Point(123, 23);
+            this.AddTrip_btnAddProduct.Location = new System.Drawing.Point(115, 23);
             this.AddTrip_btnAddProduct.Name = "AddTrip_btnAddProduct";
-            this.AddTrip_btnAddProduct.Size = new System.Drawing.Size(114, 33);
+            this.AddTrip_btnAddProduct.Size = new System.Drawing.Size(150, 33);
             this.AddTrip_btnAddProduct.TabIndex = 36;
-            this.AddTrip_btnAddProduct.Text = "إضافة حمولة";
+            this.AddTrip_btnAddProduct.Text = "إضافة/تعديل الحمولة";
             this.AddTrip_btnAddProduct.UseVisualStyleBackColor = true;
             this.AddTrip_btnAddProduct.Click += new System.EventHandler(this.AddTrip_btnAddProduct_Click);
             // 

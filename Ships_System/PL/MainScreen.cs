@@ -371,7 +371,6 @@ namespace Ships_System.PL
             if (TripShipLoad.ContainsKey(productId))
             {
                 TripShipLoad[productId] = quantity;
-                AddTrip_btnAddProduct.Text = "إضافة حمولة";
             }
             else
             {
@@ -403,6 +402,7 @@ namespace Ships_System.PL
 
             if (dbService.Commit())
             {
+                AddTripRestControls();
                 MessageBox.Show("تم الحفظ بنجاح", "تم الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
@@ -574,7 +574,6 @@ namespace Ships_System.PL
         {
             if (AddTrip_DGVProducts.CurrentRow != null)
             {
-                AddTrip_btnAddProduct.Text = "تعديل الحمولة";
                 AddTrip_CmbProducts.SelectedValue = AddTrip_DGVProducts.CurrentRow.Cells[0].Value;
                 AddTrip_nudProductQuantity.Value = Convert.ToDecimal(AddTrip_DGVProducts.CurrentRow.Cells[2].Value);
             }
@@ -589,6 +588,25 @@ namespace Ships_System.PL
                     TripShipLoad.Remove(Convert.ToInt32(AddTrip_DGVProducts.CurrentRow.Cells[0].Value));
                 }
             }
+        }
+
+        void AddTripRestControls()
+        {
+            AddTrip_CmbShips.SelectedIndex = 0;
+            AddTrip_CmbAgents.SelectedIndex = 0;
+            AddTrip_CmbPorts.SelectedIndex = 0;
+            AddTrip_CmbPlatforms.SelectedIndex = 0;
+            AddTrip_CmbStatus.SelectedIndex = 0;
+            AddTrip_CmbProducts.SelectedIndex = 0;
+            AddTrip_nudProductQuantity.Value = AddTrip_nudProductQuantity.Minimum;
+            AddTrip_txtNotes.Clear();
+            TripShipLoad.Clear();
+            AddTrip_dtpDate.ResetText();
+        }
+
+        private void AddTrip_btnCancelTrip_Click(object sender, EventArgs e)
+        {
+            AddTripRestControls();
         }
     }
 }
