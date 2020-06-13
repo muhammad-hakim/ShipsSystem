@@ -91,8 +91,39 @@ namespace Ships_System.PL
             }
         }
 
+        List<Trip> allTrips;
+        List<TripsForDGV> tripsForDGV;
+
+        void FillTripsDataGridView()
+        {
+            allTrips = tripService.GetAllTrips();
+            tripsForDGV = allTrips.Select<Trip,TripsForDGV> (t => new TripsForDGV { TripId = t.TripId.ToString(), ShipName = t.Ship.Name, ShipIMO = t.Ship.Imo, 
+                                                          ShipType = Enum.GetName(typeof(ShipTypes), t.Ship.Type),
+                                                          TripStatus = Enum.GetName(typeof(TripStatus), t.Status) ,
+                                                          TripStatusDate = t.TripsStatus.FirstOrDefault(s => s.TripId == t.TripId && s.Status == t.Status).Date.ToString(),
+                                                          Agent = t.Agent != null? t.Agent.Name:"", Port = t.Port != null? t.Port.Name :"",
+                                                          Platform = t.Platform != null? t.Platform.Name: "", Notes = t.Notes}).ToList();
+
+            TripsDGV.DataSource = tripsForDGV;
+            TripsDGV.Columns[0].HeaderText = "رقم الرحلة";
+            TripsDGV.Columns[1].HeaderText = "السفينة";
+            TripsDGV.Columns[2].HeaderText = "IMO";
+            TripsDGV.Columns[3].HeaderText = "النوع";
+            TripsDGV.Columns[4].HeaderText = "الحالة";
+            TripsDGV.Columns[5].HeaderText = "تاريخ الحالة";
+            TripsDGV.Columns[6].HeaderText = "الوكيل الملاحى";
+            TripsDGV.Columns[7].HeaderText = "الميناء";
+            TripsDGV.Columns[8].HeaderText = "الرصيف";
+            TripsDGV.Columns[9].HeaderText = "ملاحظات";
+            TripsDGV.Columns[0].Width = 85;
+            TripsDGV.Columns[2].Width = 75;
+            TripsDGV.Columns[5].Width = 90;
+        }
+
+
         private void MainScreen_Load(object sender, EventArgs e)
         {
+            FillTripsDataGridView();
             FillShipsGridView();
             FillAddTripCmbShips();
             FillAddTripCmbAgents();
@@ -104,6 +135,7 @@ namespace Ships_System.PL
             FillAgentsList();
             AddTrip_CmbStatus.DataSource = Enum.GetValues(typeof(TripStatus));
             AddShip_Typecmb.DataSource = Enum.GetValues(typeof(ShipTypes));
+            Trips_cmbSearchFields.SelectedIndex = 0;
         }
 
         private void Agents_btnSave_Click(object sender, EventArgs e)
@@ -345,7 +377,7 @@ namespace Ships_System.PL
             lst.DataSource = dataSource;
         }
 
-        Dictionary<int, int> TripShipLoad = new Dictionary<int, int>();
+        Dictionary<int, decimal> TripShipLoad = new Dictionary<int, decimal>();
 
         void FillAddTripDGVShipLoad()
         {
@@ -366,7 +398,7 @@ namespace Ships_System.PL
         private void AddTrip_btnAddProduct_Click(object sender, EventArgs e)
         {
             int productId = Convert.ToInt32(AddTrip_CmbProducts.SelectedValue);
-            int quantity = Convert.ToInt32(AddTrip_nudProductQuantity.Value);
+            decimal quantity = AddTrip_nudProductQuantity.Value;
 
             if (TripShipLoad.ContainsKey(productId))
             {
@@ -388,7 +420,9 @@ namespace Ships_System.PL
                 AgentId = Convert.ToInt32(AddTrip_CmbAgents.SelectedValue),
                 Notes = AddTrip_txtNotes.Text,
                 ShipId = Convert.ToInt32(AddTrip_CmbShips.SelectedValue),
-                Status = Convert.ToInt32(AddTrip_CmbStatus.SelectedValue)
+                Status = Convert.ToInt32(AddTrip_CmbStatus.SelectedValue),
+                PortId = Convert.ToInt32(AddTrip_CmbPorts.SelectedValue),
+                PlatformId = Convert.ToInt32(AddTrip_CmbPorts.SelectedValue)
             };
 
             foreach (var item in TripShipLoad)
@@ -608,6 +642,79 @@ namespace Ships_System.PL
         {
             AddTripRestControls();
         }
+
+        private void Trips_btnEdit_Click(object sender, EventArgs e)
+        {
+            //AddTrip_btnSaveTrip.Tag = TripsDGV.CurrentRow.Cells[0].Value;
+            //AddTrip_CmbShips.Text = TripsDGV.CurrentRow.Cells[1].Value.ToString();
+            //AddTrip_CmbAgents.Text = TripsDGV.CurrentRow.Cells[1].Value.ToString();
+            //AddTrip_CmbPorts.Text = TripsDGV.CurrentRow.Cells[1].Value.ToString(); ;
+            //AddTrip_CmbPlatforms.Text= TripsDGV.CurrentRow.Cells[1].Value.ToString(); ;
+            //AddTrip_CmbStatus.Text = TripsDGV.CurrentRow.Cells[1].Value.ToString(); ;
+            //TripShipLoad.Add();
+            //AddTrip_txtNotes = TripsDGV.CurrentRow.Cells[1].Value.ToString();
+            //AddTrip_dtpDate.Value = TripsDGV.CurrentRow.Cells[1].Value.ToString();
+        }
+
+        private void Trips_btnDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        void FilterTripsDGV()
+        {
+            string text = Trips_txtSearch.Text.Trim();
+
+            switch (Trips_cmbSearchFields.Text)
+            {
+                case "رقم الرحلة":
+                    TripsDGV.DataSource = tripsForDGV.Where(t => t.TripId.Contains(text)).ToList();
+                    break;
+                case "السفينة":
+                    TripsDGV.DataSource = tripsForDGV.Where(t => t.ShipName.Contains(text)).ToList();
+                    break;
+                case "IMO":
+                    TripsDGV.DataSource = tripsForDGV.Where(t => t.ShipIMO.Contains(text)).ToList();
+                    break;
+                case "النوع":
+                    TripsDGV.DataSource = tripsForDGV.Where(t => t.ShipType.Contains(text)).ToList();
+                    break;
+                case "الحالة":
+                    TripsDGV.DataSource = tripsForDGV.Where(t => t.TripStatus.Contains(text)).ToList();
+                    break;
+                case "تاريخ الحالة":
+                    TripsDGV.DataSource = tripsForDGV.Where(t => t.TripStatusDate.Contains(text)).ToList();
+                    break;
+                case "الوكيل الملاحى":
+                    TripsDGV.DataSource = tripsForDGV.Where(t => t.Agent.Contains(text)).ToList();
+                    break;
+                case "الميناء":
+                    TripsDGV.DataSource = tripsForDGV.Where(t => t.Port.Contains(text)).ToList();
+                    break;
+                case "الرصيف":
+                    TripsDGV.DataSource = tripsForDGV.Where(t => t.Platform.Contains(text)).ToList();
+                    break;
+                case "ملاحظات":
+                    TripsDGV.DataSource = tripsForDGV.Where(t => t.Notes.Contains(text)).ToList();
+                    break;
+            }
+        }
+
+        private void Trips_btnClearSearch_Click(object sender, EventArgs e)
+        {
+            Trips_txtSearch.Clear();
+            Trips_cmbSearchFields.SelectedIndex = 0;
+            TripsDGV.DataSource = tripsForDGV;
+        }
+
+        private void Trips_txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            FilterTripsDGV();
+        }
+
+        private void Trips_cmbSearchFields_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FilterTripsDGV();
+        }
     }
 }
-

@@ -71,14 +71,6 @@ namespace Ships_System.DAL
             }
         }
 
-        public Repository<TripsPlatform> TripsPlatforms
-        {
-            get
-            {
-                return new Repository<TripsPlatform>(context);
-            }
-        }
-
         public Repository<TripsStatu> TripsStatus
         {
             get

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="ShipsSystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Agents">
           <Key>
             <PropertyRef Name="AgentId" />
@@ -50,6 +50,8 @@
           <Property Name="TripId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ShipId" Type="int" Nullable="false" />
           <Property Name="AgentId" Type="int" Nullable="false" />
+          <Property Name="PortId" Type="int" />
+          <Property Name="PlatformId" Type="int" />
           <Property Name="Status" Type="int" Nullable="false" />
           <Property Name="Notes" Type="nvarchar(max)" />
         </EntityType>
@@ -58,18 +60,9 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="ProductId" Type="int" Nullable="false" />
           <Property Name="TripId" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="TripsPlatforms">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TripId" Type="int" Nullable="false" />
-          <Property Name="PlatformId" Type="int" Nullable="false" />
-          <Property Name="Date" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="TripsStatus">
           <Key>
@@ -92,18 +85,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Ships_platform_Platforms">
-          <End Role="Platforms" Type="Self.Platforms" Multiplicity="1" />
-          <End Role="TripsPlatforms" Type="Self.TripsPlatforms" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Platforms">
-              <PropertyRef Name="PlatformId" />
-            </Principal>
-            <Dependent Role="TripsPlatforms">
-              <PropertyRef Name="PlatformId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Trips_Agents">
           <End Role="Agents" Type="Self.Agents" Multiplicity="1" />
           <End Role="Trips" Type="Self.Trips" Multiplicity="*" />
@@ -113,6 +94,30 @@
             </Principal>
             <Dependent Role="Trips">
               <PropertyRef Name="AgentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trips_Platforms">
+          <End Role="Platforms" Type="Self.Platforms" Multiplicity="0..1" />
+          <End Role="Trips" Type="Self.Trips" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Platforms">
+              <PropertyRef Name="PlatformId" />
+            </Principal>
+            <Dependent Role="Trips">
+              <PropertyRef Name="PlatformId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trips_Ports">
+          <End Role="Ports" Type="Self.Ports" Multiplicity="0..1" />
+          <End Role="Trips" Type="Self.Trips" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ports">
+              <PropertyRef Name="PortId" />
+            </Principal>
+            <Dependent Role="Trips">
+              <PropertyRef Name="PortId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -152,18 +157,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TripsPlatforms_Trips">
-          <End Role="Trips" Type="Self.Trips" Multiplicity="1" />
-          <End Role="TripsPlatforms" Type="Self.TripsPlatforms" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Trips">
-              <PropertyRef Name="TripId" />
-            </Principal>
-            <Dependent Role="TripsPlatforms">
-              <PropertyRef Name="TripId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_TripsStatus_Trips">
           <End Role="Trips" Type="Self.Trips" Multiplicity="1" />
           <End Role="TripsStatus" Type="Self.TripsStatus" Multiplicity="*" />
@@ -176,7 +169,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ModelStoreContainer">
+        <EntityContainer Name="ShipsSystemModelStoreContainer">
           <EntitySet Name="Agents" EntityType="Self.Agents" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Platforms" EntityType="Self.Platforms" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ports" EntityType="Self.Ports" Schema="dbo" store:Type="Tables" />
@@ -184,18 +177,21 @@
           <EntitySet Name="Ships" EntityType="Self.Ships" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Trips" EntityType="Self.Trips" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TripsLoads" EntityType="Self.TripsLoads" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TripsPlatforms" EntityType="Self.TripsPlatforms" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TripsStatus" EntityType="Self.TripsStatus" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Platforms_Ports" Association="Self.FK_Platforms_Ports">
             <End Role="Ports" EntitySet="Ports" />
             <End Role="Platforms" EntitySet="Platforms" />
           </AssociationSet>
-          <AssociationSet Name="FK_Ships_platform_Platforms" Association="Self.FK_Ships_platform_Platforms">
-            <End Role="Platforms" EntitySet="Platforms" />
-            <End Role="TripsPlatforms" EntitySet="TripsPlatforms" />
-          </AssociationSet>
           <AssociationSet Name="FK_Trips_Agents" Association="Self.FK_Trips_Agents">
             <End Role="Agents" EntitySet="Agents" />
+            <End Role="Trips" EntitySet="Trips" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trips_Platforms" Association="Self.FK_Trips_Platforms">
+            <End Role="Platforms" EntitySet="Platforms" />
+            <End Role="Trips" EntitySet="Trips" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trips_Ports" Association="Self.FK_Trips_Ports">
+            <End Role="Ports" EntitySet="Ports" />
             <End Role="Trips" EntitySet="Trips" />
           </AssociationSet>
           <AssociationSet Name="FK_Trips_Ships" Association="Self.FK_Trips_Ships">
@@ -210,10 +206,6 @@
             <End Role="Trips" EntitySet="Trips" />
             <End Role="TripsLoads" EntitySet="TripsLoads" />
           </AssociationSet>
-          <AssociationSet Name="FK_TripsPlatforms_Trips" Association="Self.FK_TripsPlatforms_Trips">
-            <End Role="Trips" EntitySet="Trips" />
-            <End Role="TripsPlatforms" EntitySet="TripsPlatforms" />
-          </AssociationSet>
           <AssociationSet Name="FK_TripsStatus_Trips" Association="Self.FK_TripsStatus_Trips">
             <End Role="Trips" EntitySet="Trips" />
             <End Role="TripsStatus" EntitySet="TripsStatus" />
@@ -223,7 +215,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="ShipsSystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Agent">
           <Key>
             <PropertyRef Name="AgentId" />
@@ -240,7 +232,7 @@
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="PortId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Port" Relationship="Self.FK_Platforms_Ports" FromRole="Platforms" ToRole="Ports" />
-          <NavigationProperty Name="TripsPlatforms" Relationship="Self.FK_Ships_platform_Platforms" FromRole="Platforms" ToRole="TripsPlatforms" />
+          <NavigationProperty Name="Trips" Relationship="Self.FK_Trips_Platforms" FromRole="Platforms" ToRole="Trips" />
         </EntityType>
         <EntityType Name="Port">
           <Key>
@@ -249,6 +241,7 @@
           <Property Name="PortId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Platforms" Relationship="Self.FK_Platforms_Ports" FromRole="Ports" ToRole="Platforms" />
+          <NavigationProperty Name="Trips" Relationship="Self.FK_Trips_Ports" FromRole="Ports" ToRole="Trips" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -275,12 +268,15 @@
           <Property Name="TripId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ShipId" Type="Int32" Nullable="false" />
           <Property Name="AgentId" Type="Int32" Nullable="false" />
+          <Property Name="PortId" Type="Int32" />
+          <Property Name="PlatformId" Type="Int32" />
           <Property Name="Status" Type="Int32" Nullable="false" />
           <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Agent" Relationship="Self.FK_Trips_Agents" FromRole="Trips" ToRole="Agents" />
+          <NavigationProperty Name="Platform" Relationship="Self.FK_Trips_Platforms" FromRole="Trips" ToRole="Platforms" />
+          <NavigationProperty Name="Port" Relationship="Self.FK_Trips_Ports" FromRole="Trips" ToRole="Ports" />
           <NavigationProperty Name="Ship" Relationship="Self.FK_Trips_Ships" FromRole="Trips" ToRole="Ships" />
           <NavigationProperty Name="TripsLoads" Relationship="Self.FK_TripsLoads_Trips" FromRole="Trips" ToRole="TripsLoads" />
-          <NavigationProperty Name="TripsPlatforms" Relationship="Self.FK_TripsPlatforms_Trips" FromRole="Trips" ToRole="TripsPlatforms" />
           <NavigationProperty Name="TripsStatus" Relationship="Self.FK_TripsStatus_Trips" FromRole="Trips" ToRole="TripsStatus" />
         </EntityType>
         <EntityType Name="TripsLoad">
@@ -288,22 +284,11 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="ProductId" Type="Int32" Nullable="false" />
           <Property Name="TripId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Product" Relationship="Self.FK_TripsLoads_Products" FromRole="TripsLoads" ToRole="Products" />
           <NavigationProperty Name="Trip" Relationship="Self.FK_TripsLoads_Trips" FromRole="TripsLoads" ToRole="Trips" />
-        </EntityType>
-        <EntityType Name="TripsPlatform">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TripId" Type="Int32" Nullable="false" />
-          <Property Name="PlatformId" Type="Int32" Nullable="false" />
-          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="Platform" Relationship="Self.FK_Ships_platform_Platforms" FromRole="TripsPlatforms" ToRole="Platforms" />
-          <NavigationProperty Name="Trip" Relationship="Self.FK_TripsPlatforms_Trips" FromRole="TripsPlatforms" ToRole="Trips" />
         </EntityType>
         <EntityType Name="TripsStatu">
           <Key>
@@ -339,15 +324,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Ships_platform_Platforms">
-          <End Role="Platforms" Type="Self.Platform" Multiplicity="1" />
-          <End Role="TripsPlatforms" Type="Self.TripsPlatform" Multiplicity="*" />
+        <Association Name="FK_Trips_Platforms">
+          <End Role="Platforms" Type="Self.Platform" Multiplicity="0..1" />
+          <End Role="Trips" Type="Self.Trip" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Platforms">
               <PropertyRef Name="PlatformId" />
             </Principal>
-            <Dependent Role="TripsPlatforms">
+            <Dependent Role="Trips">
               <PropertyRef Name="PlatformId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trips_Ports">
+          <End Role="Ports" Type="Self.Port" Multiplicity="0..1" />
+          <End Role="Trips" Type="Self.Trip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ports">
+              <PropertyRef Name="PortId" />
+            </Principal>
+            <Dependent Role="Trips">
+              <PropertyRef Name="PortId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -387,18 +384,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TripsPlatforms_Trips">
-          <End Role="Trips" Type="Self.Trip" Multiplicity="1" />
-          <End Role="TripsPlatforms" Type="Self.TripsPlatform" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Trips">
-              <PropertyRef Name="TripId" />
-            </Principal>
-            <Dependent Role="TripsPlatforms">
-              <PropertyRef Name="TripId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_TripsStatus_Trips">
           <End Role="Trips" Type="Self.Trip" Multiplicity="1" />
           <End Role="TripsStatus" Type="Self.TripsStatu" Multiplicity="*" />
@@ -411,7 +396,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Ships_SٍٍystemEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="SystemContext" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Agents" EntityType="Self.Agent" />
           <EntitySet Name="Platforms" EntityType="Self.Platform" />
           <EntitySet Name="Ports" EntityType="Self.Port" />
@@ -419,7 +404,6 @@
           <EntitySet Name="Ships" EntityType="Self.Ship" />
           <EntitySet Name="Trips" EntityType="Self.Trip" />
           <EntitySet Name="TripsLoads" EntityType="Self.TripsLoad" />
-          <EntitySet Name="TripsPlatforms" EntityType="Self.TripsPlatform" />
           <EntitySet Name="TripsStatus" EntityType="Self.TripsStatu" />
           <AssociationSet Name="FK_Trips_Agents" Association="Self.FK_Trips_Agents">
             <End Role="Agents" EntitySet="Agents" />
@@ -429,9 +413,13 @@
             <End Role="Ports" EntitySet="Ports" />
             <End Role="Platforms" EntitySet="Platforms" />
           </AssociationSet>
-          <AssociationSet Name="FK_Ships_platform_Platforms" Association="Self.FK_Ships_platform_Platforms">
+          <AssociationSet Name="FK_Trips_Platforms" Association="Self.FK_Trips_Platforms">
             <End Role="Platforms" EntitySet="Platforms" />
-            <End Role="TripsPlatforms" EntitySet="TripsPlatforms" />
+            <End Role="Trips" EntitySet="Trips" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trips_Ports" Association="Self.FK_Trips_Ports">
+            <End Role="Ports" EntitySet="Ports" />
+            <End Role="Trips" EntitySet="Trips" />
           </AssociationSet>
           <AssociationSet Name="FK_TripsLoads_Products" Association="Self.FK_TripsLoads_Products">
             <End Role="Products" EntitySet="Products" />
@@ -445,10 +433,6 @@
             <End Role="Trips" EntitySet="Trips" />
             <End Role="TripsLoads" EntitySet="TripsLoads" />
           </AssociationSet>
-          <AssociationSet Name="FK_TripsPlatforms_Trips" Association="Self.FK_TripsPlatforms_Trips">
-            <End Role="Trips" EntitySet="Trips" />
-            <End Role="TripsPlatforms" EntitySet="TripsPlatforms" />
-          </AssociationSet>
           <AssociationSet Name="FK_TripsStatus_Trips" Association="Self.FK_TripsStatus_Trips">
             <End Role="Trips" EntitySet="Trips" />
             <End Role="TripsStatus" EntitySet="TripsStatus" />
@@ -459,9 +443,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Ships_SٍٍystemEntities">
+        <EntityContainerMapping StorageEntityContainer="ShipsSystemModelStoreContainer" CdmEntityContainer="SystemContext">
           <EntitySetMapping Name="Agents">
-            <EntityTypeMapping TypeName="Model.Agent">
+            <EntityTypeMapping TypeName="ShipsSystemModel.Agent">
               <MappingFragment StoreEntitySet="Agents">
                 <ScalarProperty Name="AgentId" ColumnName="AgentId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -469,7 +453,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Platforms">
-            <EntityTypeMapping TypeName="Model.Platform">
+            <EntityTypeMapping TypeName="ShipsSystemModel.Platform">
               <MappingFragment StoreEntitySet="Platforms">
                 <ScalarProperty Name="PlatformId" ColumnName="PlatformId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -478,7 +462,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Ports">
-            <EntityTypeMapping TypeName="Model.Port">
+            <EntityTypeMapping TypeName="ShipsSystemModel.Port">
               <MappingFragment StoreEntitySet="Ports">
                 <ScalarProperty Name="PortId" ColumnName="PortId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -486,7 +470,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Products">
-            <EntityTypeMapping TypeName="Model.Product">
+            <EntityTypeMapping TypeName="ShipsSystemModel.Product">
               <MappingFragment StoreEntitySet="Products">
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -494,7 +478,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Ships">
-            <EntityTypeMapping TypeName="Model.Ship">
+            <EntityTypeMapping TypeName="ShipsSystemModel.Ship">
               <MappingFragment StoreEntitySet="Ships">
                 <ScalarProperty Name="ShipId" ColumnName="ShipId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -504,18 +488,20 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Trips">
-            <EntityTypeMapping TypeName="Model.Trip">
+            <EntityTypeMapping TypeName="ShipsSystemModel.Trip">
               <MappingFragment StoreEntitySet="Trips">
                 <ScalarProperty Name="TripId" ColumnName="TripId" />
                 <ScalarProperty Name="ShipId" ColumnName="ShipId" />
                 <ScalarProperty Name="AgentId" ColumnName="AgentId" />
+                <ScalarProperty Name="PortId" ColumnName="PortId" />
+                <ScalarProperty Name="PlatformId" ColumnName="PlatformId" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Notes" ColumnName="Notes" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TripsLoads">
-            <EntityTypeMapping TypeName="Model.TripsLoad">
+            <EntityTypeMapping TypeName="ShipsSystemModel.TripsLoad">
               <MappingFragment StoreEntitySet="TripsLoads">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
@@ -524,18 +510,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TripsPlatforms">
-            <EntityTypeMapping TypeName="Model.TripsPlatform">
-              <MappingFragment StoreEntitySet="TripsPlatforms">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="TripId" ColumnName="TripId" />
-                <ScalarProperty Name="PlatformId" ColumnName="PlatformId" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="TripsStatus">
-            <EntityTypeMapping TypeName="Model.TripsStatu">
+            <EntityTypeMapping TypeName="ShipsSystemModel.TripsStatu">
               <MappingFragment StoreEntitySet="TripsStatus">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="TripId" ColumnName="TripId" />

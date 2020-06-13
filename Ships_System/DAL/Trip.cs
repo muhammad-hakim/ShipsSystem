@@ -18,22 +18,23 @@ namespace Ships_System.DAL
         public Trip()
         {
             this.TripsLoads = new HashSet<TripsLoad>();
-            this.TripsPlatforms = new HashSet<TripsPlatform>();
             this.TripsStatus = new HashSet<TripsStatu>();
         }
     
         public int TripId { get; set; }
         public int ShipId { get; set; }
         public int AgentId { get; set; }
+        public Nullable<int> PortId { get; set; }
+        public Nullable<int> PlatformId { get; set; }
         public int Status { get; set; }
         public string Notes { get; set; }
     
         public virtual Agent Agent { get; set; }
+        public virtual Platform Platform { get; set; }
+        public virtual Port Port { get; set; }
         public virtual Ship Ship { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TripsLoad> TripsLoads { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TripsPlatform> TripsPlatforms { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TripsStatu> TripsStatus { get; set; }
     }

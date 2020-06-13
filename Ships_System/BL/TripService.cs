@@ -1,6 +1,7 @@
 ﻿using Ships_System.DAL;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,7 +29,7 @@ namespace Ships_System.BL
 
         public List<Trip> GetAllTrips()
         {
-            return unitOfWork.Trips.Get();
+            return unitOfWork.Trips.Get().AsQueryable().Include("Agent.Ship.Port.Platform.TripsLoads.TripsStatus").ToList();
         }
 
         public Trip GetTripById(int id)
