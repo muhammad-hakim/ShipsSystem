@@ -80,6 +80,7 @@ namespace Ships_System.PL
             {
                 FillShipsGridView();
                 FillAddTripCmbShips();
+                //todo: fill accidents
                 AddShip_Imotxt.Clear();
                 AddShip_Nametxt.Clear();
                 AddShip_Typecmb.SelectedIndex = 0;
@@ -91,18 +92,31 @@ namespace Ships_System.PL
             }
         }
 
+        //string TranslateEnum(Type enumType, int value)
+        //{ 
+        
+        //}
+
         List<Trip> allTrips;
         List<TripsForDGV> tripsForDGV;
 
         void FillTripsDataGridView()
         {
             allTrips = tripService.GetAllTrips();
-            tripsForDGV = allTrips.Select<Trip,TripsForDGV> (t => new TripsForDGV { TripId = t.TripId.ToString(), ShipName = t.Ship.Name, ShipIMO = t.Ship.Imo, 
-                                                          ShipType = Enum.GetName(typeof(ShipTypes), t.Ship.Type),
-                                                          TripStatus = Enum.GetName(typeof(TripStatus), t.Status) ,
-                                                          TripStatusDate = t.TripsStatus.FirstOrDefault(s => s.TripId == t.TripId && s.Status == t.Status).Date.ToString(),
-                                                          Agent = t.Agent != null? t.Agent.Name:"", Port = t.Port != null? t.Port.Name :"",
-                                                          Platform = t.Platform != null? t.Platform.Name: "", Notes = t.Notes}).ToList();
+            tripsForDGV = allTrips.Select<Trip,TripsForDGV> (t => new TripsForDGV
+            {
+                TripId = t.TripId.ToString(),
+                ShipName = t.Ship.Name,
+                ShipIMO = t.Ship.Imo,
+                ShipType = Enum.GetName(typeof(ShipTypes), t.Ship.Type),
+                TripStatus = Enum.GetName(typeof(TripStatus), t.Status),
+                TripStatusDate = t.TripsStatus.FirstOrDefault(s => s.TripId == t.TripId && s.Status == t.Status).Date.ToString("MMM dd yyyy"),
+                Agent = t.Agent != null ? t.Agent.Name : "",
+                Port = t.Port != null ? t.Port.Name : "",
+                Platform = t.Platform != null ? t.Platform.Name : "",
+                Notes = t.Notes,
+                TripStatusVal = t.Status
+            }).ToList();
 
             TripsDGV.DataSource = tripsForDGV;
             TripsDGV.Columns[0].HeaderText = "رقم الرحلة";
@@ -115,6 +129,7 @@ namespace Ships_System.PL
             TripsDGV.Columns[7].HeaderText = "الميناء";
             TripsDGV.Columns[8].HeaderText = "الرصيف";
             TripsDGV.Columns[9].HeaderText = "ملاحظات";
+            TripsDGV.Columns[10].Visible = false;
             TripsDGV.Columns[0].Width = 85;
             TripsDGV.Columns[2].Width = 75;
             TripsDGV.Columns[5].Width = 90;
@@ -309,6 +324,7 @@ namespace Ships_System.PL
                     {
                         FillShipsGridView();
                         FillAddTripCmbShips();
+                        //todo: fill accidents
                         MessageBox.Show("تم الحذف بنجاح", "تم الحذف", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
@@ -425,18 +441,52 @@ namespace Ships_System.PL
                 PlatformId = Convert.ToInt32(AddTrip_CmbPorts.SelectedValue)
             };
 
-            foreach (var item in TripShipLoad)
+            if (AddTrip_btnSaveTrip.Tag == null)
             {
-                trip.TripsLoads.Add(new TripsLoad { ProductId = item.Key, Quantity = item.Value, TripId = trip.TripId });
+                foreach (var item in TripShipLoad)
+                {
+                    trip.TripsLoads.Add(new TripsLoad { ProductId = item.Key, Quantity = item.Value, TripId = trip.TripId });
+                }
+                trip.TripsStatus.Add(new TripsStatu { TripId = trip.TripId, Status = trip.Status, Date = AddTrip_dtpDate.Value });
+
+                tripService.AddTrip(trip);
             }
+            else
+            { 
+                trip.TripId = Convert.ToInt32(AddTrip_btnSaveTrip.Tag);
+                
+                var currentStatus = trip.TripsStatus.FirstOrDefault(s => s.TripId == trip.TripId && s.Status == trip.Status);
+                
+                if (currentStatus == null)
+                    trip.TripsStatus.Add(new TripsStatu { TripId = trip.TripId, Status = trip.Status, Date = AddTrip_dtpDate.Value });
+                else
+                {
+                    if (currentStatus.Date.ToShortDateString() != AddTrip_dtpDate.Value.ToShortDateString())
+                        currentStatus.Date = AddTrip_dtpDate.Value;
+                }
 
-            trip.TripsStatus.Add(new TripsStatu { TripId = trip.TripId, Status = trip.Status, Date = AddTrip_dtpDate.Value });
+                foreach (var item in TripShipLoad)
+                {
+                    var load = trip.TripsLoads.FirstOrDefault(l => l.TripId == trip.TripId && l.ProductId == item.Key);
+                    if (load != null)
+                    {
+                        load.Quantity = item.Value;
+                    }
+                    else
+                    {
+                        load = new TripsLoad { TripId = trip.TripId, ProductId = item.Key, Quantity = item.Value};
+                        trip.TripsLoads.Add(load);
+                    }
+                }
 
-            tripService.AddTrip(trip);
+                tripService.UpdateTrip(trip);
+                AddTrip_btnSaveTrip.Tag = null;
+            }
 
             if (dbService.Commit())
             {
                 AddTripRestControls();
+                FillTripsDataGridView();
                 MessageBox.Show("تم الحفظ بنجاح", "تم الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
@@ -645,20 +695,44 @@ namespace Ships_System.PL
 
         private void Trips_btnEdit_Click(object sender, EventArgs e)
         {
-            //AddTrip_btnSaveTrip.Tag = TripsDGV.CurrentRow.Cells[0].Value;
-            //AddTrip_CmbShips.Text = TripsDGV.CurrentRow.Cells[1].Value.ToString();
-            //AddTrip_CmbAgents.Text = TripsDGV.CurrentRow.Cells[1].Value.ToString();
-            //AddTrip_CmbPorts.Text = TripsDGV.CurrentRow.Cells[1].Value.ToString(); ;
-            //AddTrip_CmbPlatforms.Text= TripsDGV.CurrentRow.Cells[1].Value.ToString(); ;
-            //AddTrip_CmbStatus.Text = TripsDGV.CurrentRow.Cells[1].Value.ToString(); ;
-            //TripShipLoad.Add();
-            //AddTrip_txtNotes = TripsDGV.CurrentRow.Cells[1].Value.ToString();
-            //AddTrip_dtpDate.Value = TripsDGV.CurrentRow.Cells[1].Value.ToString();
+            AddTrip_btnSaveTrip.Tag = TripsDGV.CurrentRow.Cells[0].Value;
+            AddTrip_CmbShips.Text = TripsDGV.CurrentRow.Cells[1].Value.ToString();
+            AddTrip_dtpDate.Value = Convert.ToDateTime(TripsDGV.CurrentRow.Cells[5].Value.ToString());
+            AddTrip_CmbAgents.Text = TripsDGV.CurrentRow.Cells[6].Value.ToString();
+            AddTrip_CmbPorts.Text = TripsDGV.CurrentRow.Cells[7].Value.ToString();
+            AddTrip_CmbPlatforms.Text = TripsDGV.CurrentRow.Cells[8].Value.ToString();
+            AddTrip_txtNotes.Text = TripsDGV.CurrentRow.Cells[9].Value.ToString();
+            AddTrip_CmbStatus.SelectedItem = (TripStatus)TripsDGV.CurrentRow.Cells[10].Value;
+
+            TripShipLoad.Clear();
+            foreach (TripsLoad item in allTrips.Find(t => t.TripId == Convert.ToInt32(TripsDGV.CurrentRow.Cells[0].Value)).TripsLoads)
+            {
+                TripShipLoad.Add(item.ProductId, item.Quantity);
+            }
+            FillAddTripDGVShipLoad();
+            triptabControl.SelectedTab = addingTripTab;
         }
 
         private void Trips_btnDelete_Click(object sender, EventArgs e)
         {
+            if (TripsDGV.CurrentRow != null)
+            {
+                if (MessageBox.Show("هل تريد حذف الرحلة?", "حذف الرحلة", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                {
+                    var tripId = Convert.ToInt32(ShipsGridView.CurrentRow.Cells[0].Value);
+                    tripService.DeleteTrip(tripId);
 
+                    if (dbService.Commit())
+                    {
+                        FillTripsDataGridView();
+                        MessageBox.Show("تم الحذف بنجاح", "تم الحذف", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("لم يتم الحذف", "فشل الحذف", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
 
         void FilterTripsDGV()

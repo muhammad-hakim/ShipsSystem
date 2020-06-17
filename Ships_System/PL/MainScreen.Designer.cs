@@ -1199,7 +1199,7 @@
             // AddTrip_lnkAddPlatform
             // 
             this.AddTrip_lnkAddPlatform.AutoSize = true;
-            this.AddTrip_lnkAddPlatform.Location = new System.Drawing.Point(165, 142);
+            this.AddTrip_lnkAddPlatform.Location = new System.Drawing.Point(165, 130);
             this.AddTrip_lnkAddPlatform.Name = "AddTrip_lnkAddPlatform";
             this.AddTrip_lnkAddPlatform.Size = new System.Drawing.Size(90, 15);
             this.AddTrip_lnkAddPlatform.TabIndex = 34;
@@ -1486,7 +1486,6 @@
             this.Trips_btnDelete.TabIndex = 11;
             this.Trips_btnDelete.Text = "حذف الرحلة";
             this.Trips_btnDelete.UseVisualStyleBackColor = true;
-            this.Trips_btnDelete.Visible = false;
             this.Trips_btnDelete.Click += new System.EventHandler(this.Trips_btnDelete_Click);
             // 
             // Trips_btnEdit
@@ -1498,7 +1497,6 @@
             this.Trips_btnEdit.TabIndex = 10;
             this.Trips_btnEdit.Text = "تعديل الرحلة";
             this.Trips_btnEdit.UseVisualStyleBackColor = true;
-            this.Trips_btnEdit.Visible = false;
             this.Trips_btnEdit.Click += new System.EventHandler(this.Trips_btnEdit_Click);
             // 
             // Trips_txtSearch

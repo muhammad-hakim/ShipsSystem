@@ -19,5 +19,6 @@ namespace Ships_System.Utilities
         public string Port { get; set; }
         public string Platform { get; set; }
         public string Notes { get; set; }
+        public int TripStatusVal { get; set; }
     }
 }
