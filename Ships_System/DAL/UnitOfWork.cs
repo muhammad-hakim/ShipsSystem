@@ -78,6 +78,13 @@ namespace Ships_System.DAL
                 return new Repository<TripsStatu>(context);
             }
         }
+        public Repository<Accident> Accidents
+        {
+            get
+            {
+                return new Repository<Accident>(context);
+            }
+        }
 
         public bool Commit()
         {

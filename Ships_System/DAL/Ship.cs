@@ -18,6 +18,7 @@ namespace Ships_System.DAL
         public Ship()
         {
             this.Trips = new HashSet<Trip>();
+            this.Accidents = new HashSet<Accident>();
         }
     
         public int ShipId { get; set; }
@@ -27,5 +28,7 @@ namespace Ships_System.DAL
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Trip> Trips { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Accident> Accidents { get; set; }
     }
 }

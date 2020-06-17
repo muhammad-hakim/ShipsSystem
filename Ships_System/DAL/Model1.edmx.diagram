@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="67e05f6d1ec546baaa5073601f58b211" Name="Diagram1">
+      <Diagram DiagramId="67e05f6d1ec546baaa5073601f58b211" Name="Diagram1" DisplayType="true">
         <EntityTypeShape EntityType="ShipsSystemModel.Agent" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ShipsSystemModel.Platform" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ShipsSystemModel.Port" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
@@ -21,6 +21,8 @@
         <AssociationConnector Association="ShipsSystemModel.FK_Trips_Ships" ManuallyRouted="false" />
         <AssociationConnector Association="ShipsSystemModel.FK_TripsLoads_Trips" ManuallyRouted="false" />
         <AssociationConnector Association="ShipsSystemModel.FK_TripsStatus_Trips" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ShipsSystemModel.Accident" Width="1.5" PointX="5.25" PointY="12.5" />
+        <AssociationConnector Association="ShipsSystemModel.fk_accident_ship" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

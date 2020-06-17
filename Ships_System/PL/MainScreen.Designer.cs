@@ -157,6 +157,51 @@
             this.Trips_txtSearch = new System.Windows.Forms.TextBox();
             this.searchlab = new System.Windows.Forms.Label();
             this.triptabControl = new System.Windows.Forms.TabControl();
+            this.AccidentTab = new System.Windows.Forms.TabPage();
+            this.accidents_deletebtn = new System.Windows.Forms.Button();
+            this.Accident_Upadtebtn = new System.Windows.Forms.Button();
+            this.Accidents_DGV = new System.Windows.Forms.DataGridView();
+            this.AccidentManagementTab = new System.Windows.Forms.TabPage();
+            this.ManageAcc_canclbtn = new System.Windows.Forms.Button();
+            this.ManageAcc_savebtn = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.ManageAcc_txtCrewConsequences = new System.Windows.Forms.TextBox();
+            this.ManagAcc_txtReportedTo = new System.Windows.Forms.TextBox();
+            this.ManageAcc_txtCoast = new System.Windows.Forms.TextBox();
+            this.ManageAcc_txtCrewAction = new System.Windows.Forms.TextBox();
+            this.ManageAcc_txtDetails = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.ManageAcc_groupInfo = new System.Windows.Forms.GroupBox();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.ManageAcc_LabReportedTo = new System.Windows.Forms.Label();
+            this.ManageAcc_LabIsReported = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.ManageAcc_txtCrewConseq = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.ManageAcc_txtDetailAcc = new System.Windows.Forms.Label();
+            this.ManageAcc_LabCrewConseq = new System.Windows.Forms.Label();
+            this.ManageAcc_LabCostal = new System.Windows.Forms.Label();
+            this.ManagAcc_LabCrewAction = new System.Windows.Forms.Label();
+            this.ManageAcc_gruopLocation = new System.Windows.Forms.GroupBox();
+            this.ManageAcc_groupLabLenght = new System.Windows.Forms.Label();
+            this.ManagAcc_txtLati = new System.Windows.Forms.TextBox();
+            this.ManageAcc_txtLong = new System.Windows.Forms.TextBox();
+            this.ManageAcc_Labwidth = new System.Windows.Forms.Label();
+            this.ManageAcc_dtpDate = new System.Windows.Forms.DateTimePicker();
+            this.MangeAcc_linkShip = new System.Windows.Forms.LinkLabel();
+            this.ManageAcc_cmbArea = new System.Windows.Forms.ComboBox();
+            this.ManageAcc_cmbShipName = new System.Windows.Forms.ComboBox();
+            this.ManageAcc_LabDate = new System.Windows.Forms.Label();
+            this.ManageAcc_labArea = new System.Windows.Forms.Label();
+            this.ManageAcc_labshipName = new System.Windows.Forms.Label();
+            this.ManageAcc_lab = new System.Windows.Forms.Label();
+            this.ManageAcc_CheckReported = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
             this.portTab.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -175,6 +220,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.TripsDGV)).BeginInit();
             this.panel4.SuspendLayout();
             this.triptabControl.SuspendLayout();
+            this.AccidentTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Accidents_DGV)).BeginInit();
+            this.AccidentManagementTab.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.ManageAcc_groupInfo.SuspendLayout();
+            this.ManageAcc_gruopLocation.SuspendLayout();
             this.SuspendLayout();
             // 
             // bunifuImageButton2
@@ -1199,7 +1250,7 @@
             // AddTrip_lnkAddPlatform
             // 
             this.AddTrip_lnkAddPlatform.AutoSize = true;
-            this.AddTrip_lnkAddPlatform.Location = new System.Drawing.Point(165, 130);
+            this.AddTrip_lnkAddPlatform.Location = new System.Drawing.Point(165, 128);
             this.AddTrip_lnkAddPlatform.Name = "AddTrip_lnkAddPlatform";
             this.AddTrip_lnkAddPlatform.Size = new System.Drawing.Size(90, 15);
             this.AddTrip_lnkAddPlatform.TabIndex = 34;
@@ -1218,6 +1269,7 @@
             this.AddTrip_CmbShips.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.AddTrip_CmbShips.Size = new System.Drawing.Size(179, 23);
             this.AddTrip_CmbShips.TabIndex = 32;
+            this.AddTrip_CmbShips.SelectedIndexChanged += new System.EventHandler(this.AddTrip_CmbShips_SelectedIndexChanged);
             // 
             // AddTrip_lnkAddAgent
             // 
@@ -1418,6 +1470,7 @@
             this.TripsDGV.ShowEditingIcon = false;
             this.TripsDGV.Size = new System.Drawing.Size(996, 603);
             this.TripsDGV.TabIndex = 8;
+            this.TripsDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TripsDGV_CellContentClick);
             // 
             // panel4
             // 
@@ -1527,6 +1580,8 @@
             this.triptabControl.Controls.Add(this.shipsTab);
             this.triptabControl.Controls.Add(this.agentsTab);
             this.triptabControl.Controls.Add(this.portTab);
+            this.triptabControl.Controls.Add(this.AccidentTab);
+            this.triptabControl.Controls.Add(this.AccidentManagementTab);
             this.triptabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.triptabControl.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.triptabControl.Location = new System.Drawing.Point(0, 0);
@@ -1536,6 +1591,473 @@
             this.triptabControl.SelectedIndex = 0;
             this.triptabControl.Size = new System.Drawing.Size(1004, 697);
             this.triptabControl.TabIndex = 0;
+            // 
+            // AccidentTab
+            // 
+            this.AccidentTab.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.AccidentTab.Controls.Add(this.accidents_deletebtn);
+            this.AccidentTab.Controls.Add(this.Accident_Upadtebtn);
+            this.AccidentTab.Controls.Add(this.Accidents_DGV);
+            this.AccidentTab.Location = new System.Drawing.Point(4, 27);
+            this.AccidentTab.Name = "AccidentTab";
+            this.AccidentTab.Padding = new System.Windows.Forms.Padding(3);
+            this.AccidentTab.Size = new System.Drawing.Size(996, 666);
+            this.AccidentTab.TabIndex = 6;
+            this.AccidentTab.Text = "الحوادث";
+            // 
+            // accidents_deletebtn
+            // 
+            this.accidents_deletebtn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.accidents_deletebtn.Location = new System.Drawing.Point(344, 55);
+            this.accidents_deletebtn.Name = "accidents_deletebtn";
+            this.accidents_deletebtn.Size = new System.Drawing.Size(157, 37);
+            this.accidents_deletebtn.TabIndex = 1;
+            this.accidents_deletebtn.Text = "حذف بيانات الحادثة";
+            this.accidents_deletebtn.UseVisualStyleBackColor = true;
+            // 
+            // Accident_Upadtebtn
+            // 
+            this.Accident_Upadtebtn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Accident_Upadtebtn.Location = new System.Drawing.Point(548, 55);
+            this.Accident_Upadtebtn.Name = "Accident_Upadtebtn";
+            this.Accident_Upadtebtn.Size = new System.Drawing.Size(157, 37);
+            this.Accident_Upadtebtn.TabIndex = 1;
+            this.Accident_Upadtebtn.Text = "تعديل بيانات الحادثة";
+            this.Accident_Upadtebtn.UseVisualStyleBackColor = true;
+            // 
+            // Accidents_DGV
+            // 
+            this.Accidents_DGV.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.Accidents_DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Accidents_DGV.Location = new System.Drawing.Point(0, 123);
+            this.Accidents_DGV.Name = "Accidents_DGV";
+            this.Accidents_DGV.Size = new System.Drawing.Size(993, 543);
+            this.Accidents_DGV.TabIndex = 0;
+            // 
+            // AccidentManagementTab
+            // 
+            this.AccidentManagementTab.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.AccidentManagementTab.Controls.Add(this.ManageAcc_canclbtn);
+            this.AccidentManagementTab.Controls.Add(this.ManageAcc_savebtn);
+            this.AccidentManagementTab.Controls.Add(this.groupBox5);
+            this.AccidentManagementTab.Controls.Add(this.ManageAcc_groupInfo);
+            this.AccidentManagementTab.Controls.Add(this.ManageAcc_gruopLocation);
+            this.AccidentManagementTab.Controls.Add(this.ManageAcc_dtpDate);
+            this.AccidentManagementTab.Controls.Add(this.MangeAcc_linkShip);
+            this.AccidentManagementTab.Controls.Add(this.ManageAcc_cmbArea);
+            this.AccidentManagementTab.Controls.Add(this.ManageAcc_cmbShipName);
+            this.AccidentManagementTab.Controls.Add(this.ManageAcc_LabDate);
+            this.AccidentManagementTab.Controls.Add(this.ManageAcc_labArea);
+            this.AccidentManagementTab.Controls.Add(this.ManageAcc_labshipName);
+            this.AccidentManagementTab.Controls.Add(this.ManageAcc_lab);
+            this.AccidentManagementTab.Location = new System.Drawing.Point(4, 27);
+            this.AccidentManagementTab.Name = "AccidentManagementTab";
+            this.AccidentManagementTab.Padding = new System.Windows.Forms.Padding(3);
+            this.AccidentManagementTab.Size = new System.Drawing.Size(996, 666);
+            this.AccidentManagementTab.TabIndex = 7;
+            this.AccidentManagementTab.Text = "إدارة الحوادث";
+            // 
+            // ManageAcc_canclbtn
+            // 
+            this.ManageAcc_canclbtn.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.ManageAcc_canclbtn.Location = new System.Drawing.Point(433, 621);
+            this.ManageAcc_canclbtn.Name = "ManageAcc_canclbtn";
+            this.ManageAcc_canclbtn.Size = new System.Drawing.Size(92, 39);
+            this.ManageAcc_canclbtn.TabIndex = 7;
+            this.ManageAcc_canclbtn.Text = "ألغاء";
+            this.ManageAcc_canclbtn.UseVisualStyleBackColor = true;
+            this.ManageAcc_canclbtn.Click += new System.EventHandler(this.ManageAcc_canclbtn_Click);
+            // 
+            // ManageAcc_savebtn
+            // 
+            this.ManageAcc_savebtn.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.ManageAcc_savebtn.Location = new System.Drawing.Point(559, 619);
+            this.ManageAcc_savebtn.Name = "ManageAcc_savebtn";
+            this.ManageAcc_savebtn.Size = new System.Drawing.Size(102, 39);
+            this.ManageAcc_savebtn.TabIndex = 7;
+            this.ManageAcc_savebtn.Text = "حفظ";
+            this.ManageAcc_savebtn.UseVisualStyleBackColor = true;
+            this.ManageAcc_savebtn.Click += new System.EventHandler(this.ManageAcc_savebtn_Click);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.ManageAcc_CheckReported);
+            this.groupBox5.Controls.Add(this.label11);
+            this.groupBox5.Controls.Add(this.ManageAcc_txtCrewConsequences);
+            this.groupBox5.Controls.Add(this.ManagAcc_txtReportedTo);
+            this.groupBox5.Controls.Add(this.ManageAcc_txtCoast);
+            this.groupBox5.Controls.Add(this.ManageAcc_txtCrewAction);
+            this.groupBox5.Controls.Add(this.ManageAcc_txtDetails);
+            this.groupBox5.Controls.Add(this.label14);
+            this.groupBox5.Controls.Add(this.label15);
+            this.groupBox5.Controls.Add(this.label19);
+            this.groupBox5.Controls.Add(this.label20);
+            this.groupBox5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.groupBox5.Location = new System.Drawing.Point(138, 280);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(852, 333);
+            this.groupBox5.TabIndex = 6;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "المعلومات التفصيله للحادث";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label11.Location = new System.Drawing.Point(322, 268);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(79, 19);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "الجهة المبلغة";
+            // 
+            // ManageAcc_txtCrewConsequences
+            // 
+            this.ManageAcc_txtCrewConsequences.Location = new System.Drawing.Point(518, 148);
+            this.ManageAcc_txtCrewConsequences.Multiline = true;
+            this.ManageAcc_txtCrewConsequences.Name = "ManageAcc_txtCrewConsequences";
+            this.ManageAcc_txtCrewConsequences.Size = new System.Drawing.Size(232, 76);
+            this.ManageAcc_txtCrewConsequences.TabIndex = 1;
+            // 
+            // ManagAcc_txtReportedTo
+            // 
+            this.ManagAcc_txtReportedTo.Location = new System.Drawing.Point(86, 254);
+            this.ManagAcc_txtReportedTo.Multiline = true;
+            this.ManagAcc_txtReportedTo.Name = "ManagAcc_txtReportedTo";
+            this.ManagAcc_txtReportedTo.Size = new System.Drawing.Size(232, 47);
+            this.ManagAcc_txtReportedTo.TabIndex = 1;
+            // 
+            // ManageAcc_txtCoast
+            // 
+            this.ManageAcc_txtCoast.Location = new System.Drawing.Point(86, 148);
+            this.ManageAcc_txtCoast.Multiline = true;
+            this.ManageAcc_txtCoast.Name = "ManageAcc_txtCoast";
+            this.ManageAcc_txtCoast.Size = new System.Drawing.Size(232, 76);
+            this.ManageAcc_txtCoast.TabIndex = 1;
+            // 
+            // ManageAcc_txtCrewAction
+            // 
+            this.ManageAcc_txtCrewAction.Location = new System.Drawing.Point(86, 47);
+            this.ManageAcc_txtCrewAction.Multiline = true;
+            this.ManageAcc_txtCrewAction.Name = "ManageAcc_txtCrewAction";
+            this.ManageAcc_txtCrewAction.Size = new System.Drawing.Size(232, 73);
+            this.ManageAcc_txtCrewAction.TabIndex = 1;
+            // 
+            // ManageAcc_txtDetails
+            // 
+            this.ManageAcc_txtDetails.Location = new System.Drawing.Point(518, 47);
+            this.ManageAcc_txtDetails.Multiline = true;
+            this.ManageAcc_txtDetails.Name = "ManageAcc_txtDetails";
+            this.ManageAcc_txtDetails.Size = new System.Drawing.Size(232, 73);
+            this.ManageAcc_txtDetails.TabIndex = 1;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label14.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label14.Location = new System.Drawing.Point(756, 73);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(85, 19);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "تفاصيل الحادثة";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(339, 82);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(135, 19);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "الاجراءالمتخذ من الطاقم";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(322, 184);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(188, 19);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "الاجراء المتخذ من الدولة الساحلية";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(763, 184);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(78, 19);
+            this.label20.TabIndex = 0;
+            this.label20.Text = "اضرار الطاقم";
+            // 
+            // ManageAcc_groupInfo
+            // 
+            this.ManageAcc_groupInfo.Controls.Add(this.radioButton2);
+            this.ManageAcc_groupInfo.Controls.Add(this.radioButton1);
+            this.ManageAcc_groupInfo.Controls.Add(this.ManageAcc_LabReportedTo);
+            this.ManageAcc_groupInfo.Controls.Add(this.ManageAcc_LabIsReported);
+            this.ManageAcc_groupInfo.Controls.Add(this.textBox6);
+            this.ManageAcc_groupInfo.Controls.Add(this.textBox5);
+            this.ManageAcc_groupInfo.Controls.Add(this.ManageAcc_txtCrewConseq);
+            this.ManageAcc_groupInfo.Controls.Add(this.textBox3);
+            this.ManageAcc_groupInfo.Controls.Add(this.ManageAcc_txtDetailAcc);
+            this.ManageAcc_groupInfo.Controls.Add(this.ManageAcc_LabCrewConseq);
+            this.ManageAcc_groupInfo.Controls.Add(this.ManageAcc_LabCostal);
+            this.ManageAcc_groupInfo.Controls.Add(this.ManagAcc_LabCrewAction);
+            this.ManageAcc_groupInfo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.ManageAcc_groupInfo.Location = new System.Drawing.Point(138, 280);
+            this.ManageAcc_groupInfo.Name = "ManageAcc_groupInfo";
+            this.ManageAcc_groupInfo.Size = new System.Drawing.Size(852, 333);
+            this.ManageAcc_groupInfo.TabIndex = 6;
+            this.ManageAcc_groupInfo.TabStop = false;
+            this.ManageAcc_groupInfo.Text = "المعلومات التفصيله للحادث";
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(636, 293);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(114, 23);
+            this.radioButton2.TabIndex = 3;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "radioButton1";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(636, 255);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(114, 23);
+            this.radioButton1.TabIndex = 3;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "radioButton1";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // ManageAcc_LabReportedTo
+            // 
+            this.ManageAcc_LabReportedTo.AutoSize = true;
+            this.ManageAcc_LabReportedTo.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.ManageAcc_LabReportedTo.Location = new System.Drawing.Point(395, 255);
+            this.ManageAcc_LabReportedTo.Name = "ManageAcc_LabReportedTo";
+            this.ManageAcc_LabReportedTo.Size = new System.Drawing.Size(91, 22);
+            this.ManageAcc_LabReportedTo.TabIndex = 2;
+            this.ManageAcc_LabReportedTo.Text = "الدولة المبلغة";
+            // 
+            // ManageAcc_LabIsReported
+            // 
+            this.ManageAcc_LabIsReported.AutoSize = true;
+            this.ManageAcc_LabIsReported.Location = new System.Drawing.Point(785, 268);
+            this.ManageAcc_LabIsReported.Name = "ManageAcc_LabIsReported";
+            this.ManageAcc_LabIsReported.Size = new System.Drawing.Size(39, 19);
+            this.ManageAcc_LabIsReported.TabIndex = 2;
+            this.ManageAcc_LabIsReported.Text = "البلاغ";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(518, 148);
+            this.textBox6.Multiline = true;
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(232, 76);
+            this.textBox6.TabIndex = 1;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(86, 148);
+            this.textBox5.Multiline = true;
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(232, 76);
+            this.textBox5.TabIndex = 1;
+            // 
+            // ManageAcc_txtCrewConseq
+            // 
+            this.ManageAcc_txtCrewConseq.Location = new System.Drawing.Point(86, 47);
+            this.ManageAcc_txtCrewConseq.Multiline = true;
+            this.ManageAcc_txtCrewConseq.Name = "ManageAcc_txtCrewConseq";
+            this.ManageAcc_txtCrewConseq.Size = new System.Drawing.Size(232, 73);
+            this.ManageAcc_txtCrewConseq.TabIndex = 1;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(518, 47);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(232, 73);
+            this.textBox3.TabIndex = 1;
+            // 
+            // ManageAcc_txtDetailAcc
+            // 
+            this.ManageAcc_txtDetailAcc.AutoSize = true;
+            this.ManageAcc_txtDetailAcc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ManageAcc_txtDetailAcc.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.ManageAcc_txtDetailAcc.Location = new System.Drawing.Point(756, 73);
+            this.ManageAcc_txtDetailAcc.Name = "ManageAcc_txtDetailAcc";
+            this.ManageAcc_txtDetailAcc.Size = new System.Drawing.Size(85, 19);
+            this.ManageAcc_txtDetailAcc.TabIndex = 0;
+            this.ManageAcc_txtDetailAcc.Text = "تفاصيل الحادثة";
+            // 
+            // ManageAcc_LabCrewConseq
+            // 
+            this.ManageAcc_LabCrewConseq.AutoSize = true;
+            this.ManageAcc_LabCrewConseq.Location = new System.Drawing.Point(339, 82);
+            this.ManageAcc_LabCrewConseq.Name = "ManageAcc_LabCrewConseq";
+            this.ManageAcc_LabCrewConseq.Size = new System.Drawing.Size(135, 19);
+            this.ManageAcc_LabCrewConseq.TabIndex = 0;
+            this.ManageAcc_LabCrewConseq.Text = "الاجراءالمتخذ من الطاقم";
+            // 
+            // ManageAcc_LabCostal
+            // 
+            this.ManageAcc_LabCostal.AutoSize = true;
+            this.ManageAcc_LabCostal.Location = new System.Drawing.Point(322, 184);
+            this.ManageAcc_LabCostal.Name = "ManageAcc_LabCostal";
+            this.ManageAcc_LabCostal.Size = new System.Drawing.Size(188, 19);
+            this.ManageAcc_LabCostal.TabIndex = 0;
+            this.ManageAcc_LabCostal.Text = "الاجراء المتخذ من الدولة الساحلية";
+            // 
+            // ManagAcc_LabCrewAction
+            // 
+            this.ManagAcc_LabCrewAction.AutoSize = true;
+            this.ManagAcc_LabCrewAction.Location = new System.Drawing.Point(763, 184);
+            this.ManagAcc_LabCrewAction.Name = "ManagAcc_LabCrewAction";
+            this.ManagAcc_LabCrewAction.Size = new System.Drawing.Size(78, 19);
+            this.ManagAcc_LabCrewAction.TabIndex = 0;
+            this.ManagAcc_LabCrewAction.Text = "اضرار الطاقم";
+            // 
+            // ManageAcc_gruopLocation
+            // 
+            this.ManageAcc_gruopLocation.Controls.Add(this.ManageAcc_groupLabLenght);
+            this.ManageAcc_gruopLocation.Controls.Add(this.ManagAcc_txtLati);
+            this.ManageAcc_gruopLocation.Controls.Add(this.ManageAcc_txtLong);
+            this.ManageAcc_gruopLocation.Controls.Add(this.ManageAcc_Labwidth);
+            this.ManageAcc_gruopLocation.Location = new System.Drawing.Point(275, 99);
+            this.ManageAcc_gruopLocation.Name = "ManageAcc_gruopLocation";
+            this.ManageAcc_gruopLocation.Size = new System.Drawing.Size(250, 175);
+            this.ManageAcc_gruopLocation.TabIndex = 5;
+            this.ManageAcc_gruopLocation.TabStop = false;
+            this.ManageAcc_gruopLocation.Text = "موقع الحادث";
+            // 
+            // ManageAcc_groupLabLenght
+            // 
+            this.ManageAcc_groupLabLenght.AutoSize = true;
+            this.ManageAcc_groupLabLenght.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.ManageAcc_groupLabLenght.Location = new System.Drawing.Point(181, 28);
+            this.ManageAcc_groupLabLenght.Name = "ManageAcc_groupLabLenght";
+            this.ManageAcc_groupLabLenght.Size = new System.Drawing.Size(59, 19);
+            this.ManageAcc_groupLabLenght.TabIndex = 0;
+            this.ManageAcc_groupLabLenght.Text = "خط الطول";
+            // 
+            // ManagAcc_txtLati
+            // 
+            this.ManagAcc_txtLati.Location = new System.Drawing.Point(11, 117);
+            this.ManagAcc_txtLati.Name = "ManagAcc_txtLati";
+            this.ManagAcc_txtLati.Size = new System.Drawing.Size(161, 22);
+            this.ManagAcc_txtLati.TabIndex = 3;
+            // 
+            // ManageAcc_txtLong
+            // 
+            this.ManageAcc_txtLong.Location = new System.Drawing.Point(6, 25);
+            this.ManageAcc_txtLong.Name = "ManageAcc_txtLong";
+            this.ManageAcc_txtLong.Size = new System.Drawing.Size(161, 22);
+            this.ManageAcc_txtLong.TabIndex = 3;
+            // 
+            // ManageAcc_Labwidth
+            // 
+            this.ManageAcc_Labwidth.AutoSize = true;
+            this.ManageAcc_Labwidth.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.ManageAcc_Labwidth.Location = new System.Drawing.Point(181, 120);
+            this.ManageAcc_Labwidth.Name = "ManageAcc_Labwidth";
+            this.ManageAcc_Labwidth.Size = new System.Drawing.Size(55, 15);
+            this.ManageAcc_Labwidth.TabIndex = 0;
+            this.ManageAcc_Labwidth.Text = "خط العرض";
+            // 
+            // ManageAcc_dtpDate
+            // 
+            this.ManageAcc_dtpDate.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+            this.ManageAcc_dtpDate.Location = new System.Drawing.Point(702, 161);
+            this.ManageAcc_dtpDate.Name = "ManageAcc_dtpDate";
+            this.ManageAcc_dtpDate.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.ManageAcc_dtpDate.Size = new System.Drawing.Size(177, 22);
+            this.ManageAcc_dtpDate.TabIndex = 4;
+            this.ManageAcc_dtpDate.Value = new System.DateTime(2020, 6, 16, 0, 25, 32, 0);
+            // 
+            // MangeAcc_linkShip
+            // 
+            this.MangeAcc_linkShip.AutoSize = true;
+            this.MangeAcc_linkShip.Location = new System.Drawing.Point(589, 99);
+            this.MangeAcc_linkShip.Name = "MangeAcc_linkShip";
+            this.MangeAcc_linkShip.Size = new System.Drawing.Size(89, 15);
+            this.MangeAcc_linkShip.TabIndex = 2;
+            this.MangeAcc_linkShip.TabStop = true;
+            this.MangeAcc_linkShip.Text = "لاضافة سفينة جديدة";
+            this.MangeAcc_linkShip.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.MangeAcc_linkShip_LinkClicked);
+            // 
+            // ManageAcc_cmbArea
+            // 
+            this.ManageAcc_cmbArea.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ManageAcc_cmbArea.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.ManageAcc_cmbArea.FormattingEnabled = true;
+            this.ManageAcc_cmbArea.Location = new System.Drawing.Point(702, 234);
+            this.ManageAcc_cmbArea.Name = "ManageAcc_cmbArea";
+            this.ManageAcc_cmbArea.Size = new System.Drawing.Size(177, 23);
+            this.ManageAcc_cmbArea.TabIndex = 1;
+            // 
+            // ManageAcc_cmbShipName
+            // 
+            this.ManageAcc_cmbShipName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ManageAcc_cmbShipName.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.ManageAcc_cmbShipName.FormattingEnabled = true;
+            this.ManageAcc_cmbShipName.Location = new System.Drawing.Point(702, 90);
+            this.ManageAcc_cmbShipName.Name = "ManageAcc_cmbShipName";
+            this.ManageAcc_cmbShipName.Size = new System.Drawing.Size(177, 23);
+            this.ManageAcc_cmbShipName.TabIndex = 1;
+            // 
+            // ManageAcc_LabDate
+            // 
+            this.ManageAcc_LabDate.AutoSize = true;
+            this.ManageAcc_LabDate.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.ManageAcc_LabDate.Location = new System.Drawing.Point(913, 159);
+            this.ManageAcc_LabDate.Name = "ManageAcc_LabDate";
+            this.ManageAcc_LabDate.Size = new System.Drawing.Size(58, 24);
+            this.ManageAcc_LabDate.TabIndex = 0;
+            this.ManageAcc_LabDate.Text = "التاريخ";
+            // 
+            // ManageAcc_labArea
+            // 
+            this.ManageAcc_labArea.AutoSize = true;
+            this.ManageAcc_labArea.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.ManageAcc_labArea.Location = new System.Drawing.Point(913, 239);
+            this.ManageAcc_labArea.Name = "ManageAcc_labArea";
+            this.ManageAcc_labArea.Size = new System.Drawing.Size(62, 24);
+            this.ManageAcc_labArea.TabIndex = 0;
+            this.ManageAcc_labArea.Text = "المنطقة";
+            // 
+            // ManageAcc_labshipName
+            // 
+            this.ManageAcc_labshipName.AutoSize = true;
+            this.ManageAcc_labshipName.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.ManageAcc_labshipName.Location = new System.Drawing.Point(910, 90);
+            this.ManageAcc_labshipName.Name = "ManageAcc_labshipName";
+            this.ManageAcc_labshipName.Size = new System.Drawing.Size(61, 24);
+            this.ManageAcc_labshipName.TabIndex = 0;
+            this.ManageAcc_labshipName.Text = "السفينة";
+            // 
+            // ManageAcc_lab
+            // 
+            this.ManageAcc_lab.AutoSize = true;
+            this.ManageAcc_lab.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.ManageAcc_lab.Location = new System.Drawing.Point(533, 20);
+            this.ManageAcc_lab.Name = "ManageAcc_lab";
+            this.ManageAcc_lab.Size = new System.Drawing.Size(134, 31);
+            this.ManageAcc_lab.TabIndex = 0;
+            this.ManageAcc_lab.Text = "ادارة الحوادث";
+            // 
+            // ManageAcc_CheckReported
+            // 
+            this.ManageAcc_CheckReported.AutoSize = true;
+            this.ManageAcc_CheckReported.Location = new System.Drawing.Point(674, 265);
+            this.ManageAcc_CheckReported.Name = "ManageAcc_CheckReported";
+            this.ManageAcc_CheckReported.Size = new System.Drawing.Size(76, 23);
+            this.ManageAcc_CheckReported.TabIndex = 3;
+            this.ManageAcc_CheckReported.Text = "تم الابلاغ";
+            this.ManageAcc_CheckReported.UseVisualStyleBackColor = true;
             // 
             // MainScreen
             // 
@@ -1580,6 +2102,16 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.triptabControl.ResumeLayout(false);
+            this.AccidentTab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Accidents_DGV)).EndInit();
+            this.AccidentManagementTab.ResumeLayout(false);
+            this.AccidentManagementTab.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.ManageAcc_groupInfo.ResumeLayout(false);
+            this.ManageAcc_groupInfo.PerformLayout();
+            this.ManageAcc_gruopLocation.ResumeLayout(false);
+            this.ManageAcc_gruopLocation.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1713,5 +2245,50 @@
         private System.Windows.Forms.ComboBox Trips_cmbSearchFields;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button Trips_btnClearSearch;
+        private System.Windows.Forms.TabPage AccidentTab;
+        private System.Windows.Forms.TabPage AccidentManagementTab;
+        private System.Windows.Forms.Label ManageAcc_LabCostal;
+        private System.Windows.Forms.Label ManageAcc_labshipName;
+        private System.Windows.Forms.Label ManageAcc_txtDetailAcc;
+        private System.Windows.Forms.Label ManageAcc_lab;
+        private System.Windows.Forms.Label ManageAcc_LabDate;
+        private System.Windows.Forms.Label ManagAcc_LabCrewAction;
+        private System.Windows.Forms.Label ManageAcc_Labwidth;
+        private System.Windows.Forms.Label ManageAcc_labArea;
+        private System.Windows.Forms.Label ManageAcc_groupLabLenght;
+        private System.Windows.Forms.Label ManageAcc_LabCrewConseq;
+        private System.Windows.Forms.LinkLabel MangeAcc_linkShip;
+        private System.Windows.Forms.ComboBox ManageAcc_cmbShipName;
+        private System.Windows.Forms.ComboBox ManageAcc_cmbArea;
+        private System.Windows.Forms.DateTimePicker ManageAcc_dtpDate;
+        private System.Windows.Forms.TextBox ManageAcc_txtLong;
+        private System.Windows.Forms.GroupBox ManageAcc_gruopLocation;
+        private System.Windows.Forms.TextBox ManagAcc_txtLati;
+        private System.Windows.Forms.GroupBox ManageAcc_groupInfo;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox ManageAcc_txtCrewConseq;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.Label ManageAcc_LabIsReported;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox ManageAcc_txtCrewConsequences;
+        private System.Windows.Forms.TextBox ManagAcc_txtReportedTo;
+        private System.Windows.Forms.TextBox ManageAcc_txtCoast;
+        private System.Windows.Forms.TextBox ManageAcc_txtCrewAction;
+        private System.Windows.Forms.TextBox ManageAcc_txtDetails;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label ManageAcc_LabReportedTo;
+        private System.Windows.Forms.Button ManageAcc_canclbtn;
+        private System.Windows.Forms.Button ManageAcc_savebtn;
+        private System.Windows.Forms.DataGridView Accidents_DGV;
+        private System.Windows.Forms.Button Accident_Upadtebtn;
+        private System.Windows.Forms.Button accidents_deletebtn;
+        private System.Windows.Forms.CheckBox ManageAcc_CheckReported;
     }
 }

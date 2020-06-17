@@ -33,5 +33,6 @@ namespace Ships_System.DAL
         public virtual DbSet<Trip> Trips { get; set; }
         public virtual DbSet<TripsLoad> TripsLoads { get; set; }
         public virtual DbSet<TripsStatu> TripsStatus { get; set; }
+        public virtual DbSet<Accident> Accidents { get; set; }
     }
 }
