@@ -23,9 +23,11 @@ namespace Ships_System.PL
         private readonly IProductService productService;
         private readonly IPortService portService;
         private readonly IPlatformService platformService;
+        private readonly IAccidentService accidentService;
 
-
-        public MainScreen(IDbService dbService, ITripService tripService, IShipService shipService, IAgentService agentService, IProductService productService, IPortService portService, IPlatformService platformService)
+        public MainScreen(IDbService dbService, ITripService tripService, IShipService shipService,
+                          IAgentService agentService, IProductService productService, IPortService portService,
+                          IPlatformService platformService, IAccidentService accidentService)
         {
             InitializeComponent();
             this.dbService = dbService;
@@ -35,6 +37,7 @@ namespace Ships_System.PL
             this.productService = productService;
             this.portService = portService;
             this.platformService = platformService;
+            this.accidentService = accidentService;
         }
 
         void FillShipsGridView()
@@ -79,7 +82,8 @@ namespace Ships_System.PL
             if (dbService.Commit())
             {
                 FillShipsGridView();
-                FillAddTripCmbShips();
+                FillCmbShips(AddTrip_CmbShips);
+                FillCmbShips(ManageAcc_cmbShipName); 
                 AddShip_Imotxt.Clear();
                 AddShip_Nametxt.Clear();
                 AddShip_Typecmb.SelectedIndex = 0;
@@ -97,12 +101,12 @@ namespace Ships_System.PL
         void FillTripsDataGridView()
         {
             allTrips = tripService.GetAllTrips();
-            tripsForDGV = allTrips.Select<Trip,TripsForDGV> (t => new TripsForDGV { TripId = t.TripId.ToString(), ShipName = t.Ship.Name, ShipIMO = t.Ship.Imo, 
-                                                          ShipType = Enum.GetName(typeof(ShipTypes), t.Ship.Type),
-                                                          TripStatus = Enum.GetName(typeof(TripStatus), t.Status) ,
-                                                          TripStatusDate = t.TripsStatus.FirstOrDefault(s => s.TripId == t.TripId && s.Status == t.Status).Date.ToString(),
-                                                          Agent = t.Agent != null? t.Agent.Name:"", Port = t.Port != null? t.Port.Name :"",
-                                                          Platform = t.Platform != null? t.Platform.Name: "", Notes = t.Notes}).ToList();
+            tripsForDGV = allTrips.Select<Trip, TripsForDGV>(t => new TripsForDGV { TripId = t.TripId.ToString(), ShipName = t.Ship.Name, ShipIMO = t.Ship.Imo,
+                ShipType = Enum.GetName(typeof(ShipTypes), t.Ship.Type),
+                TripStatus = Enum.GetName(typeof(TripStatus), t.Status),
+                TripStatusDate = t.TripsStatus.FirstOrDefault(s => s.TripId == t.TripId && s.Status == t.Status).Date.ToString(),
+                Agent = t.Agent != null ? t.Agent.Name : "", Port = t.Port != null ? t.Port.Name : "",
+                Platform = t.Platform != null ? t.Platform.Name : "", Notes = t.Notes }).ToList();
 
             TripsDGV.DataSource = tripsForDGV;
             TripsDGV.Columns[0].HeaderText = "رقم الرحلة";
@@ -120,21 +124,35 @@ namespace Ships_System.PL
             TripsDGV.Columns[5].Width = 90;
         }
 
+        void FillCmbPort(ComboBox cmb)
+        {
+            var ports = portService.GetAllPorts().Select(p => new { PortId = p.PortId, PortName = p.Name }).ToList();
+            FillList(cmb, ports, "PortId", "PortName");
+        }
+
+        void FillPlatformCmbPorts()
+        {
+            FillCmbPort(Platforms_cmbPort);
+        }
 
         private void MainScreen_Load(object sender, EventArgs e)
         {
             FillTripsDataGridView();
             FillShipsGridView();
-            FillAddTripCmbShips();
+            FillCmbShips(AddTrip_CmbShips);
+            FillCmbShips(ManageAcc_cmbShipName);
             FillAddTripCmbAgents();
             FillAddTripCmbPorts();
+            FillPlatformCmbPorts();
             FillAddTripCmbProducts();
             FillPortsList();
             FillProductsList();
             FillPlatformsDataGridView();
             FillAgentsList();
+            FillAccidentsDGV();
             AddTrip_CmbStatus.DataSource = Enum.GetValues(typeof(TripStatus));
             AddShip_Typecmb.DataSource = Enum.GetValues(typeof(ShipTypes));
+            ManageAcc_cmbArea.DataSource = Enum.GetValues(typeof(AccidentArea));
             Trips_cmbSearchFields.SelectedIndex = 0;
         }
 
@@ -232,7 +250,7 @@ namespace Ships_System.PL
 
         void FillPlatformsDataGridView()
         {
-            var platforms = platformService.GetAllPlatforms().Select(p => new { platformId = p.PlatformId, PlatformName = p.Name , PortName = p.Port.Name}).ToList();
+            var platforms = platformService.GetAllPlatforms().Select(p => new { platformId = p.PlatformId, PlatformName = p.Name, PortName = p.Port.Name }).ToList();
             Platforms_dgvPlatforms.DataSource = platforms;
             Platforms_dgvPlatforms.Columns[0].Visible = false;
             Platforms_dgvPlatforms.Columns[1].HeaderText = "اسم الرصيف";
@@ -308,7 +326,8 @@ namespace Ships_System.PL
                     if (dbService.Commit())
                     {
                         FillShipsGridView();
-                        FillAddTripCmbShips();
+                        FillCmbShips(AddTrip_CmbShips);
+                        FillCmbShips(ManageAcc_cmbShipName);
                         MessageBox.Show("تم الحذف بنجاح", "تم الحذف", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
@@ -319,12 +338,12 @@ namespace Ships_System.PL
             }
         }
 
-        void FillAddTripCmbShips()
+        void FillCmbShips(ComboBox cmb)
         {
             var ships = shipService.GetAllShips().Select(s => new { ShipId = s.ShipId, ShipName = s.Name }).ToList();
-            AddTrip_CmbShips.ValueMember = "ShipId";
-            AddTrip_CmbShips.DisplayMember = "ShipName";
-            AddTrip_CmbShips.DataSource = ships;
+            cmb.ValueMember = "ShipId";
+            cmb.DisplayMember = "ShipName";
+            cmb.DataSource = ships;
         }
 
         void FillAddTripCmbAgents()
@@ -335,8 +354,7 @@ namespace Ships_System.PL
 
         void FillAddTripCmbPorts()
         {
-            var ports = portService.GetAllPorts().Select(p => new { PortId = p.PortId, PortName = p.Name }).ToList();
-            FillList(AddTrip_CmbPorts, ports, "PortId", "PortName");
+            FillCmbPort(AddTrip_CmbPorts);
         }
 
         void FillAddTripCmbPlatforms()
@@ -422,7 +440,7 @@ namespace Ships_System.PL
                 ShipId = Convert.ToInt32(AddTrip_CmbShips.SelectedValue),
                 Status = Convert.ToInt32(AddTrip_CmbStatus.SelectedValue),
                 PortId = Convert.ToInt32(AddTrip_CmbPorts.SelectedValue),
-                PlatformId = Convert.ToInt32(AddTrip_CmbPorts.SelectedValue)
+                PlatformId = Convert.ToInt32(AddTrip_CmbPlatforms.SelectedValue)
             };
 
             foreach (var item in TripShipLoad)
@@ -437,6 +455,7 @@ namespace Ships_System.PL
             if (dbService.Commit())
             {
                 AddTripRestControls();
+                FillTripsDataGridView();
                 MessageBox.Show("تم الحفظ بنجاح", "تم الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
@@ -715,6 +734,107 @@ namespace Ships_System.PL
         private void Trips_cmbSearchFields_SelectedIndexChanged(object sender, EventArgs e)
         {
             FilterTripsDGV();
+        }
+
+        private void TripsDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void ManageAcc_savebtn_Click(object sender, EventArgs e)
+        {
+            var accident = new Accident
+            {
+                Details = ManageAcc_txtDetails.Text,
+                Area = Convert.ToInt32(ManageAcc_cmbArea.SelectedValue),
+                Date = ManageAcc_dtpDate.Value,
+                CrewConequences = ManageAcc_txtCrewConsequences.Text,
+                CrewAction = ManageAcc_txtCrewAction.Text,
+                CostalStateAction = ManageAcc_txtCoast.Text,
+                ReportedTo = ManagAcc_txtReportedTo.Text,
+                longitude = ManageAcc_txtLong.Text,
+                latitude = ManagAcc_txtLati.Text,
+                ShipId = Convert.ToInt32(ManageAcc_cmbShipName.SelectedValue),
+                IsReported = ManageAcc_CheckReported.Checked,
+            };
+
+            if (ManageAcc_savebtn.Tag == null)
+            {
+                accidentService.AddAccident(accident);
+            }
+            else
+            {
+                accident.AccidentId = Convert.ToInt32(ManageAcc_savebtn.Tag);
+                accidentService.UpdateAccident(accident);
+                ManageAcc_savebtn.Tag = null;
+            }
+            if (dbService.Commit())
+            {
+                FillAccidentsDGV();
+                ClearManageAccidentControls();
+                MessageBox.Show("تم الحفظ بنجاح", "تم الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("لم يتم الحفظ", "فشل الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        void ClearManageAccidentControls()
+        {
+            
+            ManageAcc_cmbShipName.SelectedIndex = 0;
+            ManageAcc_txtDetails.Clear();
+            ManageAcc_txtLong.Clear();
+            ManagAcc_txtLati.Clear();
+            ManageAcc_txtCrewConsequences.Clear();
+            ManageAcc_txtCrewAction.Clear();
+                
+            ManageAcc_txtCrewConseq.Clear();
+            ManageAcc_txtCoast.Clear();
+            ManagAcc_txtReportedTo.Clear();
+            ManageAcc_cmbArea.SelectedIndex = 0;
+            ManageAcc_CheckReported.Checked = false;
+            ManageAcc_dtpDate.ResetText();
+        }
+
+        void FillAccidentsDGV()
+        {
+          var accidents=  accidentService.GetAllAccidents().Select(a => new { AccidentId = a.AccidentId,
+              ShipName = a.Ship.Name, IMO = a.Ship.Imo, ShipType = Enum.GetName(typeof(ShipTypes), a.Ship.Type), Date = a.Date, Area = Enum.GetName(typeof(AccidentArea), a.Area), Lat = a.latitude,
+              longi = a.longitude, Details = a.Details,CrewAction = a.CrewAction, CrewConsequence = a.CrewConequences,
+              IsReported = a.IsReported.HasValue && a.IsReported.Value?"تم الإبلاغ" : "لم يتم الإبلاغ", RportedTo = a.ReportedTo, ConstAction = a.CostalStateAction }).ToList();
+            Accidents_DGV.DataSource = accidents;
+            Accidents_DGV.Columns[0].Visible = false;
+            Accidents_DGV.Columns[1].HeaderText = "السفينة";
+            Accidents_DGV.Columns[2].HeaderText = "IMO";
+            Accidents_DGV.Columns[3].HeaderText = "نوع السفينة";
+            Accidents_DGV.Columns[4].HeaderText = "التاريخ";
+            Accidents_DGV.Columns[5].HeaderText = "المنطقة";
+            Accidents_DGV.Columns[6].HeaderText = "خط العرض";
+            Accidents_DGV.Columns[7].HeaderText = "خط الطول";
+            Accidents_DGV.Columns[8].HeaderText = "تفاصيل الحادث";
+            Accidents_DGV.Columns[9].HeaderText = "اضرارالطاقم";
+            Accidents_DGV.Columns[10].HeaderText = "الاجراء المتخذ من الطاقم";
+            Accidents_DGV.Columns[11].HeaderText = "البلاغ";
+            Accidents_DGV.Columns[12].HeaderText = "الجهةالمبلغة";
+            Accidents_DGV.Columns[13].HeaderText = "الاجراء المتخذ من الدولة الساحلية";
+        }
+
+        private void MangeAcc_linkShip_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            triptabControl.SelectedTab = shipsTab;
+        }
+
+        private void AddTrip_CmbShips_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ManageAcc_canclbtn_Click(object sender, EventArgs e)
+        {
+            ClearManageAccidentControls();
         }
     }
 }

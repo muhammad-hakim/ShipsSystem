@@ -4,7 +4,24 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ShipsSystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ShipsSystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Accidents">
+          <Key>
+            <PropertyRef Name="AccidentId" />
+          </Key>
+          <Property Name="AccidentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="date" />
+          <Property Name="ShipId" Type="int" />
+          <Property Name="Area" Type="int" />
+          <Property Name="longitude" Type="nvarchar" MaxLength="50" />
+          <Property Name="latitude" Type="nvarchar" MaxLength="50" />
+          <Property Name="Details" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CrewConequences" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CrewAction" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IsReported" Type="bit" />
+          <Property Name="ReportedTo" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CostalStateAction" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
         <EntityType Name="Agents">
           <Key>
             <PropertyRef Name="AgentId" />
@@ -73,6 +90,18 @@
           <Property Name="Status" Type="int" Nullable="false" />
           <Property Name="Date" Type="date" Nullable="false" />
         </EntityType>
+        <Association Name="fk_accident_ship">
+          <End Role="Ships" Type="Self.Ships" Multiplicity="0..1" />
+          <End Role="Accidents" Type="Self.Accidents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ships">
+              <PropertyRef Name="ShipId" />
+            </Principal>
+            <Dependent Role="Accidents">
+              <PropertyRef Name="ShipId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Platforms_Ports">
           <End Role="Ports" Type="Self.Ports" Multiplicity="1" />
           <End Role="Platforms" Type="Self.Platforms" Multiplicity="*" />
@@ -170,6 +199,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="ShipsSystemModelStoreContainer">
+          <EntitySet Name="Accidents" EntityType="Self.Accidents" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Agents" EntityType="Self.Agents" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Platforms" EntityType="Self.Platforms" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ports" EntityType="Self.Ports" Schema="dbo" store:Type="Tables" />
@@ -178,6 +208,10 @@
           <EntitySet Name="Trips" EntityType="Self.Trips" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TripsLoads" EntityType="Self.TripsLoads" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TripsStatus" EntityType="Self.TripsStatus" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_accident_ship" Association="Self.fk_accident_ship">
+            <End Role="Ships" EntitySet="Ships" />
+            <End Role="Accidents" EntitySet="Accidents" />
+          </AssociationSet>
           <AssociationSet Name="FK_Platforms_Ports" Association="Self.FK_Platforms_Ports">
             <End Role="Ports" EntitySet="Ports" />
             <End Role="Platforms" EntitySet="Platforms" />
@@ -211,8 +245,7 @@
             <End Role="TripsStatus" EntitySet="TripsStatus" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ShipsSystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -260,6 +293,7 @@
           <Property Name="Type" Type="Int32" Nullable="false" />
           <Property Name="Imo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Trips" Relationship="Self.FK_Trips_Ships" FromRole="Ships" ToRole="Trips" />
+          <NavigationProperty Name="Accidents" Relationship="ShipsSystemModel.fk_accident_ship" FromRole="Ship" ToRole="Accident" />
         </EntityType>
         <EntityType Name="Trip">
           <Key>
@@ -437,7 +471,42 @@
             <End Role="Trips" EntitySet="Trips" />
             <End Role="TripsStatus" EntitySet="TripsStatus" />
           </AssociationSet>
+          <EntitySet Name="Accidents" EntityType="ShipsSystemModel.Accident" />
+          <AssociationSet Name="fk_accident_ship" Association="ShipsSystemModel.fk_accident_ship">
+            <End Role="Ship" EntitySet="Ships" />
+            <End Role="Accident" EntitySet="Accidents" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Accident">
+          <Key>
+            <PropertyRef Name="AccidentId" />
+          </Key>
+          <Property Name="AccidentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="ShipId" Type="Int32" />
+          <Property Name="Area" Type="Int32" />
+          <Property Name="longitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="latitude" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Details" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CrewConequences" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CrewAction" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsReported" Type="Boolean" />
+          <Property Name="ReportedTo" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CostalStateAction" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Ship" Relationship="ShipsSystemModel.fk_accident_ship" FromRole="Accident" ToRole="Ship" />
+        </EntityType>
+        <Association Name="fk_accident_ship">
+          <End Type="ShipsSystemModel.Ship" Role="Ship" Multiplicity="0..1" />
+          <End Type="ShipsSystemModel.Accident" Role="Accident" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ship">
+              <PropertyRef Name="ShipId" />
+            </Principal>
+            <Dependent Role="Accident">
+              <PropertyRef Name="ShipId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -517,6 +586,24 @@
                 <ScalarProperty Name="TripId" ColumnName="TripId" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Accidents">
+            <EntityTypeMapping TypeName="ShipsSystemModel.Accident">
+              <MappingFragment StoreEntitySet="Accidents">
+                <ScalarProperty Name="CostalStateAction" ColumnName="CostalStateAction" />
+                <ScalarProperty Name="ReportedTo" ColumnName="ReportedTo" />
+                <ScalarProperty Name="IsReported" ColumnName="IsReported" />
+                <ScalarProperty Name="CrewAction" ColumnName="CrewAction" />
+                <ScalarProperty Name="CrewConequences" ColumnName="CrewConequences" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="ShipId" ColumnName="ShipId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="AccidentId" ColumnName="AccidentId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

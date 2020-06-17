@@ -76,8 +76,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BL\AccidentService.cs" />
     <Compile Include="BL\AgentService.cs" />
     <Compile Include="BL\DbService.cs" />
+    <Compile Include="BL\IAccidentService.cs" />
     <Compile Include="BL\IAgentService.cs" />
     <Compile Include="BL\IDbService.cs" />
     <Compile Include="BL\IPlatformService.cs" />
@@ -90,6 +92,9 @@
     <Compile Include="BL\ProductService.cs" />
     <Compile Include="BL\ShipService.cs" />
     <Compile Include="BL\TripService.cs" />
+    <Compile Include="DAL\Accident.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="DAL\Agent.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

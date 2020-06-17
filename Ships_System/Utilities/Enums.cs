@@ -21,4 +21,10 @@ namespace Ships_System.Utilities
         ArriveAtPlatform = 3,
         WaitingAtGhatesAfterUnload = 4
     }
+    public enum AccidentArea
+    {
+        InPortArea =0,
+        InTerritorialWater =1,
+        InInternationalWater = 2,
+    }
 }
