@@ -468,9 +468,16 @@ namespace Ships_System.PL
                 tripService.AddTrip(trip);
             }
             else
-            { 
-                trip.TripId = Convert.ToInt32(AddTrip_btnSaveTrip.Tag);
-                
+            {
+                trip = tripService.GetTripById(Convert.ToInt32(AddTrip_btnSaveTrip.Tag));
+
+                trip.AgentId = Convert.ToInt32(AddTrip_CmbAgents.SelectedValue);
+                trip.Notes = AddTrip_txtNotes.Text;
+                trip.ShipId = Convert.ToInt32(AddTrip_CmbShips.SelectedValue);
+                trip.Status = Convert.ToInt32(AddTrip_CmbStatus.SelectedValue);
+                trip.PortId = Convert.ToInt32(AddTrip_CmbPorts.SelectedValue);
+                trip.PlatformId = Convert.ToInt32(AddTrip_CmbPlatforms.SelectedValue);
+
                 var currentStatus = trip.TripsStatus.FirstOrDefault(s => s.TripId == trip.TripId && s.Status == trip.Status);
                 
                 if (currentStatus == null)
@@ -502,6 +509,7 @@ namespace Ships_System.PL
             if (dbService.Commit())
             {
                 AddTripRestControls();
+                triptabControl.SelectedTab = tripsTab;
                 FillTripsDataGridView();
                 MessageBox.Show("تم الحفظ بنجاح", "تم الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -735,7 +743,9 @@ namespace Ships_System.PL
             {
                 if (MessageBox.Show("هل تريد حذف الرحلة?", "حذف الرحلة", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
                 {
-                    var tripId = Convert.ToInt32(ShipsGridView.CurrentRow.Cells[0].Value);
+                    var tripId = Convert.ToInt32(TripsDGV.CurrentRow.Cells[0].Value);
+                    
+
                     tripService.DeleteTrip(tripId);
 
                     if (dbService.Commit())

@@ -22,9 +22,24 @@ namespace Ships_System.BL
             return unitOfWork.Trips.Add(trip);
         }
 
-        public bool DeleteTrip(int TripId)
+        public bool DeleteTrip(int tripId)
         {
-            return unitOfWork.Trips.Delete(TripId);
+            Trip trip = GetTripById(tripId);
+
+            var statusIdsToRemove = trip.TripsStatus.Select(x => x.Id).ToList();
+            var loadsIdsToRemove = trip.TripsLoads.Select(x => x.Id).ToList();
+
+            foreach (var id in statusIdsToRemove)
+            {
+                unitOfWork.TripsStatus.Delete(id);
+            }
+
+            foreach (var id in loadsIdsToRemove)
+            {
+                unitOfWork.TripsLoads.Delete(id);
+            }
+
+            return unitOfWork.Trips.Delete(tripId);
         }
 
         public List<Trip> GetAllTrips()
@@ -32,14 +47,14 @@ namespace Ships_System.BL
             return unitOfWork.Trips.Get().AsQueryable().Include("Agent.Ship.Port.Platform.TripsLoads.TripsStatus").ToList();
         }
 
-        public Trip GetTripById(int id)
+        public Trip GetTripById(int tripId)
         {
-            return unitOfWork.Trips.GetById(id);
+            return GetAllTrips().FirstOrDefault(t => t.TripId == tripId);
         }
 
-        public Trip UpdateTrip(Trip Trip)
+        public Trip UpdateTrip(Trip trip)
         {
-            return unitOfWork.Trips.Update(Trip.TripId, Trip);
+            return unitOfWork.Trips.Update(trip.TripId, trip);
         }
     }
 }

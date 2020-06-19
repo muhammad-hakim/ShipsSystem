@@ -10,7 +10,7 @@ namespace Ships_System.BL
    public interface ITripService
     {
         List<Trip> GetAllTrips();
-        Trip GetTripById(int id);
+        Trip GetTripById(int tripId);
         Trip AddTrip(Trip trip);
         Trip UpdateTrip(Trip trip);
         bool DeleteTrip(int tripId);
