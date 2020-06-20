@@ -832,9 +832,9 @@ namespace Ships_System.PL
                 CrewConequences = ManageAcc_txtCrewConsequences.Text,
                 CrewAction = ManageAcc_txtCrewAction.Text,
                 CostalStateAction = ManageAcc_txtCoast.Text,
-                ReportedTo = ManagAcc_txtReportedTo.Text,
+                ReportedTo = ManageAcc_CheckReported.Checked? ManageAcc_txtReportedTo.Text : "",
                 longitude = ManageAcc_txtLong.Text,
-                latitude = ManagAcc_txtLati.Text,
+                latitude = ManageAcc_txtLat.Text,
                 ShipId = Convert.ToInt32(ManageAcc_cmbShipName.SelectedValue),
                 IsReported = ManageAcc_CheckReported.Checked,
             };
@@ -852,6 +852,7 @@ namespace Ships_System.PL
             if (dbService.Commit())
             {
                 FillAccidentsDGV();
+                triptabControl.SelectedTab = AccidentManagementTab;
                 ClearManageAccidentControls();
                 MessageBox.Show("تم الحفظ بنجاح", "تم الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -868,13 +869,13 @@ namespace Ships_System.PL
             ManageAcc_cmbShipName.SelectedIndex = 0;
             ManageAcc_txtDetails.Clear();
             ManageAcc_txtLong.Clear();
-            ManagAcc_txtLati.Clear();
+            ManageAcc_txtLat.Clear();
             ManageAcc_txtCrewConsequences.Clear();
             ManageAcc_txtCrewAction.Clear();
                 
             ManageAcc_txtCrewConseq.Clear();
             ManageAcc_txtCoast.Clear();
-            ManagAcc_txtReportedTo.Clear();
+            ManageAcc_txtReportedTo.Clear();
             ManageAcc_cmbArea.SelectedIndex = 0;
             ManageAcc_CheckReported.Checked = false;
             ManageAcc_dtpDate.ResetText();
@@ -882,10 +883,25 @@ namespace Ships_System.PL
 
         void FillAccidentsDGV()
         {
-          var accidents=  accidentService.GetAllAccidents().Select(a => new { AccidentId = a.AccidentId,
-              ShipName = a.Ship.Name, IMO = a.Ship.Imo, ShipType = Enum.GetName(typeof(ShipTypes), a.Ship.Type), Date = a.Date, Area = Enum.GetName(typeof(AccidentArea), a.Area), Lat = a.latitude,
-              longi = a.longitude, Details = a.Details,CrewAction = a.CrewAction, CrewConsequence = a.CrewConequences,
-              IsReported = a.IsReported.HasValue && a.IsReported.Value?"تم الإبلاغ" : "لم يتم الإبلاغ", RportedTo = a.ReportedTo, ConstAction = a.CostalStateAction }).ToList();
+            var accidents = accidentService.GetAllAccidents().Select(a => new
+            {
+                AccidentId = a.AccidentId,
+                ShipName = a.Ship.Name,
+                IMO = a.Ship.Imo,
+                ShipType = Enum.GetName(typeof(ShipTypes), a.Ship.Type),
+                Date = a.Date,
+                Area = Enum.GetName(typeof(AccidentArea), a.Area),
+                Lat = a.latitude,
+                longi = a.longitude,
+                Details = a.Details,
+                CrewAction = a.CrewAction,
+                CrewConsequence = a.CrewConequences,
+                IsReported = a.IsReported.HasValue && a.IsReported.Value ? "تم الإبلاغ" : "لم يتم الإبلاغ",
+                RportedTo = a.ReportedTo,
+                ConstAction = a.CostalStateAction,
+                IsReportedVal = a.IsReported,
+                AreaVal = a.Area
+            }).ToList();
             Accidents_DGV.DataSource = accidents;
             Accidents_DGV.Columns[0].Visible = false;
             Accidents_DGV.Columns[1].HeaderText = "السفينة";
@@ -901,6 +917,8 @@ namespace Ships_System.PL
             Accidents_DGV.Columns[11].HeaderText = "البلاغ";
             Accidents_DGV.Columns[12].HeaderText = "الجهةالمبلغة";
             Accidents_DGV.Columns[13].HeaderText = "الاجراء المتخذ من الدولة الساحلية";
+            Accidents_DGV.Columns[14].Visible = false;
+            Accidents_DGV.Columns[15].Visible = false;
         }
 
         private void MangeAcc_linkShip_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -908,14 +926,57 @@ namespace Ships_System.PL
             triptabControl.SelectedTab = shipsTab;
         }
 
-        private void AddTrip_CmbShips_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void ManageAcc_canclbtn_Click(object sender, EventArgs e)
         {
             ClearManageAccidentControls();
+        }
+
+        private void Accident_Upadtebtn_Click(object sender, EventArgs e)
+        {
+            if (Accidents_DGV.CurrentRow != null)
+            {
+                ManageAcc_savebtn.Tag = Accidents_DGV.CurrentRow.Cells[0].Value;
+                ManageAcc_cmbShipName.Text = Accidents_DGV.CurrentRow.Cells[1].Value.ToString();
+                ManageAcc_dtpDate.Value = Convert.ToDateTime(Accidents_DGV.CurrentRow.Cells[4].Value.ToString());
+                ManageAcc_cmbArea.SelectedItem = (AccidentArea)Accidents_DGV.CurrentRow.Cells[15].Value;
+                ManageAcc_txtLat.Text = Accidents_DGV.CurrentRow.Cells[6].Value.ToString();
+                ManageAcc_txtLong.Text = Accidents_DGV.CurrentRow.Cells[7].Value.ToString();
+                ManageAcc_txtDetails.Text = Accidents_DGV.CurrentRow.Cells[8].Value.ToString();
+                ManageAcc_txtCrewConsequences.Text = Accidents_DGV.CurrentRow.Cells[9].Value.ToString();
+                ManageAcc_txtCrewAction.Text = Accidents_DGV.CurrentRow.Cells[10].Value.ToString();
+                ManageAcc_CheckReported.Checked = (bool)Accidents_DGV.CurrentRow.Cells[14].Value;
+                ManageAcc_txtReportedTo.Text = Accidents_DGV.CurrentRow.Cells[12].Value.ToString();
+                ManageAcc_txtCoast.Text = Accidents_DGV.CurrentRow.Cells[13].Value.ToString();
+
+                triptabControl.SelectedTab = AccidentManagementTab;
+            }
+        }
+
+        private void ManageAcc_CheckReported_CheckedChanged(object sender, EventArgs e)
+        {
+            ManageAcc_txtReportedTo.Enabled = ManageAcc_CheckReported.Checked;
+        }
+
+        private void accidents_deletebtn_Click(object sender, EventArgs e)
+        {
+            if (Accidents_DGV.CurrentRow != null)
+            {
+                if (MessageBox.Show("هل تريد حذف الحادثة?", "حذف الحادثة", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                {
+                    var accidentId = Convert.ToInt32(Accidents_DGV.CurrentRow.Cells[0].Value);
+                    accidentService.DeleteAccident(accidentId);
+
+                    if (dbService.Commit())
+                    {
+                        FillAccidentsDGV();
+                        MessageBox.Show("تم الحذف بنجاح", "تم الحذف", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("لم يتم الحذف", "فشل الحذف", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
     }
 }

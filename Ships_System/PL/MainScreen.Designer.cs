@@ -165,9 +165,10 @@
             this.ManageAcc_canclbtn = new System.Windows.Forms.Button();
             this.ManageAcc_savebtn = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.ManageAcc_CheckReported = new System.Windows.Forms.CheckBox();
             this.label11 = new System.Windows.Forms.Label();
             this.ManageAcc_txtCrewConsequences = new System.Windows.Forms.TextBox();
-            this.ManagAcc_txtReportedTo = new System.Windows.Forms.TextBox();
+            this.ManageAcc_txtReportedTo = new System.Windows.Forms.TextBox();
             this.ManageAcc_txtCoast = new System.Windows.Forms.TextBox();
             this.ManageAcc_txtCrewAction = new System.Windows.Forms.TextBox();
             this.ManageAcc_txtDetails = new System.Windows.Forms.TextBox();
@@ -190,7 +191,7 @@
             this.ManagAcc_LabCrewAction = new System.Windows.Forms.Label();
             this.ManageAcc_gruopLocation = new System.Windows.Forms.GroupBox();
             this.ManageAcc_groupLabLenght = new System.Windows.Forms.Label();
-            this.ManagAcc_txtLati = new System.Windows.Forms.TextBox();
+            this.ManageAcc_txtLat = new System.Windows.Forms.TextBox();
             this.ManageAcc_txtLong = new System.Windows.Forms.TextBox();
             this.ManageAcc_Labwidth = new System.Windows.Forms.Label();
             this.ManageAcc_dtpDate = new System.Windows.Forms.DateTimePicker();
@@ -201,7 +202,6 @@
             this.ManageAcc_labArea = new System.Windows.Forms.Label();
             this.ManageAcc_labshipName = new System.Windows.Forms.Label();
             this.ManageAcc_lab = new System.Windows.Forms.Label();
-            this.ManageAcc_CheckReported = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
             this.portTab.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -1269,7 +1269,6 @@
             this.AddTrip_CmbShips.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.AddTrip_CmbShips.Size = new System.Drawing.Size(179, 23);
             this.AddTrip_CmbShips.TabIndex = 32;
-            this.AddTrip_CmbShips.SelectedIndexChanged += new System.EventHandler(this.AddTrip_CmbShips_SelectedIndexChanged);
             // 
             // AddTrip_lnkAddAgent
             // 
@@ -1614,6 +1613,7 @@
             this.accidents_deletebtn.TabIndex = 1;
             this.accidents_deletebtn.Text = "حذف بيانات الحادثة";
             this.accidents_deletebtn.UseVisualStyleBackColor = true;
+            this.accidents_deletebtn.Click += new System.EventHandler(this.accidents_deletebtn_Click);
             // 
             // Accident_Upadtebtn
             // 
@@ -1624,6 +1624,7 @@
             this.Accident_Upadtebtn.TabIndex = 1;
             this.Accident_Upadtebtn.Text = "تعديل بيانات الحادثة";
             this.Accident_Upadtebtn.UseVisualStyleBackColor = true;
+            this.Accident_Upadtebtn.Click += new System.EventHandler(this.Accident_Upadtebtn_Click);
             // 
             // Accidents_DGV
             // 
@@ -1664,7 +1665,7 @@
             this.ManageAcc_canclbtn.Name = "ManageAcc_canclbtn";
             this.ManageAcc_canclbtn.Size = new System.Drawing.Size(92, 39);
             this.ManageAcc_canclbtn.TabIndex = 7;
-            this.ManageAcc_canclbtn.Text = "ألغاء";
+            this.ManageAcc_canclbtn.Text = "إلغاء";
             this.ManageAcc_canclbtn.UseVisualStyleBackColor = true;
             this.ManageAcc_canclbtn.Click += new System.EventHandler(this.ManageAcc_canclbtn_Click);
             // 
@@ -1684,7 +1685,7 @@
             this.groupBox5.Controls.Add(this.ManageAcc_CheckReported);
             this.groupBox5.Controls.Add(this.label11);
             this.groupBox5.Controls.Add(this.ManageAcc_txtCrewConsequences);
-            this.groupBox5.Controls.Add(this.ManagAcc_txtReportedTo);
+            this.groupBox5.Controls.Add(this.ManageAcc_txtReportedTo);
             this.groupBox5.Controls.Add(this.ManageAcc_txtCoast);
             this.groupBox5.Controls.Add(this.ManageAcc_txtCrewAction);
             this.groupBox5.Controls.Add(this.ManageAcc_txtDetails);
@@ -1699,6 +1700,17 @@
             this.groupBox5.TabIndex = 6;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "المعلومات التفصيله للحادث";
+            // 
+            // ManageAcc_CheckReported
+            // 
+            this.ManageAcc_CheckReported.AutoSize = true;
+            this.ManageAcc_CheckReported.Location = new System.Drawing.Point(674, 265);
+            this.ManageAcc_CheckReported.Name = "ManageAcc_CheckReported";
+            this.ManageAcc_CheckReported.Size = new System.Drawing.Size(76, 23);
+            this.ManageAcc_CheckReported.TabIndex = 3;
+            this.ManageAcc_CheckReported.Text = "تم الابلاغ";
+            this.ManageAcc_CheckReported.UseVisualStyleBackColor = true;
+            this.ManageAcc_CheckReported.CheckedChanged += new System.EventHandler(this.ManageAcc_CheckReported_CheckedChanged);
             // 
             // label11
             // 
@@ -1718,13 +1730,13 @@
             this.ManageAcc_txtCrewConsequences.Size = new System.Drawing.Size(232, 76);
             this.ManageAcc_txtCrewConsequences.TabIndex = 1;
             // 
-            // ManagAcc_txtReportedTo
+            // ManageAcc_txtReportedTo
             // 
-            this.ManagAcc_txtReportedTo.Location = new System.Drawing.Point(86, 254);
-            this.ManagAcc_txtReportedTo.Multiline = true;
-            this.ManagAcc_txtReportedTo.Name = "ManagAcc_txtReportedTo";
-            this.ManagAcc_txtReportedTo.Size = new System.Drawing.Size(232, 47);
-            this.ManagAcc_txtReportedTo.TabIndex = 1;
+            this.ManageAcc_txtReportedTo.Location = new System.Drawing.Point(86, 254);
+            this.ManageAcc_txtReportedTo.Multiline = true;
+            this.ManageAcc_txtReportedTo.Name = "ManageAcc_txtReportedTo";
+            this.ManageAcc_txtReportedTo.Size = new System.Drawing.Size(232, 47);
+            this.ManageAcc_txtReportedTo.TabIndex = 1;
             // 
             // ManageAcc_txtCoast
             // 
@@ -1924,7 +1936,7 @@
             // ManageAcc_gruopLocation
             // 
             this.ManageAcc_gruopLocation.Controls.Add(this.ManageAcc_groupLabLenght);
-            this.ManageAcc_gruopLocation.Controls.Add(this.ManagAcc_txtLati);
+            this.ManageAcc_gruopLocation.Controls.Add(this.ManageAcc_txtLat);
             this.ManageAcc_gruopLocation.Controls.Add(this.ManageAcc_txtLong);
             this.ManageAcc_gruopLocation.Controls.Add(this.ManageAcc_Labwidth);
             this.ManageAcc_gruopLocation.Location = new System.Drawing.Point(275, 99);
@@ -1944,12 +1956,12 @@
             this.ManageAcc_groupLabLenght.TabIndex = 0;
             this.ManageAcc_groupLabLenght.Text = "خط الطول";
             // 
-            // ManagAcc_txtLati
+            // ManageAcc_txtLat
             // 
-            this.ManagAcc_txtLati.Location = new System.Drawing.Point(11, 117);
-            this.ManagAcc_txtLati.Name = "ManagAcc_txtLati";
-            this.ManagAcc_txtLati.Size = new System.Drawing.Size(161, 22);
-            this.ManagAcc_txtLati.TabIndex = 3;
+            this.ManageAcc_txtLat.Location = new System.Drawing.Point(11, 117);
+            this.ManageAcc_txtLat.Name = "ManageAcc_txtLat";
+            this.ManageAcc_txtLat.Size = new System.Drawing.Size(161, 22);
+            this.ManageAcc_txtLat.TabIndex = 3;
             // 
             // ManageAcc_txtLong
             // 
@@ -2048,16 +2060,6 @@
             this.ManageAcc_lab.Size = new System.Drawing.Size(134, 31);
             this.ManageAcc_lab.TabIndex = 0;
             this.ManageAcc_lab.Text = "ادارة الحوادث";
-            // 
-            // ManageAcc_CheckReported
-            // 
-            this.ManageAcc_CheckReported.AutoSize = true;
-            this.ManageAcc_CheckReported.Location = new System.Drawing.Point(674, 265);
-            this.ManageAcc_CheckReported.Name = "ManageAcc_CheckReported";
-            this.ManageAcc_CheckReported.Size = new System.Drawing.Size(76, 23);
-            this.ManageAcc_CheckReported.TabIndex = 3;
-            this.ManageAcc_CheckReported.Text = "تم الابلاغ";
-            this.ManageAcc_CheckReported.UseVisualStyleBackColor = true;
             // 
             // MainScreen
             // 
@@ -2263,7 +2265,7 @@
         private System.Windows.Forms.DateTimePicker ManageAcc_dtpDate;
         private System.Windows.Forms.TextBox ManageAcc_txtLong;
         private System.Windows.Forms.GroupBox ManageAcc_gruopLocation;
-        private System.Windows.Forms.TextBox ManagAcc_txtLati;
+        private System.Windows.Forms.TextBox ManageAcc_txtLat;
         private System.Windows.Forms.GroupBox ManageAcc_groupInfo;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox6;
@@ -2275,7 +2277,7 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox ManageAcc_txtCrewConsequences;
-        private System.Windows.Forms.TextBox ManagAcc_txtReportedTo;
+        private System.Windows.Forms.TextBox ManageAcc_txtReportedTo;
         private System.Windows.Forms.TextBox ManageAcc_txtCoast;
         private System.Windows.Forms.TextBox ManageAcc_txtCrewAction;
         private System.Windows.Forms.TextBox ManageAcc_txtDetails;
