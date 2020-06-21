@@ -14,5 +14,7 @@ namespace Ships_System.BL
         Agent AddAgent(Agent agent);
         Agent UpdateAgent(Agent agent);
         bool DeleteAgent(int agentId);
+        bool CheckUniqueness(Agent agent);
+        bool CanDelete(int agentId);
     }
 }

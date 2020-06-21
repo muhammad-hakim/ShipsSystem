@@ -14,5 +14,7 @@ namespace Ships_System.BL
         Port AddPort(Port port);
         Port UpdatePort(Port port);
         bool DeletePort(int portId);
+        bool CheckUniqueness(Port port);
+        bool CanDelete(int portId);
     }
 }

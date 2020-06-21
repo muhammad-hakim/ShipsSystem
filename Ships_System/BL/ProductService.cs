@@ -20,6 +20,31 @@ namespace Ships_System.BL
         {
             return unitOfWork.Products.Add(product);
         }
+
+        public bool CanDelete(int productId)
+        {
+            return unitOfWork.TripsLoads.Get().FirstOrDefault(l => l.ProductId == productId) == null;
+        }
+
+        public bool CheckUniqueness(Product product)
+        {
+            if (product.ProductId == 0) //adding
+            {
+                if (unitOfWork.Products.Get().FirstOrDefault(a => a.Name == product.Name) != null)
+                    return false;
+            }
+            else //editing
+            {
+                var result = unitOfWork.Products.Get().Where(a => a.Name == product.Name);
+                if (result.Count() > 1)
+                    return false;
+                else
+                if (result.Count() == 1 && result.FirstOrDefault(a => a.ProductId == product.ProductId) == null)
+                    return false;
+            }
+            return true;
+        }
+
         public bool DeleteProduct(int productId)
         {
             return  unitOfWork.Products.Delete(productId);

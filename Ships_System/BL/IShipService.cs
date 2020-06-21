@@ -14,5 +14,7 @@ namespace Ships_System.BL
         Ship AddShip(Ship ship);
         Ship UpdateShip(Ship ship);
         bool DeleteShip(int shipId);
+        bool CheckUniqueness(Ship ship);
+        bool CanDelete(int shipId);
     }
 }

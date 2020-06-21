@@ -15,5 +15,7 @@ namespace Ships_System.BL
         Platform UpdatePlatform(Platform platform);
         bool DeletePlatform(int platformId);
         List<Platform> GetByPortId(int portId);
+        bool CheckUniqueness(Platform platform);
+        bool CanDelete(int platformId);
     }
 }

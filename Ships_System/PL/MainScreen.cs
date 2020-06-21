@@ -63,35 +63,46 @@ namespace Ships_System.PL
 
         private void AddShip_Savebtn_Click(object sender, EventArgs e)
         {
-            Ship ship = new Ship
-            {
-                Name = AddShip_Nametxt.Text.Trim(),
-                Imo = AddShip_Imotxt.Text.Trim(),
-                Type = Convert.ToInt32(AddShip_Typecmb.SelectedValue)
-            };
-            if (AddShip_Savebtn.Tag == null)
-            {
-                shipService.AddShip(ship);
-            }
+            if (string.IsNullOrEmpty(AddShip_Nametxt.Text.Trim()) || string.IsNullOrEmpty(AddShip_Imotxt.Text.Trim()) || AddShip_Typecmb.SelectedValue == null)
+                MessageBox.Show("من فضلك أدخل الحقول المطلوبة", "حقول مطلوبة", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
             {
-                ship.ShipId = Convert.ToInt32(AddShip_Savebtn.Tag);
-                shipService.UpdateShip(ship);
+                Ship ship = new Ship
+                {
+                    ShipId = AddShip_Savebtn.Tag == null? 0 : Convert.ToInt32(AddShip_Savebtn.Tag),
+                    Name = AddShip_Nametxt.Text.Trim(),
+                    Imo = AddShip_Imotxt.Text.Trim(),
+                    Type = Convert.ToInt32(AddShip_Typecmb.SelectedValue)
+                };
+
                 AddShip_Savebtn.Tag = null;
-            }
-            if (dbService.Commit())
-            {
-                FillShipsGridView();
-                FillCmbShips(AddTrip_CmbShips);
-                FillCmbShips(ManageAcc_cmbShipName); 
-                AddShip_Imotxt.Clear();
-                AddShip_Nametxt.Clear();
-                AddShip_Typecmb.SelectedIndex = 0;
-                MessageBox.Show("تم الحفظ بنجاح", "تم الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("لم يتم الحفظ", "فشل الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (shipService.CheckUniqueness(ship))
+                {
+                    if (ship.ShipId == 0)
+                    {
+                        shipService.AddShip(ship);
+                    }
+                    else
+                    {
+                        shipService.UpdateShip(ship);
+                    }
+                    if (dbService.Commit())
+                    {
+                        FillShipsGridView();
+                        FillCmbShips(AddTrip_CmbShips);
+                        FillCmbShips(ManageAcc_cmbShipName);
+                        AddShip_Imotxt.Clear();
+                        AddShip_Nametxt.Clear();
+                        AddShip_Typecmb.SelectedIndex = 0;
+                        MessageBox.Show("تم الحفظ بنجاح", "تم الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("لم يتم الحفظ", "فشل الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                    MessageBox.Show("لم يتم الحفظ .. هذه البيانات مستخدمة مع سفينة أخرى من قبل", "بيانات مكررة", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -172,30 +183,41 @@ namespace Ships_System.PL
 
         private void Agents_btnSave_Click(object sender, EventArgs e)
         {
-            Agent agent = new Agent
+            if (string.IsNullOrEmpty(Agents_txtAgentName.Text.Trim()))
+                MessageBox.Show("من فضلك أدخل الحقول المطلوبة", "حقول مطلوبة", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
             {
-                Name = Agents_txtAgentName.Text,
-            };
+                Agent agent = new Agent
+                {
+                    AgentId = Agents_btnSave.Tag == null ? 0 : Convert.ToInt32(Agents_btnSave.Tag),
+                    Name = Agents_txtAgentName.Text,
+                };
 
-            if (Agents_btnSave.Tag == null)
-            {
-                agentService.AddAgent(agent);
-            }
-            else
-            {
-                agent.AgentId = Convert.ToInt32(Agents_btnSave.Tag);
-                agentService.UpdateAgent(agent);
                 Agents_btnSave.Tag = null;
-            }
-            if (dbService.Commit())
-            {
-                FillAgentsList();
-                FillAddTripCmbAgents();
-                MessageBox.Show("تم الحفظ بنجاح", "تم الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("لم يتم الحفظ", "فشل الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                if (agentService.CheckUniqueness(agent))
+                {
+                    if (agent.AgentId == 0)
+                    {
+                        agentService.AddAgent(agent);
+                    }
+                    else
+                    {
+                        agentService.UpdateAgent(agent);
+                    }
+                    if (dbService.Commit())
+                    {
+                        FillAgentsList();
+                        FillAddTripCmbAgents();
+                        MessageBox.Show("تم الحفظ بنجاح", "تم الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("لم يتم الحفظ", "فشل الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                    MessageBox.Show("لم يتم الحفظ .. هذه البيانات مستخدمة مع وكيل آخر من قبل", "بيانات مكررة", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -207,58 +229,82 @@ namespace Ships_System.PL
 
         private void Products_btnSave_Click(object sender, EventArgs e)
         {
-            Product product = new Product
-            {
-                Name = Products_txtProductName.Text,
-            };
-            if (Products_btnSave.Tag == null)
-            {
-                productService.AddProduct(product);
-            }
+            if (string.IsNullOrEmpty(Products_txtProductName.Text.Trim()))
+                MessageBox.Show("من فضلك أدخل الحقول المطلوبة", "حقول مطلوبة", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
             {
-                product.ProductId = Convert.ToInt32(Products_btnSave.Tag);
-                productService.UpdateProduct(product); ;
-                Products_btnSave.Tag = null;
-            }
-            if (dbService.Commit())
-            {
-                FillProductsList();
-                FillAddTripCmbProducts();
-                Products_txtProductName.Clear();
-                MessageBox.Show("تم الحفظ بنجاح", "تم الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("لم يتم الحفظ", "فشل الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                Product product = new Product
+                {
+                    ProductId = Products_btnSave.Tag == null ? 0 : Convert.ToInt32(Products_btnSave.Tag),
+                    Name = Products_txtProductName.Text,
+                };
 
+                Products_btnSave.Tag = null;
+
+                if (productService.CheckUniqueness(product))
+                {
+                    if (product.ProductId == 0)
+                    {
+                        productService.AddProduct(product);
+                    }
+                    else
+                    {
+                        productService.UpdateProduct(product); ;
+                    }
+                    if (dbService.Commit())
+                    {
+                        FillProductsList();
+                        FillAddTripCmbProducts();
+                        Products_txtProductName.Clear();
+                        MessageBox.Show("تم الحفظ بنجاح", "تم الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("لم يتم الحفظ", "فشل الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                MessageBox.Show("لم يتم الحفظ .. هذه البيانات مستخدمة مع منتج آخر من قبل", "بيانات مكررة", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void Platforms_btnSave_Click(object sender, EventArgs e)
         {
-            var platform = new Platform { PortId = Convert.ToInt32(Platforms_cmbPort.SelectedValue), Name = Platforms_txtName.Text };
-
-            if (Platforms_btnSave.Tag == null)
-            {
-                platformService.AddPlatform(platform);
-            }
+            if (string.IsNullOrEmpty(Platforms_txtName.Text.Trim()) || Platforms_cmbPort.SelectedValue == null)
+                MessageBox.Show("من فضلك أدخل الحقول المطلوبة", "حقول مطلوبة", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
             {
-                platform.PlatformId = Convert.ToInt32(Platforms_btnSave.Tag);
-                platformService.UpdatePlatform(platform);
+                var platform = new Platform
+                {
+                    PlatformId = Platforms_btnSave.Tag == null ? 0 : Convert.ToInt32(Platforms_btnSave.Tag),
+                    PortId = Convert.ToInt32(Platforms_cmbPort.SelectedValue),
+                    Name = Platforms_txtName.Text
+                };
                 Platforms_btnSave.Tag = null;
-            }
 
-            if (dbService.Commit())
-            {
-                FillAddTripCmbPlatforms();
-                FillPlatformsDataGridView();
-                MessageBox.Show("تم الحفظ بنجاح", "تم الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("لم يتم الحفظ", "فشل الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (platformService.CheckUniqueness(platform))
+                {
+                    if (platform.PlatformId == 0)
+                    {
+                        platformService.AddPlatform(platform);
+                    }
+                    else
+                    {
+                        platformService.UpdatePlatform(platform);
+                    }
+
+                    if (dbService.Commit())
+                    {
+                        FillAddTripCmbPlatforms();
+                        FillPlatformsDataGridView();
+                        MessageBox.Show("تم الحفظ بنجاح", "تم الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("لم يتم الحفظ", "فشل الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                    MessageBox.Show("لم يتم الحفظ .. هذه البيانات مستخدمة مع رصيف آخر من قبل", "بيانات مكررة", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -274,29 +320,40 @@ namespace Ships_System.PL
 
         private void Ports_btnSave_Click(object sender, EventArgs e)
         {
-            Port port = new Port
-            {
-                Name = Ports_txtName.Text
-            };
-            if (Ports_btnSave.Tag == null)
-            {
-                portService.AddPort(port);
-            }
+            if (string.IsNullOrEmpty(Ports_txtName.Text.Trim()))
+                MessageBox.Show("من فضلك أدخل الحقول المطلوبة", "حقول مطلوبة", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
             {
-                port.PortId = Convert.ToInt32(Ports_btnSave.Tag);
-                portService.UpdatePort(port);
+                Port port = new Port
+                {
+                    PortId = Ports_btnSave.Tag == null ? 0 : Convert.ToInt32(Ports_btnSave.Tag),
+                    Name = Ports_txtName.Text
+                };
                 Ports_btnSave.Tag = null;
-            }
-            if (dbService.Commit())
-            {
-                FillPortsList();
-                FillAddTripCmbPorts();
-                MessageBox.Show("تم الحفظ بنجاح", "تم الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("لم يتم الحفظ", "فشل الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                if (portService.CheckUniqueness(port))
+                {
+                    if (port.PortId == 0)
+                    {
+                        portService.AddPort(port);
+                    }
+                    else
+                    {
+                        portService.UpdatePort(port);
+                    }
+                    if (dbService.Commit())
+                    {
+                        FillPortsList();
+                        FillAddTripCmbPorts();
+                        MessageBox.Show("تم الحفظ بنجاح", "تم الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("لم يتم الحفظ", "فشل الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                    MessageBox.Show("لم يتم الحفظ .. هذه البيانات مستخدمة مع ميناء آخر من قبل", "بيانات مكررة", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -335,19 +392,25 @@ namespace Ships_System.PL
                 if (MessageBox.Show("هل تريد حذف السفينة?", "حذف السفينة", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
                 {
                     var shipId = Convert.ToInt32(ShipsGridView.CurrentRow.Cells[0].Value);
-                    shipService.DeleteShip(shipId);
 
-                    if (dbService.Commit())
+                    if (shipService.CanDelete(shipId))
                     {
-                        FillShipsGridView();
-                        FillCmbShips(AddTrip_CmbShips);
-                        FillCmbShips(ManageAcc_cmbShipName);
-                        MessageBox.Show("تم الحذف بنجاح", "تم الحذف", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        shipService.DeleteShip(shipId);
+
+                        if (dbService.Commit())
+                        {
+                            FillShipsGridView();
+                            FillCmbShips(AddTrip_CmbShips);
+                            FillCmbShips(ManageAcc_cmbShipName);
+                            MessageBox.Show("تم الحذف بنجاح", "تم الحذف", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("لم يتم الحذف", "فشل الحذف", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                     else
-                    {
-                        MessageBox.Show("لم يتم الحذف", "فشل الحذف", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                        MessageBox.Show("لم يتم الحذف .. هذه السفينة مستخدمة حاليا", "فشل الحذف", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -429,93 +492,103 @@ namespace Ships_System.PL
 
         private void AddTrip_btnAddProduct_Click(object sender, EventArgs e)
         {
-            int productId = Convert.ToInt32(AddTrip_CmbProducts.SelectedValue);
-            decimal quantity = AddTrip_nudProductQuantity.Value;
-
-            if (TripShipLoad.ContainsKey(productId))
-            {
-                TripShipLoad[productId] = quantity;
-            }
+            if (AddTrip_CmbProducts.SelectedValue == null || AddTrip_nudProductQuantity.Value < 0)
+                MessageBox.Show("من فضلك أدخل الحقول المطلوبة", "حقول مطلوبة", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
             {
-                TripShipLoad.Add(productId, quantity);
+                int productId = Convert.ToInt32(AddTrip_CmbProducts.SelectedValue);
+                decimal quantity = AddTrip_nudProductQuantity.Value;
+
+                if (TripShipLoad.ContainsKey(productId))
+                {
+                    TripShipLoad[productId] = quantity;
+                }
+                else
+                {
+                    TripShipLoad.Add(productId, quantity);
+                }
+                AddTrip_CmbProducts.SelectedIndex = 0;
+                AddTrip_nudProductQuantity.Value = AddTrip_nudProductQuantity.Minimum;
+                FillAddTripDGVShipLoad();
             }
-            AddTrip_CmbProducts.SelectedIndex = 0;
-            AddTrip_nudProductQuantity.Value = AddTrip_nudProductQuantity.Minimum;
-            FillAddTripDGVShipLoad();
         }
 
         private void AddTrip_btnSaveTrip_Click(object sender, EventArgs e)
         {
-            var trip = new Trip
-            {
-                AgentId = Convert.ToInt32(AddTrip_CmbAgents.SelectedValue),
-                Notes = AddTrip_txtNotes.Text,
-                ShipId = Convert.ToInt32(AddTrip_CmbShips.SelectedValue),
-                Status = Convert.ToInt32(AddTrip_CmbStatus.SelectedValue),
-                PortId = Convert.ToInt32(AddTrip_CmbPorts.SelectedValue),
-                PlatformId = Convert.ToInt32(AddTrip_CmbPlatforms.SelectedValue)
-            };
-
-            if (AddTrip_btnSaveTrip.Tag == null)
-            {
-                foreach (var item in TripShipLoad)
-                {
-                    trip.TripsLoads.Add(new TripsLoad { ProductId = item.Key, Quantity = item.Value, TripId = trip.TripId });
-                }
-                trip.TripsStatus.Add(new TripsStatu { TripId = trip.TripId, Status = trip.Status, Date = AddTrip_dtpDate.Value });
-
-                tripService.AddTrip(trip);
-            }
+            if (AddTrip_CmbShips.SelectedValue == null || AddTrip_CmbAgents.SelectedValue == null || AddTrip_CmbStatus.SelectedValue == null || AddTrip_CmbPorts.SelectedValue == null || AddTrip_dtpDate.Value == null)
+                MessageBox.Show("من فضلك أدخل الحقول المطلوبة", "حقول مطلوبة", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
             {
-                trip = tripService.GetTripById(Convert.ToInt32(AddTrip_btnSaveTrip.Tag));
+                var trip = new Trip
+                {
+                    AgentId = Convert.ToInt32(AddTrip_CmbAgents.SelectedValue),
+                    Notes = AddTrip_txtNotes.Text,
+                    ShipId = Convert.ToInt32(AddTrip_CmbShips.SelectedValue),
+                    Status = Convert.ToInt32(AddTrip_CmbStatus.SelectedValue),
+                    PortId = Convert.ToInt32(AddTrip_CmbPorts.SelectedValue),
+                    PlatformId = Convert.ToInt32(AddTrip_CmbPlatforms.SelectedValue)
+                };
 
-                trip.AgentId = Convert.ToInt32(AddTrip_CmbAgents.SelectedValue);
-                trip.Notes = AddTrip_txtNotes.Text;
-                trip.ShipId = Convert.ToInt32(AddTrip_CmbShips.SelectedValue);
-                trip.Status = Convert.ToInt32(AddTrip_CmbStatus.SelectedValue);
-                trip.PortId = Convert.ToInt32(AddTrip_CmbPorts.SelectedValue);
-                trip.PlatformId = Convert.ToInt32(AddTrip_CmbPlatforms.SelectedValue);
-
-                var currentStatus = trip.TripsStatus.FirstOrDefault(s => s.TripId == trip.TripId && s.Status == trip.Status);
-                
-                if (currentStatus == null)
+                if (AddTrip_btnSaveTrip.Tag == null)
+                {
+                    foreach (var item in TripShipLoad)
+                    {
+                        trip.TripsLoads.Add(new TripsLoad { ProductId = item.Key, Quantity = item.Value, TripId = trip.TripId });
+                    }
                     trip.TripsStatus.Add(new TripsStatu { TripId = trip.TripId, Status = trip.Status, Date = AddTrip_dtpDate.Value });
+
+                    tripService.AddTrip(trip);
+                }
                 else
                 {
-                    if (currentStatus.Date.ToShortDateString() != AddTrip_dtpDate.Value.ToShortDateString())
-                        currentStatus.Date = AddTrip_dtpDate.Value;
-                }
+                    trip = tripService.GetTripById(Convert.ToInt32(AddTrip_btnSaveTrip.Tag));
 
-                foreach (var item in TripShipLoad)
-                {
-                    var load = trip.TripsLoads.FirstOrDefault(l => l.TripId == trip.TripId && l.ProductId == item.Key);
-                    if (load != null)
-                    {
-                        load.Quantity = item.Value;
-                    }
+                    trip.AgentId = Convert.ToInt32(AddTrip_CmbAgents.SelectedValue);
+                    trip.Notes = AddTrip_txtNotes.Text;
+                    trip.ShipId = Convert.ToInt32(AddTrip_CmbShips.SelectedValue);
+                    trip.Status = Convert.ToInt32(AddTrip_CmbStatus.SelectedValue);
+                    trip.PortId = Convert.ToInt32(AddTrip_CmbPorts.SelectedValue);
+                    trip.PlatformId = Convert.ToInt32(AddTrip_CmbPlatforms.SelectedValue);
+
+                    var currentStatus = trip.TripsStatus.FirstOrDefault(s => s.TripId == trip.TripId && s.Status == trip.Status);
+
+                    if (currentStatus == null)
+                        trip.TripsStatus.Add(new TripsStatu { TripId = trip.TripId, Status = trip.Status, Date = AddTrip_dtpDate.Value });
                     else
                     {
-                        load = new TripsLoad { TripId = trip.TripId, ProductId = item.Key, Quantity = item.Value};
-                        trip.TripsLoads.Add(load);
+                        if (currentStatus.Date.ToShortDateString() != AddTrip_dtpDate.Value.ToShortDateString())
+                            currentStatus.Date = AddTrip_dtpDate.Value;
                     }
+
+                    foreach (var item in TripShipLoad)
+                    {
+                        var load = trip.TripsLoads.FirstOrDefault(l => l.TripId == trip.TripId && l.ProductId == item.Key);
+                        if (load != null)
+                        {
+                            load.Quantity = item.Value;
+                        }
+                        else
+                        {
+                            load = new TripsLoad { TripId = trip.TripId, ProductId = item.Key, Quantity = item.Value };
+                            trip.TripsLoads.Add(load);
+                        }
+                    }
+
+                    tripService.UpdateTrip(trip);
+                    AddTrip_btnSaveTrip.Tag = null;
                 }
 
-                tripService.UpdateTrip(trip);
-                AddTrip_btnSaveTrip.Tag = null;
-            }
-
-            if (dbService.Commit())
-            {
-                AddTripRestControls();
-                triptabControl.SelectedTab = tripsTab;
-                FillTripsDataGridView();
-                MessageBox.Show("تم الحفظ بنجاح", "تم الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("لم يتم الحفظ", "فشل الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (dbService.Commit())
+                {
+                    AddTripRestControls();
+                    triptabControl.SelectedTab = tripsTab;
+                    FillTripsDataGridView();
+                    MessageBox.Show("تم الحفظ بنجاح", "تم الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("لم يتم الحفظ", "فشل الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -554,22 +627,26 @@ namespace Ships_System.PL
             {
                 if (MessageBox.Show("هل تريد حذف المنتج?", "حذف المنتج", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
-                    productService.DeleteProduct(Convert.ToInt32(Products_lstProducts.SelectedValue));
-
-                    if (dbService.Commit())
+                    if (productService.CanDelete(Convert.ToInt32(Products_lstProducts.SelectedValue)))
                     {
-                        FillProductsList();
-                        FillAddTripCmbProducts();
-                        MessageBox.Show("تم الحذف بنجاح", "تم الحذف", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        productService.DeleteProduct(Convert.ToInt32(Products_lstProducts.SelectedValue));
+
+                        if (dbService.Commit())
+                        {
+                            FillProductsList();
+                            FillAddTripCmbProducts();
+                            MessageBox.Show("تم الحذف بنجاح", "تم الحذف", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("لم يتم الحذف", "فشل الحذف", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                     else
-                    {
-                        MessageBox.Show("لم يتم الحذف", "فشل الحذف", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                        MessageBox.Show("لم يتم الحذف .. هذا المنتج مستخدم حاليا", "فشل الحذف", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
-
         private void Agents_btnEdit_Click(object sender, EventArgs e)
         {
             if (Agents_lstAgents.SelectedItem != null)
@@ -585,18 +662,23 @@ namespace Ships_System.PL
             {
                 if (MessageBox.Show("هل تريد حذف الوكيل الملاحى?", "حذف الوكيل الملاحى", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
-                    agentService.DeleteAgent(Convert.ToInt32(Agents_lstAgents.SelectedValue));
-
-                    if (dbService.Commit())
+                    if (agentService.CanDelete(Convert.ToInt32(Agents_lstAgents.SelectedValue)))
                     {
-                        FillAgentsList();
-                        FillAddTripCmbAgents();
-                        MessageBox.Show("تم الحذف بنجاح", "تم الحذف", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        agentService.DeleteAgent(Convert.ToInt32(Agents_lstAgents.SelectedValue));
+
+                        if (dbService.Commit())
+                        {
+                            FillAgentsList();
+                            FillAddTripCmbAgents();
+                            MessageBox.Show("تم الحذف بنجاح", "تم الحذف", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("لم يتم الحذف", "فشل الحذف", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                     else
-                    {
-                        MessageBox.Show("لم يتم الحذف", "فشل الحذف", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                        MessageBox.Show("لم يتم الحذف .. هذالوكيل الملاحى مستخدم حاليا", "فشل الحذف", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -623,18 +705,24 @@ namespace Ships_System.PL
                 if (MessageBox.Show("هل تريد حذف الميناء?", "حذف الميناء", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     var portId = Convert.ToInt32(Ports_lstPorts.SelectedValue);
-                    portService.DeletePort(portId);
 
-                    if (dbService.Commit())
+                    if (portService.CanDelete(portId))
                     {
-                        FillPortsList();
-                        FillAddTripCmbPorts();
-                        MessageBox.Show("تم الحذف بنجاح", "تم الحذف", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        portService.DeletePort(portId);
+
+                        if (dbService.Commit())
+                        {
+                            FillPortsList();
+                            FillAddTripCmbPorts();
+                            MessageBox.Show("تم الحذف بنجاح", "تم الحذف", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("لم يتم الحذف", "فشل الحذف", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                     else
-                    {
-                        MessageBox.Show("لم يتم الحذف", "فشل الحذف", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                        MessageBox.Show("لم يتم الحذف .. هذالميناء مستخدم حاليا", "فشل الحذف", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -656,17 +744,22 @@ namespace Ships_System.PL
                 if (MessageBox.Show("هل تريد حذف الرصيف?", "حذف الرصيف", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     var platformId = Convert.ToInt32(Platforms_dgvPlatforms.CurrentRow.Cells[0].Value);
-                    platformService.DeletePlatform(platformId);
-
-                    if (dbService.Commit())
+                    if (platformService.CanDelete(platformId))
                     {
-                        FillPlatformsDataGridView();
-                        MessageBox.Show("تم الحذف بنجاح", "تم الحذف", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        platformService.DeletePlatform(platformId);
+
+                        if (dbService.Commit())
+                        {
+                            FillPlatformsDataGridView();
+                            MessageBox.Show("تم الحذف بنجاح", "تم الحذف", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("لم يتم الحذف", "فشل الحذف", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                     else
-                    {
-                        MessageBox.Show("لم يتم الحذف", "فشل الحذف", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                        MessageBox.Show("لم يتم الحذف .. هذه السفينة مستخدمة حاليا", "فشل الحذف", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -817,50 +910,49 @@ namespace Ships_System.PL
             FilterTripsDGV();
         }
 
-        private void TripsDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void ManageAcc_savebtn_Click(object sender, EventArgs e)
         {
-            var accident = new Accident
-            {
-                Details = ManageAcc_txtDetails.Text,
-                Area = Convert.ToInt32(ManageAcc_cmbArea.SelectedValue),
-                Date = ManageAcc_dtpDate.Value,
-                CrewConequences = ManageAcc_txtCrewConsequences.Text,
-                CrewAction = ManageAcc_txtCrewAction.Text,
-                CostalStateAction = ManageAcc_txtCoast.Text,
-                ReportedTo = ManageAcc_CheckReported.Checked? ManageAcc_txtReportedTo.Text : "",
-                longitude = ManageAcc_txtLong.Text,
-                latitude = ManageAcc_txtLat.Text,
-                ShipId = Convert.ToInt32(ManageAcc_cmbShipName.SelectedValue),
-                IsReported = ManageAcc_CheckReported.Checked,
-            };
-
-            if (ManageAcc_savebtn.Tag == null)
-            {
-                accidentService.AddAccident(accident);
-            }
+            if (ManageAcc_cmbShipName.SelectedValue == null || ManageAcc_cmbArea.SelectedValue == null || string.IsNullOrEmpty(ManageAcc_txtLat.Text.Trim()) || string.IsNullOrEmpty(ManageAcc_txtLong.Text.Trim()) || ManageAcc_dtpDate.Value == null || (ManageAcc_CheckReported.Checked && string.IsNullOrEmpty(ManageAcc_txtReportedTo.Text.Trim())))
+                MessageBox.Show("من فضلك أدخل الحقول المطلوبة", "حقول مطلوبة", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
             {
-                accident.AccidentId = Convert.ToInt32(ManageAcc_savebtn.Tag);
-                accidentService.UpdateAccident(accident);
-                ManageAcc_savebtn.Tag = null;
-            }
-            if (dbService.Commit())
-            {
-                FillAccidentsDGV();
-                triptabControl.SelectedTab = AccidentManagementTab;
-                ClearManageAccidentControls();
-                MessageBox.Show("تم الحفظ بنجاح", "تم الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("لم يتم الحفظ", "فشل الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                var accident = new Accident
+                {
+                    Details = ManageAcc_txtDetails.Text,
+                    Area = Convert.ToInt32(ManageAcc_cmbArea.SelectedValue),
+                    Date = ManageAcc_dtpDate.Value,
+                    CrewConequences = ManageAcc_txtCrewConsequences.Text,
+                    CrewAction = ManageAcc_txtCrewAction.Text,
+                    CostalStateAction = ManageAcc_txtCoast.Text,
+                    ReportedTo = ManageAcc_CheckReported.Checked ? ManageAcc_txtReportedTo.Text : "",
+                    longitude = ManageAcc_txtLong.Text,
+                    latitude = ManageAcc_txtLat.Text,
+                    ShipId = Convert.ToInt32(ManageAcc_cmbShipName.SelectedValue),
+                    IsReported = ManageAcc_CheckReported.Checked,
+                };
 
+                if (ManageAcc_savebtn.Tag == null)
+                {
+                    accidentService.AddAccident(accident);
+                }
+                else
+                {
+                    accident.AccidentId = Convert.ToInt32(ManageAcc_savebtn.Tag);
+                    accidentService.UpdateAccident(accident);
+                    ManageAcc_savebtn.Tag = null;
+                }
+                if (dbService.Commit())
+                {
+                    FillAccidentsDGV();
+                    triptabControl.SelectedTab = AccidentManagementTab;
+                    ClearManageAccidentControls();
+                    MessageBox.Show("تم الحفظ بنجاح", "تم الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("لم يتم الحفظ", "فشل الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         void ClearManageAccidentControls()
@@ -872,8 +964,6 @@ namespace Ships_System.PL
             ManageAcc_txtLat.Clear();
             ManageAcc_txtCrewConsequences.Clear();
             ManageAcc_txtCrewAction.Clear();
-                
-            ManageAcc_txtCrewConseq.Clear();
             ManageAcc_txtCoast.Clear();
             ManageAcc_txtReportedTo.Clear();
             ManageAcc_cmbArea.SelectedIndex = 0;
@@ -902,6 +992,7 @@ namespace Ships_System.PL
                 IsReportedVal = a.IsReported,
                 AreaVal = a.Area
             }).ToList();
+
             Accidents_DGV.DataSource = accidents;
             Accidents_DGV.Columns[0].Visible = false;
             Accidents_DGV.Columns[1].HeaderText = "السفينة";
@@ -954,7 +1045,7 @@ namespace Ships_System.PL
 
         private void ManageAcc_CheckReported_CheckedChanged(object sender, EventArgs e)
         {
-            ManageAcc_txtReportedTo.Enabled = ManageAcc_CheckReported.Checked;
+            ManageAcc_lblReqReport.Visible = ManageAcc_txtReportedTo.Enabled = ManageAcc_CheckReported.Checked;
         }
 
         private void accidents_deletebtn_Click(object sender, EventArgs e)

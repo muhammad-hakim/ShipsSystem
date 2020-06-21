@@ -54,6 +54,8 @@
             this.n = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.portTab = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
             this.Platforms_btnCancel = new System.Windows.Forms.Button();
             this.Platforms_btnSave = new System.Windows.Forms.Button();
             this.Platforms_btnDelete = new System.Windows.Forms.Button();
@@ -64,6 +66,7 @@
             this.Platforms_txtName = new System.Windows.Forms.TextBox();
             this.Platforms_cmbPort = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label28 = new System.Windows.Forms.Label();
             this.Ports_btnEdit = new System.Windows.Forms.Button();
             this.Ports_btnDelete = new System.Windows.Forms.Button();
             this.Ports_btnCancel = new System.Windows.Forms.Button();
@@ -75,6 +78,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.agentsTab = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label23 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.Agents_btnCancel = new System.Windows.Forms.Button();
             this.Agents_btnSave = new System.Windows.Forms.Button();
@@ -84,6 +88,7 @@
             this.Agents_btnEdit = new System.Windows.Forms.Button();
             this.Agents_btnDelete = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label24 = new System.Windows.Forms.Label();
             this.Products_lstProducts = new System.Windows.Forms.ListBox();
             this.Products_btnCancel = new System.Windows.Forms.Button();
             this.Products_btnSave = new System.Windows.Forms.Button();
@@ -94,6 +99,9 @@
             this.Products_txtProductName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.shipsTab = new System.Windows.Forms.TabPage();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.AddShip_cancelbtn = new System.Windows.Forms.Button();
             this.AddShip_Savebtn = new System.Windows.Forms.Button();
             this.ShipsTab_btnDelete = new System.Windows.Forms.Button();
@@ -112,6 +120,7 @@
             this.ShipsGridView = new System.Windows.Forms.DataGridView();
             this.label18 = new System.Windows.Forms.Label();
             this.addingTripTab = new System.Windows.Forms.TabPage();
+            this.label36 = new System.Windows.Forms.Label();
             this.AddTrip_btnCancelTrip = new System.Windows.Forms.Button();
             this.AddTrip_btnSaveTrip = new System.Windows.Forms.Button();
             this.AddTrip_dtpDate = new System.Windows.Forms.DateTimePicker();
@@ -162,13 +171,20 @@
             this.Accident_Upadtebtn = new System.Windows.Forms.Button();
             this.Accidents_DGV = new System.Windows.Forms.DataGridView();
             this.AccidentManagementTab = new System.Windows.Forms.TabPage();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.ManageAcc_lblReqReport = new System.Windows.Forms.Label();
+            this.ManageAcc_CheckReported = new System.Windows.Forms.CheckBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.ManageAcc_txtReportedTo = new System.Windows.Forms.TextBox();
             this.ManageAcc_canclbtn = new System.Windows.Forms.Button();
             this.ManageAcc_savebtn = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.ManageAcc_CheckReported = new System.Windows.Forms.CheckBox();
-            this.label11 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
             this.ManageAcc_txtCrewConsequences = new System.Windows.Forms.TextBox();
-            this.ManageAcc_txtReportedTo = new System.Windows.Forms.TextBox();
             this.ManageAcc_txtCoast = new System.Windows.Forms.TextBox();
             this.ManageAcc_txtCrewAction = new System.Windows.Forms.TextBox();
             this.ManageAcc_txtDetails = new System.Windows.Forms.TextBox();
@@ -176,32 +192,27 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.ManageAcc_groupInfo = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.ManageAcc_LabReportedTo = new System.Windows.Forms.Label();
-            this.ManageAcc_LabIsReported = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.ManageAcc_txtCrewConseq = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.ManageAcc_txtDetailAcc = new System.Windows.Forms.Label();
-            this.ManageAcc_LabCrewConseq = new System.Windows.Forms.Label();
-            this.ManageAcc_LabCostal = new System.Windows.Forms.Label();
-            this.ManagAcc_LabCrewAction = new System.Windows.Forms.Label();
+            this.ManageAcc_cmbArea = new System.Windows.Forms.ComboBox();
+            this.ManageAcc_labArea = new System.Windows.Forms.Label();
             this.ManageAcc_gruopLocation = new System.Windows.Forms.GroupBox();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
             this.ManageAcc_groupLabLenght = new System.Windows.Forms.Label();
             this.ManageAcc_txtLat = new System.Windows.Forms.TextBox();
             this.ManageAcc_txtLong = new System.Windows.Forms.TextBox();
             this.ManageAcc_Labwidth = new System.Windows.Forms.Label();
             this.ManageAcc_dtpDate = new System.Windows.Forms.DateTimePicker();
             this.MangeAcc_linkShip = new System.Windows.Forms.LinkLabel();
-            this.ManageAcc_cmbArea = new System.Windows.Forms.ComboBox();
             this.ManageAcc_cmbShipName = new System.Windows.Forms.ComboBox();
             this.ManageAcc_LabDate = new System.Windows.Forms.Label();
-            this.ManageAcc_labArea = new System.Windows.Forms.Label();
             this.ManageAcc_labshipName = new System.Windows.Forms.Label();
             this.ManageAcc_lab = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
             this.portTab.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -223,8 +234,8 @@
             this.AccidentTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Accidents_DGV)).BeginInit();
             this.AccidentManagementTab.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            this.ManageAcc_groupInfo.SuspendLayout();
             this.ManageAcc_gruopLocation.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -379,6 +390,8 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.label26);
+            this.groupBox4.Controls.Add(this.label25);
             this.groupBox4.Controls.Add(this.Platforms_btnCancel);
             this.groupBox4.Controls.Add(this.Platforms_btnSave);
             this.groupBox4.Controls.Add(this.Platforms_btnDelete);
@@ -390,15 +403,37 @@
             this.groupBox4.Controls.Add(this.Platforms_cmbPort);
             this.groupBox4.Location = new System.Drawing.Point(8, 50);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(546, 615);
+            this.groupBox4.Size = new System.Drawing.Size(535, 615);
             this.groupBox4.TabIndex = 14;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "الأرصفة";
             // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label26.ForeColor = System.Drawing.Color.Red;
+            this.label26.Location = new System.Drawing.Point(319, 147);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(20, 23);
+            this.label26.TabIndex = 31;
+            this.label26.Text = "*";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label25.ForeColor = System.Drawing.Color.Red;
+            this.label25.Location = new System.Drawing.Point(319, 75);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(20, 23);
+            this.label25.TabIndex = 30;
+            this.label25.Text = "*";
+            // 
             // Platforms_btnCancel
             // 
             this.Platforms_btnCancel.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.Platforms_btnCancel.Location = new System.Drawing.Point(325, 196);
+            this.Platforms_btnCancel.Location = new System.Drawing.Point(340, 195);
             this.Platforms_btnCancel.Name = "Platforms_btnCancel";
             this.Platforms_btnCancel.Size = new System.Drawing.Size(75, 35);
             this.Platforms_btnCancel.TabIndex = 29;
@@ -409,7 +444,7 @@
             // Platforms_btnSave
             // 
             this.Platforms_btnSave.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.Platforms_btnSave.Location = new System.Drawing.Point(439, 194);
+            this.Platforms_btnSave.Location = new System.Drawing.Point(452, 194);
             this.Platforms_btnSave.Name = "Platforms_btnSave";
             this.Platforms_btnSave.Size = new System.Drawing.Size(75, 37);
             this.Platforms_btnSave.TabIndex = 28;
@@ -474,7 +509,7 @@
             // Platforms_txtName
             // 
             this.Platforms_txtName.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.Platforms_txtName.Location = new System.Drawing.Point(327, 72);
+            this.Platforms_txtName.Location = new System.Drawing.Point(340, 72);
             this.Platforms_txtName.Name = "Platforms_txtName";
             this.Platforms_txtName.Size = new System.Drawing.Size(187, 30);
             this.Platforms_txtName.TabIndex = 9;
@@ -485,13 +520,14 @@
             this.Platforms_cmbPort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Platforms_cmbPort.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.Platforms_cmbPort.FormattingEnabled = true;
-            this.Platforms_cmbPort.Location = new System.Drawing.Point(327, 144);
+            this.Platforms_cmbPort.Location = new System.Drawing.Point(340, 144);
             this.Platforms_cmbPort.Name = "Platforms_cmbPort";
             this.Platforms_cmbPort.Size = new System.Drawing.Size(187, 31);
             this.Platforms_cmbPort.TabIndex = 10;
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label28);
             this.groupBox3.Controls.Add(this.Ports_btnEdit);
             this.groupBox3.Controls.Add(this.Ports_btnDelete);
             this.groupBox3.Controls.Add(this.Ports_btnCancel);
@@ -500,12 +536,23 @@
             this.groupBox3.Controls.Add(this.Ports_lstPorts);
             this.groupBox3.Controls.Add(this.Ports_txtName);
             this.groupBox3.Controls.Add(this.portname);
-            this.groupBox3.Location = new System.Drawing.Point(560, 50);
+            this.groupBox3.Location = new System.Drawing.Point(549, 50);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(424, 615);
+            this.groupBox3.Size = new System.Drawing.Size(435, 615);
             this.groupBox3.TabIndex = 13;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "الموانئ";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label28.ForeColor = System.Drawing.Color.Red;
+            this.label28.Location = new System.Drawing.Point(175, 55);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(20, 23);
+            this.label28.TabIndex = 34;
+            this.label28.Text = "*";
             // 
             // Ports_btnEdit
             // 
@@ -532,7 +579,7 @@
             // Ports_btnCancel
             // 
             this.Ports_btnCancel.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.Ports_btnCancel.Location = new System.Drawing.Point(180, 101);
+            this.Ports_btnCancel.Location = new System.Drawing.Point(195, 101);
             this.Ports_btnCancel.Name = "Ports_btnCancel";
             this.Ports_btnCancel.Size = new System.Drawing.Size(75, 35);
             this.Ports_btnCancel.TabIndex = 31;
@@ -543,7 +590,7 @@
             // Ports_btnSave
             // 
             this.Ports_btnSave.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.Ports_btnSave.Location = new System.Drawing.Point(266, 99);
+            this.Ports_btnSave.Location = new System.Drawing.Point(281, 99);
             this.Ports_btnSave.Name = "Ports_btnSave";
             this.Ports_btnSave.Size = new System.Drawing.Size(75, 37);
             this.Ports_btnSave.TabIndex = 30;
@@ -573,7 +620,7 @@
             // Ports_txtName
             // 
             this.Ports_txtName.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.Ports_txtName.Location = new System.Drawing.Point(180, 51);
+            this.Ports_txtName.Location = new System.Drawing.Point(195, 51);
             this.Ports_txtName.Name = "Ports_txtName";
             this.Ports_txtName.Size = new System.Drawing.Size(161, 30);
             this.Ports_txtName.TabIndex = 2;
@@ -582,7 +629,7 @@
             // 
             this.portname.AutoSize = true;
             this.portname.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.portname.Location = new System.Drawing.Point(336, 55);
+            this.portname.Location = new System.Drawing.Point(352, 55);
             this.portname.Name = "portname";
             this.portname.Size = new System.Drawing.Size(82, 22);
             this.portname.TabIndex = 0;
@@ -612,6 +659,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label23);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.Agents_btnCancel);
             this.groupBox2.Controls.Add(this.Agents_btnSave);
@@ -620,12 +668,23 @@
             this.groupBox2.Controls.Add(this.Agents_lstAgents);
             this.groupBox2.Controls.Add(this.Agents_btnEdit);
             this.groupBox2.Controls.Add(this.Agents_btnDelete);
-            this.groupBox2.Location = new System.Drawing.Point(505, 55);
+            this.groupBox2.Location = new System.Drawing.Point(493, 55);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(483, 618);
+            this.groupBox2.Size = new System.Drawing.Size(495, 618);
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "الوكلاء الملاحيين";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label23.ForeColor = System.Drawing.Color.Red;
+            this.label23.Location = new System.Drawing.Point(182, 62);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(20, 23);
+            this.label23.TabIndex = 29;
+            this.label23.Text = "*";
             // 
             // label5
             // 
@@ -683,7 +742,7 @@
             this.Agents_lstAgents.ItemHeight = 15;
             this.Agents_lstAgents.Location = new System.Drawing.Point(6, 57);
             this.Agents_lstAgents.Name = "Agents_lstAgents";
-            this.Agents_lstAgents.Size = new System.Drawing.Size(180, 544);
+            this.Agents_lstAgents.Size = new System.Drawing.Size(166, 544);
             this.Agents_lstAgents.TabIndex = 5;
             // 
             // Agents_btnEdit
@@ -710,6 +769,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label24);
             this.groupBox1.Controls.Add(this.Products_lstProducts);
             this.groupBox1.Controls.Add(this.Products_btnCancel);
             this.groupBox1.Controls.Add(this.Products_btnSave);
@@ -725,13 +785,24 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "الأصناف";
             // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label24.ForeColor = System.Drawing.Color.Red;
+            this.label24.Location = new System.Drawing.Point(183, 62);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(20, 23);
+            this.label24.TabIndex = 30;
+            this.label24.Text = "*";
+            // 
             // Products_lstProducts
             // 
             this.Products_lstProducts.FormattingEnabled = true;
             this.Products_lstProducts.ItemHeight = 15;
-            this.Products_lstProducts.Location = new System.Drawing.Point(10, 62);
+            this.Products_lstProducts.Location = new System.Drawing.Point(6, 57);
             this.Products_lstProducts.Name = "Products_lstProducts";
-            this.Products_lstProducts.Size = new System.Drawing.Size(176, 529);
+            this.Products_lstProducts.Size = new System.Drawing.Size(171, 529);
             this.Products_lstProducts.TabIndex = 27;
             // 
             // Products_btnCancel
@@ -820,6 +891,9 @@
             // shipsTab
             // 
             this.shipsTab.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.shipsTab.Controls.Add(this.label22);
+            this.shipsTab.Controls.Add(this.label21);
+            this.shipsTab.Controls.Add(this.label13);
             this.shipsTab.Controls.Add(this.AddShip_cancelbtn);
             this.shipsTab.Controls.Add(this.AddShip_Savebtn);
             this.shipsTab.Controls.Add(this.ShipsTab_btnDelete);
@@ -842,6 +916,39 @@
             this.shipsTab.Size = new System.Drawing.Size(996, 666);
             this.shipsTab.TabIndex = 2;
             this.shipsTab.Text = "السفن";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label22.ForeColor = System.Drawing.Color.Red;
+            this.label22.Location = new System.Drawing.Point(607, 227);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(20, 23);
+            this.label22.TabIndex = 18;
+            this.label22.Text = "*";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label21.ForeColor = System.Drawing.Color.Red;
+            this.label21.Location = new System.Drawing.Point(607, 175);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(20, 23);
+            this.label21.TabIndex = 17;
+            this.label21.Text = "*";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label13.ForeColor = System.Drawing.Color.Red;
+            this.label13.Location = new System.Drawing.Point(606, 122);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(20, 23);
+            this.label13.TabIndex = 16;
+            this.label13.Text = "*";
             // 
             // AddShip_cancelbtn
             // 
@@ -1031,6 +1138,11 @@
             // addingTripTab
             // 
             this.addingTripTab.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.addingTripTab.Controls.Add(this.label40);
+            this.addingTripTab.Controls.Add(this.label39);
+            this.addingTripTab.Controls.Add(this.label38);
+            this.addingTripTab.Controls.Add(this.label37);
+            this.addingTripTab.Controls.Add(this.label36);
             this.addingTripTab.Controls.Add(this.AddTrip_btnCancelTrip);
             this.addingTripTab.Controls.Add(this.AddTrip_btnSaveTrip);
             this.addingTripTab.Controls.Add(this.AddTrip_dtpDate);
@@ -1062,6 +1174,17 @@
             this.addingTripTab.TabIndex = 1;
             this.addingTripTab.Text = "إدارة الرحلات";
             // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label36.ForeColor = System.Drawing.Color.Red;
+            this.label36.Location = new System.Drawing.Point(723, 83);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(20, 23);
+            this.label36.TabIndex = 43;
+            this.label36.Text = "*";
+            // 
             // AddTrip_btnCancelTrip
             // 
             this.AddTrip_btnCancelTrip.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
@@ -1086,14 +1209,17 @@
             // 
             // AddTrip_dtpDate
             // 
+            this.AddTrip_dtpDate.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.AddTrip_dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.AddTrip_dtpDate.Location = new System.Drawing.Point(258, 175);
+            this.AddTrip_dtpDate.Location = new System.Drawing.Point(339, 167);
             this.AddTrip_dtpDate.Name = "AddTrip_dtpDate";
-            this.AddTrip_dtpDate.Size = new System.Drawing.Size(185, 22);
+            this.AddTrip_dtpDate.Size = new System.Drawing.Size(185, 30);
             this.AddTrip_dtpDate.TabIndex = 40;
             // 
             // loadsgroup
             // 
+            this.loadsgroup.Controls.Add(this.label42);
+            this.loadsgroup.Controls.Add(this.label41);
             this.loadsgroup.Controls.Add(this.AddTrip_btnRemoveProduct);
             this.loadsgroup.Controls.Add(this.AddTrip_btnEditProduct);
             this.loadsgroup.Controls.Add(this.AddTrip_nudProductQuantity);
@@ -1113,7 +1239,7 @@
             // AddTrip_btnRemoveProduct
             // 
             this.AddTrip_btnRemoveProduct.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.AddTrip_btnRemoveProduct.Location = new System.Drawing.Point(266, 135);
+            this.AddTrip_btnRemoveProduct.Location = new System.Drawing.Point(271, 140);
             this.AddTrip_btnRemoveProduct.Name = "AddTrip_btnRemoveProduct";
             this.AddTrip_btnRemoveProduct.Size = new System.Drawing.Size(87, 33);
             this.AddTrip_btnRemoveProduct.TabIndex = 43;
@@ -1124,7 +1250,7 @@
             // AddTrip_btnEditProduct
             // 
             this.AddTrip_btnEditProduct.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.AddTrip_btnEditProduct.Location = new System.Drawing.Point(266, 67);
+            this.AddTrip_btnEditProduct.Location = new System.Drawing.Point(271, 72);
             this.AddTrip_btnEditProduct.Name = "AddTrip_btnEditProduct";
             this.AddTrip_btnEditProduct.Size = new System.Drawing.Size(87, 33);
             this.AddTrip_btnEditProduct.TabIndex = 42;
@@ -1134,6 +1260,7 @@
             // 
             // AddTrip_nudProductQuantity
             // 
+            this.AddTrip_nudProductQuantity.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.AddTrip_nudProductQuantity.Location = new System.Drawing.Point(271, 28);
             this.AddTrip_nudProductQuantity.Maximum = new decimal(new int[] {
             1661992960,
@@ -1146,7 +1273,7 @@
             0,
             0});
             this.AddTrip_nudProductQuantity.Name = "AddTrip_nudProductQuantity";
-            this.AddTrip_nudProductQuantity.Size = new System.Drawing.Size(142, 22);
+            this.AddTrip_nudProductQuantity.Size = new System.Drawing.Size(142, 30);
             this.AddTrip_nudProductQuantity.TabIndex = 41;
             this.AddTrip_nudProductQuantity.Value = new decimal(new int[] {
             1,
@@ -1157,12 +1284,12 @@
             // AddTrip_lnkAddProduct
             // 
             this.AddTrip_lnkAddProduct.AutoSize = true;
-            this.AddTrip_lnkAddProduct.Location = new System.Drawing.Point(6, 28);
+            this.AddTrip_lnkAddProduct.Location = new System.Drawing.Point(6, 35);
             this.AddTrip_lnkAddProduct.Name = "AddTrip_lnkAddProduct";
-            this.AddTrip_lnkAddProduct.Size = new System.Drawing.Size(84, 15);
+            this.AddTrip_lnkAddProduct.Size = new System.Drawing.Size(62, 15);
             this.AddTrip_lnkAddProduct.TabIndex = 38;
             this.AddTrip_lnkAddProduct.TabStop = true;
-            this.AddTrip_lnkAddProduct.Text = "لاضافة صنف جديد";
+            this.AddTrip_lnkAddProduct.Text = "لإضافة صنف";
             this.AddTrip_lnkAddProduct.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLship_LinkClicked);
             // 
             // goodslab
@@ -1179,11 +1306,12 @@
             // 
             this.AddTrip_CmbProducts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.AddTrip_CmbProducts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddTrip_CmbProducts.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.AddTrip_CmbProducts.FormattingEnabled = true;
             this.AddTrip_CmbProducts.Location = new System.Drawing.Point(488, 26);
             this.AddTrip_CmbProducts.Name = "AddTrip_CmbProducts";
             this.AddTrip_CmbProducts.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.AddTrip_CmbProducts.Size = new System.Drawing.Size(178, 23);
+            this.AddTrip_CmbProducts.Size = new System.Drawing.Size(178, 31);
             this.AddTrip_CmbProducts.TabIndex = 30;
             // 
             // AddTrip_DGVProducts
@@ -1191,7 +1319,7 @@
             this.AddTrip_DGVProducts.AllowUserToAddRows = false;
             this.AddTrip_DGVProducts.AllowUserToDeleteRows = false;
             this.AddTrip_DGVProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.AddTrip_DGVProducts.Location = new System.Drawing.Point(383, 67);
+            this.AddTrip_DGVProducts.Location = new System.Drawing.Point(384, 72);
             this.AddTrip_DGVProducts.Name = "AddTrip_DGVProducts";
             this.AddTrip_DGVProducts.ReadOnly = true;
             this.AddTrip_DGVProducts.Size = new System.Drawing.Size(283, 101);
@@ -1201,7 +1329,7 @@
             // 
             this.quantitylabel.AutoSize = true;
             this.quantitylabel.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.quantitylabel.Location = new System.Drawing.Point(419, 28);
+            this.quantitylabel.Location = new System.Drawing.Point(415, 31);
             this.quantitylabel.Name = "quantitylabel";
             this.quantitylabel.Size = new System.Drawing.Size(47, 23);
             this.quantitylabel.TabIndex = 14;
@@ -1210,7 +1338,7 @@
             // AddTrip_btnAddProduct
             // 
             this.AddTrip_btnAddProduct.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.AddTrip_btnAddProduct.Location = new System.Drawing.Point(115, 23);
+            this.AddTrip_btnAddProduct.Location = new System.Drawing.Point(92, 25);
             this.AddTrip_btnAddProduct.Name = "AddTrip_btnAddProduct";
             this.AddTrip_btnAddProduct.Size = new System.Drawing.Size(150, 33);
             this.AddTrip_btnAddProduct.TabIndex = 36;
@@ -1221,6 +1349,7 @@
             // AddTrip_txtNotes
             // 
             this.AddTrip_txtNotes.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.AddTrip_txtNotes.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.AddTrip_txtNotes.Location = new System.Drawing.Point(258, 442);
             this.AddTrip_txtNotes.Multiline = true;
             this.AddTrip_txtNotes.Name = "AddTrip_txtNotes";
@@ -1250,12 +1379,12 @@
             // AddTrip_lnkAddPlatform
             // 
             this.AddTrip_lnkAddPlatform.AutoSize = true;
-            this.AddTrip_lnkAddPlatform.Location = new System.Drawing.Point(165, 128);
+            this.AddTrip_lnkAddPlatform.Location = new System.Drawing.Point(260, 121);
             this.AddTrip_lnkAddPlatform.Name = "AddTrip_lnkAddPlatform";
-            this.AddTrip_lnkAddPlatform.Size = new System.Drawing.Size(90, 15);
+            this.AddTrip_lnkAddPlatform.Size = new System.Drawing.Size(68, 15);
             this.AddTrip_lnkAddPlatform.TabIndex = 34;
             this.AddTrip_lnkAddPlatform.TabStop = true;
-            this.AddTrip_lnkAddPlatform.Text = "لاضافة رصيف جديد";
+            this.AddTrip_lnkAddPlatform.Text = "لإضافة رصيف";
             this.AddTrip_lnkAddPlatform.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.AddTrip_lnkAddPlatform_LinkClicked);
             // 
             // AddTrip_CmbShips
@@ -1263,44 +1392,45 @@
             this.AddTrip_CmbShips.DisplayMember = "Name";
             this.AddTrip_CmbShips.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.AddTrip_CmbShips.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddTrip_CmbShips.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.AddTrip_CmbShips.FormattingEnabled = true;
-            this.AddTrip_CmbShips.Location = new System.Drawing.Point(745, 82);
+            this.AddTrip_CmbShips.Location = new System.Drawing.Point(747, 74);
             this.AddTrip_CmbShips.Name = "AddTrip_CmbShips";
             this.AddTrip_CmbShips.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.AddTrip_CmbShips.Size = new System.Drawing.Size(179, 23);
+            this.AddTrip_CmbShips.Size = new System.Drawing.Size(179, 31);
             this.AddTrip_CmbShips.TabIndex = 32;
             // 
             // AddTrip_lnkAddAgent
             // 
             this.AddTrip_lnkAddAgent.AutoSize = true;
-            this.AddTrip_lnkAddAgent.Location = new System.Drawing.Point(174, 88);
+            this.AddTrip_lnkAddAgent.Location = new System.Drawing.Point(258, 78);
             this.AddTrip_lnkAddAgent.Name = "AddTrip_lnkAddAgent";
-            this.AddTrip_lnkAddAgent.Size = new System.Drawing.Size(81, 15);
+            this.AddTrip_lnkAddAgent.Size = new System.Drawing.Size(59, 15);
             this.AddTrip_lnkAddAgent.TabIndex = 33;
             this.AddTrip_lnkAddAgent.TabStop = true;
-            this.AddTrip_lnkAddAgent.Text = "لاضافة وكيل جديد";
+            this.AddTrip_lnkAddAgent.Text = "لإضافة وكيل";
             this.AddTrip_lnkAddAgent.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLship_LinkClicked);
             // 
             // AddTrip_lnkAddShip
             // 
             this.AddTrip_lnkAddShip.AutoSize = true;
-            this.AddTrip_lnkAddShip.Location = new System.Drawing.Point(650, 90);
+            this.AddTrip_lnkAddShip.Location = new System.Drawing.Point(656, 86);
             this.AddTrip_lnkAddShip.Name = "AddTrip_lnkAddShip";
-            this.AddTrip_lnkAddShip.Size = new System.Drawing.Size(89, 15);
+            this.AddTrip_lnkAddShip.Size = new System.Drawing.Size(63, 15);
             this.AddTrip_lnkAddShip.TabIndex = 33;
             this.AddTrip_lnkAddShip.TabStop = true;
-            this.AddTrip_lnkAddShip.Text = "لاضافة سفينة جديدة";
+            this.AddTrip_lnkAddShip.Text = "لإضافة سفينة";
             this.AddTrip_lnkAddShip.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLship_LinkClicked);
             // 
             // AddTrip_lnkAddPort
             // 
             this.AddTrip_lnkAddPort.AutoSize = true;
-            this.AddTrip_lnkAddPort.Location = new System.Drawing.Point(657, 133);
+            this.AddTrip_lnkAddPort.Location = new System.Drawing.Point(663, 131);
             this.AddTrip_lnkAddPort.Name = "AddTrip_lnkAddPort";
-            this.AddTrip_lnkAddPort.Size = new System.Drawing.Size(82, 15);
+            this.AddTrip_lnkAddPort.Size = new System.Drawing.Size(60, 15);
             this.AddTrip_lnkAddPort.TabIndex = 33;
             this.AddTrip_lnkAddPort.TabStop = true;
-            this.AddTrip_lnkAddPort.Text = "لاضافة ميناء جديد";
+            this.AddTrip_lnkAddPort.Text = "لإضافة ميناء";
             this.AddTrip_lnkAddPort.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLship_LinkClicked);
             // 
             // AddTrip_CmbAgents
@@ -1308,11 +1438,12 @@
             this.AddTrip_CmbAgents.DisplayMember = "Name";
             this.AddTrip_CmbAgents.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.AddTrip_CmbAgents.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddTrip_CmbAgents.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.AddTrip_CmbAgents.FormattingEnabled = true;
-            this.AddTrip_CmbAgents.Location = new System.Drawing.Point(261, 82);
+            this.AddTrip_CmbAgents.Location = new System.Drawing.Point(341, 75);
             this.AddTrip_CmbAgents.Name = "AddTrip_CmbAgents";
             this.AddTrip_CmbAgents.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.AddTrip_CmbAgents.Size = new System.Drawing.Size(182, 23);
+            this.AddTrip_CmbAgents.Size = new System.Drawing.Size(182, 31);
             this.AddTrip_CmbAgents.TabIndex = 32;
             this.AddTrip_CmbAgents.ValueMember = "Name";
             // 
@@ -1320,11 +1451,12 @@
             // 
             this.AddTrip_CmbPlatforms.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.AddTrip_CmbPlatforms.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddTrip_CmbPlatforms.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.AddTrip_CmbPlatforms.FormattingEnabled = true;
-            this.AddTrip_CmbPlatforms.Location = new System.Drawing.Point(261, 125);
+            this.AddTrip_CmbPlatforms.Location = new System.Drawing.Point(341, 116);
             this.AddTrip_CmbPlatforms.Name = "AddTrip_CmbPlatforms";
             this.AddTrip_CmbPlatforms.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.AddTrip_CmbPlatforms.Size = new System.Drawing.Size(183, 23);
+            this.AddTrip_CmbPlatforms.Size = new System.Drawing.Size(183, 31);
             this.AddTrip_CmbPlatforms.TabIndex = 31;
             // 
             // AddTrip_CmbPorts
@@ -1332,11 +1464,12 @@
             this.AddTrip_CmbPorts.DisplayMember = "Name";
             this.AddTrip_CmbPorts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.AddTrip_CmbPorts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddTrip_CmbPorts.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.AddTrip_CmbPorts.FormattingEnabled = true;
-            this.AddTrip_CmbPorts.Location = new System.Drawing.Point(746, 125);
+            this.AddTrip_CmbPorts.Location = new System.Drawing.Point(748, 125);
             this.AddTrip_CmbPorts.Name = "AddTrip_CmbPorts";
             this.AddTrip_CmbPorts.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.AddTrip_CmbPorts.Size = new System.Drawing.Size(179, 23);
+            this.AddTrip_CmbPorts.Size = new System.Drawing.Size(179, 31);
             this.AddTrip_CmbPorts.TabIndex = 32;
             this.AddTrip_CmbPorts.ValueMember = "Name";
             this.AddTrip_CmbPorts.SelectedIndexChanged += new System.EventHandler(this.AddTrip_CmbPorts_SelectedIndexChanged);
@@ -1345,11 +1478,12 @@
             // 
             this.AddTrip_CmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.AddTrip_CmbStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddTrip_CmbStatus.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.AddTrip_CmbStatus.FormattingEnabled = true;
             this.AddTrip_CmbStatus.Location = new System.Drawing.Point(746, 170);
             this.AddTrip_CmbStatus.Name = "AddTrip_CmbStatus";
             this.AddTrip_CmbStatus.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.AddTrip_CmbStatus.Size = new System.Drawing.Size(180, 23);
+            this.AddTrip_CmbStatus.Size = new System.Drawing.Size(180, 31);
             this.AddTrip_CmbStatus.TabIndex = 31;
             // 
             // portlab
@@ -1366,7 +1500,7 @@
             // 
             this.agentlab.AutoSize = true;
             this.agentlab.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.agentlab.Location = new System.Drawing.Point(457, 85);
+            this.agentlab.Location = new System.Drawing.Point(526, 77);
             this.agentlab.Name = "agentlab";
             this.agentlab.Size = new System.Drawing.Size(104, 23);
             this.agentlab.TabIndex = 19;
@@ -1376,7 +1510,7 @@
             // 
             this.platlab.AutoSize = true;
             this.platlab.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.platlab.Location = new System.Drawing.Point(457, 129);
+            this.platlab.Location = new System.Drawing.Point(526, 121);
             this.platlab.Name = "platlab";
             this.platlab.Size = new System.Drawing.Size(63, 23);
             this.platlab.TabIndex = 18;
@@ -1386,7 +1520,7 @@
             // 
             this.datelab.AutoSize = true;
             this.datelab.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.datelab.Location = new System.Drawing.Point(457, 174);
+            this.datelab.Location = new System.Drawing.Point(526, 166);
             this.datelab.Name = "datelab";
             this.datelab.Size = new System.Drawing.Size(54, 23);
             this.datelab.TabIndex = 17;
@@ -1395,10 +1529,10 @@
             // noteslab
             // 
             this.noteslab.AutoSize = true;
-            this.noteslab.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.noteslab.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.noteslab.Location = new System.Drawing.Point(924, 486);
             this.noteslab.Name = "noteslab";
-            this.noteslab.Size = new System.Drawing.Size(55, 19);
+            this.noteslab.Size = new System.Drawing.Size(67, 23);
             this.noteslab.TabIndex = 15;
             this.noteslab.Text = "ملاحظات";
             // 
@@ -1469,7 +1603,6 @@
             this.TripsDGV.ShowEditingIcon = false;
             this.TripsDGV.Size = new System.Drawing.Size(996, 603);
             this.TripsDGV.TabIndex = 8;
-            this.TripsDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TripsDGV_CellContentClick);
             // 
             // panel4
             // 
@@ -1638,17 +1771,20 @@
             // AccidentManagementTab
             // 
             this.AccidentManagementTab.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.AccidentManagementTab.Controls.Add(this.label33);
+            this.AccidentManagementTab.Controls.Add(this.label32);
+            this.AccidentManagementTab.Controls.Add(this.label31);
+            this.AccidentManagementTab.Controls.Add(this.groupBox6);
             this.AccidentManagementTab.Controls.Add(this.ManageAcc_canclbtn);
             this.AccidentManagementTab.Controls.Add(this.ManageAcc_savebtn);
             this.AccidentManagementTab.Controls.Add(this.groupBox5);
-            this.AccidentManagementTab.Controls.Add(this.ManageAcc_groupInfo);
+            this.AccidentManagementTab.Controls.Add(this.ManageAcc_cmbArea);
+            this.AccidentManagementTab.Controls.Add(this.ManageAcc_labArea);
             this.AccidentManagementTab.Controls.Add(this.ManageAcc_gruopLocation);
             this.AccidentManagementTab.Controls.Add(this.ManageAcc_dtpDate);
             this.AccidentManagementTab.Controls.Add(this.MangeAcc_linkShip);
-            this.AccidentManagementTab.Controls.Add(this.ManageAcc_cmbArea);
             this.AccidentManagementTab.Controls.Add(this.ManageAcc_cmbShipName);
             this.AccidentManagementTab.Controls.Add(this.ManageAcc_LabDate);
-            this.AccidentManagementTab.Controls.Add(this.ManageAcc_labArea);
             this.AccidentManagementTab.Controls.Add(this.ManageAcc_labshipName);
             this.AccidentManagementTab.Controls.Add(this.ManageAcc_lab);
             this.AccidentManagementTab.Location = new System.Drawing.Point(4, 27);
@@ -1658,10 +1794,98 @@
             this.AccidentManagementTab.TabIndex = 7;
             this.AccidentManagementTab.Text = "إدارة الحوادث";
             // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label33.ForeColor = System.Drawing.Color.Red;
+            this.label33.Location = new System.Drawing.Point(700, 222);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(20, 23);
+            this.label33.TabIndex = 37;
+            this.label33.Text = "*";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label32.ForeColor = System.Drawing.Color.Red;
+            this.label32.Location = new System.Drawing.Point(700, 154);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(20, 23);
+            this.label32.TabIndex = 36;
+            this.label32.Text = "*";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label31.ForeColor = System.Drawing.Color.Red;
+            this.label31.Location = new System.Drawing.Point(700, 82);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(20, 23);
+            this.label31.TabIndex = 35;
+            this.label31.Text = "*";
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.ManageAcc_lblReqReport);
+            this.groupBox6.Controls.Add(this.ManageAcc_CheckReported);
+            this.groupBox6.Controls.Add(this.label11);
+            this.groupBox6.Controls.Add(this.ManageAcc_txtReportedTo);
+            this.groupBox6.Location = new System.Drawing.Point(139, 189);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(472, 115);
+            this.groupBox6.TabIndex = 8;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "الإبلاغ عن الحادث";
+            // 
+            // ManageAcc_lblReqReport
+            // 
+            this.ManageAcc_lblReqReport.AutoSize = true;
+            this.ManageAcc_lblReqReport.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.ManageAcc_lblReqReport.ForeColor = System.Drawing.Color.Red;
+            this.ManageAcc_lblReqReport.Location = new System.Drawing.Point(1, 49);
+            this.ManageAcc_lblReqReport.Name = "ManageAcc_lblReqReport";
+            this.ManageAcc_lblReqReport.Size = new System.Drawing.Size(20, 23);
+            this.ManageAcc_lblReqReport.TabIndex = 38;
+            this.ManageAcc_lblReqReport.Text = "*";
+            // 
+            // ManageAcc_CheckReported
+            // 
+            this.ManageAcc_CheckReported.AutoSize = true;
+            this.ManageAcc_CheckReported.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ManageAcc_CheckReported.Location = new System.Drawing.Point(379, 49);
+            this.ManageAcc_CheckReported.Name = "ManageAcc_CheckReported";
+            this.ManageAcc_CheckReported.Size = new System.Drawing.Size(87, 27);
+            this.ManageAcc_CheckReported.TabIndex = 3;
+            this.ManageAcc_CheckReported.Text = "تم الابلاغ";
+            this.ManageAcc_CheckReported.UseVisualStyleBackColor = true;
+            this.ManageAcc_CheckReported.CheckedChanged += new System.EventHandler(this.ManageAcc_CheckReported_CheckedChanged);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(277, 49);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(93, 23);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "الجهة المبلغة";
+            // 
+            // ManageAcc_txtReportedTo
+            // 
+            this.ManageAcc_txtReportedTo.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ManageAcc_txtReportedTo.Location = new System.Drawing.Point(25, 18);
+            this.ManageAcc_txtReportedTo.Multiline = true;
+            this.ManageAcc_txtReportedTo.Name = "ManageAcc_txtReportedTo";
+            this.ManageAcc_txtReportedTo.Size = new System.Drawing.Size(250, 85);
+            this.ManageAcc_txtReportedTo.TabIndex = 1;
+            // 
             // ManageAcc_canclbtn
             // 
             this.ManageAcc_canclbtn.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.ManageAcc_canclbtn.Location = new System.Drawing.Point(433, 621);
+            this.ManageAcc_canclbtn.Location = new System.Drawing.Point(416, 580);
             this.ManageAcc_canclbtn.Name = "ManageAcc_canclbtn";
             this.ManageAcc_canclbtn.Size = new System.Drawing.Size(92, 39);
             this.ManageAcc_canclbtn.TabIndex = 7;
@@ -1672,7 +1896,7 @@
             // ManageAcc_savebtn
             // 
             this.ManageAcc_savebtn.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.ManageAcc_savebtn.Location = new System.Drawing.Point(559, 619);
+            this.ManageAcc_savebtn.Location = new System.Drawing.Point(520, 580);
             this.ManageAcc_savebtn.Name = "ManageAcc_savebtn";
             this.ManageAcc_savebtn.Size = new System.Drawing.Size(102, 39);
             this.ManageAcc_savebtn.TabIndex = 7;
@@ -1682,10 +1906,9 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.ManageAcc_CheckReported);
-            this.groupBox5.Controls.Add(this.label11);
+            this.groupBox5.Controls.Add(this.label30);
+            this.groupBox5.Controls.Add(this.label29);
             this.groupBox5.Controls.Add(this.ManageAcc_txtCrewConsequences);
-            this.groupBox5.Controls.Add(this.ManageAcc_txtReportedTo);
             this.groupBox5.Controls.Add(this.ManageAcc_txtCoast);
             this.groupBox5.Controls.Add(this.ManageAcc_txtCrewAction);
             this.groupBox5.Controls.Add(this.ManageAcc_txtDetails);
@@ -1694,360 +1917,253 @@
             this.groupBox5.Controls.Add(this.label19);
             this.groupBox5.Controls.Add(this.label20);
             this.groupBox5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.groupBox5.Location = new System.Drawing.Point(138, 280);
+            this.groupBox5.Location = new System.Drawing.Point(139, 310);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(852, 333);
+            this.groupBox5.Size = new System.Drawing.Size(852, 255);
             this.groupBox5.TabIndex = 6;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "المعلومات التفصيله للحادث";
             // 
-            // ManageAcc_CheckReported
+            // label30
             // 
-            this.ManageAcc_CheckReported.AutoSize = true;
-            this.ManageAcc_CheckReported.Location = new System.Drawing.Point(674, 265);
-            this.ManageAcc_CheckReported.Name = "ManageAcc_CheckReported";
-            this.ManageAcc_CheckReported.Size = new System.Drawing.Size(76, 23);
-            this.ManageAcc_CheckReported.TabIndex = 3;
-            this.ManageAcc_CheckReported.Text = "تم الابلاغ";
-            this.ManageAcc_CheckReported.UseVisualStyleBackColor = true;
-            this.ManageAcc_CheckReported.CheckedChanged += new System.EventHandler(this.ManageAcc_CheckReported_CheckedChanged);
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Location = new System.Drawing.Point(293, 191);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(107, 23);
+            this.label30.TabIndex = 3;
+            this.label30.Text = "الدولة الساحلية";
             // 
-            // label11
+            // label29
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label11.Location = new System.Drawing.Point(322, 268);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(79, 19);
-            this.label11.TabIndex = 2;
-            this.label11.Text = "الجهة المبلغة";
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Location = new System.Drawing.Point(293, 75);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(71, 23);
+            this.label29.TabIndex = 2;
+            this.label29.Text = "من الطاقم";
             // 
             // ManageAcc_txtCrewConsequences
             // 
-            this.ManageAcc_txtCrewConsequences.Location = new System.Drawing.Point(518, 148);
+            this.ManageAcc_txtCrewConsequences.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ManageAcc_txtCrewConsequences.Location = new System.Drawing.Point(490, 148);
             this.ManageAcc_txtCrewConsequences.Multiline = true;
             this.ManageAcc_txtCrewConsequences.Name = "ManageAcc_txtCrewConsequences";
-            this.ManageAcc_txtCrewConsequences.Size = new System.Drawing.Size(232, 76);
+            this.ManageAcc_txtCrewConsequences.Size = new System.Drawing.Size(250, 85);
             this.ManageAcc_txtCrewConsequences.TabIndex = 1;
-            // 
-            // ManageAcc_txtReportedTo
-            // 
-            this.ManageAcc_txtReportedTo.Location = new System.Drawing.Point(86, 254);
-            this.ManageAcc_txtReportedTo.Multiline = true;
-            this.ManageAcc_txtReportedTo.Name = "ManageAcc_txtReportedTo";
-            this.ManageAcc_txtReportedTo.Size = new System.Drawing.Size(232, 47);
-            this.ManageAcc_txtReportedTo.TabIndex = 1;
             // 
             // ManageAcc_txtCoast
             // 
-            this.ManageAcc_txtCoast.Location = new System.Drawing.Point(86, 148);
+            this.ManageAcc_txtCoast.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ManageAcc_txtCoast.Location = new System.Drawing.Point(25, 148);
             this.ManageAcc_txtCoast.Multiline = true;
             this.ManageAcc_txtCoast.Name = "ManageAcc_txtCoast";
-            this.ManageAcc_txtCoast.Size = new System.Drawing.Size(232, 76);
+            this.ManageAcc_txtCoast.Size = new System.Drawing.Size(250, 85);
             this.ManageAcc_txtCoast.TabIndex = 1;
             // 
             // ManageAcc_txtCrewAction
             // 
-            this.ManageAcc_txtCrewAction.Location = new System.Drawing.Point(86, 47);
+            this.ManageAcc_txtCrewAction.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ManageAcc_txtCrewAction.Location = new System.Drawing.Point(25, 28);
             this.ManageAcc_txtCrewAction.Multiline = true;
             this.ManageAcc_txtCrewAction.Name = "ManageAcc_txtCrewAction";
-            this.ManageAcc_txtCrewAction.Size = new System.Drawing.Size(232, 73);
+            this.ManageAcc_txtCrewAction.Size = new System.Drawing.Size(250, 85);
             this.ManageAcc_txtCrewAction.TabIndex = 1;
             // 
             // ManageAcc_txtDetails
             // 
-            this.ManageAcc_txtDetails.Location = new System.Drawing.Point(518, 47);
+            this.ManageAcc_txtDetails.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ManageAcc_txtDetails.Location = new System.Drawing.Point(490, 28);
             this.ManageAcc_txtDetails.Multiline = true;
             this.ManageAcc_txtDetails.Name = "ManageAcc_txtDetails";
-            this.ManageAcc_txtDetails.Size = new System.Drawing.Size(232, 73);
+            this.ManageAcc_txtDetails.Size = new System.Drawing.Size(250, 85);
             this.ManageAcc_txtDetails.TabIndex = 1;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label14.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label14.Location = new System.Drawing.Point(756, 73);
+            this.label14.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(744, 59);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(85, 19);
+            this.label14.Size = new System.Drawing.Size(104, 23);
             this.label14.TabIndex = 0;
             this.label14.Text = "تفاصيل الحادثة";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(339, 82);
+            this.label15.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(277, 50);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(135, 19);
+            this.label15.Size = new System.Drawing.Size(105, 23);
             this.label15.TabIndex = 0;
-            this.label15.Text = "الاجراءالمتخذ من الطاقم";
+            this.label15.Text = "الإجراء المتخذ ";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(322, 184);
+            this.label19.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(281, 162);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(188, 19);
+            this.label19.Size = new System.Drawing.Size(129, 23);
             this.label19.TabIndex = 0;
-            this.label19.Text = "الاجراء المتخذ من الدولة الساحلية";
+            this.label19.Text = "الإجراء المتخذ من ";
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(763, 184);
+            this.label20.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(746, 173);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(78, 19);
+            this.label20.Size = new System.Drawing.Size(93, 23);
             this.label20.TabIndex = 0;
-            this.label20.Text = "اضرار الطاقم";
+            this.label20.Text = "أضرار الطاقم";
             // 
-            // ManageAcc_groupInfo
+            // ManageAcc_cmbArea
             // 
-            this.ManageAcc_groupInfo.Controls.Add(this.radioButton2);
-            this.ManageAcc_groupInfo.Controls.Add(this.radioButton1);
-            this.ManageAcc_groupInfo.Controls.Add(this.ManageAcc_LabReportedTo);
-            this.ManageAcc_groupInfo.Controls.Add(this.ManageAcc_LabIsReported);
-            this.ManageAcc_groupInfo.Controls.Add(this.textBox6);
-            this.ManageAcc_groupInfo.Controls.Add(this.textBox5);
-            this.ManageAcc_groupInfo.Controls.Add(this.ManageAcc_txtCrewConseq);
-            this.ManageAcc_groupInfo.Controls.Add(this.textBox3);
-            this.ManageAcc_groupInfo.Controls.Add(this.ManageAcc_txtDetailAcc);
-            this.ManageAcc_groupInfo.Controls.Add(this.ManageAcc_LabCrewConseq);
-            this.ManageAcc_groupInfo.Controls.Add(this.ManageAcc_LabCostal);
-            this.ManageAcc_groupInfo.Controls.Add(this.ManagAcc_LabCrewAction);
-            this.ManageAcc_groupInfo.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.ManageAcc_groupInfo.Location = new System.Drawing.Point(138, 280);
-            this.ManageAcc_groupInfo.Name = "ManageAcc_groupInfo";
-            this.ManageAcc_groupInfo.Size = new System.Drawing.Size(852, 333);
-            this.ManageAcc_groupInfo.TabIndex = 6;
-            this.ManageAcc_groupInfo.TabStop = false;
-            this.ManageAcc_groupInfo.Text = "المعلومات التفصيله للحادث";
+            this.ManageAcc_cmbArea.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ManageAcc_cmbArea.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ManageAcc_cmbArea.FormattingEnabled = true;
+            this.ManageAcc_cmbArea.Location = new System.Drawing.Point(724, 219);
+            this.ManageAcc_cmbArea.Name = "ManageAcc_cmbArea";
+            this.ManageAcc_cmbArea.Size = new System.Drawing.Size(202, 30);
+            this.ManageAcc_cmbArea.TabIndex = 1;
             // 
-            // radioButton2
+            // ManageAcc_labArea
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(636, 293);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(114, 23);
-            this.radioButton2.TabIndex = 3;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "radioButton1";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(636, 255);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(114, 23);
-            this.radioButton1.TabIndex = 3;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "radioButton1";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // ManageAcc_LabReportedTo
-            // 
-            this.ManageAcc_LabReportedTo.AutoSize = true;
-            this.ManageAcc_LabReportedTo.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.ManageAcc_LabReportedTo.Location = new System.Drawing.Point(395, 255);
-            this.ManageAcc_LabReportedTo.Name = "ManageAcc_LabReportedTo";
-            this.ManageAcc_LabReportedTo.Size = new System.Drawing.Size(91, 22);
-            this.ManageAcc_LabReportedTo.TabIndex = 2;
-            this.ManageAcc_LabReportedTo.Text = "الدولة المبلغة";
-            // 
-            // ManageAcc_LabIsReported
-            // 
-            this.ManageAcc_LabIsReported.AutoSize = true;
-            this.ManageAcc_LabIsReported.Location = new System.Drawing.Point(785, 268);
-            this.ManageAcc_LabIsReported.Name = "ManageAcc_LabIsReported";
-            this.ManageAcc_LabIsReported.Size = new System.Drawing.Size(39, 19);
-            this.ManageAcc_LabIsReported.TabIndex = 2;
-            this.ManageAcc_LabIsReported.Text = "البلاغ";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(518, 148);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(232, 76);
-            this.textBox6.TabIndex = 1;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(86, 148);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(232, 76);
-            this.textBox5.TabIndex = 1;
-            // 
-            // ManageAcc_txtCrewConseq
-            // 
-            this.ManageAcc_txtCrewConseq.Location = new System.Drawing.Point(86, 47);
-            this.ManageAcc_txtCrewConseq.Multiline = true;
-            this.ManageAcc_txtCrewConseq.Name = "ManageAcc_txtCrewConseq";
-            this.ManageAcc_txtCrewConseq.Size = new System.Drawing.Size(232, 73);
-            this.ManageAcc_txtCrewConseq.TabIndex = 1;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(518, 47);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(232, 73);
-            this.textBox3.TabIndex = 1;
-            // 
-            // ManageAcc_txtDetailAcc
-            // 
-            this.ManageAcc_txtDetailAcc.AutoSize = true;
-            this.ManageAcc_txtDetailAcc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ManageAcc_txtDetailAcc.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.ManageAcc_txtDetailAcc.Location = new System.Drawing.Point(756, 73);
-            this.ManageAcc_txtDetailAcc.Name = "ManageAcc_txtDetailAcc";
-            this.ManageAcc_txtDetailAcc.Size = new System.Drawing.Size(85, 19);
-            this.ManageAcc_txtDetailAcc.TabIndex = 0;
-            this.ManageAcc_txtDetailAcc.Text = "تفاصيل الحادثة";
-            // 
-            // ManageAcc_LabCrewConseq
-            // 
-            this.ManageAcc_LabCrewConseq.AutoSize = true;
-            this.ManageAcc_LabCrewConseq.Location = new System.Drawing.Point(339, 82);
-            this.ManageAcc_LabCrewConseq.Name = "ManageAcc_LabCrewConseq";
-            this.ManageAcc_LabCrewConseq.Size = new System.Drawing.Size(135, 19);
-            this.ManageAcc_LabCrewConseq.TabIndex = 0;
-            this.ManageAcc_LabCrewConseq.Text = "الاجراءالمتخذ من الطاقم";
-            // 
-            // ManageAcc_LabCostal
-            // 
-            this.ManageAcc_LabCostal.AutoSize = true;
-            this.ManageAcc_LabCostal.Location = new System.Drawing.Point(322, 184);
-            this.ManageAcc_LabCostal.Name = "ManageAcc_LabCostal";
-            this.ManageAcc_LabCostal.Size = new System.Drawing.Size(188, 19);
-            this.ManageAcc_LabCostal.TabIndex = 0;
-            this.ManageAcc_LabCostal.Text = "الاجراء المتخذ من الدولة الساحلية";
-            // 
-            // ManagAcc_LabCrewAction
-            // 
-            this.ManagAcc_LabCrewAction.AutoSize = true;
-            this.ManagAcc_LabCrewAction.Location = new System.Drawing.Point(763, 184);
-            this.ManagAcc_LabCrewAction.Name = "ManagAcc_LabCrewAction";
-            this.ManagAcc_LabCrewAction.Size = new System.Drawing.Size(78, 19);
-            this.ManagAcc_LabCrewAction.TabIndex = 0;
-            this.ManagAcc_LabCrewAction.Text = "اضرار الطاقم";
+            this.ManageAcc_labArea.AutoSize = true;
+            this.ManageAcc_labArea.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ManageAcc_labArea.Location = new System.Drawing.Point(932, 221);
+            this.ManageAcc_labArea.Name = "ManageAcc_labArea";
+            this.ManageAcc_labArea.Size = new System.Drawing.Size(56, 23);
+            this.ManageAcc_labArea.TabIndex = 0;
+            this.ManageAcc_labArea.Text = "المنطقة";
             // 
             // ManageAcc_gruopLocation
             // 
+            this.ManageAcc_gruopLocation.Controls.Add(this.label35);
+            this.ManageAcc_gruopLocation.Controls.Add(this.label34);
             this.ManageAcc_gruopLocation.Controls.Add(this.ManageAcc_groupLabLenght);
             this.ManageAcc_gruopLocation.Controls.Add(this.ManageAcc_txtLat);
             this.ManageAcc_gruopLocation.Controls.Add(this.ManageAcc_txtLong);
             this.ManageAcc_gruopLocation.Controls.Add(this.ManageAcc_Labwidth);
-            this.ManageAcc_gruopLocation.Location = new System.Drawing.Point(275, 99);
+            this.ManageAcc_gruopLocation.Location = new System.Drawing.Point(139, 69);
             this.ManageAcc_gruopLocation.Name = "ManageAcc_gruopLocation";
-            this.ManageAcc_gruopLocation.Size = new System.Drawing.Size(250, 175);
+            this.ManageAcc_gruopLocation.Size = new System.Drawing.Size(472, 114);
             this.ManageAcc_gruopLocation.TabIndex = 5;
             this.ManageAcc_gruopLocation.TabStop = false;
             this.ManageAcc_gruopLocation.Text = "موقع الحادث";
             // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label35.ForeColor = System.Drawing.Color.Red;
+            this.label35.Location = new System.Drawing.Point(97, 80);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(20, 23);
+            this.label35.TabIndex = 36;
+            this.label35.Text = "*";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label34.ForeColor = System.Drawing.Color.Red;
+            this.label34.Location = new System.Drawing.Point(96, 24);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(20, 23);
+            this.label34.TabIndex = 35;
+            this.label34.Text = "*";
+            // 
             // ManageAcc_groupLabLenght
             // 
             this.ManageAcc_groupLabLenght.AutoSize = true;
-            this.ManageAcc_groupLabLenght.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.ManageAcc_groupLabLenght.Location = new System.Drawing.Point(181, 28);
+            this.ManageAcc_groupLabLenght.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ManageAcc_groupLabLenght.Location = new System.Drawing.Point(381, 24);
             this.ManageAcc_groupLabLenght.Name = "ManageAcc_groupLabLenght";
-            this.ManageAcc_groupLabLenght.Size = new System.Drawing.Size(59, 19);
+            this.ManageAcc_groupLabLenght.Size = new System.Drawing.Size(72, 23);
             this.ManageAcc_groupLabLenght.TabIndex = 0;
             this.ManageAcc_groupLabLenght.Text = "خط الطول";
             // 
             // ManageAcc_txtLat
             // 
-            this.ManageAcc_txtLat.Location = new System.Drawing.Point(11, 117);
+            this.ManageAcc_txtLat.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ManageAcc_txtLat.Location = new System.Drawing.Point(119, 78);
             this.ManageAcc_txtLat.Name = "ManageAcc_txtLat";
-            this.ManageAcc_txtLat.Size = new System.Drawing.Size(161, 22);
+            this.ManageAcc_txtLat.Size = new System.Drawing.Size(258, 30);
             this.ManageAcc_txtLat.TabIndex = 3;
             // 
             // ManageAcc_txtLong
             // 
-            this.ManageAcc_txtLong.Location = new System.Drawing.Point(6, 25);
+            this.ManageAcc_txtLong.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ManageAcc_txtLong.Location = new System.Drawing.Point(119, 21);
             this.ManageAcc_txtLong.Name = "ManageAcc_txtLong";
-            this.ManageAcc_txtLong.Size = new System.Drawing.Size(161, 22);
+            this.ManageAcc_txtLong.Size = new System.Drawing.Size(258, 30);
             this.ManageAcc_txtLong.TabIndex = 3;
             // 
             // ManageAcc_Labwidth
             // 
             this.ManageAcc_Labwidth.AutoSize = true;
-            this.ManageAcc_Labwidth.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.ManageAcc_Labwidth.Location = new System.Drawing.Point(181, 120);
+            this.ManageAcc_Labwidth.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ManageAcc_Labwidth.Location = new System.Drawing.Point(381, 77);
             this.ManageAcc_Labwidth.Name = "ManageAcc_Labwidth";
-            this.ManageAcc_Labwidth.Size = new System.Drawing.Size(55, 15);
+            this.ManageAcc_Labwidth.Size = new System.Drawing.Size(81, 23);
             this.ManageAcc_Labwidth.TabIndex = 0;
             this.ManageAcc_Labwidth.Text = "خط العرض";
             // 
             // ManageAcc_dtpDate
             // 
             this.ManageAcc_dtpDate.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
-            this.ManageAcc_dtpDate.Location = new System.Drawing.Point(702, 161);
+            this.ManageAcc_dtpDate.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ManageAcc_dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.ManageAcc_dtpDate.Location = new System.Drawing.Point(724, 151);
             this.ManageAcc_dtpDate.Name = "ManageAcc_dtpDate";
             this.ManageAcc_dtpDate.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.ManageAcc_dtpDate.Size = new System.Drawing.Size(177, 22);
+            this.ManageAcc_dtpDate.Size = new System.Drawing.Size(202, 30);
             this.ManageAcc_dtpDate.TabIndex = 4;
             this.ManageAcc_dtpDate.Value = new System.DateTime(2020, 6, 16, 0, 25, 32, 0);
             // 
             // MangeAcc_linkShip
             // 
             this.MangeAcc_linkShip.AutoSize = true;
-            this.MangeAcc_linkShip.Location = new System.Drawing.Point(589, 99);
+            this.MangeAcc_linkShip.Location = new System.Drawing.Point(635, 85);
             this.MangeAcc_linkShip.Name = "MangeAcc_linkShip";
-            this.MangeAcc_linkShip.Size = new System.Drawing.Size(89, 15);
+            this.MangeAcc_linkShip.Size = new System.Drawing.Size(63, 15);
             this.MangeAcc_linkShip.TabIndex = 2;
             this.MangeAcc_linkShip.TabStop = true;
-            this.MangeAcc_linkShip.Text = "لاضافة سفينة جديدة";
+            this.MangeAcc_linkShip.Text = "لإضافة سفينة";
             this.MangeAcc_linkShip.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.MangeAcc_linkShip_LinkClicked);
-            // 
-            // ManageAcc_cmbArea
-            // 
-            this.ManageAcc_cmbArea.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ManageAcc_cmbArea.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.ManageAcc_cmbArea.FormattingEnabled = true;
-            this.ManageAcc_cmbArea.Location = new System.Drawing.Point(702, 234);
-            this.ManageAcc_cmbArea.Name = "ManageAcc_cmbArea";
-            this.ManageAcc_cmbArea.Size = new System.Drawing.Size(177, 23);
-            this.ManageAcc_cmbArea.TabIndex = 1;
             // 
             // ManageAcc_cmbShipName
             // 
             this.ManageAcc_cmbShipName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ManageAcc_cmbShipName.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.ManageAcc_cmbShipName.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ManageAcc_cmbShipName.FormattingEnabled = true;
-            this.ManageAcc_cmbShipName.Location = new System.Drawing.Point(702, 90);
+            this.ManageAcc_cmbShipName.Location = new System.Drawing.Point(724, 78);
             this.ManageAcc_cmbShipName.Name = "ManageAcc_cmbShipName";
-            this.ManageAcc_cmbShipName.Size = new System.Drawing.Size(177, 23);
+            this.ManageAcc_cmbShipName.Size = new System.Drawing.Size(202, 30);
             this.ManageAcc_cmbShipName.TabIndex = 1;
             // 
             // ManageAcc_LabDate
             // 
             this.ManageAcc_LabDate.AutoSize = true;
-            this.ManageAcc_LabDate.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.ManageAcc_LabDate.Location = new System.Drawing.Point(913, 159);
+            this.ManageAcc_LabDate.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ManageAcc_LabDate.Location = new System.Drawing.Point(932, 156);
             this.ManageAcc_LabDate.Name = "ManageAcc_LabDate";
-            this.ManageAcc_LabDate.Size = new System.Drawing.Size(58, 24);
+            this.ManageAcc_LabDate.Size = new System.Drawing.Size(54, 23);
             this.ManageAcc_LabDate.TabIndex = 0;
             this.ManageAcc_LabDate.Text = "التاريخ";
-            // 
-            // ManageAcc_labArea
-            // 
-            this.ManageAcc_labArea.AutoSize = true;
-            this.ManageAcc_labArea.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.ManageAcc_labArea.Location = new System.Drawing.Point(913, 239);
-            this.ManageAcc_labArea.Name = "ManageAcc_labArea";
-            this.ManageAcc_labArea.Size = new System.Drawing.Size(62, 24);
-            this.ManageAcc_labArea.TabIndex = 0;
-            this.ManageAcc_labArea.Text = "المنطقة";
             // 
             // ManageAcc_labshipName
             // 
             this.ManageAcc_labshipName.AutoSize = true;
-            this.ManageAcc_labshipName.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.ManageAcc_labshipName.Location = new System.Drawing.Point(910, 90);
+            this.ManageAcc_labshipName.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ManageAcc_labshipName.Location = new System.Drawing.Point(932, 82);
             this.ManageAcc_labshipName.Name = "ManageAcc_labshipName";
-            this.ManageAcc_labshipName.Size = new System.Drawing.Size(61, 24);
+            this.ManageAcc_labshipName.Size = new System.Drawing.Size(55, 23);
             this.ManageAcc_labshipName.TabIndex = 0;
             this.ManageAcc_labshipName.Text = "السفينة";
             // 
@@ -2055,11 +2171,77 @@
             // 
             this.ManageAcc_lab.AutoSize = true;
             this.ManageAcc_lab.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.ManageAcc_lab.Location = new System.Drawing.Point(533, 20);
+            this.ManageAcc_lab.Location = new System.Drawing.Point(492, 16);
             this.ManageAcc_lab.Name = "ManageAcc_lab";
             this.ManageAcc_lab.Size = new System.Drawing.Size(134, 31);
             this.ManageAcc_lab.TabIndex = 0;
-            this.ManageAcc_lab.Text = "ادارة الحوادث";
+            this.ManageAcc_lab.Text = "إدارة الحوادث";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label37.ForeColor = System.Drawing.Color.Red;
+            this.label37.Location = new System.Drawing.Point(723, 130);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(20, 23);
+            this.label37.TabIndex = 44;
+            this.label37.Text = "*";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label38.ForeColor = System.Drawing.Color.Red;
+            this.label38.Location = new System.Drawing.Point(720, 174);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(20, 23);
+            this.label38.TabIndex = 45;
+            this.label38.Text = "*";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label39.ForeColor = System.Drawing.Color.Red;
+            this.label39.Location = new System.Drawing.Point(317, 170);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(20, 23);
+            this.label39.TabIndex = 46;
+            this.label39.Text = "*";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label40.ForeColor = System.Drawing.Color.Red;
+            this.label40.Location = new System.Drawing.Point(317, 78);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(20, 23);
+            this.label40.TabIndex = 47;
+            this.label40.Text = "*";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label41.ForeColor = System.Drawing.Color.Red;
+            this.label41.Location = new System.Drawing.Point(466, 30);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(20, 23);
+            this.label41.TabIndex = 46;
+            this.label41.Text = "*";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label42.ForeColor = System.Drawing.Color.Red;
+            this.label42.Location = new System.Drawing.Point(249, 31);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(20, 23);
+            this.label42.TabIndex = 47;
+            this.label42.Text = "*";
             // 
             // MainScreen
             // 
@@ -2073,7 +2255,7 @@
             this.Name = "MainScreen";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
-            this.Text = "نظام ادارة السفن";
+            this.Text = "نظام إدارة السفن";
             this.Load += new System.EventHandler(this.MainScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).EndInit();
             this.portTab.ResumeLayout(false);
@@ -2108,10 +2290,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.Accidents_DGV)).EndInit();
             this.AccidentManagementTab.ResumeLayout(false);
             this.AccidentManagementTab.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            this.ManageAcc_groupInfo.ResumeLayout(false);
-            this.ManageAcc_groupInfo.PerformLayout();
             this.ManageAcc_gruopLocation.ResumeLayout(false);
             this.ManageAcc_gruopLocation.PerformLayout();
             this.ResumeLayout(false);
@@ -2249,16 +2431,12 @@
         private System.Windows.Forms.Button Trips_btnClearSearch;
         private System.Windows.Forms.TabPage AccidentTab;
         private System.Windows.Forms.TabPage AccidentManagementTab;
-        private System.Windows.Forms.Label ManageAcc_LabCostal;
         private System.Windows.Forms.Label ManageAcc_labshipName;
-        private System.Windows.Forms.Label ManageAcc_txtDetailAcc;
         private System.Windows.Forms.Label ManageAcc_lab;
         private System.Windows.Forms.Label ManageAcc_LabDate;
-        private System.Windows.Forms.Label ManagAcc_LabCrewAction;
         private System.Windows.Forms.Label ManageAcc_Labwidth;
         private System.Windows.Forms.Label ManageAcc_labArea;
         private System.Windows.Forms.Label ManageAcc_groupLabLenght;
-        private System.Windows.Forms.Label ManageAcc_LabCrewConseq;
         private System.Windows.Forms.LinkLabel MangeAcc_linkShip;
         private System.Windows.Forms.ComboBox ManageAcc_cmbShipName;
         private System.Windows.Forms.ComboBox ManageAcc_cmbArea;
@@ -2266,18 +2444,25 @@
         private System.Windows.Forms.TextBox ManageAcc_txtLong;
         private System.Windows.Forms.GroupBox ManageAcc_gruopLocation;
         private System.Windows.Forms.TextBox ManageAcc_txtLat;
-        private System.Windows.Forms.GroupBox ManageAcc_groupInfo;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox ManageAcc_txtCrewConseq;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.Label ManageAcc_LabIsReported;
-        private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox ManageAcc_txtCrewConsequences;
         private System.Windows.Forms.TextBox ManageAcc_txtReportedTo;
+        private System.Windows.Forms.Button ManageAcc_canclbtn;
+        private System.Windows.Forms.Button ManageAcc_savebtn;
+        private System.Windows.Forms.DataGridView Accidents_DGV;
+        private System.Windows.Forms.Button Accident_Upadtebtn;
+        private System.Windows.Forms.Button accidents_deletebtn;
+        private System.Windows.Forms.CheckBox ManageAcc_CheckReported;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.TextBox ManageAcc_txtCrewConsequences;
         private System.Windows.Forms.TextBox ManageAcc_txtCoast;
         private System.Windows.Forms.TextBox ManageAcc_txtCrewAction;
         private System.Windows.Forms.TextBox ManageAcc_txtDetails;
@@ -2285,12 +2470,20 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label ManageAcc_LabReportedTo;
-        private System.Windows.Forms.Button ManageAcc_canclbtn;
-        private System.Windows.Forms.Button ManageAcc_savebtn;
-        private System.Windows.Forms.DataGridView Accidents_DGV;
-        private System.Windows.Forms.Button Accident_Upadtebtn;
-        private System.Windows.Forms.Button accidents_deletebtn;
-        private System.Windows.Forms.CheckBox ManageAcc_CheckReported;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label ManageAcc_lblReqReport;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label41;
     }
 }

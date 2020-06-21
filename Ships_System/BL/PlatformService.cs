@@ -22,6 +22,30 @@ namespace Ships_System.BL
             return unitOfWork.Platforms.Add(platform);
         }
 
+        public bool CanDelete(int platformId)
+        {
+            return unitOfWork.Trips.Get().FirstOrDefault(t => t.PlatformId == platformId) == null;
+        }
+
+        public bool CheckUniqueness(Platform platform)
+        {
+            if (platform.PlatformId == 0) //adding
+            {
+                if (unitOfWork.Platforms.Get().FirstOrDefault(a => a.Name == platform.Name && a.PortId == platform.PortId) != null)
+                    return false;
+            }
+            else //editing
+            {
+                var result = unitOfWork.Platforms.Get().Where(a => a.Name == platform.Name && a.PortId == platform.PortId);
+                if (result.Count() > 1)
+                    return false;
+                else
+                if (result.Count() == 1 && result.FirstOrDefault(a => a.PlatformId == platform.PlatformId) == null)
+                    return false;
+            }
+            return true;
+        }
+
         public bool DeletePlatform(int platformId)
         {
             return  unitOfWork.Platforms.Delete(platformId);

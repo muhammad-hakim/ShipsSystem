@@ -21,6 +21,31 @@ namespace Ships_System.BL
             return unitOfWork.Ships.Add(ship);
         }
 
+        public bool CanDelete(int shipId)
+        {
+            return unitOfWork.Trips.Get().FirstOrDefault(t => t.ShipId == shipId) == null && 
+                unitOfWork.Accidents.Get().FirstOrDefault(a => a.ShipId == shipId) == null; 
+        }
+
+        public bool CheckUniqueness(Ship ship)
+        {
+            if (ship.ShipId == 0) //adding
+            {
+                if (unitOfWork.Ships.Get().FirstOrDefault(s => s.Name == ship.Name || s.Imo == ship.Imo) != null)
+                    return false;
+            }
+            else //editing
+            {
+                var result = unitOfWork.Ships.Get().Where(s => s.Name == ship.Name || s.Imo == ship.Imo);
+                    if (result.Count() > 1)
+                    return false;
+                else
+                    if (result.Count() == 1 && result.FirstOrDefault(s => s.ShipId == ship.ShipId) == null)
+                    return false;
+            }
+            return true;
+        }
+
         public bool DeleteShip(int shipId)
         {
             return  unitOfWork.Ships.Delete(shipId);

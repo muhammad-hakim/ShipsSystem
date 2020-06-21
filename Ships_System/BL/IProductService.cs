@@ -14,5 +14,7 @@ namespace Ships_System.BL
         Product AddProduct(Product Product);
         Product UpdateProduct(Product Product);
         bool DeleteProduct(int ProductId);
+        bool CheckUniqueness(Product product);
+        bool CanDelete(int productId);
     }
 }

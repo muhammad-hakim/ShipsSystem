@@ -40,5 +40,29 @@ namespace Ships_System.BL
         {
             return unitOfWork.Agents.Update(agent.AgentId, agent);
         }
+
+        public bool CheckUniqueness(Agent agent)
+        {
+            if (agent.AgentId == 0) //adding
+            {
+                if (unitOfWork.Agents.Get().FirstOrDefault(a => a.Name == agent.Name) != null)
+                    return false;
+            }
+            else //editing
+            {
+                var result = unitOfWork.Agents.Get().Where(a => a.Name == agent.Name);
+                if (result.Count() > 1)
+                    return false;
+                else
+                if (result.Count() == 1 && result.FirstOrDefault(a => a.AgentId == agent.AgentId) == null)
+                    return false;
+            }
+            return true;
+        }
+
+        public bool CanDelete(int agentId)
+        {
+            return unitOfWork.Trips.Get().FirstOrDefault(t => t.AgentId == agentId) == null;
+        }
     }
 }
