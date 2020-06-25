@@ -174,6 +174,7 @@
             this.searchlab = new System.Windows.Forms.Label();
             this.triptabControl = new System.Windows.Forms.TabControl();
             this.AccidentTab = new System.Windows.Forms.TabPage();
+            this.Accidet_label = new System.Windows.Forms.Label();
             this.accidents_deletebtn = new System.Windows.Forms.Button();
             this.Accident_Upadtebtn = new System.Windows.Forms.Button();
             this.Accidents_DGV = new System.Windows.Forms.DataGridView();
@@ -1388,8 +1389,10 @@
             this.AddTrip_DGVProducts.AllowUserToDeleteRows = false;
             this.AddTrip_DGVProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AddTrip_DGVProducts.Location = new System.Drawing.Point(384, 72);
+            this.AddTrip_DGVProducts.MultiSelect = false;
             this.AddTrip_DGVProducts.Name = "AddTrip_DGVProducts";
             this.AddTrip_DGVProducts.ReadOnly = true;
+            this.AddTrip_DGVProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.AddTrip_DGVProducts.Size = new System.Drawing.Size(283, 101);
             this.AddTrip_DGVProducts.TabIndex = 37;
             // 
@@ -1807,6 +1810,7 @@
             // AccidentTab
             // 
             this.AccidentTab.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.AccidentTab.Controls.Add(this.Accidet_label);
             this.AccidentTab.Controls.Add(this.accidents_deletebtn);
             this.AccidentTab.Controls.Add(this.Accident_Upadtebtn);
             this.AccidentTab.Controls.Add(this.Accidents_DGV);
@@ -1817,12 +1821,23 @@
             this.AccidentTab.TabIndex = 6;
             this.AccidentTab.Text = "الحوادث";
             // 
+            // Accidet_label
+            // 
+            this.Accidet_label.AutoSize = true;
+            this.Accidet_label.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Accidet_label.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Bold);
+            this.Accidet_label.Location = new System.Drawing.Point(299, 14);
+            this.Accidet_label.Name = "Accidet_label";
+            this.Accidet_label.Size = new System.Drawing.Size(278, 31);
+            this.Accidet_label.TabIndex = 2;
+            this.Accidet_label.Text = "معلومات تفصيلية عن الحوادث";
+            // 
             // accidents_deletebtn
             // 
             this.accidents_deletebtn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.accidents_deletebtn.Location = new System.Drawing.Point(344, 55);
+            this.accidents_deletebtn.Location = new System.Drawing.Point(268, 142);
             this.accidents_deletebtn.Name = "accidents_deletebtn";
-            this.accidents_deletebtn.Size = new System.Drawing.Size(157, 37);
+            this.accidents_deletebtn.Size = new System.Drawing.Size(370, 54);
             this.accidents_deletebtn.TabIndex = 1;
             this.accidents_deletebtn.Text = "حذف بيانات الحادثة";
             this.accidents_deletebtn.UseVisualStyleBackColor = true;
@@ -1831,9 +1846,9 @@
             // Accident_Upadtebtn
             // 
             this.Accident_Upadtebtn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.Accident_Upadtebtn.Location = new System.Drawing.Point(548, 55);
+            this.Accident_Upadtebtn.Location = new System.Drawing.Point(268, 75);
             this.Accident_Upadtebtn.Name = "Accident_Upadtebtn";
-            this.Accident_Upadtebtn.Size = new System.Drawing.Size(157, 37);
+            this.Accident_Upadtebtn.Size = new System.Drawing.Size(370, 51);
             this.Accident_Upadtebtn.TabIndex = 1;
             this.Accident_Upadtebtn.Text = "تعديل بيانات الحادثة";
             this.Accident_Upadtebtn.UseVisualStyleBackColor = true;
@@ -1843,9 +1858,9 @@
             // 
             this.Accidents_DGV.BackgroundColor = System.Drawing.SystemColors.Control;
             this.Accidents_DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Accidents_DGV.Location = new System.Drawing.Point(0, 123);
+            this.Accidents_DGV.Location = new System.Drawing.Point(-4, 212);
             this.Accidents_DGV.Name = "Accidents_DGV";
-            this.Accidents_DGV.Size = new System.Drawing.Size(993, 543);
+            this.Accidents_DGV.Size = new System.Drawing.Size(1000, 446);
             this.Accidents_DGV.TabIndex = 0;
             // 
             // AccidentManagementTab
@@ -2272,6 +2287,7 @@
             this.Controls.Add(this.triptabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Location = new System.Drawing.Point(50, 10);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainScreen";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2309,6 +2325,7 @@
             this.panel4.PerformLayout();
             this.triptabControl.ResumeLayout(false);
             this.AccidentTab.ResumeLayout(false);
+            this.AccidentTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Accidents_DGV)).EndInit();
             this.AccidentManagementTab.ResumeLayout(false);
             this.AccidentManagementTab.PerformLayout();
@@ -2509,5 +2526,6 @@
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Button Trips_btnExportReport;
         private System.Windows.Forms.SaveFileDialog ReportSFD;
+        private System.Windows.Forms.Label Accidet_label;
     }
 }

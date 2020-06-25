@@ -10,7 +10,12 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Kernel.Font;
+using iText.Layout.Element;
+using iText.Layout.Properties;
+using iText.IO.Font;
 
 namespace Ships_System.PL
 {
@@ -124,7 +129,7 @@ namespace Ships_System.PL
                 ShipIMO = t.Ship.Imo,
                 ShipType = Enum.GetName(typeof(ShipTypes), t.Ship.Type),
                 TripStatus = Enum.GetName(typeof(TripStatus), t.Status),
-                TripStatusDate = t.TripsStatus.FirstOrDefault(s => s.TripId == t.TripId && s.Status == t.Status).Date.ToString("MMM dd yyyy"),
+                TripStatusDate = t.TripsStatus.FirstOrDefault(s => s.TripId == t.TripId && s.Status == t.Status).Date.ToShortDateString(),
                 Agent = t.Agent != null ? t.Agent.Name : "",
                 Port = t.Port != null ? t.Port.Name : "",
                 Platform = t.Platform != null ? t.Platform.Name : "",
@@ -263,7 +268,8 @@ namespace Ships_System.PL
                         MessageBox.Show("لم يتم الحفظ", "فشل الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                MessageBox.Show("لم يتم الحفظ .. هذه البيانات مستخدمة مع منتج آخر من قبل", "بيانات مكررة", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    MessageBox.Show("لم يتم الحفظ .. هذه البيانات مستخدمة مع منتج آخر من قبل", "بيانات مكررة", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -482,12 +488,15 @@ namespace Ships_System.PL
             {
                 shipLoad.Add(new { productId = item.Key, ProductName = allProducts.Find(p => p.ProductId == item.Key).Name, Quantity = item.Value });
             }
-
             AddTrip_DGVProducts.DataSource = shipLoad;
-            AddTrip_DGVProducts.Columns[0].Visible = false;
-            AddTrip_DGVProducts.Columns[1].HeaderText = "الصنف";
-            AddTrip_DGVProducts.Columns[2].HeaderText = "الكمية";
-            AddTrip_DGVProducts.Columns[1].Width = AddTrip_DGVProducts.Columns[2].Width = 120;
+            if (shipLoad.Count() > 0)
+            {
+                AddTrip_DGVProducts.Columns[0].Visible = false;
+                AddTrip_DGVProducts.Columns[1].HeaderText = "الصنف";
+                AddTrip_DGVProducts.Columns[2].HeaderText = "الكمية";
+                AddTrip_DGVProducts.Columns[1].Width = AddTrip_DGVProducts.Columns[2].Width = 120;
+                AddTrip_DGVProducts.CurrentCell = AddTrip_DGVProducts.Rows[0].Cells[1];
+            }
         }
 
         private void AddTrip_btnAddProduct_Click(object sender, EventArgs e)
@@ -526,7 +535,7 @@ namespace Ships_System.PL
                     ShipId = Convert.ToInt32(AddTrip_CmbShips.SelectedValue),
                     Status = Convert.ToInt32(AddTrip_CmbStatus.SelectedValue),
                     PortId = Convert.ToInt32(AddTrip_CmbPorts.SelectedValue),
-                    PlatformId = Convert.ToInt32(AddTrip_CmbPlatforms.SelectedValue)
+                    PlatformId = AddTrip_CmbPlatforms.SelectedValue != null ? Convert.ToInt32(AddTrip_CmbPlatforms.SelectedValue) : (int?)null
                 };
 
                 if (AddTrip_btnSaveTrip.Tag == null)
@@ -787,6 +796,7 @@ namespace Ships_System.PL
                 if (MessageBox.Show("هل تريد إزالة هذا المنتج؟", "إزالة منتح", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
                 {
                     TripShipLoad.Remove(Convert.ToInt32(AddTrip_DGVProducts.CurrentRow.Cells[0].Value));
+                    FillAddTripDGVShipLoad();
                 }
             }
         }
@@ -1177,5 +1187,6 @@ namespace Ships_System.PL
                 document.Close();
             }
         }
+        
     }
 }
