@@ -120,11 +120,17 @@
             this.ShipsGridView = new System.Windows.Forms.DataGridView();
             this.label18 = new System.Windows.Forms.Label();
             this.addingTripTab = new System.Windows.Forms.TabPage();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.AddTrip_btnCancelTrip = new System.Windows.Forms.Button();
             this.AddTrip_btnSaveTrip = new System.Windows.Forms.Button();
             this.AddTrip_dtpDate = new System.Windows.Forms.DateTimePicker();
             this.loadsgroup = new System.Windows.Forms.GroupBox();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
             this.AddTrip_btnRemoveProduct = new System.Windows.Forms.Button();
             this.AddTrip_btnEditProduct = new System.Windows.Forms.Button();
             this.AddTrip_nudProductQuantity = new System.Windows.Forms.NumericUpDown();
@@ -158,6 +164,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.TripsDGV = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.Trips_btnExportReport = new System.Windows.Forms.Button();
             this.Trips_btnClearSearch = new System.Windows.Forms.Button();
             this.Trips_cmbSearchFields = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -207,12 +214,7 @@
             this.ManageAcc_LabDate = new System.Windows.Forms.Label();
             this.ManageAcc_labshipName = new System.Windows.Forms.Label();
             this.ManageAcc_lab = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
-            this.label40 = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
+            this.ReportSFD = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
             this.portTab.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -384,7 +386,7 @@
             this.portTab.Controls.Add(this.label6);
             this.portTab.Location = new System.Drawing.Point(4, 27);
             this.portTab.Name = "portTab";
-            this.portTab.Size = new System.Drawing.Size(996, 666);
+            this.portTab.Size = new System.Drawing.Size(996, 646);
             this.portTab.TabIndex = 5;
             this.portTab.Text = "الموانئ / الأرصفة";
             // 
@@ -653,7 +655,7 @@
             this.agentsTab.Controls.Add(this.label1);
             this.agentsTab.Location = new System.Drawing.Point(4, 27);
             this.agentsTab.Name = "agentsTab";
-            this.agentsTab.Size = new System.Drawing.Size(996, 666);
+            this.agentsTab.Size = new System.Drawing.Size(996, 646);
             this.agentsTab.TabIndex = 3;
             this.agentsTab.Text = "الأصناف / الوكلاء الملاحيين";
             // 
@@ -913,7 +915,7 @@
             this.shipsTab.Controls.Add(this.label18);
             this.shipsTab.Location = new System.Drawing.Point(4, 27);
             this.shipsTab.Name = "shipsTab";
-            this.shipsTab.Size = new System.Drawing.Size(996, 666);
+            this.shipsTab.Size = new System.Drawing.Size(996, 646);
             this.shipsTab.TabIndex = 2;
             this.shipsTab.Text = "السفن";
             // 
@@ -1170,9 +1172,53 @@
             this.addingTripTab.Location = new System.Drawing.Point(4, 27);
             this.addingTripTab.Name = "addingTripTab";
             this.addingTripTab.Padding = new System.Windows.Forms.Padding(3);
-            this.addingTripTab.Size = new System.Drawing.Size(996, 666);
+            this.addingTripTab.Size = new System.Drawing.Size(996, 646);
             this.addingTripTab.TabIndex = 1;
             this.addingTripTab.Text = "إدارة الرحلات";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label40.ForeColor = System.Drawing.Color.Red;
+            this.label40.Location = new System.Drawing.Point(317, 78);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(20, 23);
+            this.label40.TabIndex = 47;
+            this.label40.Text = "*";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label39.ForeColor = System.Drawing.Color.Red;
+            this.label39.Location = new System.Drawing.Point(317, 170);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(20, 23);
+            this.label39.TabIndex = 46;
+            this.label39.Text = "*";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label38.ForeColor = System.Drawing.Color.Red;
+            this.label38.Location = new System.Drawing.Point(720, 174);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(20, 23);
+            this.label38.TabIndex = 45;
+            this.label38.Text = "*";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label37.ForeColor = System.Drawing.Color.Red;
+            this.label37.Location = new System.Drawing.Point(723, 130);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(20, 23);
+            this.label37.TabIndex = 44;
+            this.label37.Text = "*";
             // 
             // label36
             // 
@@ -1235,6 +1281,28 @@
             this.loadsgroup.TabIndex = 39;
             this.loadsgroup.TabStop = false;
             this.loadsgroup.Text = "حمولة السفينة";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label42.ForeColor = System.Drawing.Color.Red;
+            this.label42.Location = new System.Drawing.Point(249, 31);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(20, 23);
+            this.label42.TabIndex = 47;
+            this.label42.Text = "*";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label41.ForeColor = System.Drawing.Color.Red;
+            this.label41.Location = new System.Drawing.Point(466, 30);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(20, 23);
+            this.label41.TabIndex = 46;
+            this.label41.Text = "*";
             // 
             // AddTrip_btnRemoveProduct
             // 
@@ -1577,7 +1645,7 @@
             this.tripsTab.Location = new System.Drawing.Point(4, 27);
             this.tripsTab.Name = "tripsTab";
             this.tripsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.tripsTab.Size = new System.Drawing.Size(996, 666);
+            this.tripsTab.Size = new System.Drawing.Size(996, 646);
             this.tripsTab.TabIndex = 0;
             this.tripsTab.Text = "الرحلات";
             // 
@@ -1606,6 +1674,7 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.Trips_btnExportReport);
             this.panel4.Controls.Add(this.Trips_btnClearSearch);
             this.panel4.Controls.Add(this.Trips_cmbSearchFields);
             this.panel4.Controls.Add(this.label10);
@@ -1618,12 +1687,23 @@
             this.panel4.Size = new System.Drawing.Size(982, 55);
             this.panel4.TabIndex = 7;
             // 
+            // Trips_btnExportReport
+            // 
+            this.Trips_btnExportReport.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Trips_btnExportReport.Location = new System.Drawing.Point(212, 9);
+            this.Trips_btnExportReport.Name = "Trips_btnExportReport";
+            this.Trips_btnExportReport.Size = new System.Drawing.Size(180, 39);
+            this.Trips_btnExportReport.TabIndex = 16;
+            this.Trips_btnExportReport.Text = "استخراج تقرير الرحلات";
+            this.Trips_btnExportReport.UseVisualStyleBackColor = true;
+            this.Trips_btnExportReport.Click += new System.EventHandler(this.Trips_btnExportReport_Click);
+            // 
             // Trips_btnClearSearch
             // 
             this.Trips_btnClearSearch.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.Trips_btnClearSearch.Location = new System.Drawing.Point(350, 11);
+            this.Trips_btnClearSearch.Location = new System.Drawing.Point(398, 9);
             this.Trips_btnClearSearch.Name = "Trips_btnClearSearch";
-            this.Trips_btnClearSearch.Size = new System.Drawing.Size(115, 32);
+            this.Trips_btnClearSearch.Size = new System.Drawing.Size(89, 39);
             this.Trips_btnClearSearch.TabIndex = 15;
             this.Trips_btnClearSearch.Text = "مسح الفلتر";
             this.Trips_btnClearSearch.UseVisualStyleBackColor = true;
@@ -1646,7 +1726,7 @@
             "الميناء",
             "الرصيف",
             "ملاحظات"});
-            this.Trips_cmbSearchFields.Location = new System.Drawing.Point(475, 11);
+            this.Trips_cmbSearchFields.Location = new System.Drawing.Point(497, 11);
             this.Trips_cmbSearchFields.Name = "Trips_cmbSearchFields";
             this.Trips_cmbSearchFields.Size = new System.Drawing.Size(147, 31);
             this.Trips_cmbSearchFields.TabIndex = 13;
@@ -1656,7 +1736,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label10.Location = new System.Drawing.Point(628, 15);
+            this.label10.Location = new System.Drawing.Point(650, 15);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(77, 23);
             this.label10.TabIndex = 12;
@@ -1667,7 +1747,7 @@
             this.Trips_btnDelete.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.Trips_btnDelete.Location = new System.Drawing.Point(6, 7);
             this.Trips_btnDelete.Name = "Trips_btnDelete";
-            this.Trips_btnDelete.Size = new System.Drawing.Size(112, 41);
+            this.Trips_btnDelete.Size = new System.Drawing.Size(96, 41);
             this.Trips_btnDelete.TabIndex = 11;
             this.Trips_btnDelete.Text = "حذف الرحلة";
             this.Trips_btnDelete.UseVisualStyleBackColor = true;
@@ -1676,9 +1756,9 @@
             // Trips_btnEdit
             // 
             this.Trips_btnEdit.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.Trips_btnEdit.Location = new System.Drawing.Point(124, 7);
+            this.Trips_btnEdit.Location = new System.Drawing.Point(106, 7);
             this.Trips_btnEdit.Name = "Trips_btnEdit";
-            this.Trips_btnEdit.Size = new System.Drawing.Size(112, 41);
+            this.Trips_btnEdit.Size = new System.Drawing.Size(100, 41);
             this.Trips_btnEdit.TabIndex = 10;
             this.Trips_btnEdit.Text = "تعديل الرحلة";
             this.Trips_btnEdit.UseVisualStyleBackColor = true;
@@ -1687,9 +1767,9 @@
             // Trips_txtSearch
             // 
             this.Trips_txtSearch.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.Trips_txtSearch.Location = new System.Drawing.Point(709, 13);
+            this.Trips_txtSearch.Location = new System.Drawing.Point(730, 13);
             this.Trips_txtSearch.Name = "Trips_txtSearch";
-            this.Trips_txtSearch.Size = new System.Drawing.Size(182, 30);
+            this.Trips_txtSearch.Size = new System.Drawing.Size(161, 30);
             this.Trips_txtSearch.TabIndex = 2;
             this.Trips_txtSearch.TextChanged += new System.EventHandler(this.Trips_txtSearch_TextChanged);
             // 
@@ -1721,7 +1801,7 @@
             this.triptabControl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.triptabControl.RightToLeftLayout = true;
             this.triptabControl.SelectedIndex = 0;
-            this.triptabControl.Size = new System.Drawing.Size(1004, 697);
+            this.triptabControl.Size = new System.Drawing.Size(1004, 677);
             this.triptabControl.TabIndex = 0;
             // 
             // AccidentTab
@@ -1733,7 +1813,7 @@
             this.AccidentTab.Location = new System.Drawing.Point(4, 27);
             this.AccidentTab.Name = "AccidentTab";
             this.AccidentTab.Padding = new System.Windows.Forms.Padding(3);
-            this.AccidentTab.Size = new System.Drawing.Size(996, 666);
+            this.AccidentTab.Size = new System.Drawing.Size(996, 646);
             this.AccidentTab.TabIndex = 6;
             this.AccidentTab.Text = "الحوادث";
             // 
@@ -1790,7 +1870,7 @@
             this.AccidentManagementTab.Location = new System.Drawing.Point(4, 27);
             this.AccidentManagementTab.Name = "AccidentManagementTab";
             this.AccidentManagementTab.Padding = new System.Windows.Forms.Padding(3);
-            this.AccidentManagementTab.Size = new System.Drawing.Size(996, 666);
+            this.AccidentManagementTab.Size = new System.Drawing.Size(996, 646);
             this.AccidentManagementTab.TabIndex = 7;
             this.AccidentManagementTab.Text = "إدارة الحوادث";
             // 
@@ -2177,84 +2257,26 @@
             this.ManageAcc_lab.TabIndex = 0;
             this.ManageAcc_lab.Text = "إدارة الحوادث";
             // 
-            // label37
+            // ReportSFD
             // 
-            this.label37.AutoSize = true;
-            this.label37.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label37.ForeColor = System.Drawing.Color.Red;
-            this.label37.Location = new System.Drawing.Point(723, 130);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(20, 23);
-            this.label37.TabIndex = 44;
-            this.label37.Text = "*";
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label38.ForeColor = System.Drawing.Color.Red;
-            this.label38.Location = new System.Drawing.Point(720, 174);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(20, 23);
-            this.label38.TabIndex = 45;
-            this.label38.Text = "*";
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label39.ForeColor = System.Drawing.Color.Red;
-            this.label39.Location = new System.Drawing.Point(317, 170);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(20, 23);
-            this.label39.TabIndex = 46;
-            this.label39.Text = "*";
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label40.ForeColor = System.Drawing.Color.Red;
-            this.label40.Location = new System.Drawing.Point(317, 78);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(20, 23);
-            this.label40.TabIndex = 47;
-            this.label40.Text = "*";
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label41.ForeColor = System.Drawing.Color.Red;
-            this.label41.Location = new System.Drawing.Point(466, 30);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(20, 23);
-            this.label41.TabIndex = 46;
-            this.label41.Text = "*";
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label42.ForeColor = System.Drawing.Color.Red;
-            this.label42.Location = new System.Drawing.Point(249, 31);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(20, 23);
-            this.label42.TabIndex = 47;
-            this.label42.Text = "*";
+            this.ReportSFD.DefaultExt = "pdf";
+            this.ReportSFD.FileName = "Report.pdf";
+            this.ReportSFD.Filter = "PDF files|*.pdf";
             // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.ClientSize = new System.Drawing.Size(1004, 697);
+            this.ClientSize = new System.Drawing.Size(1004, 677);
             this.Controls.Add(this.triptabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Location = new System.Drawing.Point(50, 10);
             this.MaximizeBox = false;
             this.Name = "MainScreen";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "نظام إدارة السفن";
             this.Load += new System.EventHandler(this.MainScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).EndInit();
@@ -2485,5 +2507,7 @@
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Button Trips_btnExportReport;
+        private System.Windows.Forms.SaveFileDialog ReportSFD;
     }
 }

@@ -1,14 +1,14 @@
-﻿using Ships_System.BL;
+﻿using iTextSharp.text;
+using iTextSharp.text.pdf;
+using Ships_System.BL;
 using Ships_System.DAL;
 using Ships_System.Utilities;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
@@ -1067,6 +1067,114 @@ namespace Ships_System.PL
                         MessageBox.Show("لم يتم الحذف", "فشل الحذف", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
+            }
+        }
+
+        bool ContainsArabicText(string text)
+        {
+            foreach (char c in text.ToCharArray())
+            {
+                if (c >= 0x600 && c <= 0x6ff)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        iTextSharp.text.Font titleFont = FontFactory.GetFont(fontname: "c:/windows/fonts/simpbdo.ttf", encoding: BaseFont.IDENTITY_H, size: 20, style: 1);
+        iTextSharp.text.Font headerFont = FontFactory.GetFont(fontname:"c:/windows/fonts/arial.ttf",encoding: BaseFont.IDENTITY_H, size: 8, style: 1);
+        iTextSharp.text.Font cellFont = FontFactory.GetFont("c:/windows/fonts/arial.ttf", BaseFont.IDENTITY_H, 6);
+        private void Trips_btnExportReport_Click(object sender, EventArgs e)
+        {
+            if (ReportSFD.ShowDialog() == DialogResult.OK)
+            {
+                headerFont.Color = BaseColor.WHITE;
+                titleFont.SetStyle(4);
+
+                Document document = new Document();
+                PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(ReportSFD.FileName, FileMode.Create));
+                writer.RunDirection = PdfWriter.RUN_DIRECTION_RTL;
+                document.Open();
+
+                PdfPTable titleTable = new PdfPTable(1);
+                titleTable.RunDirection = PdfWriter.RUN_DIRECTION_RTL;
+                titleTable.WidthPercentage = 100;
+                titleTable.HorizontalAlignment = Element.ALIGN_CENTER;
+                PdfPCell titleCell = new PdfPCell(new Phrase("تقرير الرحلات", titleFont));
+                titleCell.HorizontalAlignment = Element.ALIGN_CENTER;
+                titleCell.Border = 0;
+                titleTable.AddCell(titleCell);
+                document.Add(titleTable);
+
+                document.Add(new Phrase(" "));
+
+                PdfPTable table = new PdfPTable(TripsDGV.Columns.Count);
+                table.RunDirection = PdfWriter.RUN_DIRECTION_RTL;
+                table.WidthPercentage = 100;
+                table.SetWidths(new int[] { 50, 45, 40, 40, 60, 30, 30, 30, 30, 35, 25 });
+                foreach (DataGridViewColumn item in TripsDGV.Columns)
+                {
+                    if (item.Visible)
+                    {
+                        PdfPCell headerCell = new PdfPCell(new Phrase(item.HeaderText, headerFont));
+                        headerCell.BackgroundColor = BaseColor.GRAY;
+                        headerCell.HorizontalAlignment = Element.ALIGN_CENTER;
+                        table.AddCell(headerCell);
+
+                        if (item.DisplayIndex == 5)
+                        {
+                            PdfPCell ProductsHeaderCell = new PdfPCell(new Phrase("المنتجات", headerFont));
+                            ProductsHeaderCell.BackgroundColor = BaseColor.GRAY;
+                            ProductsHeaderCell.HorizontalAlignment = Element.ALIGN_CENTER;
+                            table.AddCell(ProductsHeaderCell);
+                        }
+                    }
+                }
+
+                foreach (DataGridViewRow row in TripsDGV.Rows)
+                {
+                    var trip = tripService.GetTripById(Convert.ToInt32(row.Cells[0].Value));
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        if (cell.OwningColumn.Visible)
+                        {
+                            PdfPCell c = new PdfPCell(new Phrase(cell.Value.ToString(), cellFont));
+                            c.HorizontalAlignment = Element.ALIGN_CENTER;
+                            table.AddCell(c);
+                        }
+                        if (cell.ColumnIndex == 5)
+                        {
+                            PdfPTable productsTable = new PdfPTable(2);
+                            productsTable.RunDirection = PdfWriter.RUN_DIRECTION_RTL;
+                            productsTable.SetWidths(new int[] { 65, 65 });
+
+                            PdfPCell productHeaderCell = new PdfPCell(new Phrase("البضاعة", cellFont));
+                            productHeaderCell.HorizontalAlignment = Element.ALIGN_CENTER;
+                            productsTable.AddCell(productHeaderCell);
+
+                            PdfPCell quantityHeaderCell = new PdfPCell(new Phrase("الكمية", cellFont));
+                            quantityHeaderCell.HorizontalAlignment = Element.ALIGN_CENTER;
+                            productsTable.AddCell(quantityHeaderCell);
+
+                            foreach (var load in trip.TripsLoads)
+                            {
+                                PdfPCell productCell = new PdfPCell(new Phrase(load.Product.Name, cellFont));
+                                productCell.HorizontalAlignment = Element.ALIGN_CENTER;
+                                productsTable.AddCell(productCell);
+
+                                PdfPCell quantityCell = new PdfPCell(new Phrase(load.Quantity.ToString(), cellFont));
+                                quantityCell.HorizontalAlignment = Element.ALIGN_CENTER;
+                                productsTable.AddCell(quantityCell);
+                            }
+                            productsTable.HorizontalAlignment = Element.ALIGN_CENTER;
+                            table.AddCell(productsTable);
+                        }
+                    }
+                }
+
+                document.Add(table);
+                document.Close();
             }
         }
     }
