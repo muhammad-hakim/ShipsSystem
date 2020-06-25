@@ -120,11 +120,17 @@
             this.ShipsGridView = new System.Windows.Forms.DataGridView();
             this.label18 = new System.Windows.Forms.Label();
             this.addingTripTab = new System.Windows.Forms.TabPage();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.AddTrip_btnCancelTrip = new System.Windows.Forms.Button();
             this.AddTrip_btnSaveTrip = new System.Windows.Forms.Button();
             this.AddTrip_dtpDate = new System.Windows.Forms.DateTimePicker();
             this.loadsgroup = new System.Windows.Forms.GroupBox();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
             this.AddTrip_btnRemoveProduct = new System.Windows.Forms.Button();
             this.AddTrip_btnEditProduct = new System.Windows.Forms.Button();
             this.AddTrip_nudProductQuantity = new System.Windows.Forms.NumericUpDown();
@@ -167,6 +173,7 @@
             this.searchlab = new System.Windows.Forms.Label();
             this.triptabControl = new System.Windows.Forms.TabControl();
             this.AccidentTab = new System.Windows.Forms.TabPage();
+            this.Accidet_label = new System.Windows.Forms.Label();
             this.accidents_deletebtn = new System.Windows.Forms.Button();
             this.Accident_Upadtebtn = new System.Windows.Forms.Button();
             this.Accidents_DGV = new System.Windows.Forms.DataGridView();
@@ -207,12 +214,6 @@
             this.ManageAcc_LabDate = new System.Windows.Forms.Label();
             this.ManageAcc_labshipName = new System.Windows.Forms.Label();
             this.ManageAcc_lab = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
-            this.label40 = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
             this.portTab.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -1174,6 +1175,50 @@
             this.addingTripTab.TabIndex = 1;
             this.addingTripTab.Text = "إدارة الرحلات";
             // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label40.ForeColor = System.Drawing.Color.Red;
+            this.label40.Location = new System.Drawing.Point(317, 78);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(20, 23);
+            this.label40.TabIndex = 47;
+            this.label40.Text = "*";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label39.ForeColor = System.Drawing.Color.Red;
+            this.label39.Location = new System.Drawing.Point(317, 170);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(20, 23);
+            this.label39.TabIndex = 46;
+            this.label39.Text = "*";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label38.ForeColor = System.Drawing.Color.Red;
+            this.label38.Location = new System.Drawing.Point(720, 174);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(20, 23);
+            this.label38.TabIndex = 45;
+            this.label38.Text = "*";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label37.ForeColor = System.Drawing.Color.Red;
+            this.label37.Location = new System.Drawing.Point(723, 130);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(20, 23);
+            this.label37.TabIndex = 44;
+            this.label37.Text = "*";
+            // 
             // label36
             // 
             this.label36.AutoSize = true;
@@ -1235,6 +1280,28 @@
             this.loadsgroup.TabIndex = 39;
             this.loadsgroup.TabStop = false;
             this.loadsgroup.Text = "حمولة السفينة";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label42.ForeColor = System.Drawing.Color.Red;
+            this.label42.Location = new System.Drawing.Point(249, 31);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(20, 23);
+            this.label42.TabIndex = 47;
+            this.label42.Text = "*";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label41.ForeColor = System.Drawing.Color.Red;
+            this.label41.Location = new System.Drawing.Point(466, 30);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(20, 23);
+            this.label41.TabIndex = 46;
+            this.label41.Text = "*";
             // 
             // AddTrip_btnRemoveProduct
             // 
@@ -1320,8 +1387,10 @@
             this.AddTrip_DGVProducts.AllowUserToDeleteRows = false;
             this.AddTrip_DGVProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AddTrip_DGVProducts.Location = new System.Drawing.Point(384, 72);
+            this.AddTrip_DGVProducts.MultiSelect = false;
             this.AddTrip_DGVProducts.Name = "AddTrip_DGVProducts";
             this.AddTrip_DGVProducts.ReadOnly = true;
+            this.AddTrip_DGVProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.AddTrip_DGVProducts.Size = new System.Drawing.Size(283, 101);
             this.AddTrip_DGVProducts.TabIndex = 37;
             // 
@@ -1727,6 +1796,7 @@
             // AccidentTab
             // 
             this.AccidentTab.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.AccidentTab.Controls.Add(this.Accidet_label);
             this.AccidentTab.Controls.Add(this.accidents_deletebtn);
             this.AccidentTab.Controls.Add(this.Accident_Upadtebtn);
             this.AccidentTab.Controls.Add(this.Accidents_DGV);
@@ -1737,12 +1807,23 @@
             this.AccidentTab.TabIndex = 6;
             this.AccidentTab.Text = "الحوادث";
             // 
+            // Accidet_label
+            // 
+            this.Accidet_label.AutoSize = true;
+            this.Accidet_label.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Accidet_label.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Bold);
+            this.Accidet_label.Location = new System.Drawing.Point(299, 14);
+            this.Accidet_label.Name = "Accidet_label";
+            this.Accidet_label.Size = new System.Drawing.Size(278, 31);
+            this.Accidet_label.TabIndex = 2;
+            this.Accidet_label.Text = "معلومات تفصيلية عن الحوادث";
+            // 
             // accidents_deletebtn
             // 
             this.accidents_deletebtn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.accidents_deletebtn.Location = new System.Drawing.Point(344, 55);
+            this.accidents_deletebtn.Location = new System.Drawing.Point(268, 142);
             this.accidents_deletebtn.Name = "accidents_deletebtn";
-            this.accidents_deletebtn.Size = new System.Drawing.Size(157, 37);
+            this.accidents_deletebtn.Size = new System.Drawing.Size(370, 54);
             this.accidents_deletebtn.TabIndex = 1;
             this.accidents_deletebtn.Text = "حذف بيانات الحادثة";
             this.accidents_deletebtn.UseVisualStyleBackColor = true;
@@ -1751,9 +1832,9 @@
             // Accident_Upadtebtn
             // 
             this.Accident_Upadtebtn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.Accident_Upadtebtn.Location = new System.Drawing.Point(548, 55);
+            this.Accident_Upadtebtn.Location = new System.Drawing.Point(268, 75);
             this.Accident_Upadtebtn.Name = "Accident_Upadtebtn";
-            this.Accident_Upadtebtn.Size = new System.Drawing.Size(157, 37);
+            this.Accident_Upadtebtn.Size = new System.Drawing.Size(370, 51);
             this.Accident_Upadtebtn.TabIndex = 1;
             this.Accident_Upadtebtn.Text = "تعديل بيانات الحادثة";
             this.Accident_Upadtebtn.UseVisualStyleBackColor = true;
@@ -1763,9 +1844,9 @@
             // 
             this.Accidents_DGV.BackgroundColor = System.Drawing.SystemColors.Control;
             this.Accidents_DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Accidents_DGV.Location = new System.Drawing.Point(0, 123);
+            this.Accidents_DGV.Location = new System.Drawing.Point(-4, 212);
             this.Accidents_DGV.Name = "Accidents_DGV";
-            this.Accidents_DGV.Size = new System.Drawing.Size(993, 543);
+            this.Accidents_DGV.Size = new System.Drawing.Size(1000, 446);
             this.Accidents_DGV.TabIndex = 0;
             // 
             // AccidentManagementTab
@@ -2177,72 +2258,6 @@
             this.ManageAcc_lab.TabIndex = 0;
             this.ManageAcc_lab.Text = "إدارة الحوادث";
             // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label37.ForeColor = System.Drawing.Color.Red;
-            this.label37.Location = new System.Drawing.Point(723, 130);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(20, 23);
-            this.label37.TabIndex = 44;
-            this.label37.Text = "*";
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label38.ForeColor = System.Drawing.Color.Red;
-            this.label38.Location = new System.Drawing.Point(720, 174);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(20, 23);
-            this.label38.TabIndex = 45;
-            this.label38.Text = "*";
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label39.ForeColor = System.Drawing.Color.Red;
-            this.label39.Location = new System.Drawing.Point(317, 170);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(20, 23);
-            this.label39.TabIndex = 46;
-            this.label39.Text = "*";
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label40.ForeColor = System.Drawing.Color.Red;
-            this.label40.Location = new System.Drawing.Point(317, 78);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(20, 23);
-            this.label40.TabIndex = 47;
-            this.label40.Text = "*";
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label41.ForeColor = System.Drawing.Color.Red;
-            this.label41.Location = new System.Drawing.Point(466, 30);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(20, 23);
-            this.label41.TabIndex = 46;
-            this.label41.Text = "*";
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label42.ForeColor = System.Drawing.Color.Red;
-            this.label42.Location = new System.Drawing.Point(249, 31);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(20, 23);
-            this.label42.TabIndex = 47;
-            this.label42.Text = "*";
-            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2251,6 +2266,7 @@
             this.ClientSize = new System.Drawing.Size(1004, 697);
             this.Controls.Add(this.triptabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainScreen";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2287,6 +2303,7 @@
             this.panel4.PerformLayout();
             this.triptabControl.ResumeLayout(false);
             this.AccidentTab.ResumeLayout(false);
+            this.AccidentTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Accidents_DGV)).EndInit();
             this.AccidentManagementTab.ResumeLayout(false);
             this.AccidentManagementTab.PerformLayout();
@@ -2485,5 +2502,6 @@
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label Accidet_label;
     }
 }
