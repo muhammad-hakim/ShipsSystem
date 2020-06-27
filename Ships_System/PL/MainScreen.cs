@@ -10,12 +10,6 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using iText.Kernel.Pdf;
-using iText.Layout;
-using iText.Kernel.Font;
-using iText.Layout.Element;
-using iText.Layout.Properties;
-using iText.IO.Font;
 
 namespace Ships_System.PL
 {
@@ -1093,8 +1087,8 @@ namespace Ships_System.PL
         }
 
         iTextSharp.text.Font titleFont = FontFactory.GetFont(fontname: "c:/windows/fonts/simpbdo.ttf", encoding: BaseFont.IDENTITY_H, size: 20, style: 1);
-        iTextSharp.text.Font headerFont = FontFactory.GetFont(fontname:"c:/windows/fonts/arial.ttf",encoding: BaseFont.IDENTITY_H, size: 8, style: 1);
-        iTextSharp.text.Font cellFont = FontFactory.GetFont("c:/windows/fonts/arial.ttf", BaseFont.IDENTITY_H, 6);
+        iTextSharp.text.Font headerFont = FontFactory.GetFont(fontname:"c:/windows/fonts/arial.ttf",encoding: BaseFont.IDENTITY_H, size: 10, style: 1);
+        iTextSharp.text.Font cellFont = FontFactory.GetFont("c:/windows/fonts/arial.ttf", BaseFont.IDENTITY_H , 8);
         private void Trips_btnExportReport_Click(object sender, EventArgs e)
         {
             if (ReportSFD.ShowDialog() == DialogResult.OK)
