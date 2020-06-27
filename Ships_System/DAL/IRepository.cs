@@ -8,7 +8,7 @@ namespace Ships_System.DAL
 {
     public interface IRepository<T> where T : class
     {
-        IQueryable<T> Get();
+        List<T> Get();
         T GetById(int id);
         T Add(T obj);
         T Update(int id, T obj);

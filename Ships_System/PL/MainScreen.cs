@@ -1270,5 +1270,10 @@ namespace Ships_System.PL
             AddShip_btnSaveType.Tag = null;
             AddShip_txtType.Clear();
         }
+
+        private void label54_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -53,7 +53,7 @@ namespace Ships_System.BL
 
         public List<Platform> GetAllPlatforms()
         {
-            return  unitOfWork.Platforms.Get().Include("Port").ToList();
+            return  unitOfWork.Platforms.Get().AsQueryable().Include("Port").ToList();
         }
 
         public List<Platform> GetByPortId(int portId)

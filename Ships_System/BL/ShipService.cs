@@ -54,7 +54,7 @@ namespace Ships_System.BL
 
         public List<Ship> GetAllShips()
         {
-            return unitOfWork.Ships.Get().Include(t => t.ShipType).ToList();
+            return unitOfWork.Ships.Get().AsQueryable().Include(t => t.ShipType).ToList();
         }
 
         public Ship GetShipById(int id)

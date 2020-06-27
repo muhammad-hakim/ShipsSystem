@@ -105,7 +105,6 @@
             this.type_ship = new System.Windows.Forms.Label();
             this.AddShip_btnEditTypr = new System.Windows.Forms.Button();
             this.label22 = new System.Windows.Forms.Label();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.AddShip_GBAddType = new System.Windows.Forms.GroupBox();
             this.AddShip_btnCancelType = new System.Windows.Forms.Button();
             this.AddShip_btnSaveType = new System.Windows.Forms.Button();
@@ -226,6 +225,49 @@
             this.ManageAcc_labshipName = new System.Windows.Forms.Label();
             this.ManageAcc_lab = new System.Windows.Forms.Label();
             this.ReportSFD = new System.Windows.Forms.SaveFileDialog();
+            this.Reports_quantitiesReport = new System.Windows.Forms.GroupBox();
+            this.Reports_quantityReport_cmbProducts = new System.Windows.Forms.ComboBox();
+            this.label54 = new System.Windows.Forms.Label();
+            this.Reports_TripsPeriodsReport = new System.Windows.Forms.GroupBox();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.reportsTab = new System.Windows.Forms.TabPage();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
+            this.Reports_quantitiesReport_dtpFrom = new System.Windows.Forms.DateTimePicker();
+            this.Reports_quantitiesReport_dtpTo = new System.Windows.Forms.DateTimePicker();
+            this.Reports_quantities_btnExtract = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.label47 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.label49 = new System.Windows.Forms.Label();
+            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
+            this.label50 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label51 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label52 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label53 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker6 = new System.Windows.Forms.DateTimePicker();
+            this.label55 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.label57 = new System.Windows.Forms.Label();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.label58 = new System.Windows.Forms.Label();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.label59 = new System.Windows.Forms.Label();
+            this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.label60 = new System.Windows.Forms.Label();
+            this.comboBox9 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
             this.portTab.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -252,6 +294,12 @@
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.ManageAcc_gruopLocation.SuspendLayout();
+            this.Reports_quantitiesReport.SuspendLayout();
+            this.Reports_TripsPeriodsReport.SuspendLayout();
+            this.groupBox12.SuspendLayout();
+            this.groupBox11.SuspendLayout();
+            this.groupBox10.SuspendLayout();
+            this.reportsTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // bunifuImageButton2
@@ -907,7 +955,6 @@
             // 
             this.shipsTab.BackColor = System.Drawing.Color.LightSteelBlue;
             this.shipsTab.Controls.Add(this.groupBox8);
-            this.shipsTab.Controls.Add(this.groupBox7);
             this.shipsTab.Controls.Add(this.AddShip_GBAddType);
             this.shipsTab.Controls.Add(this.label21);
             this.shipsTab.Controls.Add(this.label13);
@@ -1004,15 +1051,6 @@
             this.label22.Size = new System.Drawing.Size(20, 23);
             this.label22.TabIndex = 18;
             this.label22.Text = "*";
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Location = new System.Drawing.Point(-29, -75);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(200, 100);
-            this.groupBox7.TabIndex = 23;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "groupBox7";
             // 
             // AddShip_GBAddType
             // 
@@ -1918,6 +1956,7 @@
             this.triptabControl.Controls.Add(this.portTab);
             this.triptabControl.Controls.Add(this.AccidentTab);
             this.triptabControl.Controls.Add(this.AccidentManagementTab);
+            this.triptabControl.Controls.Add(this.reportsTab);
             this.triptabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.triptabControl.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.triptabControl.Location = new System.Drawing.Point(0, 0);
@@ -2399,6 +2438,466 @@
             this.ReportSFD.FileName = "Report.pdf";
             this.ReportSFD.Filter = "PDF files|*.pdf";
             // 
+            // Reports_quantitiesReport
+            // 
+            this.Reports_quantitiesReport.Controls.Add(this.Reports_quantities_btnExtract);
+            this.Reports_quantitiesReport.Controls.Add(this.Reports_quantitiesReport_dtpTo);
+            this.Reports_quantitiesReport.Controls.Add(this.Reports_quantitiesReport_dtpFrom);
+            this.Reports_quantitiesReport.Controls.Add(this.label46);
+            this.Reports_quantitiesReport.Controls.Add(this.label45);
+            this.Reports_quantitiesReport.Controls.Add(this.label54);
+            this.Reports_quantitiesReport.Controls.Add(this.Reports_quantityReport_cmbProducts);
+            this.Reports_quantitiesReport.Location = new System.Drawing.Point(202, 313);
+            this.Reports_quantitiesReport.Name = "Reports_quantitiesReport";
+            this.Reports_quantitiesReport.Size = new System.Drawing.Size(774, 65);
+            this.Reports_quantitiesReport.TabIndex = 0;
+            this.Reports_quantitiesReport.TabStop = false;
+            this.Reports_quantitiesReport.Text = "تقرير كميات البضائع";
+            // 
+            // Reports_quantityReport_cmbProducts
+            // 
+            this.Reports_quantityReport_cmbProducts.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Reports_quantityReport_cmbProducts.FormattingEnabled = true;
+            this.Reports_quantityReport_cmbProducts.Location = new System.Drawing.Point(537, 20);
+            this.Reports_quantityReport_cmbProducts.Name = "Reports_quantityReport_cmbProducts";
+            this.Reports_quantityReport_cmbProducts.Size = new System.Drawing.Size(172, 31);
+            this.Reports_quantityReport_cmbProducts.TabIndex = 0;
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label54.Location = new System.Drawing.Point(715, 26);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(52, 16);
+            this.label54.TabIndex = 12;
+            this.label54.Text = "البضاعة";
+            this.label54.Click += new System.EventHandler(this.label54_Click);
+            // 
+            // Reports_TripsPeriodsReport
+            // 
+            this.Reports_TripsPeriodsReport.Controls.Add(this.button1);
+            this.Reports_TripsPeriodsReport.Controls.Add(this.dateTimePicker1);
+            this.Reports_TripsPeriodsReport.Controls.Add(this.label48);
+            this.Reports_TripsPeriodsReport.Controls.Add(this.dateTimePicker2);
+            this.Reports_TripsPeriodsReport.Controls.Add(this.label47);
+            this.Reports_TripsPeriodsReport.Location = new System.Drawing.Point(430, 151);
+            this.Reports_TripsPeriodsReport.Name = "Reports_TripsPeriodsReport";
+            this.Reports_TripsPeriodsReport.Size = new System.Drawing.Size(546, 73);
+            this.Reports_TripsPeriodsReport.TabIndex = 1;
+            this.Reports_TripsPeriodsReport.TabStop = false;
+            this.Reports_TripsPeriodsReport.Text = "تقرير مدة الرحلات";
+            // 
+            // groupBox12
+            // 
+            this.groupBox12.Controls.Add(this.label60);
+            this.groupBox12.Controls.Add(this.label59);
+            this.groupBox12.Controls.Add(this.comboBox7);
+            this.groupBox12.Controls.Add(this.comboBox9);
+            this.groupBox12.Controls.Add(this.label58);
+            this.groupBox12.Controls.Add(this.comboBox5);
+            this.groupBox12.Controls.Add(this.label57);
+            this.groupBox12.Controls.Add(this.comboBox4);
+            this.groupBox12.Controls.Add(this.button2);
+            this.groupBox12.Controls.Add(this.dateTimePicker3);
+            this.groupBox12.Controls.Add(this.label49);
+            this.groupBox12.Controls.Add(this.dateTimePicker4);
+            this.groupBox12.Controls.Add(this.label50);
+            this.groupBox12.Location = new System.Drawing.Point(213, 16);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(763, 124);
+            this.groupBox12.TabIndex = 1;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "تقرير الرحلات";
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.button3);
+            this.groupBox11.Controls.Add(this.label51);
+            this.groupBox11.Controls.Add(this.comboBox1);
+            this.groupBox11.Location = new System.Drawing.Point(600, 234);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(376, 73);
+            this.groupBox11.TabIndex = 1;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "تقرير حالات السفن";
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.button4);
+            this.groupBox10.Controls.Add(this.dateTimePicker5);
+            this.groupBox10.Controls.Add(this.dateTimePicker6);
+            this.groupBox10.Controls.Add(this.label55);
+            this.groupBox10.Controls.Add(this.label56);
+            this.groupBox10.Controls.Add(this.label53);
+            this.groupBox10.Controls.Add(this.comboBox3);
+            this.groupBox10.Controls.Add(this.label52);
+            this.groupBox10.Controls.Add(this.comboBox2);
+            this.groupBox10.Location = new System.Drawing.Point(30, 393);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(946, 76);
+            this.groupBox10.TabIndex = 1;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "تقرير زيارات السفن";
+            // 
+            // reportsTab
+            // 
+            this.reportsTab.Controls.Add(this.groupBox10);
+            this.reportsTab.Controls.Add(this.groupBox11);
+            this.reportsTab.Controls.Add(this.groupBox12);
+            this.reportsTab.Controls.Add(this.Reports_TripsPeriodsReport);
+            this.reportsTab.Controls.Add(this.Reports_quantitiesReport);
+            this.reportsTab.Location = new System.Drawing.Point(4, 27);
+            this.reportsTab.Name = "reportsTab";
+            this.reportsTab.Padding = new System.Windows.Forms.Padding(3);
+            this.reportsTab.Size = new System.Drawing.Size(996, 646);
+            this.reportsTab.TabIndex = 8;
+            this.reportsTab.Text = "التقارير";
+            this.reportsTab.UseVisualStyleBackColor = true;
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label45.Location = new System.Drawing.Point(476, 28);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(55, 16);
+            this.label45.TabIndex = 13;
+            this.label45.Text = "المدة من";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label46.Location = new System.Drawing.Point(292, 28);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(28, 16);
+            this.label46.TabIndex = 14;
+            this.label46.Text = "إلى";
+            // 
+            // Reports_quantitiesReport_dtpFrom
+            // 
+            this.Reports_quantitiesReport_dtpFrom.CalendarFont = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Reports_quantitiesReport_dtpFrom.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Reports_quantitiesReport_dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.Reports_quantitiesReport_dtpFrom.Location = new System.Drawing.Point(333, 21);
+            this.Reports_quantitiesReport_dtpFrom.Name = "Reports_quantitiesReport_dtpFrom";
+            this.Reports_quantitiesReport_dtpFrom.Size = new System.Drawing.Size(137, 30);
+            this.Reports_quantitiesReport_dtpFrom.TabIndex = 15;
+            // 
+            // Reports_quantitiesReport_dtpTo
+            // 
+            this.Reports_quantitiesReport_dtpTo.CalendarFont = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Reports_quantitiesReport_dtpTo.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Reports_quantitiesReport_dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.Reports_quantitiesReport_dtpTo.Location = new System.Drawing.Point(149, 21);
+            this.Reports_quantitiesReport_dtpTo.Name = "Reports_quantitiesReport_dtpTo";
+            this.Reports_quantitiesReport_dtpTo.Size = new System.Drawing.Size(137, 30);
+            this.Reports_quantitiesReport_dtpTo.TabIndex = 16;
+            // 
+            // Reports_quantities_btnExtract
+            // 
+            this.Reports_quantities_btnExtract.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Reports_quantities_btnExtract.Location = new System.Drawing.Point(11, 16);
+            this.Reports_quantities_btnExtract.Name = "Reports_quantities_btnExtract";
+            this.Reports_quantities_btnExtract.Size = new System.Drawing.Size(123, 36);
+            this.Reports_quantities_btnExtract.TabIndex = 17;
+            this.Reports_quantities_btnExtract.Text = "استخراج التقرير";
+            this.Reports_quantities_btnExtract.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.button1.Location = new System.Drawing.Point(14, 21);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(124, 36);
+            this.button1.TabIndex = 22;
+            this.button1.Text = "استخراج التقرير";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.dateTimePicker1.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(153, 22);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(136, 30);
+            this.dateTimePicker1.TabIndex = 21;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.CalendarFont = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.dateTimePicker2.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker2.Location = new System.Drawing.Point(341, 22);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(137, 30);
+            this.dateTimePicker2.TabIndex = 20;
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label47.Location = new System.Drawing.Point(296, 29);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(28, 16);
+            this.label47.TabIndex = 19;
+            this.label47.Text = "إلى";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label48.Location = new System.Drawing.Point(484, 29);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(55, 16);
+            this.label48.TabIndex = 18;
+            this.label48.Text = "المدة من";
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.button2.Location = new System.Drawing.Point(11, 68);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(124, 36);
+            this.button2.TabIndex = 27;
+            this.button2.Text = "استخراج التقرير";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // dateTimePicker3
+            // 
+            this.dateTimePicker3.CalendarFont = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.dateTimePicker3.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker3.Location = new System.Drawing.Point(148, 73);
+            this.dateTimePicker3.Name = "dateTimePicker3";
+            this.dateTimePicker3.Size = new System.Drawing.Size(137, 30);
+            this.dateTimePicker3.TabIndex = 26;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label49.Location = new System.Drawing.Point(462, 80);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(55, 16);
+            this.label49.TabIndex = 23;
+            this.label49.Text = "المدة من";
+            // 
+            // dateTimePicker4
+            // 
+            this.dateTimePicker4.CalendarFont = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.dateTimePicker4.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.dateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker4.Location = new System.Drawing.Point(323, 73);
+            this.dateTimePicker4.Name = "dateTimePicker4";
+            this.dateTimePicker4.Size = new System.Drawing.Size(137, 30);
+            this.dateTimePicker4.TabIndex = 25;
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label50.Location = new System.Drawing.Point(288, 78);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(28, 16);
+            this.label50.TabIndex = 24;
+            this.label50.Text = "إلى";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(150, 25);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(172, 31);
+            this.comboBox1.TabIndex = 1;
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label51.Location = new System.Drawing.Point(328, 33);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(41, 16);
+            this.label51.TabIndex = 13;
+            this.label51.Text = "الحالة";
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.button3.Location = new System.Drawing.Point(6, 21);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(124, 36);
+            this.button3.TabIndex = 23;
+            this.button3.Text = "استخراج التقرير";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label52.Location = new System.Drawing.Point(891, 33);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(48, 16);
+            this.label52.TabIndex = 14;
+            this.label52.Text = "السفينة";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(741, 27);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(144, 31);
+            this.comboBox2.TabIndex = 13;
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label53.Location = new System.Drawing.Point(691, 33);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(45, 16);
+            this.label53.TabIndex = 16;
+            this.label53.Text = "الميناء";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(535, 27);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(152, 31);
+            this.comboBox3.TabIndex = 15;
+            // 
+            // dateTimePicker5
+            // 
+            this.dateTimePicker5.CalendarFont = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.dateTimePicker5.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.dateTimePicker5.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker5.Location = new System.Drawing.Point(146, 27);
+            this.dateTimePicker5.Name = "dateTimePicker5";
+            this.dateTimePicker5.Size = new System.Drawing.Size(137, 30);
+            this.dateTimePicker5.TabIndex = 20;
+            // 
+            // dateTimePicker6
+            // 
+            this.dateTimePicker6.CalendarFont = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.dateTimePicker6.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.dateTimePicker6.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker6.Location = new System.Drawing.Point(330, 27);
+            this.dateTimePicker6.Name = "dateTimePicker6";
+            this.dateTimePicker6.Size = new System.Drawing.Size(137, 30);
+            this.dateTimePicker6.TabIndex = 19;
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label55.Location = new System.Drawing.Point(289, 34);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(28, 16);
+            this.label55.TabIndex = 18;
+            this.label55.Text = "إلى";
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label56.Location = new System.Drawing.Point(473, 34);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(55, 16);
+            this.label56.TabIndex = 17;
+            this.label56.Text = "المدة من";
+            // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.button4.Location = new System.Drawing.Point(17, 25);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(123, 36);
+            this.button4.TabIndex = 21;
+            this.button4.Text = "استخراج التقرير";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label57.Location = new System.Drawing.Point(709, 28);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(48, 16);
+            this.label57.TabIndex = 29;
+            this.label57.Text = "السفينة";
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(531, 20);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(172, 31);
+            this.comboBox4.TabIndex = 28;
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label58.Location = new System.Drawing.Point(471, 29);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(41, 16);
+            this.label58.TabIndex = 31;
+            this.label58.Text = "الحالة";
+            // 
+            // comboBox5
+            // 
+            this.comboBox5.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Location = new System.Drawing.Point(293, 20);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(172, 31);
+            this.comboBox5.TabIndex = 30;
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label59.Location = new System.Drawing.Point(189, 29);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(93, 16);
+            this.label59.TabIndex = 33;
+            this.label59.Text = "الوكيل الملاحى";
+            // 
+            // comboBox7
+            // 
+            this.comboBox7.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.comboBox7.FormattingEnabled = true;
+            this.comboBox7.Location = new System.Drawing.Point(11, 21);
+            this.comboBox7.Name = "comboBox7";
+            this.comboBox7.Size = new System.Drawing.Size(172, 31);
+            this.comboBox7.TabIndex = 32;
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label60.Location = new System.Drawing.Point(709, 81);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(45, 16);
+            this.label60.TabIndex = 35;
+            this.label60.Text = "الميناء";
+            // 
+            // comboBox9
+            // 
+            this.comboBox9.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.comboBox9.FormattingEnabled = true;
+            this.comboBox9.Location = new System.Drawing.Point(531, 72);
+            this.comboBox9.Name = "comboBox9";
+            this.comboBox9.Size = new System.Drawing.Size(172, 31);
+            this.comboBox9.TabIndex = 34;
+            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2460,6 +2959,17 @@
             this.groupBox5.PerformLayout();
             this.ManageAcc_gruopLocation.ResumeLayout(false);
             this.ManageAcc_gruopLocation.PerformLayout();
+            this.Reports_quantitiesReport.ResumeLayout(false);
+            this.Reports_quantitiesReport.PerformLayout();
+            this.Reports_TripsPeriodsReport.ResumeLayout(false);
+            this.Reports_TripsPeriodsReport.PerformLayout();
+            this.groupBox12.ResumeLayout(false);
+            this.groupBox12.PerformLayout();
+            this.groupBox11.ResumeLayout(false);
+            this.groupBox11.PerformLayout();
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
+            this.reportsTab.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2661,6 +3171,48 @@
         private System.Windows.Forms.Button AddShip_btnDeleteType;
         private System.Windows.Forms.Button AddShip_btnEditTypr;
         private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.TabPage reportsTab;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.GroupBox groupBox11;
+        private System.Windows.Forms.GroupBox groupBox12;
+        private System.Windows.Forms.GroupBox Reports_TripsPeriodsReport;
+        private System.Windows.Forms.GroupBox Reports_quantitiesReport;
+        private System.Windows.Forms.Button Reports_quantities_btnExtract;
+        private System.Windows.Forms.DateTimePicker Reports_quantitiesReport_dtpTo;
+        private System.Windows.Forms.DateTimePicker Reports_quantitiesReport_dtpFrom;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.ComboBox Reports_quantityReport_cmbProducts;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.DateTimePicker dateTimePicker4;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.DateTimePicker dateTimePicker5;
+        private System.Windows.Forms.DateTimePicker dateTimePicker6;
+        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label59;
+        private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.Label label58;
+        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.Label label57;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.ComboBox comboBox9;
     }
 }

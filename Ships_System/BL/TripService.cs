@@ -44,7 +44,7 @@ namespace Ships_System.BL
 
         public List<Trip> GetAllTrips()
         {
-            return unitOfWork.Trips.Get().Include("Agent.Ship.Port.Platform.TripsLoads.TripsStatus").ToList();
+            return unitOfWork.Trips.Get().AsQueryable().Include("Agent.Ship.Port.Platform.TripsLoads.TripsStatus").ToList();
         }
 
         public Trip GetTripById(int tripId)
