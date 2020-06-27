@@ -99,18 +99,28 @@
             this.Products_txtProductName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.shipsTab = new System.Windows.Forms.TabPage();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.AddShip_btnDeleteType = new System.Windows.Forms.Button();
+            this.AddShip_Typecmb = new System.Windows.Forms.ComboBox();
+            this.type_ship = new System.Windows.Forms.Label();
+            this.AddShip_btnEditTypr = new System.Windows.Forms.Button();
             this.label22 = new System.Windows.Forms.Label();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.AddShip_GBAddType = new System.Windows.Forms.GroupBox();
+            this.AddShip_btnCancelType = new System.Windows.Forms.Button();
+            this.AddShip_btnSaveType = new System.Windows.Forms.Button();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.AddShip_txtType = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.AddShip_cancelbtn = new System.Windows.Forms.Button();
             this.AddShip_Savebtn = new System.Windows.Forms.Button();
             this.ShipsTab_btnDelete = new System.Windows.Forms.Button();
             this.ShipsTab_btnEdit = new System.Windows.Forms.Button();
-            this.type_ship = new System.Windows.Forms.Label();
             this.imo = new System.Windows.Forms.Label();
             this.ship_name = new System.Windows.Forms.Label();
             this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.AddShip_Typecmb = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.AddShip_Imotxt = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -225,6 +235,8 @@
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.shipsTab.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            this.AddShip_GBAddType.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShipsGridView)).BeginInit();
             this.addingTripTab.SuspendLayout();
             this.loadsgroup.SuspendLayout();
@@ -894,18 +906,18 @@
             // shipsTab
             // 
             this.shipsTab.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.shipsTab.Controls.Add(this.label22);
+            this.shipsTab.Controls.Add(this.groupBox8);
+            this.shipsTab.Controls.Add(this.groupBox7);
+            this.shipsTab.Controls.Add(this.AddShip_GBAddType);
             this.shipsTab.Controls.Add(this.label21);
             this.shipsTab.Controls.Add(this.label13);
             this.shipsTab.Controls.Add(this.AddShip_cancelbtn);
             this.shipsTab.Controls.Add(this.AddShip_Savebtn);
             this.shipsTab.Controls.Add(this.ShipsTab_btnDelete);
             this.shipsTab.Controls.Add(this.ShipsTab_btnEdit);
-            this.shipsTab.Controls.Add(this.type_ship);
             this.shipsTab.Controls.Add(this.imo);
             this.shipsTab.Controls.Add(this.ship_name);
             this.shipsTab.Controls.Add(this.comboBox6);
-            this.shipsTab.Controls.Add(this.AddShip_Typecmb);
             this.shipsTab.Controls.Add(this.label8);
             this.shipsTab.Controls.Add(this.AddShip_Imotxt);
             this.shipsTab.Controls.Add(this.label9);
@@ -920,16 +932,152 @@
             this.shipsTab.TabIndex = 2;
             this.shipsTab.Text = "السفن";
             // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.AddShip_btnDeleteType);
+            this.groupBox8.Controls.Add(this.AddShip_Typecmb);
+            this.groupBox8.Controls.Add(this.type_ship);
+            this.groupBox8.Controls.Add(this.AddShip_btnEditTypr);
+            this.groupBox8.Controls.Add(this.label22);
+            this.groupBox8.Location = new System.Drawing.Point(606, 207);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(368, 90);
+            this.groupBox8.TabIndex = 24;
+            this.groupBox8.TabStop = false;
+            // 
+            // AddShip_btnDeleteType
+            // 
+            this.AddShip_btnDeleteType.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.AddShip_btnDeleteType.Location = new System.Drawing.Point(23, 49);
+            this.AddShip_btnDeleteType.Name = "AddShip_btnDeleteType";
+            this.AddShip_btnDeleteType.Size = new System.Drawing.Size(127, 35);
+            this.AddShip_btnDeleteType.TabIndex = 22;
+            this.AddShip_btnDeleteType.Text = "حذف النوع";
+            this.AddShip_btnDeleteType.UseVisualStyleBackColor = true;
+            this.AddShip_btnDeleteType.Click += new System.EventHandler(this.AddShip_btnDeleteType_Click);
+            // 
+            // AddShip_Typecmb
+            // 
+            this.AddShip_Typecmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.AddShip_Typecmb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddShip_Typecmb.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.AddShip_Typecmb.FormattingEnabled = true;
+            this.AddShip_Typecmb.Items.AddRange(new object[] {
+            "غذائية",
+            "نفطية",
+            "دوائية",
+            "بضائع عامة",
+            "اخرى"});
+            this.AddShip_Typecmb.Location = new System.Drawing.Point(22, 16);
+            this.AddShip_Typecmb.Name = "AddShip_Typecmb";
+            this.AddShip_Typecmb.Size = new System.Drawing.Size(269, 27);
+            this.AddShip_Typecmb.TabIndex = 10;
+            // 
+            // type_ship
+            // 
+            this.type_ship.AutoSize = true;
+            this.type_ship.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.type_ship.Location = new System.Drawing.Point(295, 20);
+            this.type_ship.Name = "type_ship";
+            this.type_ship.Size = new System.Drawing.Size(73, 16);
+            this.type_ship.TabIndex = 11;
+            this.type_ship.Text = "نوع السفينة";
+            // 
+            // AddShip_btnEditTypr
+            // 
+            this.AddShip_btnEditTypr.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.AddShip_btnEditTypr.Location = new System.Drawing.Point(181, 49);
+            this.AddShip_btnEditTypr.Name = "AddShip_btnEditTypr";
+            this.AddShip_btnEditTypr.Size = new System.Drawing.Size(110, 35);
+            this.AddShip_btnEditTypr.TabIndex = 21;
+            this.AddShip_btnEditTypr.Text = "تعديل النوع";
+            this.AddShip_btnEditTypr.UseVisualStyleBackColor = true;
+            this.AddShip_btnEditTypr.Click += new System.EventHandler(this.AddShip_btnEditTypr_Click);
+            // 
             // label22
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label22.ForeColor = System.Drawing.Color.Red;
-            this.label22.Location = new System.Drawing.Point(607, 227);
+            this.label22.Location = new System.Drawing.Point(-1, 18);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(20, 23);
             this.label22.TabIndex = 18;
             this.label22.Text = "*";
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Location = new System.Drawing.Point(-29, -75);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(200, 100);
+            this.groupBox7.TabIndex = 23;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "groupBox7";
+            // 
+            // AddShip_GBAddType
+            // 
+            this.AddShip_GBAddType.Controls.Add(this.AddShip_btnCancelType);
+            this.AddShip_GBAddType.Controls.Add(this.AddShip_btnSaveType);
+            this.AddShip_GBAddType.Controls.Add(this.label44);
+            this.AddShip_GBAddType.Controls.Add(this.label43);
+            this.AddShip_GBAddType.Controls.Add(this.AddShip_txtType);
+            this.AddShip_GBAddType.Location = new System.Drawing.Point(604, 372);
+            this.AddShip_GBAddType.Name = "AddShip_GBAddType";
+            this.AddShip_GBAddType.Size = new System.Drawing.Size(367, 102);
+            this.AddShip_GBAddType.TabIndex = 20;
+            this.AddShip_GBAddType.TabStop = false;
+            this.AddShip_GBAddType.Text = "إضافة/تعديل نوع السفينة";
+            // 
+            // AddShip_btnCancelType
+            // 
+            this.AddShip_btnCancelType.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.AddShip_btnCancelType.Location = new System.Drawing.Point(27, 57);
+            this.AddShip_btnCancelType.Name = "AddShip_btnCancelType";
+            this.AddShip_btnCancelType.Size = new System.Drawing.Size(125, 35);
+            this.AddShip_btnCancelType.TabIndex = 21;
+            this.AddShip_btnCancelType.Text = "إلغاء الحفظ";
+            this.AddShip_btnCancelType.UseVisualStyleBackColor = true;
+            this.AddShip_btnCancelType.Click += new System.EventHandler(this.AddShip_btnCancelType_Click);
+            // 
+            // AddShip_btnSaveType
+            // 
+            this.AddShip_btnSaveType.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.AddShip_btnSaveType.Location = new System.Drawing.Point(183, 57);
+            this.AddShip_btnSaveType.Name = "AddShip_btnSaveType";
+            this.AddShip_btnSaveType.Size = new System.Drawing.Size(110, 35);
+            this.AddShip_btnSaveType.TabIndex = 20;
+            this.AddShip_btnSaveType.Text = "حفظ النوع";
+            this.AddShip_btnSaveType.UseVisualStyleBackColor = true;
+            this.AddShip_btnSaveType.Click += new System.EventHandler(this.AddShip_btnSaveType_Click);
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label44.ForeColor = System.Drawing.Color.Red;
+            this.label44.Location = new System.Drawing.Point(2, 28);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(20, 23);
+            this.label44.TabIndex = 19;
+            this.label44.Text = "*";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.Location = new System.Drawing.Point(299, 27);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(37, 16);
+            this.label43.TabIndex = 12;
+            this.label43.Text = "النوع";
+            // 
+            // AddShip_txtType
+            // 
+            this.AddShip_txtType.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.AddShip_txtType.Location = new System.Drawing.Point(24, 21);
+            this.AddShip_txtType.Name = "AddShip_txtType";
+            this.AddShip_txtType.Size = new System.Drawing.Size(269, 30);
+            this.AddShip_txtType.TabIndex = 1;
             // 
             // label21
             // 
@@ -956,22 +1104,22 @@
             // AddShip_cancelbtn
             // 
             this.AddShip_cancelbtn.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.AddShip_cancelbtn.Location = new System.Drawing.Point(698, 265);
+            this.AddShip_cancelbtn.Location = new System.Drawing.Point(631, 313);
             this.AddShip_cancelbtn.Name = "AddShip_cancelbtn";
-            this.AddShip_cancelbtn.Size = new System.Drawing.Size(75, 35);
+            this.AddShip_cancelbtn.Size = new System.Drawing.Size(125, 35);
             this.AddShip_cancelbtn.TabIndex = 15;
-            this.AddShip_cancelbtn.Text = "إلغاء";
+            this.AddShip_cancelbtn.Text = "إلغاء الحفظ";
             this.AddShip_cancelbtn.UseVisualStyleBackColor = true;
             this.AddShip_cancelbtn.Click += new System.EventHandler(this.AddShip_cancelbtn_Click);
             // 
             // AddShip_Savebtn
             // 
             this.AddShip_Savebtn.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.AddShip_Savebtn.Location = new System.Drawing.Point(779, 265);
+            this.AddShip_Savebtn.Location = new System.Drawing.Point(787, 313);
             this.AddShip_Savebtn.Name = "AddShip_Savebtn";
-            this.AddShip_Savebtn.Size = new System.Drawing.Size(75, 35);
+            this.AddShip_Savebtn.Size = new System.Drawing.Size(110, 35);
             this.AddShip_Savebtn.TabIndex = 14;
-            this.AddShip_Savebtn.Text = "حفظ";
+            this.AddShip_Savebtn.Text = "حفظ السفينة";
             this.AddShip_Savebtn.UseVisualStyleBackColor = true;
             this.AddShip_Savebtn.Click += new System.EventHandler(this.AddShip_Savebtn_Click);
             // 
@@ -996,16 +1144,6 @@
             this.ShipsTab_btnEdit.Text = "تعديل بيانات السفينة";
             this.ShipsTab_btnEdit.UseVisualStyleBackColor = true;
             this.ShipsTab_btnEdit.Click += new System.EventHandler(this.ShipsTab_btnEdit_Click);
-            // 
-            // type_ship
-            // 
-            this.type_ship.AutoSize = true;
-            this.type_ship.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.type_ship.Location = new System.Drawing.Point(903, 229);
-            this.type_ship.Name = "type_ship";
-            this.type_ship.Size = new System.Drawing.Size(73, 16);
-            this.type_ship.TabIndex = 11;
-            this.type_ship.Text = "نوع السفينة";
             // 
             // imo
             // 
@@ -1034,23 +1172,6 @@
             this.comboBox6.Name = "comboBox6";
             this.comboBox6.Size = new System.Drawing.Size(121, 23);
             this.comboBox6.TabIndex = 10;
-            // 
-            // AddShip_Typecmb
-            // 
-            this.AddShip_Typecmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.AddShip_Typecmb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddShip_Typecmb.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.AddShip_Typecmb.FormattingEnabled = true;
-            this.AddShip_Typecmb.Items.AddRange(new object[] {
-            "غذائية",
-            "نفطية",
-            "دوائية",
-            "بضائع عامة",
-            "اخرى"});
-            this.AddShip_Typecmb.Location = new System.Drawing.Point(630, 225);
-            this.AddShip_Typecmb.Name = "AddShip_Typecmb";
-            this.AddShip_Typecmb.Size = new System.Drawing.Size(269, 27);
-            this.AddShip_Typecmb.TabIndex = 10;
             // 
             // label8
             // 
@@ -2286,8 +2407,8 @@
             this.ClientSize = new System.Drawing.Size(1004, 677);
             this.Controls.Add(this.triptabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Location = new System.Drawing.Point(50, 10);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Location = new System.Drawing.Point(50, 10);
             this.MaximizeBox = false;
             this.Name = "MainScreen";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -2311,6 +2432,10 @@
             this.groupBox1.PerformLayout();
             this.shipsTab.ResumeLayout(false);
             this.shipsTab.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
+            this.AddShip_GBAddType.ResumeLayout(false);
+            this.AddShip_GBAddType.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShipsGridView)).EndInit();
             this.addingTripTab.ResumeLayout(false);
             this.addingTripTab.PerformLayout();
@@ -2527,5 +2652,15 @@
         private System.Windows.Forms.Button Trips_btnExportReport;
         private System.Windows.Forms.SaveFileDialog ReportSFD;
         private System.Windows.Forms.Label Accidet_label;
+        private System.Windows.Forms.GroupBox AddShip_GBAddType;
+        private System.Windows.Forms.Button AddShip_btnCancelType;
+        private System.Windows.Forms.Button AddShip_btnSaveType;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.TextBox AddShip_txtType;
+        private System.Windows.Forms.Button AddShip_btnDeleteType;
+        private System.Windows.Forms.Button AddShip_btnEditTypr;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.GroupBox groupBox7;
     }
 }

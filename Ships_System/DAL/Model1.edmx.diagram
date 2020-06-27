@@ -23,6 +23,8 @@
         <AssociationConnector Association="ShipsSystemModel.FK_TripsStatus_Trips" ManuallyRouted="false" />
         <EntityTypeShape EntityType="ShipsSystemModel.Accident" Width="1.5" PointX="5.25" PointY="12.5" />
         <AssociationConnector Association="ShipsSystemModel.fk_accident_ship" />
+        <EntityTypeShape EntityType="ShipsSystemModel.ShipType" Width="1.5" PointX="0.75" PointY="7.5" />
+        <AssociationConnector Association="ShipsSystemModel.fk_Ships_ShipTypes" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

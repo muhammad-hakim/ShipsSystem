@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -53,12 +54,12 @@ namespace Ships_System.BL
 
         public List<Ship> GetAllShips()
         {
-            return  unitOfWork.Ships.Get();
+            return unitOfWork.Ships.Get().Include(t => t.ShipType).ToList();
         }
 
         public Ship GetShipById(int id)
         {
-            return  unitOfWork.Ships.GetById(id);
+            return  GetAllShips().FirstOrDefault(s => s.ShipId == id);
         }
 
         public Ship UpdateShip(Ship ship)

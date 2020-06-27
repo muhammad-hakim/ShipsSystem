@@ -42,9 +42,9 @@ namespace Ships_System.DAL
             return false;
         }
 
-        public List<T> Get()
+        public IQueryable<T> Get()
         {
-            var result =  data.ToList(); ;
+            var result =  data; ;
             return result;
         }
 

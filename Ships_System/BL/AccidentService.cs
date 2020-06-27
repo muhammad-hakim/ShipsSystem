@@ -28,12 +28,12 @@ namespace Ships_System.BL
 
         public List<Accident> GetAllAccidents()
         {
-            return unitOfWork.Accidents.Get().AsQueryable().Include("Ship").ToList();
+            return unitOfWork.Accidents.Get().Include("Ship").ToList();
         }
 
         public Accident GetAccidentById(int id)
         {
-            return unitOfWork.Accidents.GetById(id);
+            return GetAllAccidents().FirstOrDefault(a => a.AccidentId == id);
 
         }
 

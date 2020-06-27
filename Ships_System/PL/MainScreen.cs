@@ -10,12 +10,6 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using iText.Kernel.Pdf;
-using iText.Layout;
-using iText.Kernel.Font;
-using iText.Layout.Element;
-using iText.Layout.Properties;
-using iText.IO.Font;
 
 namespace Ships_System.PL
 {
@@ -29,10 +23,11 @@ namespace Ships_System.PL
         private readonly IPortService portService;
         private readonly IPlatformService platformService;
         private readonly IAccidentService accidentService;
+        private readonly IShipTypesService shipTypesService;
 
         public MainScreen(IDbService dbService, ITripService tripService, IShipService shipService,
                           IAgentService agentService, IProductService productService, IPortService portService,
-                          IPlatformService platformService, IAccidentService accidentService)
+                          IPlatformService platformService, IAccidentService accidentService, IShipTypesService shipTypesService)
         {
             InitializeComponent();
             this.dbService = dbService;
@@ -43,11 +38,12 @@ namespace Ships_System.PL
             this.portService = portService;
             this.platformService = platformService;
             this.accidentService = accidentService;
+            this.shipTypesService = shipTypesService;
         }
 
         void FillShipsGridView()
         {
-            var data = shipService.GetAllShips().Select(s => new { ShipId = s.ShipId, Name = s.Name, IMO = s.Imo, Type = Enum.GetName(typeof(ShipTypes), s.Type) }).ToList();
+            var data = shipService.GetAllShips().Select(s => new { ShipId = s.ShipId, Name = s.Name, IMO = s.Imo, Type = s.ShipType.Name }).ToList();
             ShipsGridView.DataSource = data;
             ShipsGridView.Columns[0].Visible = false;
             ShipsGridView.Columns[1].HeaderText = "اسم السفينة";
@@ -127,7 +123,7 @@ namespace Ships_System.PL
                 TripId = t.TripId.ToString(),
                 ShipName = t.Ship.Name,
                 ShipIMO = t.Ship.Imo,
-                ShipType = Enum.GetName(typeof(ShipTypes), t.Ship.Type),
+                ShipType = t.Ship.ShipType.Name,
                 TripStatus = Enum.GetName(typeof(TripStatus), t.Status),
                 TripStatusDate = t.TripsStatus.FirstOrDefault(s => s.TripId == t.TripId && s.Status == t.Status).Date.ToShortDateString(),
                 Agent = t.Agent != null ? t.Agent.Name : "",
@@ -181,9 +177,16 @@ namespace Ships_System.PL
             FillAgentsList();
             FillAccidentsDGV();
             AddTrip_CmbStatus.DataSource = Enum.GetValues(typeof(TripStatus));
-            AddShip_Typecmb.DataSource = Enum.GetValues(typeof(ShipTypes));
+            FillAddShipTypecmb();
             ManageAcc_cmbArea.DataSource = Enum.GetValues(typeof(AccidentArea));
             Trips_cmbSearchFields.SelectedIndex = 0;
+        }
+
+        void FillAddShipTypecmb()
+        {
+            AddShip_Typecmb.DisplayMember = "Name";
+            AddShip_Typecmb.ValueMember = "TypeId";
+            AddShip_Typecmb.DataSource = shipTypesService.GetAllShipTypes();
         }
 
         private void Agents_btnSave_Click(object sender, EventArgs e)
@@ -988,7 +991,7 @@ namespace Ships_System.PL
                 AccidentId = a.AccidentId,
                 ShipName = a.Ship.Name,
                 IMO = a.Ship.Imo,
-                ShipType = Enum.GetName(typeof(ShipTypes), a.Ship.Type),
+                ShipType = a.Ship.ShipType.Name,
                 Date = a.Date,
                 Area = Enum.GetName(typeof(AccidentArea), a.Area),
                 Lat = a.latitude,
@@ -1187,6 +1190,85 @@ namespace Ships_System.PL
                 document.Close();
             }
         }
-        
+
+        private void AddShip_btnSaveType_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(AddShip_txtType.Text.Trim()))
+                MessageBox.Show("من فضلك أدخل الحقول المطلوبة", "حقول مطلوبة", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+            {
+                ShipType type = new ShipType
+                {
+                    TypeId = AddShip_btnSaveType.Tag == null ? 0 : Convert.ToInt32(AddShip_btnSaveType.Tag),
+                    Name = AddShip_txtType.Text.Trim(),
+                };
+
+                AddShip_btnSaveType.Tag = null;
+                if (shipTypesService.CheckUniqueness(type))
+                {
+                    if (type.TypeId == 0)
+                    {
+                        shipTypesService.AddShipType(type);
+                    }
+                    else
+                    {
+                        shipTypesService.UpdateShipType(type);
+                    }
+                    if (dbService.Commit())
+                    {
+                        FillAddShipTypecmb();
+                        AddShip_txtType.Clear();
+                        
+                        MessageBox.Show("تم الحفظ بنجاح", "تم الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("لم يتم الحفظ", "فشل الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                    MessageBox.Show("لم يتم الحفظ .. هذا النوع موجود من قبل", "بيانات مكررة", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void AddShip_btnEditTypr_Click(object sender, EventArgs e)
+        {
+            AddShip_btnSaveType.Tag = AddShip_Typecmb.SelectedValue;
+            AddShip_txtType.Text = AddShip_Typecmb.Text;
+        }
+
+        private void AddShip_btnDeleteType_Click(object sender, EventArgs e)
+        {
+            if (AddShip_Typecmb.SelectedValue != null)
+            {
+                if (MessageBox.Show("هل تريد حذف نوع السفينة?", "حذف نوع السفينة", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                {
+                    var typeId = Convert.ToInt32(AddShip_Typecmb.SelectedValue);
+
+                    if (shipTypesService.CanDelete(typeId))
+                    {
+                        shipTypesService.DeleteShipType(typeId);
+
+                        if (dbService.Commit())
+                        {
+                            FillAddShipTypecmb();
+                            MessageBox.Show("تم الحذف بنجاح", "تم الحذف", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("لم يتم الحذف", "فشل الحذف", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                        MessageBox.Show("لم يتم الحذف .. نوع السفينة هذا مستخدم حاليا", "فشل الحذف", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void AddShip_btnCancelType_Click(object sender, EventArgs e)
+        {
+            AddShip_btnSaveType.Tag = null;
+            AddShip_txtType.Clear();
+        }
     }
 }

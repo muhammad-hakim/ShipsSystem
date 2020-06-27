@@ -28,12 +28,12 @@ namespace Ships_System.BL
 
         public List<Agent> GetAllAgents()
         {
-            return unitOfWork.Agents.Get();
+            return unitOfWork.Agents.Get().ToList();
         }
 
         public Agent GetAgentById(int id)
         {
-            return unitOfWork.Agents.GetById(id);
+            return GetAllAgents().FirstOrDefault(a => a.AgentId == id);
         }
 
         public Agent UpdateAgent(Agent agent)

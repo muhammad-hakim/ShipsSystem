@@ -85,6 +85,13 @@ namespace Ships_System.DAL
                 return new Repository<Accident>(context);
             }
         }
+        public Repository<ShipType> ShipTypes
+        {
+            get
+            {
+                return new Repository<ShipType>(context);
+            }
+        }
 
         public bool Commit()
         {

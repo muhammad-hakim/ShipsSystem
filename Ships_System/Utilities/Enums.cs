@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Ships_System.Utilities
 {
-    public enum ShipTypes
-    {
-        Ship = 0,
-        Sailboat = 1,
-        Zaaem =2
-    }
+    //public enum ShipTypes
+    //{
+    //    Ship = 0,
+    //    Sailboat = 1,
+    //    Zaaem =2
+    //}
 
     public enum TripStatus
     {

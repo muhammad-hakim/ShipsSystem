@@ -52,12 +52,12 @@ namespace Ships_System.BL
 
         public List<Product> GetAllProducts()
         {
-            return  unitOfWork.Products.Get();
+            return  unitOfWork.Products.Get().ToList();
         }
 
         public Product GetProductById(int id)
         {
-            return  unitOfWork.Products.GetById(id);
+            return  GetAllProducts().FirstOrDefault(p => p.ProductId == id);
         }
 
         public Product UpdateProduct(Product product)

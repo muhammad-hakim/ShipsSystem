@@ -52,7 +52,7 @@ namespace Ships_System.BL
 
         public List<Port> GetAllPorts()
         {
-            return  unitOfWork.Ports.Get();
+            return  unitOfWork.Ports.Get().ToList();
         }
 
         public Port GetPortById(int id)

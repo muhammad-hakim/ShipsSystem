@@ -12,24 +12,18 @@ namespace Ships_System.DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class Ship
+    public partial class ShipType
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Ship()
+        public ShipType()
         {
-            this.Trips = new HashSet<Trip>();
-            this.Accidents = new HashSet<Accident>();
+            this.Ships = new HashSet<Ship>();
         }
     
-        public int ShipId { get; set; }
+        public int TypeId { get; set; }
         public string Name { get; set; }
-        public int Type { get; set; }
-        public string Imo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Trip> Trips { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Accident> Accidents { get; set; }
-        public virtual ShipType ShipType { get; set; }
+        public virtual ICollection<Ship> Ships { get; set; }
     }
 }

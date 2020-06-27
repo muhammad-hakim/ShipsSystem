@@ -60,6 +60,13 @@
           <Property Name="Type" Type="int" Nullable="false" />
           <Property Name="Imo" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
+        <EntityType Name="ShipTypes">
+          <Key>
+            <PropertyRef Name="TypeId" />
+          </Key>
+          <Property Name="TypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
         <EntityType Name="Trips">
           <Key>
             <PropertyRef Name="TripId" />
@@ -111,6 +118,18 @@
             </Principal>
             <Dependent Role="Platforms">
               <PropertyRef Name="PortId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Ships_ShipTypes">
+          <End Role="ShipTypes" Type="Self.ShipTypes" Multiplicity="1" />
+          <End Role="Ships" Type="Self.Ships" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShipTypes">
+              <PropertyRef Name="TypeId" />
+            </Principal>
+            <Dependent Role="Ships">
+              <PropertyRef Name="Type" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -205,6 +224,7 @@
           <EntitySet Name="Ports" EntityType="Self.Ports" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ships" EntityType="Self.Ships" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShipTypes" EntityType="Self.ShipTypes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Trips" EntityType="Self.Trips" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TripsLoads" EntityType="Self.TripsLoads" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TripsStatus" EntityType="Self.TripsStatus" Schema="dbo" store:Type="Tables" />
@@ -215,6 +235,10 @@
           <AssociationSet Name="FK_Platforms_Ports" Association="Self.FK_Platforms_Ports">
             <End Role="Ports" EntitySet="Ports" />
             <End Role="Platforms" EntitySet="Platforms" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Ships_ShipTypes" Association="Self.fk_Ships_ShipTypes">
+            <End Role="ShipTypes" EntitySet="ShipTypes" />
+            <End Role="Ships" EntitySet="Ships" />
           </AssociationSet>
           <AssociationSet Name="FK_Trips_Agents" Association="Self.FK_Trips_Agents">
             <End Role="Agents" EntitySet="Agents" />
@@ -294,6 +318,7 @@
           <Property Name="Imo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Trips" Relationship="Self.FK_Trips_Ships" FromRole="Ships" ToRole="Trips" />
           <NavigationProperty Name="Accidents" Relationship="ShipsSystemModel.fk_accident_ship" FromRole="Ship" ToRole="Accident" />
+          <NavigationProperty Name="ShipType" Relationship="ShipsSystemModel.fk_Ships_ShipTypes" FromRole="Ship" ToRole="ShipType" />
         </EntityType>
         <EntityType Name="Trip">
           <Key>
@@ -476,6 +501,11 @@
             <End Role="Ship" EntitySet="Ships" />
             <End Role="Accident" EntitySet="Accidents" />
           </AssociationSet>
+          <EntitySet Name="ShipTypes" EntityType="ShipsSystemModel.ShipType" />
+          <AssociationSet Name="fk_Ships_ShipTypes" Association="ShipsSystemModel.fk_Ships_ShipTypes">
+            <End Role="ShipType" EntitySet="ShipTypes" />
+            <End Role="Ship" EntitySet="Ships" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Accident">
           <Key>
@@ -504,6 +534,26 @@
             </Principal>
             <Dependent Role="Accident">
               <PropertyRef Name="ShipId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ShipType">
+          <Key>
+            <PropertyRef Name="TypeId" />
+          </Key>
+          <Property Name="TypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Ships" Relationship="ShipsSystemModel.fk_Ships_ShipTypes" FromRole="ShipType" ToRole="Ship" />
+        </EntityType>
+        <Association Name="fk_Ships_ShipTypes">
+          <End Type="ShipsSystemModel.ShipType" Role="ShipType" Multiplicity="1" />
+          <End Type="ShipsSystemModel.Ship" Role="Ship" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShipType">
+              <PropertyRef Name="TypeId" />
+            </Principal>
+            <Dependent Role="Ship">
+              <PropertyRef Name="Type" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -604,6 +654,14 @@
                 <ScalarProperty Name="ShipId" ColumnName="ShipId" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="AccidentId" ColumnName="AccidentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShipTypes">
+            <EntityTypeMapping TypeName="ShipsSystemModel.ShipType">
+              <MappingFragment StoreEntitySet="ShipTypes">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -53,7 +53,7 @@ namespace Ships_System.BL
 
         public List<Platform> GetAllPlatforms()
         {
-            return  unitOfWork.Platforms.Get().AsQueryable().Include("Port").ToList();
+            return  unitOfWork.Platforms.Get().Include("Port").ToList();
         }
 
         public List<Platform> GetByPortId(int portId)
@@ -63,7 +63,7 @@ namespace Ships_System.BL
 
         public Platform GetPlatformById(int id)
         {
-            return  unitOfWork.Platforms.GetById(id);
+            return  GetAllPlatforms().FirstOrDefault(p => p.PlatformId == id);
         }
 
         public Platform UpdatePlatform(Platform platform)
