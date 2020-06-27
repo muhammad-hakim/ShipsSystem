@@ -19,7 +19,8 @@ namespace Ships_System.Utilities
         ReservationArea = 1,
         AtGhates = 2,
         ArriveAtPlatform = 3,
-        WaitingAtGhatesAfterUnload = 4
+        WaitingAtGhatesAfterUnload = 4,
+        EXecptedTOArrive =5
     }
     public enum AccidentArea
     {

@@ -1096,8 +1096,8 @@ namespace Ships_System.PL
         }
 
         iTextSharp.text.Font titleFont = FontFactory.GetFont(fontname: "c:/windows/fonts/simpbdo.ttf", encoding: BaseFont.IDENTITY_H, size: 20, style: 1);
-        iTextSharp.text.Font headerFont = FontFactory.GetFont(fontname:"c:/windows/fonts/arial.ttf",encoding: BaseFont.IDENTITY_H, size: 8, style: 1);
-        iTextSharp.text.Font cellFont = FontFactory.GetFont("c:/windows/fonts/arial.ttf", BaseFont.IDENTITY_H, 6);
+        iTextSharp.text.Font headerFont = FontFactory.GetFont(fontname:"c:/windows/fonts/arial.ttf",encoding: BaseFont.IDENTITY_H, size: 10, style: 1);
+        iTextSharp.text.Font cellFont = FontFactory.GetFont("c:/windows/fonts/arial.ttf", BaseFont.IDENTITY_H , 8);
         private void Trips_btnExportReport_Click(object sender, EventArgs e)
         {
             if (ReportSFD.ShowDialog() == DialogResult.OK)

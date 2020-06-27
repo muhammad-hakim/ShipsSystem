@@ -253,7 +253,6 @@
     <None Include="Resources\minimize_window_64px.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\NotoNaskhArabic-Regular.ttf" />
     <None Include="Resources\sell_40px.png" />
   </ItemGroup>
   <ItemGroup>
