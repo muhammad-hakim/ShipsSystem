@@ -159,6 +159,7 @@ namespace Ships_System.PL
 
         private void MainScreen_Load(object sender, EventArgs e)
         {
+            FillTranslationDictionary();
             FillTripsDataGridView();
             FillShipsGridView();
             FillPlatformsDataGridView();
@@ -176,8 +177,6 @@ namespace Ships_System.PL
             FillAddShipTypecmb();
             ManageAcc_cmbArea.DataSource = Enum.GetValues(typeof(AccidentArea));
             Trips_cmbSearchFields.SelectedIndex = 0;
-            FillTranslationDictionary();
-
             FillReportsCmbShips();
             FillReportsCmbAgents();
             FillReportsCmbPorts();
@@ -247,9 +246,9 @@ namespace Ships_System.PL
             ArabicValues.Add("ArriveAtPlatform", "وصلت الارصفة");
             ArabicValues.Add("WaitingAtGhatesAfterUnload", "منتظرة بالغاطس بعد التفريغ");
             ArabicValues.Add("EXecptedTOArrive ", "متوقع وصولها");
-            ArabicValues.Add("InPortArea ", " في الميناء");
-            ArabicValues.Add(" InTerritorialWater ", "في المياه الاقليمية");
-            ArabicValues.Add(" InInternationalWater", "في المياه الدولية");
+            ArabicValues.Add("InPortArea", "في الميناء");
+            ArabicValues.Add("InTerritorialWater", "في المياه الاقليمية");
+            ArabicValues.Add("InInternationalWater", "في المياه الدولية");
         }
 
         void FillAddShipTypecmb()
@@ -1180,6 +1179,7 @@ namespace Ships_System.PL
         iTextSharp.text.Font cellFont = FontFactory.GetFont("c:/windows/fonts/arial.ttf", BaseFont.IDENTITY_H, 8);
         private void Trips_btnExportReport_Click(object sender, EventArgs e)
         {
+            ReportSFD.FileName = "تقرير الرحلات";
             if (ReportSFD.ShowDialog() == DialogResult.OK)
             {
                 headerFont.Color = BaseColor.WHITE;

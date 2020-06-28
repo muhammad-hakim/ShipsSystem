@@ -1858,16 +1858,16 @@
             this.Trips_btnExportReport.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.Trips_btnExportReport.Location = new System.Drawing.Point(212, 9);
             this.Trips_btnExportReport.Name = "Trips_btnExportReport";
-            this.Trips_btnExportReport.Size = new System.Drawing.Size(180, 39);
+            this.Trips_btnExportReport.Size = new System.Drawing.Size(193, 39);
             this.Trips_btnExportReport.TabIndex = 16;
-            this.Trips_btnExportReport.Text = "استخراج تقرير الرحلات";
+            this.Trips_btnExportReport.Text = "استخراج تقرير كل الرحلات";
             this.Trips_btnExportReport.UseVisualStyleBackColor = true;
             this.Trips_btnExportReport.Click += new System.EventHandler(this.Trips_btnExportReport_Click);
             // 
             // Trips_btnClearSearch
             // 
             this.Trips_btnClearSearch.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.Trips_btnClearSearch.Location = new System.Drawing.Point(398, 9);
+            this.Trips_btnClearSearch.Location = new System.Drawing.Point(411, 9);
             this.Trips_btnClearSearch.Name = "Trips_btnClearSearch";
             this.Trips_btnClearSearch.Size = new System.Drawing.Size(89, 39);
             this.Trips_btnClearSearch.TabIndex = 15;
@@ -1892,7 +1892,7 @@
             "الميناء",
             "الرصيف",
             "ملاحظات"});
-            this.Trips_cmbSearchFields.Location = new System.Drawing.Point(497, 11);
+            this.Trips_cmbSearchFields.Location = new System.Drawing.Point(506, 11);
             this.Trips_cmbSearchFields.Name = "Trips_cmbSearchFields";
             this.Trips_cmbSearchFields.Size = new System.Drawing.Size(147, 31);
             this.Trips_cmbSearchFields.TabIndex = 13;
@@ -1902,7 +1902,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label10.Location = new System.Drawing.Point(650, 15);
+            this.label10.Location = new System.Drawing.Point(654, 15);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(77, 23);
             this.label10.TabIndex = 12;
@@ -1933,7 +1933,7 @@
             // Trips_txtSearch
             // 
             this.Trips_txtSearch.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.Trips_txtSearch.Location = new System.Drawing.Point(730, 13);
+            this.Trips_txtSearch.Location = new System.Drawing.Point(738, 13);
             this.Trips_txtSearch.Name = "Trips_txtSearch";
             this.Trips_txtSearch.Size = new System.Drawing.Size(161, 30);
             this.Trips_txtSearch.TabIndex = 2;
@@ -1943,7 +1943,7 @@
             // 
             this.searchlab.AutoSize = true;
             this.searchlab.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.searchlab.Location = new System.Drawing.Point(897, 16);
+            this.searchlab.Location = new System.Drawing.Point(900, 16);
             this.searchlab.Name = "searchlab";
             this.searchlab.Size = new System.Drawing.Size(80, 23);
             this.searchlab.TabIndex = 1;
