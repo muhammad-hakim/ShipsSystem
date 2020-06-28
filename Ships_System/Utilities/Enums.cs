@@ -6,21 +6,14 @@ using System.Threading.Tasks;
 
 namespace Ships_System.Utilities
 {
-    //public enum ShipTypes
-    //{
-    //    Ship = 0,
-    //    Sailboat = 1,
-    //    Zaaem =2
-    //}
-
     public enum TripStatus
     {
         LeftDGebouti = 0,
         ReservationArea = 1,
-        AtGhates = 2,
-        ArriveAtPlatform = 3,
-        WaitingAtGhatesAfterUnload = 4,
-        EXecptedTOArrive =5
+        EXecptedTOArrive = 2,
+        AtGhates = 3,
+        ArriveAtPlatform = 4,
+        WaitingAtGhatesAfterUnload = 5
     }
     public enum AccidentArea
     {
