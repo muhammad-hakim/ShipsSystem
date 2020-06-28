@@ -25,6 +25,10 @@ namespace Ships_System.PL
         private readonly IAccidentService accidentService;
         private readonly IShipTypesService shipTypesService;
 
+        List<Trip> allTrips;
+        List<TripsForDGV> tripsForDGV;
+        Dictionary<string, string> ArabicValues = new Dictionary<string, string>();
+
         public MainScreen(IDbService dbService, ITripService tripService, IShipService shipService,
                           IAgentService agentService, IProductService productService, IPortService portService,
                           IPlatformService platformService, IAccidentService accidentService, IShipTypesService shipTypesService)
@@ -107,9 +111,6 @@ namespace Ships_System.PL
             }
         }
 
-        List<Trip> allTrips;
-        List<TripsForDGV> tripsForDGV;
-
         void FillTripsDataGridView()
         {
             allTrips = tripService.GetAllTrips();
@@ -119,7 +120,7 @@ namespace Ships_System.PL
                 ShipName = t.Ship.Name,
                 ShipIMO = t.Ship.Imo,
                 ShipType = t.Ship.ShipType.Name,
-                TripStatus = Enum.GetName(typeof(TripStatus), t.Status),
+                TripStatus = ArabicValues[Enum.GetName(typeof(TripStatus), t.Status)],
                 TripStatusDate = t.TripsStatus.FirstOrDefault(s => s.TripId == t.TripId && s.Status == t.Status).Date.ToShortDateString(),
                 Agent = t.Agent != null ? t.Agent.Name : "",
                 Port = t.Port != null ? t.Port.Name : "",
@@ -175,6 +176,7 @@ namespace Ships_System.PL
             FillAddShipTypecmb();
             ManageAcc_cmbArea.DataSource = Enum.GetValues(typeof(AccidentArea));
             Trips_cmbSearchFields.SelectedIndex = 0;
+            FillTranslationDictionary();
 
             FillReportsCmbShips();
             FillReportsCmbAgents();
@@ -235,6 +237,19 @@ namespace Ships_System.PL
             var products = productService.GetAllProducts().Select(p => new { ProductId = p.ProductId, ProductName = p.Name }).ToList();
             products.Insert(0, new { ProductId = -1, ProductName = "كل المنتجات" });
             FillList(Reports_quantityReport_cmbProducts, products, "ProductId", "ProductName");
+        }
+
+        void FillTranslationDictionary()
+        {
+            ArabicValues.Add("LeftDGebouti","غادرت جيبوتى");
+            ArabicValues.Add("ReservationArea", "في منطقة الاحتجاز");
+            ArabicValues.Add("AtGhates", "في الغاطس");
+            ArabicValues.Add("ArriveAtPlatform", "وصلت الارصفة");
+            ArabicValues.Add("WaitingAtGhatesAfterUnload", "منتظرة بالغاطس بعد التفريغ");
+            ArabicValues.Add("EXecptedTOArrive ", "متوقع وصولها");
+            ArabicValues.Add("InPortArea ", " في الميناء");
+            ArabicValues.Add(" InTerritorialWater ", "في المياه الاقليمية");
+            ArabicValues.Add(" InInternationalWater", "في المياه الدولية");
         }
 
         void FillAddShipTypecmb()
@@ -1058,7 +1073,7 @@ namespace Ships_System.PL
                 IMO = a.Ship.Imo,
                 ShipType = a.Ship.ShipType.Name,
                 Date = a.Date,
-                Area = Enum.GetName(typeof(AccidentArea), a.Area),
+                Area =ArabicValues[ Enum.GetName(typeof(AccidentArea), a.Area)],
                 Lat = a.latitude,
                 longi = a.longitude,
                 Details = a.Details,
