@@ -1559,6 +1559,7 @@
             this.AddTrip_DGVProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.AddTrip_DGVProducts.Size = new System.Drawing.Size(283, 101);
             this.AddTrip_DGVProducts.TabIndex = 37;
+            this.AddTrip_DGVProducts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AddTrip_DGVProducts_CellContentClick);
             // 
             // quantitylabel
             // 
@@ -1999,10 +2000,10 @@
             // 
             // accidents_deletebtn
             // 
-            this.accidents_deletebtn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.accidents_deletebtn.Location = new System.Drawing.Point(268, 142);
+            this.accidents_deletebtn.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.accidents_deletebtn.Location = new System.Drawing.Point(490, 62);
             this.accidents_deletebtn.Name = "accidents_deletebtn";
-            this.accidents_deletebtn.Size = new System.Drawing.Size(370, 54);
+            this.accidents_deletebtn.Size = new System.Drawing.Size(161, 54);
             this.accidents_deletebtn.TabIndex = 1;
             this.accidents_deletebtn.Text = "حذف بيانات الحادثة";
             this.accidents_deletebtn.UseVisualStyleBackColor = true;
@@ -2010,10 +2011,10 @@
             // 
             // Accident_Upadtebtn
             // 
-            this.Accident_Upadtebtn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.Accident_Upadtebtn.Location = new System.Drawing.Point(268, 75);
+            this.Accident_Upadtebtn.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Accident_Upadtebtn.Location = new System.Drawing.Point(325, 62);
             this.Accident_Upadtebtn.Name = "Accident_Upadtebtn";
-            this.Accident_Upadtebtn.Size = new System.Drawing.Size(370, 51);
+            this.Accident_Upadtebtn.Size = new System.Drawing.Size(159, 51);
             this.Accident_Upadtebtn.TabIndex = 1;
             this.Accident_Upadtebtn.Text = "تعديل بيانات الحادثة";
             this.Accident_Upadtebtn.UseVisualStyleBackColor = true;
@@ -2023,9 +2024,9 @@
             // 
             this.Accidents_DGV.BackgroundColor = System.Drawing.SystemColors.Control;
             this.Accidents_DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Accidents_DGV.Location = new System.Drawing.Point(-4, 212);
+            this.Accidents_DGV.Location = new System.Drawing.Point(-4, 134);
             this.Accidents_DGV.Name = "Accidents_DGV";
-            this.Accidents_DGV.Size = new System.Drawing.Size(1000, 446);
+            this.Accidents_DGV.Size = new System.Drawing.Size(1000, 524);
             this.Accidents_DGV.TabIndex = 0;
             // 
             // AccidentManagementTab
