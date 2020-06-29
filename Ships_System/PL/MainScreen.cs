@@ -1887,14 +1887,8 @@ namespace Ships_System.PL
             if (AddTrip_btnSaveTrip.Tag == null)
             {
                 AddTrip_CmbStatus.SelectedValue = 3;
-                //AddTrip_CmbStatus.Text = "في الغاطس";
                 AddTrip_CmbStatus.Enabled = false;
             }
-        }
-
-        private void AddTrip_DGVProducts_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

@@ -1559,7 +1559,6 @@
             this.AddTrip_DGVProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.AddTrip_DGVProducts.Size = new System.Drawing.Size(283, 101);
             this.AddTrip_DGVProducts.TabIndex = 37;
-            this.AddTrip_DGVProducts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AddTrip_DGVProducts_CellContentClick);
             // 
             // quantitylabel
             // 
