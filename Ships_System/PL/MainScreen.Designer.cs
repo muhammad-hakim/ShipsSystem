@@ -1339,6 +1339,7 @@
             this.addingTripTab.Size = new System.Drawing.Size(996, 646);
             this.addingTripTab.TabIndex = 1;
             this.addingTripTab.Text = "إدارة الرحلات";
+            this.addingTripTab.Enter += new System.EventHandler(this.addingTripTab_Enter);
             // 
             // label40
             // 
