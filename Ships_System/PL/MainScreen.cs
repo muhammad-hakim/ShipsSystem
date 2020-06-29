@@ -182,6 +182,7 @@ namespace Ships_System.PL
             FillReportsCmbPorts();
             FillReportsCmbProducts();
             FillReportsCmbStatus();
+            FillReportsCmbPlatforms();
         }
 
         void FillReportsCmbStatus()
@@ -228,7 +229,7 @@ namespace Ships_System.PL
             var platforms = platformService.GetAllPlatforms().Select(p => new { Id = p.PlatformId, Name = p.Name }).ToList();
             platforms.Insert(0, new { Id = -1, Name = "كل الأرصفة" });
 
-            FillList(Reports_ShipStaus_cmbPlatforms , platform, "Id", "Name");
+            FillList(Reports_ShipStaus_cmbPlatforms , platforms, "Id", "Name");
         }
 
         void FillReportsCmbProducts()
@@ -1584,13 +1585,13 @@ namespace Ships_System.PL
                     CenterAllignPdfTableCells(productsTable);
                     table.AddCell(productsTable);
 
-                    PdfPCell c8 = new PdfPCell(new Phrase(trip.Agent.Name, cellFont));
+                    PdfPCell c8 = new PdfPCell(new Phrase(trip.Agent != null? trip.Agent.Name : "", cellFont));
                     table.AddCell(c8);
 
-                    PdfPCell c9 = new PdfPCell(new Phrase(trip.Port.Name, cellFont));
+                    PdfPCell c9 = new PdfPCell(new Phrase(trip.Port != null? trip.Port.Name : "", cellFont));
                     table.AddCell(c9);
 
-                    PdfPCell c10 = new PdfPCell(new Phrase(trip.Platform.Name, cellFont));
+                    PdfPCell c10 = new PdfPCell(new Phrase(trip.Platform != null? trip.Platform.Name :"", cellFont));
                     table.AddCell(c10);
 
                     PdfPCell c11 = new PdfPCell(new Phrase(trip.Notes, cellFont));
