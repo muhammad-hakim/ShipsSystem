@@ -148,7 +148,7 @@ namespace Ships_System.PL
             TripsDGV.Columns[2].Width = 75;
             TripsDGV.Columns[5].Width = 90;
 
-            Trips_btnDelete.Enabled = Trips_btnDelete.Enabled = TripsDGV.Rows.Count > 0;
+            Trips_btnDelete.Enabled = Trips_btnEdit.Enabled = TripsDGV.Rows.Count > 0;
         }
 
         void FillCmbPort(ComboBox cmb)
@@ -910,7 +910,7 @@ namespace Ships_System.PL
             AddTrip_CmbShips.SelectedIndex = 0;
             AddTrip_CmbAgents.SelectedIndex = 0;
             AddTrip_CmbPorts.SelectedIndex = 0;
-            AddTrip_CmbPlatforms.SelectedIndex = 0;
+            AddTrip_CmbPlatforms.SelectedIndex= 0;
             AddTrip_CmbStatus.SelectedIndex = 0;
             AddTrip_CmbStatus.Enabled = false;
             AddTrip_CmbProducts.SelectedIndex = 0;
@@ -1886,7 +1886,7 @@ namespace Ships_System.PL
         {
             if (AddTrip_btnSaveTrip.Tag == null)
             {
-                AddTrip_CmbStatus.SelectedValue = 3;
+                AddTrip_CmbStatus.SelectedValue = (int)TripStatus.LeftDGebouti;
                 AddTrip_CmbStatus.Enabled = false;
             }
         }
