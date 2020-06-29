@@ -53,16 +53,19 @@ namespace Ships_System.PL
             ShipsGridView.Columns[1].HeaderText = "اسم السفينة";
             ShipsGridView.Columns[3].HeaderText = "نوع السفينة";
             ShipsGridView.Columns[1].Width = ShipsGridView.Columns[2].Width = ShipsGridView.Columns[3].Width = 165;
+            ShipsTab_btnDelete.Enabled = ShipsTab_btnEdit.Enabled = ShipsGridView.Rows.Count > 0;
         }
         void FillAgentsList()
         {
             var agents = agentService.GetAllAgents().Select(a => new { AgentId = a.AgentId, AgentName = a.Name }).ToList();
             FillList(Agents_lstAgents, agents, "AgentId", "AgentName");
+            Agents_btnDelete.Enabled = Agents_btnEdit.Enabled = Agents_lstAgents.Items.Count > 0;
         }
         void FillPortsList()
         {
             var ports = portService.GetAllPorts().Select(p => new { PortId = p.PortId, PortName = p.Name }).ToList();
             FillList(Ports_lstPorts, ports, "PortId", "PortName");
+            Ports_btnDelete.Enabled = Ports_btnEdit.Enabled = Ports_lstPorts.Items.Count > 0;
         }
 
         private void AddShip_Savebtn_Click(object sender, EventArgs e)
@@ -144,6 +147,8 @@ namespace Ships_System.PL
             TripsDGV.Columns[0].Width = 85;
             TripsDGV.Columns[2].Width = 75;
             TripsDGV.Columns[5].Width = 90;
+
+            Trips_btnDelete.Enabled = Trips_btnDelete.Enabled = TripsDGV.Rows.Count > 0;
         }
 
         void FillCmbPort(ComboBox cmb)
@@ -184,6 +189,7 @@ namespace Ships_System.PL
             Trips_cmbSearchFields.SelectedIndex = 0;
         }
 
+
         void FillCmbAccidentArea()
         {
             var items = new List<object>();
@@ -203,10 +209,11 @@ namespace Ships_System.PL
             }
             FillList(AddTrip_CmbStatus, items, "Id", "Name"); 
 
-            items.Insert(0, new { Id = -1, Name = "كل الحالات" });
-
+            Reports_TripsReport_cmbStatus.Items.Insert(0, new { Id = -1, Name = "كل الحالات" });
+            Reports_ShipsStatus_cmbStatus.Items.Insert(0, new { Id = -1, Name = "كل الحالات" });
             FillList(Reports_TripsReport_cmbStatus, items, "Id", "Name");
             FillList(Reports_ShipsStatus_cmbStatus, items, "Id", "Name");
+
         }
 
         void FillReportsCmbShips()
@@ -315,6 +322,7 @@ namespace Ships_System.PL
         {
             var products = productService.GetAllProducts().Select(p => new { ProductId = p.ProductId, ProdcutName = p.Name }).ToList();
             FillList(Products_lstProducts, products, "ProductId", "ProdcutName");
+            Products_btnDelete.Enabled = Products_btnEdit.Enabled = Products_lstProducts.Items.Count > 0;
         }
 
         private void Products_btnSave_Click(object sender, EventArgs e)
@@ -409,6 +417,8 @@ namespace Ships_System.PL
             Platforms_dgvPlatforms.Columns[1].HeaderText = "اسم الرصيف";
             Platforms_dgvPlatforms.Columns[2].HeaderText = "اسم الميناء";
             Platforms_dgvPlatforms.Columns[1].Width = Platforms_dgvPlatforms.Columns[2].Width = 130;
+
+            Platforms_btnDelete.Enabled = Platforms_btnEdit.Enabled = Platforms_dgvPlatforms.Rows.Count > 0;
         }
 
         private void Ports_btnSave_Click(object sender, EventArgs e)
@@ -1116,6 +1126,8 @@ namespace Ships_System.PL
             Accidents_DGV.Columns[13].HeaderText = "الاجراء المتخذ من الدولة الساحلية";
             Accidents_DGV.Columns[14].Visible = false;
             Accidents_DGV.Columns[15].Visible = false;
+
+            accidents_deletebtn.Enabled = Accident_Upadtebtn.Enabled = Accidents_DGV.Rows.Count > 0;
         }
 
         private void MangeAcc_linkShip_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -1874,9 +1886,15 @@ namespace Ships_System.PL
         {
             if (AddTrip_btnSaveTrip.Tag == null)
             {
-                AddTrip_CmbStatus.SelectedItem = TripStatus.LeftDGebouti;
+                AddTrip_CmbStatus.SelectedValue = 3;
+                //AddTrip_CmbStatus.Text = "في الغاطس";
                 AddTrip_CmbStatus.Enabled = false;
             }
+        }
+
+        private void AddTrip_DGVProducts_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
