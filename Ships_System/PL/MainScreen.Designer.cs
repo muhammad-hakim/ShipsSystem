@@ -2532,6 +2532,7 @@
             // 
             // Reports_Visits_cmbPorts
             // 
+            this.Reports_Visits_cmbPorts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Reports_Visits_cmbPorts.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.Reports_Visits_cmbPorts.FormattingEnabled = true;
             this.Reports_Visits_cmbPorts.Location = new System.Drawing.Point(535, 27);
@@ -2551,6 +2552,7 @@
             // 
             // Reports_Visits_cmbShips
             // 
+            this.Reports_Visits_cmbShips.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Reports_Visits_cmbShips.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.Reports_Visits_cmbShips.FormattingEnabled = true;
             this.Reports_Visits_cmbShips.Location = new System.Drawing.Point(741, 27);
@@ -2586,6 +2588,7 @@
             // 
             // Reports_ShipStaus_cmbPorts
             // 
+            this.Reports_ShipStaus_cmbPorts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Reports_ShipStaus_cmbPorts.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.Reports_ShipStaus_cmbPorts.FormattingEnabled = true;
             this.Reports_ShipStaus_cmbPorts.Location = new System.Drawing.Point(387, 16);
@@ -2606,6 +2609,7 @@
             // 
             // Reports_ShipStaus_cmbPlatforms
             // 
+            this.Reports_ShipStaus_cmbPlatforms.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Reports_ShipStaus_cmbPlatforms.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.Reports_ShipStaus_cmbPlatforms.FormattingEnabled = true;
             this.Reports_ShipStaus_cmbPlatforms.Location = new System.Drawing.Point(152, 17);
@@ -2636,6 +2640,7 @@
             // 
             // Reports_ShipsStatus_cmbStatus
             // 
+            this.Reports_ShipsStatus_cmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Reports_ShipsStatus_cmbStatus.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.Reports_ShipsStatus_cmbStatus.FormattingEnabled = true;
             this.Reports_ShipsStatus_cmbStatus.Location = new System.Drawing.Point(619, 17);
@@ -2688,6 +2693,7 @@
             // 
             // Reports_TripsReport_cmbAgents
             // 
+            this.Reports_TripsReport_cmbAgents.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Reports_TripsReport_cmbAgents.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.Reports_TripsReport_cmbAgents.FormattingEnabled = true;
             this.Reports_TripsReport_cmbAgents.Location = new System.Drawing.Point(11, 21);
@@ -2697,6 +2703,7 @@
             // 
             // Reports_TripsReport_cmbPorts
             // 
+            this.Reports_TripsReport_cmbPorts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Reports_TripsReport_cmbPorts.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.Reports_TripsReport_cmbPorts.FormattingEnabled = true;
             this.Reports_TripsReport_cmbPorts.Location = new System.Drawing.Point(531, 72);
@@ -2716,6 +2723,7 @@
             // 
             // Reports_TripsReport_cmbStatus
             // 
+            this.Reports_TripsReport_cmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Reports_TripsReport_cmbStatus.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.Reports_TripsReport_cmbStatus.FormattingEnabled = true;
             this.Reports_TripsReport_cmbStatus.Location = new System.Drawing.Point(293, 20);
@@ -2735,6 +2743,7 @@
             // 
             // Reports_TripsReport_cmbShips
             // 
+            this.Reports_TripsReport_cmbShips.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Reports_TripsReport_cmbShips.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.Reports_TripsReport_cmbShips.FormattingEnabled = true;
             this.Reports_TripsReport_cmbShips.Location = new System.Drawing.Point(531, 20);
@@ -2936,6 +2945,7 @@
             // 
             // Reports_quantityReport_cmbProducts
             // 
+            this.Reports_quantityReport_cmbProducts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Reports_quantityReport_cmbProducts.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.Reports_quantityReport_cmbProducts.FormattingEnabled = true;
             this.Reports_quantityReport_cmbProducts.Location = new System.Drawing.Point(537, 20);
