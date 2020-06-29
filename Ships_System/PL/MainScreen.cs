@@ -135,7 +135,7 @@ namespace Ships_System.PL
             TripsDGV.Columns[2].HeaderText = "IMO";
             TripsDGV.Columns[3].HeaderText = "النوع";
             TripsDGV.Columns[4].HeaderText = "الحالة";
-            TripsDGV.Columns[5].HeaderText = "تاريخ الحالة";
+            TripsDGV.Columns[5].HeaderText = "التاريخ";
             TripsDGV.Columns[6].HeaderText = "الوكيل الملاحى";
             TripsDGV.Columns[7].HeaderText = "الميناء";
             TripsDGV.Columns[8].HeaderText = "الرصيف";
