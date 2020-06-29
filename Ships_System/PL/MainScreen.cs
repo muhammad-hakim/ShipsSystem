@@ -173,26 +173,37 @@ namespace Ships_System.PL
             FillPortsList();
             FillProductsList();
             FillAgentsList();
-            AddTrip_CmbStatus.DataSource = Enum.GetValues(typeof(TripStatus));
             FillAddShipTypecmb();
-            ManageAcc_cmbArea.DataSource = Enum.GetValues(typeof(AccidentArea));
-            Trips_cmbSearchFields.SelectedIndex = 0;
+            FillCmbAccidentArea();
             FillReportsCmbShips();
             FillReportsCmbAgents();
             FillReportsCmbPorts();
             FillReportsCmbProducts();
-            FillReportsCmbStatus();
+            FillCmbStatus();
+            Trips_cmbSearchFields.SelectedIndex = 0;
         }
 
-        void FillReportsCmbStatus()
+        void FillCmbAccidentArea()
         {
             var items = new List<object>();
+            foreach (var item in Enum.GetValues(typeof(AccidentArea)))
+            {
+                items.Add(new { Id = (int)item, Name = ArabicValues[item.ToString()] });
+            }
+            FillList(ManageAcc_cmbArea, items, "Id", "Name");
+        }
 
-            items.Insert(0, new { Id = -1, Name = "كل الحالات" });
+        void FillCmbStatus()
+        {
+            var items = new List<object>();
             foreach (var item in Enum.GetValues(typeof(TripStatus)))
             {
-                items.Add(new { Id = (int)item, Name = item.ToString() });
+                items.Add(new { Id = (int)item, Name = ArabicValues[item.ToString()] });
             }
+            FillList(AddTrip_CmbStatus, items, "Id", "Name"); 
+
+            items.Insert(0, new { Id = -1, Name = "كل الحالات" });
+
             FillList(Reports_TripsReport_cmbStatus, items, "Id", "Name");
             FillList(Reports_ShipsStatus_cmbStatus, items, "Id", "Name");
         }
@@ -245,7 +256,7 @@ namespace Ships_System.PL
             ArabicValues.Add("AtGhates", "في الغاطس");
             ArabicValues.Add("ArriveAtPlatform", "وصلت الارصفة");
             ArabicValues.Add("WaitingAtGhatesAfterUnload", "منتظرة بالغاطس بعد التفريغ");
-            ArabicValues.Add("EXecptedTOArrive ", "متوقع وصولها");
+            ArabicValues.Add("EXecptedTOArrive", "متوقع وصولها");
             ArabicValues.Add("InPortArea", "في الميناء");
             ArabicValues.Add("InTerritorialWater", "في المياه الاقليمية");
             ArabicValues.Add("InInternationalWater", "في المياه الدولية");
@@ -890,6 +901,7 @@ namespace Ships_System.PL
             AddTrip_CmbPorts.SelectedIndex = 0;
             AddTrip_CmbPlatforms.SelectedIndex = 0;
             AddTrip_CmbStatus.SelectedIndex = 0;
+            AddTrip_CmbStatus.Enabled = false;
             AddTrip_CmbProducts.SelectedIndex = 0;
             AddTrip_nudProductQuantity.Value = AddTrip_nudProductQuantity.Minimum;
             AddTrip_txtNotes.Clear();
@@ -911,7 +923,8 @@ namespace Ships_System.PL
             AddTrip_CmbPorts.Text = TripsDGV.CurrentRow.Cells[7].Value.ToString();
             AddTrip_CmbPlatforms.Text = TripsDGV.CurrentRow.Cells[8].Value.ToString();
             AddTrip_txtNotes.Text = TripsDGV.CurrentRow.Cells[9].Value.ToString();
-            AddTrip_CmbStatus.SelectedItem = (TripStatus)TripsDGV.CurrentRow.Cells[10].Value;
+            AddTrip_CmbStatus.Enabled = true;
+            AddTrip_CmbStatus.Text = ArabicValues[Enum.GetName(typeof(TripStatus) , TripsDGV.CurrentRow.Cells[10].Value)];
 
             TripShipLoad.Clear();
             foreach (TripsLoad item in allTrips.Find(t => t.TripId == Convert.ToInt32(TripsDGV.CurrentRow.Cells[0].Value)).TripsLoads)
@@ -1556,7 +1569,7 @@ namespace Ships_System.PL
                     PdfPCell c4 = new PdfPCell(new Phrase(trip.Ship.ShipType.Name, cellFont));
                     table.AddCell(c4);
 
-                    PdfPCell c5 = new PdfPCell(new Phrase(((TripStatus)trip.Status).ToString(), cellFont));
+                    PdfPCell c5 = new PdfPCell(new Phrase(ArabicValues[((TripStatus)trip.Status).ToString()], cellFont));
                     table.AddCell(c5);
 
                     PdfPCell c6 = new PdfPCell(new Phrase(trip.TripsStatus.FirstOrDefault(s => s.Status == trip.Status).Date.ToShortDateString(), cellFont));
@@ -1854,6 +1867,15 @@ namespace Ships_System.PL
         private void Reports_ShipStaus_cmbPorts_SelectedIndexChanged(object sender, EventArgs e)
         {
             Reports_ShipStaus_cmbPlatforms.Enabled = (int)Reports_ShipStaus_cmbPorts .SelectedValue != -1;
+        }
+
+        private void addingTripTab_Enter(object sender, EventArgs e)
+        {
+            if (AddTrip_btnSaveTrip.Tag == null)
+            {
+                AddTrip_CmbStatus.SelectedItem = TripStatus.LeftDGebouti;
+                AddTrip_CmbStatus.Enabled = false;
+            }
         }
     }
 }
