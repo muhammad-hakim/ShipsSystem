@@ -70,7 +70,8 @@ namespace Ships_System.PL
 
         private void AddShip_Savebtn_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(AddShip_Nametxt.Text.Trim()) || string.IsNullOrEmpty(AddShip_Imotxt.Text.Trim()) || AddShip_Typecmb.SelectedValue == null)
+            if (string.IsNullOrEmpty(AddShip_Nametxt.Text.Trim()) || string.IsNullOrEmpty(AddShip_Imotxt.Text.Trim()) || AddShip_Typecmb.SelectedValue == null
+                || (int)AddShip_Typecmb.SelectedValue == -1 || AddShip_Typecmb.SelectedValue == null || (int)AddShip_Typecmb.SelectedValue == -1)
                 MessageBox.Show("من فضلك أدخل الحقول المطلوبة", "حقول مطلوبة", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
             {
@@ -101,7 +102,7 @@ namespace Ships_System.PL
                         FillReportsCmbShips();
                         AddShip_Imotxt.Clear();
                         AddShip_Nametxt.Clear();
-                        AddShip_Typecmb.SelectedIndex = 0;
+                        AddShip_Typecmb.SelectedValue = -1;
                         MessageBox.Show("تم الحفظ بنجاح", "تم الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
@@ -154,6 +155,7 @@ namespace Ships_System.PL
         void FillCmbPort(ComboBox cmb)
         {
             var ports = portService.GetAllPorts().Select(p => new { PortId = p.PortId, PortName = p.Name }).ToList();
+            ports.Insert(0, new { PortId = -1, PortName = "اختر ميناء" });
             FillList(cmb, ports, "PortId", "PortName");
         }
 
@@ -187,8 +189,8 @@ namespace Ships_System.PL
             FillCmbStatus();
             FillReportsCmbPlatforms();
             Trips_cmbSearchFields.SelectedIndex = 0;
+            Reports_TripsReport_cmbPorts.SelectedValue = -1;
         }
-
 
         void FillCmbAccidentArea()
         {
@@ -197,6 +199,7 @@ namespace Ships_System.PL
             {
                 items.Add(new { Id = (int)item, Name = ArabicValues[item.ToString()] });
             }
+            items.Insert(0, new { Id = -1, Name = "اختر منطقة" });
             FillList(ManageAcc_cmbArea, items, "Id", "Name");
         }
 
@@ -207,13 +210,26 @@ namespace Ships_System.PL
             {
                 items.Add(new { Id = (int)item, Name = ArabicValues[item.ToString()] });
             }
-            FillList(AddTrip_CmbStatus, items, "Id", "Name"); 
 
-            Reports_TripsReport_cmbStatus.Items.Insert(0, new { Id = -1, Name = "كل الحالات" });
-            Reports_ShipsStatus_cmbStatus.Items.Insert(0, new { Id = -1, Name = "كل الحالات" });
-            FillList(Reports_TripsReport_cmbStatus, items, "Id", "Name");
-            FillList(Reports_ShipsStatus_cmbStatus, items, "Id", "Name");
+            FillList(AddTrip_CmbStatus, items, "Id", "Name");
 
+            var TripsReportsItems = new List<object>();
+            TripsReportsItems.Add(new { Id = -1, Name = "كل الحالات" });
+
+            foreach (var item in Enum.GetValues(typeof(TripStatus)))
+            {
+                TripsReportsItems.Add(new { Id = (int)item, Name = ArabicValues[item.ToString()] });
+            }
+            FillList(Reports_TripsReport_cmbStatus, TripsReportsItems, "Id", "Name");
+
+            var ShipsReportsItems = new List<object>();
+            ShipsReportsItems.Add(new { Id = -1, Name = "كل الحالات" });
+
+            foreach (var item in Enum.GetValues(typeof(TripStatus)))
+            {
+                ShipsReportsItems.Add(new { Id = (int)item, Name = ArabicValues[item.ToString()] });
+            }
+            FillList(Reports_ShipsStatus_cmbStatus, ShipsReportsItems, "Id", "Name");
         }
 
         void FillReportsCmbShips()
@@ -247,7 +263,7 @@ namespace Ships_System.PL
             var platforms = platformService.GetAllPlatforms().Select(p => new { Id = p.PlatformId, Name = p.Name }).ToList();
             platforms.Insert(0, new { Id = -1, Name = "كل الأرصفة" });
 
-            FillList(Reports_ShipStaus_cmbPlatforms , platforms, "Id", "Name");
+            FillList(Reports_ShipStaus_cmbPlatforms, platforms, "Id", "Name");
         }
 
         void FillReportsCmbProducts()
@@ -259,7 +275,7 @@ namespace Ships_System.PL
 
         void FillTranslationDictionary()
         {
-            ArabicValues.Add("LeftDGebouti","غادرت جيبوتى");
+            ArabicValues.Add("LeftDGebouti", "غادرت جيبوتى");
             ArabicValues.Add("ReservationArea", "في منطقة الاحتجاز");
             ArabicValues.Add("AtGhates", "في الغاطس");
             ArabicValues.Add("ArriveAtPlatform", "وصلت الارصفة");
@@ -272,9 +288,11 @@ namespace Ships_System.PL
 
         void FillAddShipTypecmb()
         {
+            var types = shipTypesService.GetAllShipTypes().Select(t => new { TypeId = t.TypeId, Name = t.Name }).ToList();
+            types.Insert(0, new { TypeId = -1, Name = "اختر نوع" });
             AddShip_Typecmb.DisplayMember = "Name";
             AddShip_Typecmb.ValueMember = "TypeId";
-            AddShip_Typecmb.DataSource = shipTypesService.GetAllShipTypes();
+            AddShip_Typecmb.DataSource = types;
         }
 
         private void Agents_btnSave_Click(object sender, EventArgs e)
@@ -369,7 +387,7 @@ namespace Ships_System.PL
 
         private void Platforms_btnSave_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(Platforms_txtName.Text.Trim()) || Platforms_cmbPort.SelectedValue == null)
+            if (string.IsNullOrEmpty(Platforms_txtName.Text.Trim()) || Platforms_cmbPort.SelectedValue == null || (int)Platforms_cmbPort.SelectedValue == -1)
                 MessageBox.Show("من فضلك أدخل الحقول المطلوبة", "حقول مطلوبة", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
             {
@@ -523,6 +541,7 @@ namespace Ships_System.PL
         void FillCmbShips(ComboBox cmb)
         {
             var ships = shipService.GetAllShips().Select(s => new { ShipId = s.ShipId, ShipName = s.Name }).ToList();
+            ships.Insert(0, new { ShipId = -1, ShipName = "اختر سفينة" });
             cmb.ValueMember = "ShipId";
             cmb.DisplayMember = "ShipName";
             cmb.DataSource = ships;
@@ -531,6 +550,7 @@ namespace Ships_System.PL
         void FillAddTripCmbAgents()
         {
             var agents = agentService.GetAllAgents().Select(a => new { AgentId = a.AgentId, AgentName = a.Name }).ToList();
+            agents.Insert(0, new { AgentId = -1, AgentName = "اختر وكيل" });
             FillList(AddTrip_CmbAgents, agents, "AgentId", "AgentName");
         }
 
@@ -544,6 +564,7 @@ namespace Ships_System.PL
             if (AddTrip_CmbPorts.SelectedValue != null)
             {
                 var platforms = platformService.GetByPortId(Convert.ToInt32(AddTrip_CmbPorts.SelectedValue)).Select(p => new { PlatformId = p.PlatformId, PlatformName = p.Name }).ToList();
+                platforms.Insert(0, new { PlatformId = -1, PlatformName = "اختر رصيف" });
                 FillList(AddTrip_CmbPlatforms, platforms, "PlatformId", "PlatformName");
             }
         }
@@ -551,6 +572,7 @@ namespace Ships_System.PL
         void FillAddTripCmbProducts()
         {
             var products = productService.GetAllProducts().Select(p => new { ProductId = p.ProductId, ProductName = p.Name }).ToList();
+            products.Insert(0, new { ProductId = -1, ProductName = "اختر منتج" });
             FillList(AddTrip_CmbProducts, products, "ProductId", "ProductName");
         }
 
@@ -567,6 +589,7 @@ namespace Ships_System.PL
         private void AddTrip_CmbPorts_SelectedIndexChanged(object sender, EventArgs e)
         {
             AddTrip_CmbPlatforms.DataSource = null;
+            AddTrip_CmbPlatforms.Enabled = AddTrip_CmbPorts.SelectedValue != null && (int)AddTrip_CmbPorts.SelectedValue != -1;
             FillAddTripCmbPlatforms();
         }
 
@@ -600,7 +623,7 @@ namespace Ships_System.PL
 
         private void AddTrip_btnAddProduct_Click(object sender, EventArgs e)
         {
-            if (AddTrip_CmbProducts.SelectedValue == null || AddTrip_nudProductQuantity.Value < 0)
+            if (AddTrip_CmbProducts.SelectedValue == null || (int)AddTrip_CmbProducts.SelectedValue == -1 || AddTrip_nudProductQuantity.Value < 0)
                 MessageBox.Show("من فضلك أدخل الحقول المطلوبة", "حقول مطلوبة", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
             {
@@ -615,7 +638,7 @@ namespace Ships_System.PL
                 {
                     TripShipLoad.Add(productId, quantity);
                 }
-                AddTrip_CmbProducts.SelectedIndex = 0;
+                AddTrip_CmbProducts.SelectedValue = -1;
                 AddTrip_nudProductQuantity.Value = AddTrip_nudProductQuantity.Minimum;
                 FillAddTripDGVShipLoad();
             }
@@ -623,7 +646,9 @@ namespace Ships_System.PL
 
         private void AddTrip_btnSaveTrip_Click(object sender, EventArgs e)
         {
-            if (AddTrip_CmbShips.SelectedValue == null || AddTrip_CmbAgents.SelectedValue == null || AddTrip_CmbStatus.SelectedValue == null || AddTrip_CmbPorts.SelectedValue == null || AddTrip_dtpDate.Value == null)
+            if (AddTrip_CmbShips.SelectedValue == null || (int)AddTrip_CmbShips.SelectedValue == -1 || AddTrip_CmbAgents.SelectedValue == null ||
+               (int)AddTrip_CmbAgents.SelectedValue == -1 || AddTrip_CmbStatus.SelectedValue == null || (int)AddTrip_CmbStatus.SelectedValue == -1 ||
+               AddTrip_CmbPorts.SelectedValue == null || (int)AddTrip_CmbPorts.SelectedValue == -1 || AddTrip_dtpDate.Value == null)
                 MessageBox.Show("من فضلك أدخل الحقول المطلوبة", "حقول مطلوبة", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
             {
@@ -704,7 +729,7 @@ namespace Ships_System.PL
         {
             AddShip_Imotxt.Clear();
             AddShip_Nametxt.Clear();
-            AddShip_Typecmb.SelectedIndex = 0;
+            AddShip_Typecmb.SelectedValue = -1;
             AddShip_Savebtn.Tag = null;
         }
 
@@ -881,7 +906,7 @@ namespace Ships_System.PL
         {
             Platforms_btnSave.Tag = null;
             Platforms_txtName.Clear();
-            Platforms_cmbPort.SelectedIndex = 0;
+            Platforms_cmbPort.SelectedValue = -1;
         }
 
         private void AddTrip_btnEditProduct_Click(object sender, EventArgs e)
@@ -907,13 +932,13 @@ namespace Ships_System.PL
 
         void AddTripRestControls()
         {
-            AddTrip_CmbShips.SelectedIndex = 0;
-            AddTrip_CmbAgents.SelectedIndex = 0;
-            AddTrip_CmbPorts.SelectedIndex = 0;
-            AddTrip_CmbPlatforms.SelectedIndex= 0;
-            AddTrip_CmbStatus.SelectedIndex = 0;
+            AddTrip_CmbShips.SelectedValue = -1;
+            AddTrip_CmbAgents.SelectedValue = -1;
+            AddTrip_CmbPorts.SelectedValue = -1;
+            AddTrip_CmbPlatforms.SelectedValue = -1;
+            AddTrip_CmbStatus.SelectedValue = -1;
             AddTrip_CmbStatus.Enabled = false;
-            AddTrip_CmbProducts.SelectedIndex = 0;
+            AddTrip_CmbProducts.SelectedValue = -1;
             AddTrip_nudProductQuantity.Value = AddTrip_nudProductQuantity.Minimum;
             AddTrip_txtNotes.Clear();
             TripShipLoad.Clear();
@@ -935,7 +960,7 @@ namespace Ships_System.PL
             AddTrip_CmbPlatforms.Text = TripsDGV.CurrentRow.Cells[8].Value.ToString();
             AddTrip_txtNotes.Text = TripsDGV.CurrentRow.Cells[9].Value.ToString();
             AddTrip_CmbStatus.Enabled = true;
-            AddTrip_CmbStatus.Text = ArabicValues[Enum.GetName(typeof(TripStatus) , TripsDGV.CurrentRow.Cells[10].Value)];
+            AddTrip_CmbStatus.Text = ArabicValues[Enum.GetName(typeof(TripStatus), TripsDGV.CurrentRow.Cells[10].Value)];
 
             TripShipLoad.Clear();
             foreach (TripsLoad item in allTrips.Find(t => t.TripId == Convert.ToInt32(TripsDGV.CurrentRow.Cells[0].Value)).TripsLoads)
@@ -1012,7 +1037,7 @@ namespace Ships_System.PL
         private void Trips_btnClearSearch_Click(object sender, EventArgs e)
         {
             Trips_txtSearch.Clear();
-            Trips_cmbSearchFields.SelectedIndex = 0;
+            Trips_cmbSearchFields.SelectedValue = -1;
             TripsDGV.DataSource = tripsForDGV;
         }
 
@@ -1028,7 +1053,9 @@ namespace Ships_System.PL
 
         private void ManageAcc_savebtn_Click(object sender, EventArgs e)
         {
-            if (ManageAcc_cmbShipName.SelectedValue == null || ManageAcc_cmbArea.SelectedValue == null || string.IsNullOrEmpty(ManageAcc_txtLat.Text.Trim()) || string.IsNullOrEmpty(ManageAcc_txtLong.Text.Trim()) || ManageAcc_dtpDate.Value == null || (ManageAcc_CheckReported.Checked && string.IsNullOrEmpty(ManageAcc_txtReportedTo.Text.Trim())))
+            if (ManageAcc_cmbShipName.SelectedValue == null || (int)ManageAcc_cmbShipName.SelectedValue == -1 || ManageAcc_cmbArea.SelectedValue == null ||
+                (int)ManageAcc_cmbArea.SelectedValue == -1 || string.IsNullOrEmpty(ManageAcc_txtLat.Text.Trim()) || string.IsNullOrEmpty(ManageAcc_txtLong.Text.Trim())
+                || ManageAcc_dtpDate.Value == null || (ManageAcc_CheckReported.Checked && string.IsNullOrEmpty(ManageAcc_txtReportedTo.Text.Trim())))
                 MessageBox.Show("من فضلك أدخل الحقول المطلوبة", "حقول مطلوبة", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
             {
@@ -1074,7 +1101,7 @@ namespace Ships_System.PL
         void ClearManageAccidentControls()
         {
 
-            ManageAcc_cmbShipName.SelectedIndex = 0;
+            ManageAcc_cmbShipName.SelectedValue = -1;
             ManageAcc_txtDetails.Clear();
             ManageAcc_txtLong.Clear();
             ManageAcc_txtLat.Clear();
@@ -1082,7 +1109,7 @@ namespace Ships_System.PL
             ManageAcc_txtCrewAction.Clear();
             ManageAcc_txtCoast.Clear();
             ManageAcc_txtReportedTo.Clear();
-            ManageAcc_cmbArea.SelectedIndex = 0;
+            ManageAcc_cmbArea.SelectedValue = -1;
             ManageAcc_CheckReported.Checked = false;
             ManageAcc_dtpDate.ResetText();
         }
@@ -1096,7 +1123,7 @@ namespace Ships_System.PL
                 IMO = a.Ship.Imo,
                 ShipType = a.Ship.ShipType.Name,
                 Date = a.Date,
-                Area =ArabicValues[ Enum.GetName(typeof(AccidentArea), a.Area)],
+                Area = ArabicValues[Enum.GetName(typeof(AccidentArea), a.Area)],
                 Lat = a.latitude,
                 longi = a.longitude,
                 Details = a.Details,
@@ -1610,13 +1637,13 @@ namespace Ships_System.PL
                     CenterAllignPdfTableCells(productsTable);
                     table.AddCell(productsTable);
 
-                    PdfPCell c8 = new PdfPCell(new Phrase(trip.Agent != null? trip.Agent.Name : "", cellFont));
+                    PdfPCell c8 = new PdfPCell(new Phrase(trip.Agent != null ? trip.Agent.Name : "", cellFont));
                     table.AddCell(c8);
 
-                    PdfPCell c9 = new PdfPCell(new Phrase(trip.Port != null? trip.Port.Name : "", cellFont));
+                    PdfPCell c9 = new PdfPCell(new Phrase(trip.Port != null ? trip.Port.Name : "", cellFont));
                     table.AddCell(c9);
 
-                    PdfPCell c10 = new PdfPCell(new Phrase(trip.Platform != null? trip.Platform.Name :"", cellFont));
+                    PdfPCell c10 = new PdfPCell(new Phrase(trip.Platform != null ? trip.Platform.Name : "", cellFont));
                     table.AddCell(c10);
 
                     PdfPCell c11 = new PdfPCell(new Phrase(trip.Notes, cellFont));
@@ -1639,7 +1666,7 @@ namespace Ships_System.PL
                 table.RunDirection = PdfWriter.RUN_DIRECTION_RTL;
                 table.WidthPercentage = 100;
                 table.SetWidths(new int[] { 50, 45, 40, 40, 65, 35, 30, 30, 30, 35 });
-         
+
                 PdfPCell headerCell1 = new PdfPCell(new Phrase("رقم الرحلة", headerFont));
                 table.AddCell(headerCell1);
 
@@ -1675,7 +1702,7 @@ namespace Ships_System.PL
 
                 SetTableHeaderCellsStyle(table.Rows[0]);
 
-                var trips = tripService.GetAllTrips().Where(t => 
+                var trips = tripService.GetAllTrips().Where(t =>
                                          (DateTime.Compare(Reports_TripsReport_dtpFrom.Value, t.TripsStatus.FirstOrDefault(s => s.Status == (int)TripStatus.LeftDGebouti).Date) <= 0) &&
                                          (DateTime.Compare(Reports_TripsReport_dtpTo.Value, t.TripsStatus.FirstOrDefault(s => s.Status == (int)TripStatus.LeftDGebouti).Date) >= 0)).ToList();
 
@@ -1696,15 +1723,15 @@ namespace Ships_System.PL
                     table.AddCell(c4);
 
                     var _reservation = trip.TripsStatus.FirstOrDefault(s => s.Status == (int)TripStatus.ReservationArea);
-                    PdfPCell c5 = new PdfPCell(new Phrase(_reservation != null? _reservation.Date.ToShortDateString() : "لم تصل منطقة الحجز بعد", cellFont));
+                    PdfPCell c5 = new PdfPCell(new Phrase(_reservation != null ? _reservation.Date.ToShortDateString() : "لم تصل منطقة الحجز بعد", cellFont));
                     table.AddCell(c5);
 
                     var _ghates = trip.TripsStatus.FirstOrDefault(s => s.Status == (int)TripStatus.AtGhates);
-                    PdfPCell c6 = new PdfPCell(new Phrase(_ghates != null? _ghates.Date.ToShortDateString() : "لم تصل الغاطس بعد", cellFont));
+                    PdfPCell c6 = new PdfPCell(new Phrase(_ghates != null ? _ghates.Date.ToShortDateString() : "لم تصل الغاطس بعد", cellFont));
                     table.AddCell(c6);
 
                     var _platform = trip.TripsStatus.FirstOrDefault(s => s.Status == (int)TripStatus.ArriveAtPlatform);
-                    PdfPCell c7 = new PdfPCell(new Phrase(_platform != null? _platform.Date.ToShortDateString() : "لم تدخل الرصيف بعد", cellFont));
+                    PdfPCell c7 = new PdfPCell(new Phrase(_platform != null ? _platform.Date.ToShortDateString() : "لم تدخل الرصيف بعد", cellFont));
                     table.AddCell(c7);
 
                     double _gebotiToReservation = CalculateDateDiffernce(_reservation.Date, _geboti);
@@ -1874,12 +1901,12 @@ namespace Ships_System.PL
 
         private void Reports_ShipsStatus_cmbStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Reports_ShipStaus_cmbPorts.Enabled = Reports_ShipStaus_cmbPlatforms.Enabled = (int)Reports_ShipsStatus_cmbStatus.SelectedValue != -1;
+            Reports_ShipStaus_cmbPorts.Enabled = (int)Reports_ShipsStatus_cmbStatus.SelectedValue == (int)TripStatus.ArriveAtPlatform;
         }
 
         private void Reports_ShipStaus_cmbPorts_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Reports_ShipStaus_cmbPlatforms.Enabled = (int)Reports_ShipStaus_cmbPorts .SelectedValue != -1;
+            Reports_ShipStaus_cmbPlatforms.Enabled = (int)Reports_ShipStaus_cmbPorts.SelectedValue != -1;
         }
 
         private void addingTripTab_Enter(object sender, EventArgs e)

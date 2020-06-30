@@ -805,11 +805,12 @@
             // 
             // Agents_lstAgents
             // 
+            this.Agents_lstAgents.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.Agents_lstAgents.FormattingEnabled = true;
-            this.Agents_lstAgents.ItemHeight = 15;
+            this.Agents_lstAgents.ItemHeight = 23;
             this.Agents_lstAgents.Location = new System.Drawing.Point(6, 57);
             this.Agents_lstAgents.Name = "Agents_lstAgents";
-            this.Agents_lstAgents.Size = new System.Drawing.Size(166, 544);
+            this.Agents_lstAgents.Size = new System.Drawing.Size(166, 533);
             this.Agents_lstAgents.TabIndex = 5;
             // 
             // Agents_btnEdit
@@ -865,11 +866,12 @@
             // 
             // Products_lstProducts
             // 
+            this.Products_lstProducts.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.Products_lstProducts.FormattingEnabled = true;
-            this.Products_lstProducts.ItemHeight = 15;
+            this.Products_lstProducts.ItemHeight = 23;
             this.Products_lstProducts.Location = new System.Drawing.Point(6, 57);
             this.Products_lstProducts.Name = "Products_lstProducts";
-            this.Products_lstProducts.Size = new System.Drawing.Size(171, 529);
+            this.Products_lstProducts.Size = new System.Drawing.Size(171, 510);
             this.Products_lstProducts.TabIndex = 27;
             // 
             // Products_btnCancel
@@ -1011,7 +1013,7 @@
             // 
             this.AddShip_Typecmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.AddShip_Typecmb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddShip_Typecmb.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.AddShip_Typecmb.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.AddShip_Typecmb.FormattingEnabled = true;
             this.AddShip_Typecmb.Items.AddRange(new object[] {
             "غذائية",
@@ -1021,14 +1023,14 @@
             "اخرى"});
             this.AddShip_Typecmb.Location = new System.Drawing.Point(22, 16);
             this.AddShip_Typecmb.Name = "AddShip_Typecmb";
-            this.AddShip_Typecmb.Size = new System.Drawing.Size(269, 27);
+            this.AddShip_Typecmb.Size = new System.Drawing.Size(269, 30);
             this.AddShip_Typecmb.TabIndex = 10;
             // 
             // type_ship
             // 
             this.type_ship.AutoSize = true;
             this.type_ship.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.type_ship.Location = new System.Drawing.Point(295, 20);
+            this.type_ship.Location = new System.Drawing.Point(291, 23);
             this.type_ship.Name = "type_ship";
             this.type_ship.Size = new System.Drawing.Size(73, 16);
             this.type_ship.TabIndex = 11;
@@ -1050,7 +1052,7 @@
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label22.ForeColor = System.Drawing.Color.Red;
-            this.label22.Location = new System.Drawing.Point(-1, 18);
+            this.label22.Location = new System.Drawing.Point(1, 22);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(20, 23);
             this.label22.TabIndex = 18;
@@ -1227,10 +1229,10 @@
             // AddShip_Imotxt
             // 
             this.AddShip_Imotxt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.AddShip_Imotxt.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.AddShip_Imotxt.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.AddShip_Imotxt.Location = new System.Drawing.Point(630, 173);
             this.AddShip_Imotxt.Name = "AddShip_Imotxt";
-            this.AddShip_Imotxt.Size = new System.Drawing.Size(269, 26);
+            this.AddShip_Imotxt.Size = new System.Drawing.Size(269, 30);
             this.AddShip_Imotxt.TabIndex = 8;
             // 
             // label9
@@ -1254,10 +1256,10 @@
             // AddShip_Nametxt
             // 
             this.AddShip_Nametxt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.AddShip_Nametxt.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.AddShip_Nametxt.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.AddShip_Nametxt.Location = new System.Drawing.Point(630, 119);
             this.AddShip_Nametxt.Name = "AddShip_Nametxt";
-            this.AddShip_Nametxt.Size = new System.Drawing.Size(269, 26);
+            this.AddShip_Nametxt.Size = new System.Drawing.Size(269, 30);
             this.AddShip_Nametxt.TabIndex = 8;
             // 
             // addship
