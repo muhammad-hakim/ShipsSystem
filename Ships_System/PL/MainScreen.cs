@@ -681,7 +681,7 @@ namespace Ships_System.PL
                     trip.ShipId = Convert.ToInt32(AddTrip_CmbShips.SelectedValue);
                     trip.Status = Convert.ToInt32(AddTrip_CmbStatus.SelectedValue);
                     trip.PortId = Convert.ToInt32(AddTrip_CmbPorts.SelectedValue);
-                    trip.PlatformId = Convert.ToInt32(AddTrip_CmbPlatforms.SelectedValue);
+                    trip.PlatformId = Convert.ToInt32(AddTrip_CmbPlatforms.SelectedValue != null && (int)AddTrip_CmbPlatforms.SelectedValue == -1);
 
                     var currentStatus = trip.TripsStatus.FirstOrDefault(s => s.TripId == trip.TripId && s.Status == trip.Status);
 
