@@ -659,7 +659,7 @@ namespace Ships_System.PL
                     ShipId = Convert.ToInt32(AddTrip_CmbShips.SelectedValue),
                     Status = Convert.ToInt32(AddTrip_CmbStatus.SelectedValue),
                     PortId = Convert.ToInt32(AddTrip_CmbPorts.SelectedValue),
-                    PlatformId = AddTrip_CmbPlatforms.SelectedValue != null ? Convert.ToInt32(AddTrip_CmbPlatforms.SelectedValue) : (int?)null
+                    PlatformId = (AddTrip_CmbPlatforms.SelectedValue != null && (int)AddTrip_CmbPlatforms.SelectedValue != -1) ? Convert.ToInt32(AddTrip_CmbPlatforms.SelectedValue) : (int?)null
                 };
 
                 if (AddTrip_btnSaveTrip.Tag == null)
