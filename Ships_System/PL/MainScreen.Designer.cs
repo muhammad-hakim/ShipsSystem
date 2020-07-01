@@ -272,6 +272,7 @@
             this.label54 = new System.Windows.Forms.Label();
             this.Reports_quantityReport_cmbProducts = new System.Windows.Forms.ComboBox();
             this.ReportSFD = new System.Windows.Forms.SaveFileDialog();
+            this.EditTrip_btnChangeStatus = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
             this.portTab.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -1316,6 +1317,7 @@
             // addingTripTab
             // 
             this.addingTripTab.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.addingTripTab.Controls.Add(this.EditTrip_btnChangeStatus);
             this.addingTripTab.Controls.Add(this.label40);
             this.addingTripTab.Controls.Add(this.label39);
             this.addingTripTab.Controls.Add(this.label38);
@@ -1358,7 +1360,7 @@
             this.label40.AutoSize = true;
             this.label40.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label40.ForeColor = System.Drawing.Color.Red;
-            this.label40.Location = new System.Drawing.Point(317, 78);
+            this.label40.Location = new System.Drawing.Point(276, 78);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(20, 23);
             this.label40.TabIndex = 47;
@@ -1369,7 +1371,7 @@
             this.label39.AutoSize = true;
             this.label39.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label39.ForeColor = System.Drawing.Color.Red;
-            this.label39.Location = new System.Drawing.Point(317, 170);
+            this.label39.Location = new System.Drawing.Point(276, 170);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(20, 23);
             this.label39.TabIndex = 46;
@@ -1434,7 +1436,7 @@
             // 
             this.AddTrip_dtpDate.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.AddTrip_dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.AddTrip_dtpDate.Location = new System.Drawing.Point(339, 167);
+            this.AddTrip_dtpDate.Location = new System.Drawing.Point(298, 167);
             this.AddTrip_dtpDate.Name = "AddTrip_dtpDate";
             this.AddTrip_dtpDate.Size = new System.Drawing.Size(185, 30);
             this.AddTrip_dtpDate.TabIndex = 40;
@@ -1630,7 +1632,7 @@
             // AddTrip_lnkAddPlatform
             // 
             this.AddTrip_lnkAddPlatform.AutoSize = true;
-            this.AddTrip_lnkAddPlatform.Location = new System.Drawing.Point(260, 121);
+            this.AddTrip_lnkAddPlatform.Location = new System.Drawing.Point(219, 121);
             this.AddTrip_lnkAddPlatform.Name = "AddTrip_lnkAddPlatform";
             this.AddTrip_lnkAddPlatform.Size = new System.Drawing.Size(68, 15);
             this.AddTrip_lnkAddPlatform.TabIndex = 34;
@@ -1654,7 +1656,7 @@
             // AddTrip_lnkAddAgent
             // 
             this.AddTrip_lnkAddAgent.AutoSize = true;
-            this.AddTrip_lnkAddAgent.Location = new System.Drawing.Point(258, 78);
+            this.AddTrip_lnkAddAgent.Location = new System.Drawing.Point(217, 78);
             this.AddTrip_lnkAddAgent.Name = "AddTrip_lnkAddAgent";
             this.AddTrip_lnkAddAgent.Size = new System.Drawing.Size(59, 15);
             this.AddTrip_lnkAddAgent.TabIndex = 33;
@@ -1691,7 +1693,7 @@
             this.AddTrip_CmbAgents.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddTrip_CmbAgents.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.AddTrip_CmbAgents.FormattingEnabled = true;
-            this.AddTrip_CmbAgents.Location = new System.Drawing.Point(341, 75);
+            this.AddTrip_CmbAgents.Location = new System.Drawing.Point(300, 75);
             this.AddTrip_CmbAgents.Name = "AddTrip_CmbAgents";
             this.AddTrip_CmbAgents.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.AddTrip_CmbAgents.Size = new System.Drawing.Size(182, 31);
@@ -1704,7 +1706,7 @@
             this.AddTrip_CmbPlatforms.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddTrip_CmbPlatforms.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.AddTrip_CmbPlatforms.FormattingEnabled = true;
-            this.AddTrip_CmbPlatforms.Location = new System.Drawing.Point(341, 116);
+            this.AddTrip_CmbPlatforms.Location = new System.Drawing.Point(300, 116);
             this.AddTrip_CmbPlatforms.Name = "AddTrip_CmbPlatforms";
             this.AddTrip_CmbPlatforms.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.AddTrip_CmbPlatforms.Size = new System.Drawing.Size(183, 31);
@@ -1728,10 +1730,11 @@
             // AddTrip_CmbStatus
             // 
             this.AddTrip_CmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.AddTrip_CmbStatus.Enabled = false;
             this.AddTrip_CmbStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddTrip_CmbStatus.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.AddTrip_CmbStatus.FormattingEnabled = true;
-            this.AddTrip_CmbStatus.Location = new System.Drawing.Point(746, 170);
+            this.AddTrip_CmbStatus.Location = new System.Drawing.Point(747, 166);
             this.AddTrip_CmbStatus.Name = "AddTrip_CmbStatus";
             this.AddTrip_CmbStatus.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.AddTrip_CmbStatus.Size = new System.Drawing.Size(180, 31);
@@ -1752,7 +1755,7 @@
             // 
             this.agentlab.AutoSize = true;
             this.agentlab.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.agentlab.Location = new System.Drawing.Point(526, 77);
+            this.agentlab.Location = new System.Drawing.Point(485, 77);
             this.agentlab.Name = "agentlab";
             this.agentlab.Size = new System.Drawing.Size(104, 23);
             this.agentlab.TabIndex = 19;
@@ -1762,7 +1765,7 @@
             // 
             this.platlab.AutoSize = true;
             this.platlab.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.platlab.Location = new System.Drawing.Point(526, 121);
+            this.platlab.Location = new System.Drawing.Point(485, 121);
             this.platlab.Name = "platlab";
             this.platlab.Size = new System.Drawing.Size(63, 23);
             this.platlab.TabIndex = 18;
@@ -1772,7 +1775,7 @@
             // 
             this.datelab.AutoSize = true;
             this.datelab.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.datelab.Location = new System.Drawing.Point(526, 166);
+            this.datelab.Location = new System.Drawing.Point(485, 166);
             this.datelab.Name = "datelab";
             this.datelab.Size = new System.Drawing.Size(54, 23);
             this.datelab.TabIndex = 17;
@@ -2987,6 +2990,16 @@
             this.ReportSFD.FileName = "Report.pdf";
             this.ReportSFD.Filter = "PDF files|*.pdf";
             // 
+            // EditTrip_btnChangeStatus
+            // 
+            this.EditTrip_btnChangeStatus.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.EditTrip_btnChangeStatus.Location = new System.Drawing.Point(545, 167);
+            this.EditTrip_btnChangeStatus.Name = "EditTrip_btnChangeStatus";
+            this.EditTrip_btnChangeStatus.Size = new System.Drawing.Size(169, 30);
+            this.EditTrip_btnChangeStatus.TabIndex = 48;
+            this.EditTrip_btnChangeStatus.UseVisualStyleBackColor = true;
+            this.EditTrip_btnChangeStatus.Click += new System.EventHandler(this.EditTrip_btnChangeStatus_Click);
+            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3307,5 +3320,6 @@
         private System.Windows.Forms.ComboBox Reports_ShipStaus_cmbPlatforms;
         private System.Windows.Forms.Label label62;
         private System.Windows.Forms.ComboBox Reports_ShipStaus_cmbPorts;
+        private System.Windows.Forms.Button EditTrip_btnChangeStatus;
     }
 }

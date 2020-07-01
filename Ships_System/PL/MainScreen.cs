@@ -646,6 +646,9 @@ namespace Ships_System.PL
                AddTrip_CmbPorts.SelectedValue == null || (int)AddTrip_CmbPorts.SelectedValue == -1 || AddTrip_dtpDate.Value == null)
                 MessageBox.Show("من فضلك أدخل الحقول المطلوبة", "حقول مطلوبة", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
+            if (AddTrip_btnSaveTrip.Tag != null && DateTime.Compare(previousStatusDate, AddTrip_dtpDate.Value) > 0)
+                MessageBox.Show("من فضلك أدخل تاريخ صالح", "تاريخ غير صالح", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
             {
                 Trip trip = new Trip();
 
@@ -931,9 +934,10 @@ namespace Ships_System.PL
             AddTrip_txtNotes.Clear();
             TripShipLoad.Clear();
             AddTrip_dtpDate.ResetText();
-
+            EditTrip_btnChangeStatus.Visible = false;
             TripShipLoad.Clear();
             FillAddTripDGVShipLoad();
+            previousStatusDate = DateTime.MaxValue;
         }
 
         private void AddTrip_btnCancelTrip_Click(object sender, EventArgs e)
@@ -950,7 +954,6 @@ namespace Ships_System.PL
             AddTrip_CmbPorts.Text = TripsDGV.CurrentRow.Cells[7].Value.ToString();
             AddTrip_CmbPlatforms.Text = TripsDGV.CurrentRow.Cells[8].Value.ToString();
             AddTrip_txtNotes.Text = TripsDGV.CurrentRow.Cells[9].Value.ToString();
-            AddTrip_CmbStatus.Enabled = true;
             AddTrip_CmbStatus.Text = ArabicValues[Enum.GetName(typeof(TripStatus), TripsDGV.CurrentRow.Cells[10].Value)];
 
             TripShipLoad.Clear();
@@ -960,6 +963,7 @@ namespace Ships_System.PL
             }
             FillAddTripDGVShipLoad();
             triptabControl.SelectedTab = addingTripTab;
+            EditTrip_btnChangeStatus.Visible = true;
         }
 
         private void Trips_btnDelete_Click(object sender, EventArgs e)
@@ -1916,7 +1920,11 @@ namespace Ships_System.PL
             if (AddTrip_btnSaveTrip.Tag == null)
             {
                 AddTrip_CmbStatus.SelectedValue = (int)TripStatus.LeftDGebouti;
-                AddTrip_CmbStatus.Enabled = false;
+                EditTrip_btnChangeStatus.Visible = false;
+            }
+            else
+            {
+                EditTrip_btnChangeStatus.Visible= true;
             }
         }
 
@@ -1937,7 +1945,54 @@ namespace Ships_System.PL
 
         private void AddTrip_CmbStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
-            AddTrip_CmbPlatforms.Enabled = AddTrip_CmbStatus.SelectedValue != null && (int)AddTrip_CmbStatus.SelectedValue == (int)TripStatus.ArriveAtPlatform;
+            AddTrip_CmbPlatforms.Enabled = AddTrip_CmbStatus.SelectedValue != null && (int)AddTrip_CmbStatus.SelectedValue == (int)TripStatus.ArriveAtPlatform &&
+                                           AddTrip_CmbPorts.SelectedValue != null && (int)AddTrip_CmbPorts.SelectedValue == -1;
+
+            if (AddTrip_CmbPorts.SelectedValue != null)
+            {
+                switch ((int)AddTrip_CmbPorts.SelectedValue)
+                {
+                    case (int)TripStatus.LeftDGebouti:
+                        EditTrip_btnChangeStatus.Text = "إلي منطقة الحجز";
+                        EditTrip_btnChangeStatus.Tag = (int)TripStatus.ReservationArea;
+                        break;
+
+                    case (int)TripStatus.ReservationArea:
+                        EditTrip_btnChangeStatus.Text = "متوقع الوصول";
+                        EditTrip_btnChangeStatus.Tag = (int)TripStatus.EXecptedTOArrive;
+                        break;
+
+                    case (int)TripStatus.EXecptedTOArrive:
+                        EditTrip_btnChangeStatus.Text = "إلي الغاطس";
+                        EditTrip_btnChangeStatus.Tag = (int)TripStatus.AtGhates;
+                        break;
+
+                    case (int)TripStatus.AtGhates:
+                        EditTrip_btnChangeStatus.Text = "إلى الأرصفة";
+                        EditTrip_btnChangeStatus.Tag = (int)TripStatus.EXecptedTOArrive;
+                        break;
+
+                    case (int)TripStatus.ArriveAtPlatform:
+                        EditTrip_btnChangeStatus.Text = "إلى الغاطس بعد التفريغ";
+                        EditTrip_btnChangeStatus.Tag = (int)TripStatus.EXecptedTOArrive;
+                        break;
+
+                    case (int)TripStatus.WaitingAtGhatesAfterUnload:
+                        EditTrip_btnChangeStatus.Visible = false;
+                        break;
+                }
+            }
+        }
+        DateTime previousStatusDate = DateTime.MaxValue;
+        private void EditTrip_btnChangeStatus_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("من فضلك اختر التاريخ", "تاريخ الحالة" , MessageBoxButtons.OK , MessageBoxIcon.Information);
+
+            if (EditTrip_btnChangeStatus.Tag != null)
+            {
+                previousStatusDate = tripService.GetTripById(Convert.ToInt32(AddTrip_btnSaveTrip.Tag)).TripsStatus.FirstOrDefault(s => s.Status == (int)AddTrip_CmbStatus.SelectedValue).Date;
+                AddTrip_CmbStatus.SelectedValue = EditTrip_btnChangeStatus.Tag;
+            }
         }
     }
 }
