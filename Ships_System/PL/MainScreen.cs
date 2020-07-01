@@ -1548,7 +1548,7 @@ namespace Ships_System.PL
                 PdfPTable table = new PdfPTable(TripsDGV.Columns.Count);
                 table.RunDirection = PdfWriter.RUN_DIRECTION_RTL;
                 table.WidthPercentage = 100;
-                table.SetWidths(new int[] { 50, 45, 40, 40, 65, 35, 30, 30, 30, 35, 25 });
+                table.SetWidths(new int[] { 50, 45, 40, 40, 65, 36, 30, 30, 30, 35, 25 });
                 foreach (DataGridViewColumn item in TripsDGV.Columns)
                 {
                     if (item.Visible)
@@ -1560,7 +1560,7 @@ namespace Ships_System.PL
 
                         if (item.DisplayIndex == 5)
                         {
-                            PdfPCell ProductsHeaderCell = new PdfPCell(new Phrase("المنتجات", headerFont));
+                            PdfPCell ProductsHeaderCell = new PdfPCell(new Phrase("البضائع", headerFont));
                             ProductsHeaderCell.BackgroundColor = BaseColor.GRAY;
                             ProductsHeaderCell.HorizontalAlignment = Element.ALIGN_CENTER;
                             table.AddCell(ProductsHeaderCell);
