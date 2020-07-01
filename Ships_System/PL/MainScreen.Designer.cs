@@ -548,8 +548,10 @@
             this.Platforms_dgvPlatforms.BackgroundColor = System.Drawing.SystemColors.Control;
             this.Platforms_dgvPlatforms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Platforms_dgvPlatforms.Location = new System.Drawing.Point(6, 71);
+            this.Platforms_dgvPlatforms.MultiSelect = false;
             this.Platforms_dgvPlatforms.Name = "Platforms_dgvPlatforms";
             this.Platforms_dgvPlatforms.ReadOnly = true;
+            this.Platforms_dgvPlatforms.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Platforms_dgvPlatforms.Size = new System.Drawing.Size(305, 524);
             this.Platforms_dgvPlatforms.TabIndex = 8;
             // 
@@ -580,6 +582,7 @@
             this.Platforms_txtName.Name = "Platforms_txtName";
             this.Platforms_txtName.Size = new System.Drawing.Size(187, 30);
             this.Platforms_txtName.TabIndex = 9;
+            this.Platforms_txtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // Platforms_cmbPort
             // 
@@ -691,6 +694,7 @@
             this.Ports_txtName.Name = "Ports_txtName";
             this.Ports_txtName.Size = new System.Drawing.Size(161, 30);
             this.Ports_txtName.TabIndex = 2;
+            this.Ports_txtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // portname
             // 
@@ -792,6 +796,7 @@
             this.Agents_txtAgentName.Name = "Agents_txtAgentName";
             this.Agents_txtAgentName.Size = new System.Drawing.Size(177, 30);
             this.Agents_txtAgentName.TabIndex = 1;
+            this.Agents_txtAgentName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // agentlabel
             // 
@@ -945,6 +950,7 @@
             this.Products_txtProductName.Name = "Products_txtProductName";
             this.Products_txtProductName.Size = new System.Drawing.Size(183, 30);
             this.Products_txtProductName.TabIndex = 18;
+            this.Products_txtProductName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // label1
             // 
@@ -1025,6 +1031,7 @@
             this.AddShip_Typecmb.Name = "AddShip_Typecmb";
             this.AddShip_Typecmb.Size = new System.Drawing.Size(269, 30);
             this.AddShip_Typecmb.TabIndex = 10;
+            this.AddShip_Typecmb.SelectedIndexChanged += new System.EventHandler(this.AddShip_Typecmb_SelectedIndexChanged);
             // 
             // type_ship
             // 
@@ -1122,6 +1129,7 @@
             this.AddShip_txtType.Name = "AddShip_txtType";
             this.AddShip_txtType.Size = new System.Drawing.Size(269, 30);
             this.AddShip_txtType.TabIndex = 1;
+            this.AddShip_txtType.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // label21
             // 
@@ -1234,6 +1242,7 @@
             this.AddShip_Imotxt.Name = "AddShip_Imotxt";
             this.AddShip_Imotxt.Size = new System.Drawing.Size(269, 30);
             this.AddShip_Imotxt.TabIndex = 8;
+            this.AddShip_Imotxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // label9
             // 
@@ -1261,6 +1270,7 @@
             this.AddShip_Nametxt.Name = "AddShip_Nametxt";
             this.AddShip_Nametxt.Size = new System.Drawing.Size(269, 30);
             this.AddShip_Nametxt.TabIndex = 8;
+            this.AddShip_Nametxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // addship
             // 
@@ -1474,7 +1484,7 @@
             // AddTrip_btnRemoveProduct
             // 
             this.AddTrip_btnRemoveProduct.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.AddTrip_btnRemoveProduct.Location = new System.Drawing.Point(271, 140);
+            this.AddTrip_btnRemoveProduct.Location = new System.Drawing.Point(430, 140);
             this.AddTrip_btnRemoveProduct.Name = "AddTrip_btnRemoveProduct";
             this.AddTrip_btnRemoveProduct.Size = new System.Drawing.Size(87, 33);
             this.AddTrip_btnRemoveProduct.TabIndex = 43;
@@ -1485,7 +1495,7 @@
             // AddTrip_btnEditProduct
             // 
             this.AddTrip_btnEditProduct.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.AddTrip_btnEditProduct.Location = new System.Drawing.Point(271, 72);
+            this.AddTrip_btnEditProduct.Location = new System.Drawing.Point(430, 72);
             this.AddTrip_btnEditProduct.Name = "AddTrip_btnEditProduct";
             this.AddTrip_btnEditProduct.Size = new System.Drawing.Size(87, 33);
             this.AddTrip_btnEditProduct.TabIndex = 42;
@@ -1553,13 +1563,16 @@
             // 
             this.AddTrip_DGVProducts.AllowUserToAddRows = false;
             this.AddTrip_DGVProducts.AllowUserToDeleteRows = false;
+            this.AddTrip_DGVProducts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.AddTrip_DGVProducts.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.AddTrip_DGVProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.AddTrip_DGVProducts.Location = new System.Drawing.Point(384, 72);
+            this.AddTrip_DGVProducts.Location = new System.Drawing.Point(532, 72);
             this.AddTrip_DGVProducts.MultiSelect = false;
             this.AddTrip_DGVProducts.Name = "AddTrip_DGVProducts";
             this.AddTrip_DGVProducts.ReadOnly = true;
+            this.AddTrip_DGVProducts.RowHeadersVisible = false;
             this.AddTrip_DGVProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.AddTrip_DGVProducts.Size = new System.Drawing.Size(283, 101);
+            this.AddTrip_DGVProducts.Size = new System.Drawing.Size(135, 101);
             this.AddTrip_DGVProducts.TabIndex = 37;
             // 
             // quantitylabel
@@ -1592,6 +1605,7 @@
             this.AddTrip_txtNotes.Name = "AddTrip_txtNotes";
             this.AddTrip_txtNotes.Size = new System.Drawing.Size(660, 109);
             this.AddTrip_txtNotes.TabIndex = 38;
+            this.AddTrip_txtNotes.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // linkLabel1
             // 
@@ -1722,6 +1736,7 @@
             this.AddTrip_CmbStatus.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.AddTrip_CmbStatus.Size = new System.Drawing.Size(180, 31);
             this.AddTrip_CmbStatus.TabIndex = 31;
+            this.AddTrip_CmbStatus.SelectedIndexChanged += new System.EventHandler(this.AddTrip_CmbStatus_SelectedIndexChanged);
             // 
             // portlab
             // 
@@ -1830,12 +1845,15 @@
             // 
             this.TripsDGV.AllowUserToAddRows = false;
             this.TripsDGV.AllowUserToDeleteRows = false;
+            this.TripsDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.TripsDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.TripsDGV.BackgroundColor = System.Drawing.SystemColors.Control;
             this.TripsDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.TripsDGV.Location = new System.Drawing.Point(0, 78);
             this.TripsDGV.MultiSelect = false;
             this.TripsDGV.Name = "TripsDGV";
             this.TripsDGV.ReadOnly = true;
+            this.TripsDGV.RowHeadersVisible = false;
             this.TripsDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.TripsDGV.ShowEditingIcon = false;
             this.TripsDGV.Size = new System.Drawing.Size(996, 603);
@@ -1941,6 +1959,7 @@
             this.Trips_txtSearch.Size = new System.Drawing.Size(161, 30);
             this.Trips_txtSearch.TabIndex = 2;
             this.Trips_txtSearch.TextChanged += new System.EventHandler(this.Trips_txtSearch_TextChanged);
+            this.Trips_txtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // searchlab
             // 
@@ -2143,6 +2162,7 @@
             this.ManageAcc_txtReportedTo.Name = "ManageAcc_txtReportedTo";
             this.ManageAcc_txtReportedTo.Size = new System.Drawing.Size(250, 85);
             this.ManageAcc_txtReportedTo.TabIndex = 1;
+            this.ManageAcc_txtReportedTo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // ManageAcc_canclbtn
             // 
@@ -2214,6 +2234,7 @@
             this.ManageAcc_txtCrewConsequences.Name = "ManageAcc_txtCrewConsequences";
             this.ManageAcc_txtCrewConsequences.Size = new System.Drawing.Size(250, 85);
             this.ManageAcc_txtCrewConsequences.TabIndex = 1;
+            this.ManageAcc_txtCrewConsequences.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // ManageAcc_txtCoast
             // 
@@ -2223,6 +2244,7 @@
             this.ManageAcc_txtCoast.Name = "ManageAcc_txtCoast";
             this.ManageAcc_txtCoast.Size = new System.Drawing.Size(250, 85);
             this.ManageAcc_txtCoast.TabIndex = 1;
+            this.ManageAcc_txtCoast.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // ManageAcc_txtCrewAction
             // 
@@ -2232,6 +2254,7 @@
             this.ManageAcc_txtCrewAction.Name = "ManageAcc_txtCrewAction";
             this.ManageAcc_txtCrewAction.Size = new System.Drawing.Size(250, 85);
             this.ManageAcc_txtCrewAction.TabIndex = 1;
+            this.ManageAcc_txtCrewAction.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // ManageAcc_txtDetails
             // 
@@ -2241,6 +2264,7 @@
             this.ManageAcc_txtDetails.Name = "ManageAcc_txtDetails";
             this.ManageAcc_txtDetails.Size = new System.Drawing.Size(250, 85);
             this.ManageAcc_txtDetails.TabIndex = 1;
+            this.ManageAcc_txtDetails.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // label14
             // 
@@ -2357,6 +2381,7 @@
             this.ManageAcc_txtLat.Name = "ManageAcc_txtLat";
             this.ManageAcc_txtLat.Size = new System.Drawing.Size(258, 30);
             this.ManageAcc_txtLat.TabIndex = 3;
+            this.ManageAcc_txtLat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // ManageAcc_txtLong
             // 
@@ -2365,6 +2390,7 @@
             this.ManageAcc_txtLong.Name = "ManageAcc_txtLong";
             this.ManageAcc_txtLong.Size = new System.Drawing.Size(258, 30);
             this.ManageAcc_txtLong.TabIndex = 3;
+            this.ManageAcc_txtLong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_KeyPress);
             // 
             // ManageAcc_Labwidth
             // 
