@@ -100,15 +100,13 @@ namespace Ships_System.PL
                         FillCmbShips(AddTrip_CmbShips);
                         FillCmbShips(ManageAcc_cmbShipName);
                         FillReportsCmbShips();
-                        AddShip_Imotxt.Clear();
-                        AddShip_Nametxt.Clear();
-                        AddShip_Typecmb.SelectedValue = -1;
                         MessageBox.Show("تم الحفظ بنجاح", "تم الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
-                    {
                         MessageBox.Show("لم يتم الحفظ", "فشل الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    AddShip_Imotxt.Clear();
+                    AddShip_Nametxt.Clear();
+                    AddShip_Typecmb.SelectedValue = -1;
                 }
                 else
                     MessageBox.Show("لم يتم الحفظ .. هذه البيانات مستخدمة مع سفينة أخرى من قبل", "بيانات مكررة", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -327,9 +325,8 @@ namespace Ships_System.PL
                         MessageBox.Show("تم الحفظ بنجاح", "تم الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
-                    {
                         MessageBox.Show("لم يتم الحفظ", "فشل الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    Agents_txtAgentName.Clear();
                 }
                 else
                     MessageBox.Show("لم يتم الحفظ .. هذه البيانات مستخدمة مع وكيل آخر من قبل", "بيانات مكررة", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -372,13 +369,11 @@ namespace Ships_System.PL
                         FillProductsList();
                         FillAddTripCmbProducts();
                         FillReportsCmbProducts();
-                        Products_txtProductName.Clear();
                         MessageBox.Show("تم الحفظ بنجاح", "تم الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
-                    {
                         MessageBox.Show("لم يتم الحفظ", "فشل الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    Products_txtProductName.Clear();
                 }
                 else
                     MessageBox.Show("لم يتم الحفظ .. هذه البيانات مستخدمة مع منتج آخر من قبل", "بيانات مكررة", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -418,9 +413,9 @@ namespace Ships_System.PL
                         MessageBox.Show("تم الحفظ بنجاح", "تم الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
-                    {
                         MessageBox.Show("لم يتم الحفظ", "فشل الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    Platforms_txtName.Clear();
+                    Platforms_cmbPort.SelectedValue = -1;
                 }
                 else
                     MessageBox.Show("لم يتم الحفظ .. هذه البيانات مستخدمة مع رصيف آخر من قبل", "بيانات مكررة", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -467,12 +462,12 @@ namespace Ships_System.PL
                         FillPortsList();
                         FillAddTripCmbPorts();
                         FillReportsCmbPorts();
+                        FillPlatformCmbPorts();
                         MessageBox.Show("تم الحفظ بنجاح", "تم الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
-                    {
                         MessageBox.Show("لم يتم الحفظ", "فشل الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    Ports_txtName.Clear();
                 }
                 else
                     MessageBox.Show("لم يتم الحفظ .. هذه البيانات مستخدمة مع ميناء آخر من قبل", "بيانات مكررة", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -652,17 +647,22 @@ namespace Ships_System.PL
                 MessageBox.Show("من فضلك أدخل الحقول المطلوبة", "حقول مطلوبة", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
             {
-                var trip = new Trip
-                {
-                    AgentId = Convert.ToInt32(AddTrip_CmbAgents.SelectedValue),
-                    Notes = AddTrip_txtNotes.Text,
-                    ShipId = Convert.ToInt32(AddTrip_CmbShips.SelectedValue),
-                    Status = Convert.ToInt32(AddTrip_CmbStatus.SelectedValue),
-                    PortId = Convert.ToInt32(AddTrip_CmbPorts.SelectedValue),
-                    PlatformId = (AddTrip_CmbPlatforms.SelectedValue != null && (int)AddTrip_CmbPlatforms.SelectedValue != -1) ? Convert.ToInt32(AddTrip_CmbPlatforms.SelectedValue) : (int?)null
-                };
+                Trip trip = new Trip();
 
-                if (AddTrip_btnSaveTrip.Tag == null)
+                if (AddTrip_btnSaveTrip.Tag != null)
+                {
+                    trip = tripService.GetTripById(Convert.ToInt32(AddTrip_btnSaveTrip.Tag));
+                    AddTrip_btnSaveTrip.Tag = null;
+                }
+
+                trip.AgentId = Convert.ToInt32(AddTrip_CmbAgents.SelectedValue);
+                trip.Notes = AddTrip_txtNotes.Text;
+                trip.ShipId = Convert.ToInt32(AddTrip_CmbShips.SelectedValue);
+                trip.Status = Convert.ToInt32(AddTrip_CmbStatus.SelectedValue);
+                trip.PortId = Convert.ToInt32(AddTrip_CmbPorts.SelectedValue);
+                trip.PlatformId = (AddTrip_CmbPlatforms.SelectedValue != null && (int)AddTrip_CmbPlatforms.SelectedValue != -1) ? Convert.ToInt32(AddTrip_CmbPlatforms.SelectedValue) : (int?)null;
+
+                if (trip.TripId == 0)
                 {
                     foreach (var item in TripShipLoad)
                     {
@@ -674,15 +674,6 @@ namespace Ships_System.PL
                 }
                 else
                 {
-                    trip = tripService.GetTripById(Convert.ToInt32(AddTrip_btnSaveTrip.Tag));
-
-                    trip.AgentId = Convert.ToInt32(AddTrip_CmbAgents.SelectedValue);
-                    trip.Notes = AddTrip_txtNotes.Text;
-                    trip.ShipId = Convert.ToInt32(AddTrip_CmbShips.SelectedValue);
-                    trip.Status = Convert.ToInt32(AddTrip_CmbStatus.SelectedValue);
-                    trip.PortId = Convert.ToInt32(AddTrip_CmbPorts.SelectedValue);
-                    trip.PlatformId = Convert.ToInt32(AddTrip_CmbPlatforms.SelectedValue != null && (int)AddTrip_CmbPlatforms.SelectedValue == -1);
-
                     var currentStatus = trip.TripsStatus.FirstOrDefault(s => s.TripId == trip.TripId && s.Status == trip.Status);
 
                     if (currentStatus == null)
@@ -708,20 +699,17 @@ namespace Ships_System.PL
                     }
 
                     tripService.UpdateTrip(trip);
-                    AddTrip_btnSaveTrip.Tag = null;
                 }
 
                 if (dbService.Commit())
                 {
-                    AddTripRestControls();
                     triptabControl.SelectedTab = tripsTab;
                     FillTripsDataGridView();
                     MessageBox.Show("تم الحفظ بنجاح", "تم الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
-                {
                     MessageBox.Show("لم يتم الحفظ", "فشل الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                AddTripRestControls();
             }
         }
 
@@ -943,6 +931,9 @@ namespace Ships_System.PL
             AddTrip_txtNotes.Clear();
             TripShipLoad.Clear();
             AddTrip_dtpDate.ResetText();
+
+            TripShipLoad.Clear();
+            FillAddTripDGVShipLoad();
         }
 
         private void AddTrip_btnCancelTrip_Click(object sender, EventArgs e)
@@ -1037,7 +1028,7 @@ namespace Ships_System.PL
         private void Trips_btnClearSearch_Click(object sender, EventArgs e)
         {
             Trips_txtSearch.Clear();
-            Trips_cmbSearchFields.SelectedValue = -1;
+            Trips_cmbSearchFields.SelectedIndex = 0;
             TripsDGV.DataSource = tripsForDGV;
         }
 
@@ -1088,13 +1079,11 @@ namespace Ships_System.PL
                 {
                     FillAccidentsDGV();
                     triptabControl.SelectedTab = AccidentManagementTab;
-                    ClearManageAccidentControls();
                     MessageBox.Show("تم الحفظ بنجاح", "تم الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
-                {
                     MessageBox.Show("لم يتم الحفظ", "فشل الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                ClearManageAccidentControls();
             }
         }
 
@@ -1350,14 +1339,12 @@ namespace Ships_System.PL
                     if (dbService.Commit())
                     {
                         FillAddShipTypecmb();
-                        AddShip_txtType.Clear();
 
                         MessageBox.Show("تم الحفظ بنجاح", "تم الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
-                    {
                         MessageBox.Show("لم يتم الحفظ", "فشل الحفظ", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    AddShip_txtType.Clear();
                 }
                 else
                     MessageBox.Show("لم يتم الحفظ .. هذا النوع موجود من قبل", "بيانات مكررة", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -1412,24 +1399,32 @@ namespace Ships_System.PL
                 headerFont.Color = BaseColor.WHITE;
                 titleFont.SetStyle(4);
 
-                Document document = new Document();
-                PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(ReportSFD.FileName, FileMode.Create));
-                writer.RunDirection = PdfWriter.RUN_DIRECTION_RTL;
-                document.Open();
+                try
+                {
+                    Document document = new Document();
+                    PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(ReportSFD.FileName, FileMode.Create));
+                    writer.RunDirection = PdfWriter.RUN_DIRECTION_RTL;
+                    document.Open();
 
-                PdfPTable titleTable = new PdfPTable(1);
-                titleTable.RunDirection = PdfWriter.RUN_DIRECTION_RTL;
-                titleTable.WidthPercentage = 100;
-                titleTable.HorizontalAlignment = Element.ALIGN_CENTER;
-                PdfPCell titleCell = new PdfPCell(new Phrase(reportName, titleFont));
-                titleCell.HorizontalAlignment = Element.ALIGN_CENTER;
-                titleCell.Border = 0;
-                titleTable.AddCell(titleCell);
-                document.Add(titleTable);
+                    PdfPTable titleTable = new PdfPTable(1);
+                    titleTable.RunDirection = PdfWriter.RUN_DIRECTION_RTL;
+                    titleTable.WidthPercentage = 100;
+                    titleTable.HorizontalAlignment = Element.ALIGN_CENTER;
+                    PdfPCell titleCell = new PdfPCell(new Phrase(reportName, titleFont));
+                    titleCell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    titleCell.Border = 0;
+                    titleTable.AddCell(titleCell);
+                    document.Add(titleTable);
 
-                document.Add(new Phrase(" "));
+                    document.Add(new Phrase(" "));
 
-                return document;
+                    return document;
+                }
+                catch (IOException ex)
+                {
+                    MessageBox.Show("لا يمكن إنشاء الملف .. من فضلك حاول مجددا", "فشل إنشاء الملف", MessageBoxButtons.OK , MessageBoxIcon.Error);
+                    return null;
+                }
             }
             return null;
         }
@@ -1662,10 +1657,10 @@ namespace Ships_System.PL
 
             if (document != null)
             {
-                PdfPTable table = new PdfPTable(10);
+                PdfPTable table = new PdfPTable(11);
                 table.RunDirection = PdfWriter.RUN_DIRECTION_RTL;
                 table.WidthPercentage = 100;
-                table.SetWidths(new int[] { 50, 45, 40, 40, 65, 35, 30, 30, 30, 35 });
+                table.SetWidths(new int[] { 40, 40, 40, 40, 40, 40, 40, 40, 40, 40 ,40});
 
                 PdfPCell headerCell1 = new PdfPCell(new Phrase("رقم الرحلة", headerFont));
                 table.AddCell(headerCell1);
@@ -1703,8 +1698,8 @@ namespace Ships_System.PL
                 SetTableHeaderCellsStyle(table.Rows[0]);
 
                 var trips = tripService.GetAllTrips().Where(t =>
-                                         (DateTime.Compare(Reports_TripsReport_dtpFrom.Value, t.TripsStatus.FirstOrDefault(s => s.Status == (int)TripStatus.LeftDGebouti).Date) <= 0) &&
-                                         (DateTime.Compare(Reports_TripsReport_dtpTo.Value, t.TripsStatus.FirstOrDefault(s => s.Status == (int)TripStatus.LeftDGebouti).Date) >= 0)).ToList();
+                                         (DateTime.Compare(Reports_PeriodsReport_dtpFrom.Value, t.TripsStatus.FirstOrDefault(s => s.Status == (int)TripStatus.LeftDGebouti).Date) <= 0) &&
+                                         (DateTime.Compare(Reports_PeriodsReport_dtpTo.Value, t.TripsStatus.FirstOrDefault(s => s.Status == (int)TripStatus.LeftDGebouti).Date) >= 0)).ToList();
 
                 foreach (var trip in trips)
                 {
@@ -1734,15 +1729,22 @@ namespace Ships_System.PL
                     PdfPCell c7 = new PdfPCell(new Phrase(_platform != null ? _platform.Date.ToShortDateString() : "لم تدخل الرصيف بعد", cellFont));
                     table.AddCell(c7);
 
-                    double _gebotiToReservation = CalculateDateDiffernce(_reservation.Date, _geboti);
+                    double _gebotiToReservation=0;
+                    if (_reservation != null)
+                        _gebotiToReservation = CalculateDateDiffernce(_reservation.Date, _geboti);
                     PdfPCell c8 = new PdfPCell(new Phrase(_gebotiToReservation.ToString(), cellFont));
                     table.AddCell(c8);
 
-                    double _reservationToGhates = CalculateDateDiffernce(_ghates.Date, _reservation.Date);
+
+                    double _reservationToGhates = 0;
+                    if (_ghates != null && _reservation != null)
+                    _reservationToGhates = CalculateDateDiffernce(_ghates.Date, _reservation.Date);
                     PdfPCell c9 = new PdfPCell(new Phrase(_reservationToGhates.ToString(), cellFont));
                     table.AddCell(c9);
 
-                    double _ghatesToPlatform = CalculateDateDiffernce(_platform.Date, _ghates.Date);
+                    double _ghatesToPlatform = 0;
+                    if(_platform != null && _ghates != null)
+                    _ghatesToPlatform = CalculateDateDiffernce(_platform.Date, _ghates.Date);
                     PdfPCell c10 = new PdfPCell(new Phrase(_ghatesToPlatform.ToString(), cellFont));
                     table.AddCell(c10);
 
@@ -1916,6 +1918,26 @@ namespace Ships_System.PL
                 AddTrip_CmbStatus.SelectedValue = (int)TripStatus.LeftDGebouti;
                 AddTrip_CmbStatus.Enabled = false;
             }
+        }
+
+        private void AddShip_Typecmb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AddShip_btnEditTypr.Enabled = AddShip_btnDeleteType.Enabled = (int)AddShip_Typecmb.SelectedValue != -1;
+        }
+
+        private void txt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 'ى')
+                e.KeyChar = 'ي';
+            if (e.KeyChar == 'أ' || e.KeyChar == 'إ')
+                e.KeyChar = 'ا';
+            if (e.KeyChar == 'ة')
+                e.KeyChar = 'ه';
+        }
+
+        private void AddTrip_CmbStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AddTrip_CmbPlatforms.Enabled = AddTrip_CmbStatus.SelectedValue != null && (int)AddTrip_CmbStatus.SelectedValue == (int)TripStatus.ArriveAtPlatform;
         }
     }
 }
