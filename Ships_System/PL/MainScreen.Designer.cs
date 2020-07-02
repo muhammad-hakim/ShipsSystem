@@ -2651,6 +2651,7 @@
             // Reports_ShipStaus_cmbPlatforms
             // 
             this.Reports_ShipStaus_cmbPlatforms.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Reports_ShipStaus_cmbPlatforms.Enabled = false;
             this.Reports_ShipStaus_cmbPlatforms.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.Reports_ShipStaus_cmbPlatforms.FormattingEnabled = true;
             this.Reports_ShipStaus_cmbPlatforms.Location = new System.Drawing.Point(152, 17);
