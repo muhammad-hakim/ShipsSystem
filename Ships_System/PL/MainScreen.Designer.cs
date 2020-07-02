@@ -129,6 +129,7 @@
             this.ShipsGridView = new System.Windows.Forms.DataGridView();
             this.label18 = new System.Windows.Forms.Label();
             this.addingTripTab = new System.Windows.Forms.TabPage();
+            this.EditTrip_btnChangeStatus = new System.Windows.Forms.Button();
             this.label40 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
@@ -272,7 +273,6 @@
             this.label54 = new System.Windows.Forms.Label();
             this.Reports_quantityReport_cmbProducts = new System.Windows.Forms.ComboBox();
             this.ReportSFD = new System.Windows.Forms.SaveFileDialog();
-            this.EditTrip_btnChangeStatus = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
             this.portTab.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -1354,6 +1354,16 @@
             this.addingTripTab.TabIndex = 1;
             this.addingTripTab.Text = "إدارة الرحلات";
             this.addingTripTab.Enter += new System.EventHandler(this.addingTripTab_Enter);
+            // 
+            // EditTrip_btnChangeStatus
+            // 
+            this.EditTrip_btnChangeStatus.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.EditTrip_btnChangeStatus.Location = new System.Drawing.Point(545, 167);
+            this.EditTrip_btnChangeStatus.Name = "EditTrip_btnChangeStatus";
+            this.EditTrip_btnChangeStatus.Size = new System.Drawing.Size(169, 30);
+            this.EditTrip_btnChangeStatus.TabIndex = 48;
+            this.EditTrip_btnChangeStatus.UseVisualStyleBackColor = true;
+            this.EditTrip_btnChangeStatus.Click += new System.EventHandler(this.EditTrip_btnChangeStatus_Click);
             // 
             // label40
             // 
@@ -2641,6 +2651,7 @@
             // Reports_ShipStaus_cmbPlatforms
             // 
             this.Reports_ShipStaus_cmbPlatforms.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Reports_ShipStaus_cmbPlatforms.Enabled = false;
             this.Reports_ShipStaus_cmbPlatforms.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.Reports_ShipStaus_cmbPlatforms.FormattingEnabled = true;
             this.Reports_ShipStaus_cmbPlatforms.Location = new System.Drawing.Point(152, 17);
@@ -2989,16 +3000,6 @@
             this.ReportSFD.DefaultExt = "pdf";
             this.ReportSFD.FileName = "Report.pdf";
             this.ReportSFD.Filter = "PDF files|*.pdf";
-            // 
-            // EditTrip_btnChangeStatus
-            // 
-            this.EditTrip_btnChangeStatus.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.EditTrip_btnChangeStatus.Location = new System.Drawing.Point(545, 167);
-            this.EditTrip_btnChangeStatus.Name = "EditTrip_btnChangeStatus";
-            this.EditTrip_btnChangeStatus.Size = new System.Drawing.Size(169, 30);
-            this.EditTrip_btnChangeStatus.TabIndex = 48;
-            this.EditTrip_btnChangeStatus.UseVisualStyleBackColor = true;
-            this.EditTrip_btnChangeStatus.Click += new System.EventHandler(this.EditTrip_btnChangeStatus_Click);
             // 
             // MainScreen
             // 
