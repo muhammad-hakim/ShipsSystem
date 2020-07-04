@@ -1746,7 +1746,7 @@
             this.AddTrip_CmbStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddTrip_CmbStatus.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.AddTrip_CmbStatus.FormattingEnabled = true;
-            this.AddTrip_CmbStatus.Location = new System.Drawing.Point(747, 166);
+            this.AddTrip_CmbStatus.Location = new System.Drawing.Point(747, 173);
             this.AddTrip_CmbStatus.Name = "AddTrip_CmbStatus";
             this.AddTrip_CmbStatus.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.AddTrip_CmbStatus.Size = new System.Drawing.Size(180, 31);

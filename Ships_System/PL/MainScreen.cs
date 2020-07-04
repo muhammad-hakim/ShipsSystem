@@ -945,6 +945,7 @@ namespace Ships_System.PL
             TripShipLoad.Clear();
             FillAddTripDGVShipLoad();
             previousStatusDate = DateTime.MaxValue;
+            triptabControl.SelectedTab = tripsTab;
         }
 
         private void AddTrip_btnCancelTrip_Click(object sender, EventArgs e)
@@ -962,7 +963,7 @@ namespace Ships_System.PL
             AddTrip_CmbPlatforms.Text = TripsDGV.CurrentRow.Cells[8].Value.ToString();
             AddTrip_txtNotes.Text = TripsDGV.CurrentRow.Cells[9].Value.ToString();
             AddTrip_CmbStatus.Text = ArabicValues[Enum.GetName(typeof(TripStatus), TripsDGV.CurrentRow.Cells[10].Value)];
-
+            AddTrip_CmbStatus_SelectedIndexChanged(sender , e);
             TripShipLoad.Clear();
             foreach (TripsLoad item in allTrips.Find(t => t.TripId == Convert.ToInt32(TripsDGV.CurrentRow.Cells[0].Value)).TripsLoads)
             {
@@ -970,7 +971,6 @@ namespace Ships_System.PL
             }
             FillAddTripDGVShipLoad();
             triptabControl.SelectedTab = addingTripTab;
-            EditTrip_btnChangeStatus.Visible = true;
         }
 
         private void Trips_btnDelete_Click(object sender, EventArgs e)
@@ -1112,6 +1112,7 @@ namespace Ships_System.PL
             ManageAcc_cmbArea.SelectedValue = -1;
             ManageAcc_CheckReported.Checked = false;
             ManageAcc_dtpDate.ResetText();
+            triptabControl.SelectedTab = AccidentTab;
         }
 
         void FillAccidentsDGV()
@@ -1183,7 +1184,6 @@ namespace Ships_System.PL
                 ManageAcc_CheckReported.Checked = (bool)Accidents_DGV.CurrentRow.Cells[14].Value;
                 ManageAcc_txtReportedTo.Text = Accidents_DGV.CurrentRow.Cells[12].Value.ToString();
                 ManageAcc_txtCoast.Text = Accidents_DGV.CurrentRow.Cells[13].Value.ToString();
-
                 triptabControl.SelectedTab = AccidentManagementTab;
             }
         }
