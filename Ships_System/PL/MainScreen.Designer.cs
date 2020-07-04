@@ -273,6 +273,8 @@
             this.label54 = new System.Windows.Forms.Label();
             this.Reports_quantityReport_cmbProducts = new System.Windows.Forms.ComboBox();
             this.ReportSFD = new System.Windows.Forms.SaveFileDialog();
+            this.label63 = new System.Windows.Forms.Label();
+            this.Reports_quantityReport_cmbPorts = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
             this.portTab.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -2520,6 +2522,7 @@
             this.Reports_Visits_btnExtract.TabIndex = 21;
             this.Reports_Visits_btnExtract.Text = "استخراج التقرير";
             this.Reports_Visits_btnExtract.UseVisualStyleBackColor = true;
+            this.Reports_Visits_btnExtract.Click += new System.EventHandler(this.Reports_Visits_btnExtract_Click);
             // 
             // Reports_Visits_dtpTo
             // 
@@ -2911,6 +2914,8 @@
             // 
             // Reports_quantitiesReport
             // 
+            this.Reports_quantitiesReport.Controls.Add(this.label63);
+            this.Reports_quantitiesReport.Controls.Add(this.Reports_quantityReport_cmbPorts);
             this.Reports_quantitiesReport.Controls.Add(this.Reports_quantities_btnExtract);
             this.Reports_quantitiesReport.Controls.Add(this.Reports_quantitiesReport_dtpTo);
             this.Reports_quantitiesReport.Controls.Add(this.Reports_quantitiesReport_dtpFrom);
@@ -2918,9 +2923,9 @@
             this.Reports_quantitiesReport.Controls.Add(this.label45);
             this.Reports_quantitiesReport.Controls.Add(this.label54);
             this.Reports_quantitiesReport.Controls.Add(this.Reports_quantityReport_cmbProducts);
-            this.Reports_quantitiesReport.Location = new System.Drawing.Point(202, 313);
+            this.Reports_quantitiesReport.Location = new System.Drawing.Point(30, 313);
             this.Reports_quantitiesReport.Name = "Reports_quantitiesReport";
-            this.Reports_quantitiesReport.Size = new System.Drawing.Size(774, 65);
+            this.Reports_quantitiesReport.Size = new System.Drawing.Size(946, 65);
             this.Reports_quantitiesReport.TabIndex = 0;
             this.Reports_quantitiesReport.TabStop = false;
             this.Reports_quantitiesReport.Text = "تقرير كميات البضائع";
@@ -2934,6 +2939,7 @@
             this.Reports_quantities_btnExtract.TabIndex = 17;
             this.Reports_quantities_btnExtract.Text = "استخراج التقرير";
             this.Reports_quantities_btnExtract.UseVisualStyleBackColor = true;
+            this.Reports_quantities_btnExtract.Click += new System.EventHandler(this.Reports_quantities_btnExtract_Click);
             // 
             // Reports_quantitiesReport_dtpTo
             // 
@@ -2979,7 +2985,7 @@
             // 
             this.label54.AutoSize = true;
             this.label54.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label54.Location = new System.Drawing.Point(715, 26);
+            this.label54.Location = new System.Drawing.Point(891, 26);
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(52, 16);
             this.label54.TabIndex = 12;
@@ -2990,9 +2996,9 @@
             this.Reports_quantityReport_cmbProducts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Reports_quantityReport_cmbProducts.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.Reports_quantityReport_cmbProducts.FormattingEnabled = true;
-            this.Reports_quantityReport_cmbProducts.Location = new System.Drawing.Point(537, 20);
+            this.Reports_quantityReport_cmbProducts.Location = new System.Drawing.Point(741, 20);
             this.Reports_quantityReport_cmbProducts.Name = "Reports_quantityReport_cmbProducts";
-            this.Reports_quantityReport_cmbProducts.Size = new System.Drawing.Size(172, 31);
+            this.Reports_quantityReport_cmbProducts.Size = new System.Drawing.Size(148, 31);
             this.Reports_quantityReport_cmbProducts.TabIndex = 0;
             // 
             // ReportSFD
@@ -3000,6 +3006,26 @@
             this.ReportSFD.DefaultExt = "pdf";
             this.ReportSFD.FileName = "Report.pdf";
             this.ReportSFD.Filter = "PDF files|*.pdf";
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label63.Location = new System.Drawing.Point(684, 28);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(45, 16);
+            this.label63.TabIndex = 19;
+            this.label63.Text = "الميناء";
+            // 
+            // Reports_quantityReport_cmbPorts
+            // 
+            this.Reports_quantityReport_cmbPorts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Reports_quantityReport_cmbPorts.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Reports_quantityReport_cmbPorts.FormattingEnabled = true;
+            this.Reports_quantityReport_cmbPorts.Location = new System.Drawing.Point(543, 21);
+            this.Reports_quantityReport_cmbPorts.Name = "Reports_quantityReport_cmbPorts";
+            this.Reports_quantityReport_cmbPorts.Size = new System.Drawing.Size(140, 31);
+            this.Reports_quantityReport_cmbPorts.TabIndex = 18;
             // 
             // MainScreen
             // 
@@ -3322,5 +3348,7 @@
         private System.Windows.Forms.Label label62;
         private System.Windows.Forms.ComboBox Reports_ShipStaus_cmbPorts;
         private System.Windows.Forms.Button EditTrip_btnChangeStatus;
+        private System.Windows.Forms.Label label63;
+        private System.Windows.Forms.ComboBox Reports_quantityReport_cmbPorts;
     }
 }

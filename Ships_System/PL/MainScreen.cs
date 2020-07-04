@@ -219,15 +219,7 @@ namespace Ships_System.PL
                 TripsReportsItems.Add(new { Id = (int)item, Name = ArabicValues[item.ToString()] });
             }
             FillList(Reports_TripsReport_cmbStatus, TripsReportsItems, "Id", "Name");
-
-            var ShipsReportsItems = new List<object>();
-            ShipsReportsItems.Add(new { Id = -1, Name = "كل الحالات" });
-
-            foreach (var item in Enum.GetValues(typeof(TripStatus)))
-            {
-                ShipsReportsItems.Add(new { Id = (int)item, Name = ArabicValues[item.ToString()] });
-            }
-            FillList(Reports_ShipsStatus_cmbStatus, ShipsReportsItems, "Id", "Name");
+            FillList(Reports_ShipsStatus_cmbStatus, CloneList(TripsReportsItems), "Id", "Name");
         }
 
         void FillReportsCmbShips()
@@ -236,7 +228,7 @@ namespace Ships_System.PL
             ships.Insert(0, new { ShipId = -1, ShipName = "كل السفن" });
 
             FillList(Reports_TripsReport_cmbShips, ships, "ShipId", "ShipName");
-            FillList(Reports_Visits_cmbShips, ships, "ShipId", "ShipName");
+            FillList(Reports_Visits_cmbShips, CloneList(ships), "ShipId", "ShipName");
         }
 
         void FillReportsCmbAgents()
@@ -252,8 +244,21 @@ namespace Ships_System.PL
             ports.Insert(0, new { PortId = -1, PortName = "كل الموانئ" });
 
             FillList(Reports_TripsReport_cmbPorts, ports, "PortId", "PortName");
-            FillList(Reports_Visits_cmbPorts, ports, "PortId", "PortName");
-            FillList(Reports_ShipStaus_cmbPorts, ports, "PortId", "PortName");
+            FillList(Reports_Visits_cmbPorts, CloneList(ports), "PortId", "PortName");
+            FillList(Reports_ShipStaus_cmbPorts, CloneList(ports), "PortId", "PortName");
+            FillList(Reports_Visits_cmbPorts, CloneList(ports), "PortId", "PortName");
+        }
+
+        List<T> CloneList<T>(List<T> items) where T : class
+        {
+            List<T> newList = new List<T>();
+
+            foreach (T item in items)
+            {
+                newList.Add(item);
+            }
+
+            return newList;
         }
 
         void FillReportsCmbPlatforms()
@@ -1224,7 +1229,7 @@ namespace Ships_System.PL
 
         iTextSharp.text.Font titleFont = FontFactory.GetFont(fontname: "c:/windows/fonts/simpbdo.ttf", encoding: BaseFont.IDENTITY_H, size: 20, style: 1);
         iTextSharp.text.Font headerFont = FontFactory.GetFont(fontname: "c:/windows/fonts/arial.ttf", encoding: BaseFont.IDENTITY_H, size: 10, style: 1);
-        iTextSharp.text.Font StatusReportTitleFont = FontFactory.GetFont(fontname: "c:/windows/fonts/arial.ttf", encoding: BaseFont.IDENTITY_H, size: 12, style: 1);
+        iTextSharp.text.Font SubReportTitleFont = FontFactory.GetFont(fontname: "c:/windows/fonts/arial.ttf", encoding: BaseFont.IDENTITY_H, size: 12, style: 1);
         iTextSharp.text.Font cellFont = FontFactory.GetFont("c:/windows/fonts/arial.ttf", BaseFont.IDENTITY_H, 8);
         private void Trips_btnExportReport_Click(object sender, EventArgs e)
         {
@@ -1429,7 +1434,7 @@ namespace Ships_System.PL
                 }
                 catch (IOException ex)
                 {
-                    MessageBox.Show("لا يمكن إنشاء الملف .. من فضلك حاول مجددا", "فشل إنشاء الملف", MessageBoxButtons.OK , MessageBoxIcon.Error);
+                    MessageBox.Show("لا يمكن إنشاء الملف .. من فضلك حاول مجددا", "فشل إنشاء الملف", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return null;
                 }
             }
@@ -1462,17 +1467,21 @@ namespace Ships_System.PL
             return date1.Subtract(date2).Days;
         }
 
-        PdfPTable GetShipStatusTable(List<Trip> trips, string title)
+        PdfPTable GetSubTable(List<Trip> trips, string title, string type, int productId = 0, decimal total = 0)
         {
-            PdfPTable table = new PdfPTable(7);
-            StatusReportTitleFont.Color = BaseColor.BLACK;
+            PdfPTable table = new PdfPTable(type == "status" ? 7 : 8);
+            SubReportTitleFont.Color = BaseColor.BLACK;
             table.RunDirection = PdfWriter.RUN_DIRECTION_RTL;
             table.WidthPercentage = 100;
-            table.SetWidths(new int[] { 70, 45, 80, 30, 30, 35, 30 });
 
-            PdfPCell TitleCell = new PdfPCell(new Phrase(title, StatusReportTitleFont));
+            if (type == "status")
+                table.SetWidths(new int[] { 70, 45, 80, 30, 30, 35, 30 });
+            else
+                table.SetWidths(new int[] { 60, 40, 70, 30, 30, 30, 30, 30 });
+
+            PdfPCell TitleCell = new PdfPCell(new Phrase(title, SubReportTitleFont));
             TitleCell.Border = 0;
-            TitleCell.Colspan = 7;
+            TitleCell.Colspan = table.NumberOfColumns;
             table.AddCell(TitleCell);
 
             PdfPCell headerCell1 = new PdfPCell(new Phrase("رقم الرحلة", headerFont));
@@ -1484,17 +1493,23 @@ namespace Ships_System.PL
             PdfPCell headerCell3 = new PdfPCell(new Phrase("IMO", headerFont));
             table.AddCell(headerCell3);
 
-            PdfPCell headerCell4 = new PdfPCell(new Phrase("التاريخ", headerFont));
-            table.AddCell(headerCell4);
+            if (type == "quantity" || type == "visits")
+            {
+                PdfPCell headerCell4 = new PdfPCell(new Phrase("الميناء", headerFont));
+                table.AddCell(headerCell4);
+            }
 
-            PdfPCell headerCell5 = new PdfPCell(new Phrase("البضاعة", headerFont));
+            PdfPCell headerCell5 = new PdfPCell(new Phrase("التاريخ", headerFont));
             table.AddCell(headerCell5);
 
-            PdfPCell headerCell6 = new PdfPCell(new Phrase("الوكيل الملاحى", headerFont));
+            PdfPCell headerCell6 = new PdfPCell(new Phrase(type == "quantity" ? "كمية البضاعة" : "البضاعة", headerFont));
             table.AddCell(headerCell6);
 
-            PdfPCell headerCell7 = new PdfPCell(new Phrase("ملاحظات", headerFont));
+            PdfPCell headerCell7 = new PdfPCell(new Phrase("الوكيل الملاحى", headerFont));
             table.AddCell(headerCell7);
+
+            PdfPCell headerCell8 = new PdfPCell(new Phrase("ملاحظات", headerFont));
+            table.AddCell(headerCell8);
 
             SetTableHeaderCellsStyle(table.Rows[1]);
 
@@ -1509,37 +1524,62 @@ namespace Ships_System.PL
                 PdfPCell c3 = new PdfPCell(new Phrase(trip.Ship.Imo, cellFont));
                 table.AddCell(c3);
 
-                PdfPCell c4 = new PdfPCell(new Phrase(trip.TripsStatus.FirstOrDefault(s => s.Status == trip.Status).Date.ToShortDateString(), cellFont));
+                PdfPCell c4 = new PdfPCell(new Phrase(trip.Port.Name, cellFont));
                 table.AddCell(c4);
 
-                PdfPTable productsTable = new PdfPTable(2);
-                productsTable.RunDirection = PdfWriter.RUN_DIRECTION_RTL;
-                productsTable.SetWidths(new int[] { 68, 67 });
+                PdfPCell c5 = new PdfPCell(new Phrase(trip.TripsStatus.FirstOrDefault(s => s.Status == trip.Status).Date.ToShortDateString(), cellFont));
+                table.AddCell(c5);
 
-                PdfPCell productHeaderCell = new PdfPCell(new Phrase("البضاعة", cellFont));
-                productsTable.AddCell(productHeaderCell);
-
-                PdfPCell quantityHeaderCell = new PdfPCell(new Phrase("الكمية", cellFont));
-                productsTable.AddCell(quantityHeaderCell);
-
-                foreach (var load in trip.TripsLoads)
+                if (type == "status" || type == "visits")
                 {
-                    PdfPCell productCell = new PdfPCell(new Phrase(load.Product.Name, cellFont));
-                    productsTable.AddCell(productCell);
+                    PdfPTable productsTable = new PdfPTable(2);
+                    productsTable.RunDirection = PdfWriter.RUN_DIRECTION_RTL;
+                    productsTable.SetWidths(new int[] { 68, 67 });
 
-                    PdfPCell quantityCell = new PdfPCell(new Phrase(load.Quantity.ToString(), cellFont));
-                    productsTable.AddCell(quantityCell);
+                    PdfPCell productHeaderCell = new PdfPCell(new Phrase("البضاعة", cellFont));
+                    productsTable.AddCell(productHeaderCell);
+
+                    PdfPCell quantityHeaderCell = new PdfPCell(new Phrase("الكمية", cellFont));
+                    productsTable.AddCell(quantityHeaderCell);
+
+                    foreach (var load in trip.TripsLoads)
+                    {
+                        PdfPCell productCell = new PdfPCell(new Phrase(load.Product.Name, cellFont));
+                        productsTable.AddCell(productCell);
+
+                        PdfPCell quantityCell = new PdfPCell(new Phrase(load.Quantity.ToString(), cellFont));
+                        productsTable.AddCell(quantityCell);
+                    }
+                    productsTable.HorizontalAlignment = Element.ALIGN_CENTER;
+                    CenterAllignPdfTableCells(productsTable);
+                    table.AddCell(productsTable);
                 }
-                productsTable.HorizontalAlignment = Element.ALIGN_CENTER;
-                CenterAllignPdfTableCells(productsTable);
-                table.AddCell(productsTable);
+                else
+                {
+                    PdfPCell c6 = new PdfPCell(new Phrase(trip.TripsLoads.FirstOrDefault(x => x.ProductId == productId).Quantity.ToString(), cellFont));
+                    table.AddCell(c6);
+                }
 
-                PdfPCell c6 = new PdfPCell(new Phrase(trip.Agent.Name, cellFont));
-                table.AddCell(c6);
-
-                PdfPCell c7 = new PdfPCell(new Phrase(trip.Notes, cellFont));
+                PdfPCell c7 = new PdfPCell(new Phrase(trip.Agent.Name, cellFont));
                 table.AddCell(c7);
+
+                PdfPCell c8 = new PdfPCell(new Phrase(trip.Notes, cellFont));
+                table.AddCell(c8);
             }
+            if (type == "quantity")
+            {
+                PdfPCell totalCell = new PdfPCell(new Phrase("إجمالى الكمية = " + total.ToString(), cellFont));
+                totalCell.Colspan = table.NumberOfColumns;
+                table.AddCell(totalCell);
+            }
+
+            if (type == "visits")
+            {
+                PdfPCell totalCell = new PdfPCell(new Phrase("إجمالى عدد الزيارات = " + trips.Count.ToString(), cellFont));
+                totalCell.Colspan = table.NumberOfColumns;
+                table.AddCell(totalCell);
+            }
+
             CenterAllignPdfTableCells(table);
 
             return table;
@@ -1670,7 +1710,7 @@ namespace Ships_System.PL
                 PdfPTable table = new PdfPTable(11);
                 table.RunDirection = PdfWriter.RUN_DIRECTION_RTL;
                 table.WidthPercentage = 100;
-                table.SetWidths(new int[] { 40, 40, 40, 40, 40, 40, 40, 40, 40, 40 ,40});
+                table.SetWidths(new int[] { 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40 });
 
                 PdfPCell headerCell1 = new PdfPCell(new Phrase("رقم الرحلة", headerFont));
                 table.AddCell(headerCell1);
@@ -1739,7 +1779,7 @@ namespace Ships_System.PL
                     PdfPCell c7 = new PdfPCell(new Phrase(_platform != null ? _platform.Date.ToShortDateString() : "لم تدخل الرصيف بعد", cellFont));
                     table.AddCell(c7);
 
-                    double _gebotiToReservation=0;
+                    double _gebotiToReservation = 0;
                     if (_reservation != null)
                         _gebotiToReservation = CalculateDateDiffernce(_reservation.Date, _geboti);
                     PdfPCell c8 = new PdfPCell(new Phrase(_gebotiToReservation.ToString(), cellFont));
@@ -1748,13 +1788,13 @@ namespace Ships_System.PL
 
                     double _reservationToGhates = 0;
                     if (_ghates != null && _reservation != null)
-                    _reservationToGhates = CalculateDateDiffernce(_ghates.Date, _reservation.Date);
+                        _reservationToGhates = CalculateDateDiffernce(_ghates.Date, _reservation.Date);
                     PdfPCell c9 = new PdfPCell(new Phrase(_reservationToGhates.ToString(), cellFont));
                     table.AddCell(c9);
 
                     double _ghatesToPlatform = 0;
-                    if(_platform != null && _ghates != null)
-                    _ghatesToPlatform = CalculateDateDiffernce(_platform.Date, _ghates.Date);
+                    if (_platform != null && _ghates != null)
+                        _ghatesToPlatform = CalculateDateDiffernce(_platform.Date, _ghates.Date);
                     PdfPCell c10 = new PdfPCell(new Phrase(_ghatesToPlatform.ToString(), cellFont));
                     table.AddCell(c10);
 
@@ -1784,19 +1824,19 @@ namespace Ships_System.PL
                     switch (Convert.ToInt32(Reports_ShipsStatus_cmbStatus.SelectedValue))
                     {
                         case (int)TripStatus.LeftDGebouti:
-                            tables.Add(GetShipStatusTable(trips, "السفن التى غادرت جيبوتى"));
+                            tables.Add(GetSubTable(trips, "السفن التى غادرت جيبوتى", "status"));
                             break;
 
                         case (int)TripStatus.ReservationArea:
-                            tables.Add(GetShipStatusTable(trips, "السفن فى منطقة الإحتجاز"));
+                            tables.Add(GetSubTable(trips, "السفن فى منطقة الإحتجاز", "status"));
                             break;
 
                         case (int)TripStatus.AtGhates:
-                            tables.Add(GetShipStatusTable(trips, "السفن فى الغاطس"));
+                            tables.Add(GetSubTable(trips, "السفن فى الغاطس", "status"));
                             break;
 
                         case (int)TripStatus.EXecptedTOArrive:
-                            tables.Add(GetShipStatusTable(trips, "السفن المتوقع وصولها"));
+                            tables.Add(GetSubTable(trips, "السفن المتوقع وصولها", "status"));
                             break;
 
                         case (int)TripStatus.ArriveAtPlatform:
@@ -1815,7 +1855,7 @@ namespace Ships_System.PL
                                             string title = " السفن الراسية فى " + trips.FirstOrDefault().Port.Name;
                                             title += " على " + trips.FirstOrDefault().Platform.Name;
 
-                                            tables.Add(GetShipStatusTable(trips, title));
+                                            tables.Add(GetSubTable(trips, title, "status"));
                                         }
                                     }
                                     else
@@ -1827,9 +1867,9 @@ namespace Ships_System.PL
 
                                             foreach (var platformGroup in platformGroups)
                                             {
-                                                string title = " السفن الراسية فى "+ platformGroup.FirstOrDefault().Port.Name;
+                                                string title = " السفن الراسية فى " + platformGroup.FirstOrDefault().Port.Name;
                                                 title += " على " + platformGroup.FirstOrDefault().Platform.Name;
-                                                tables.Add(GetShipStatusTable(platformGroup.ToList(), title));
+                                                tables.Add(GetSubTable(platformGroup.ToList(), title, "status"));
                                             }
                                         }
                                     }
@@ -1848,7 +1888,7 @@ namespace Ships_System.PL
                                             string title = " السفن الراسية فى " + platformGroup.FirstOrDefault().Port.Name;
                                             title += " على " + platformGroup.FirstOrDefault().Platform.Name;
 
-                                            tables.Add(GetShipStatusTable(platformGroup.ToList(), title));
+                                            tables.Add(GetSubTable(platformGroup.ToList(), title, "status"));
                                         }
                                     }
                                 }
@@ -1857,7 +1897,7 @@ namespace Ships_System.PL
                             }
 
                         case (int)TripStatus.WaitingAtGhatesAfterUnload:
-                            tables.Add(GetShipStatusTable(trips, "السفن المنتظرة فى الغاطس بعد تفريغ الحمولة"));
+                            tables.Add(GetSubTable(trips, "السفن المنتظرة فى الغاطس بعد تفريغ الحمولة", "status"));
                             break;
                     }
                 }
@@ -1871,19 +1911,19 @@ namespace Ships_System.PL
                         switch (statusGroup.Key)
                         {
                             case (int)TripStatus.LeftDGebouti:
-                                tables.Add(GetShipStatusTable(trips.Where(t => t.Status == (int)TripStatus.LeftDGebouti).ToList(), "السفن التى غادرت جيبوتى"));
+                                tables.Add(GetSubTable(trips.Where(t => t.Status == (int)TripStatus.LeftDGebouti).ToList(), "السفن التى غادرت جيبوتى", "status"));
                                 break;
 
                             case (int)TripStatus.ReservationArea:
-                                tables.Add(GetShipStatusTable(trips.Where(t => t.Status == (int)TripStatus.ReservationArea).ToList(), "السفن فى منطقة الإحتجاز"));
+                                tables.Add(GetSubTable(trips.Where(t => t.Status == (int)TripStatus.ReservationArea).ToList(), "السفن فى منطقة الإحتجاز", "status"));
                                 break;
 
                             case (int)TripStatus.AtGhates:
-                                tables.Add(GetShipStatusTable(trips.Where(t => t.Status == (int)TripStatus.AtGhates).ToList(), "السفن فى الغاطس"));
+                                tables.Add(GetSubTable(trips.Where(t => t.Status == (int)TripStatus.AtGhates).ToList(), "السفن فى الغاطس", "status"));
                                 break;
 
                             case (int)TripStatus.EXecptedTOArrive:
-                                tables.Add(GetShipStatusTable(trips.Where(t => t.Status == (int)TripStatus.EXecptedTOArrive).ToList(), "السفن المتوقع وصولها"));
+                                tables.Add(GetSubTable(trips.Where(t => t.Status == (int)TripStatus.EXecptedTOArrive).ToList(), "السفن المتوقع وصولها", "status"));
                                 break;
 
                             case (int)TripStatus.ArriveAtPlatform:
@@ -1899,14 +1939,14 @@ namespace Ships_System.PL
                                             string title = " السفن الراسية فى " + platformGroup.FirstOrDefault().Port.Name;
                                             title += " على " + platformGroup.FirstOrDefault().Platform.Name;
 
-                                            tables.Add(GetShipStatusTable(platformGroup.ToList(), title));
+                                            tables.Add(GetSubTable(platformGroup.ToList(), title, "status"));
                                         }
                                     }
                                     break;
                                 }
 
                             case (int)TripStatus.WaitingAtGhatesAfterUnload:
-                                tables.Add(GetShipStatusTable(trips.Where(t => t.Status == (int)TripStatus.WaitingAtGhatesAfterUnload).ToList(), "السفن المنتظرة فى الغاطس بعد تفريغ الحمولة"));
+                                tables.Add(GetSubTable(trips.Where(t => t.Status == (int)TripStatus.WaitingAtGhatesAfterUnload).ToList(), "السفن المنتظرة فى الغاطس بعد تفريغ الحمولة", "status"));
                                 break;
                         }
                     }
@@ -1944,7 +1984,7 @@ namespace Ships_System.PL
             }
             else
             {
-                EditTrip_btnChangeStatus.Visible= true;
+                EditTrip_btnChangeStatus.Visible = true;
             }
         }
 
@@ -2003,6 +2043,7 @@ namespace Ships_System.PL
                 }
             }
         }
+
         DateTime previousStatusDate = DateTime.MaxValue;
         private void EditTrip_btnChangeStatus_Click(object sender, EventArgs e)
         {
@@ -2012,7 +2053,96 @@ namespace Ships_System.PL
                 previousStatusDate = tripService.GetTripById(Convert.ToInt32(AddTrip_btnSaveTrip.Tag)).TripsStatus.FirstOrDefault(s => s.Status == (int)AddTrip_CmbStatus.SelectedValue).Date;
                 AddTrip_CmbStatus.SelectedValue = EditTrip_btnChangeStatus.Tag;
             }
-            MessageBox.Show("من فضلك اختر التاريخ", "تاريخ الحالة" , MessageBoxButtons.OK , MessageBoxIcon.Information);
+            MessageBox.Show("من فضلك اختر التاريخ", "تاريخ الحالة", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void Reports_quantities_btnExtract_Click(object sender, EventArgs e)
+        {
+            Document document = CreateReportPdfFile("تقرير كميات البضائع ");
+
+            if (document != null)
+            {
+                List<PdfPTable> tables = new List<PdfPTable>();
+
+                var trips = tripService.GetAllTrips().
+                    Where(t => (t.TripsStatus.FirstOrDefault(
+                        x => x.Status == (int)TripStatus.AtGhates &&
+                        DateTime.Compare(Reports_quantitiesReport_dtpFrom.Value.Date, x.Date) <= 0 &&
+                        DateTime.Compare(Reports_quantitiesReport_dtpTo.Value.Date, x.Date) >= 0) != null) ||
+                        (t.TripsStatus.FirstOrDefault(
+                            x => x.Status == (int)TripStatus.ArriveAtPlatform &&
+                            DateTime.Compare(Reports_quantitiesReport_dtpFrom.Value.Date, x.Date) <= 0 &&
+                            DateTime.Compare(Reports_quantitiesReport_dtpTo.Value.Date, x.Date) >= 0) != null));
+
+                if (Reports_quantityReport_cmbPorts.SelectedValue != null && (int)Reports_quantityReport_cmbPorts.SelectedValue != -1)
+                    trips = trips.Where(t => t.PortId == Convert.ToInt32(Reports_quantityReport_cmbPorts.SelectedValue));
+
+                if (Reports_quantityReport_cmbProducts.SelectedValue != null && (int)Reports_quantityReport_cmbProducts.SelectedValue != -1)
+                {
+                    int productId = Convert.ToInt32(Reports_quantityReport_cmbProducts.SelectedValue);
+                    trips = trips.Where(t => t.TripsLoads.FirstOrDefault(l => l.ProductId == productId) != null);
+                    var quantity = trips.Sum(t => t.TripsLoads.FirstOrDefault(l => l.ProductId == productId).Quantity);
+
+                    if (quantity > 0)
+                    {
+                        var productName = trips.FirstOrDefault().TripsLoads.FirstOrDefault(x => x.ProductId == productId).Product.Name;
+                        tables.Add(GetSubTable(trips.ToList(), "كمية " + productName + " التى وصلت خلال المدة من " + Reports_quantitiesReport_dtpFrom.Value.Date.ToShortDateString() + " إلى " + Reports_quantitiesReport_dtpTo.Value.Date.ToShortDateString(), "quantity", productId, quantity));
+                    }
+                }
+                else
+                {
+                    foreach (var item in productService.GetAllProducts())
+                    {
+                        var productTrips = trips.Where(t => t.TripsLoads.FirstOrDefault(l => l.ProductId == item.ProductId) != null);
+                        var quantity = productTrips.Sum(t => t.TripsLoads.FirstOrDefault(l => l.ProductId == item.ProductId).Quantity);
+                        if (quantity > 0)
+                            tables.Add(GetSubTable(productTrips.ToList(), "كمية " + item.Name + " التى وصلت خلال المدة من " + Reports_quantitiesReport_dtpFrom.Value.Date.ToShortDateString() + " إلى " + Reports_quantitiesReport_dtpTo.Value.Date.ToShortDateString(), "quantity", item.ProductId, quantity));
+                    }
+                }
+
+                foreach (var table in tables)
+                {
+                    document.Add(table);
+                    document.Add(new Phrase(" "));
+                }
+                document.Close();
+            }
+        }
+
+        private void Reports_Visits_btnExtract_Click(object sender, EventArgs e)
+        {
+            Document document = CreateReportPdfFile("تقرير زيارات السفن للموانئ");
+
+            if (document != null)
+            {
+                List<PdfPTable> tables = new List<PdfPTable>();
+
+                var trips = tripService.GetAllTrips();
+
+                if (Reports_Visits_cmbShips.SelectedValue != null && (int)Reports_Visits_cmbShips.SelectedValue != -1)
+                    trips = trips.Where(t => t.ShipId == Convert.ToInt32(Reports_Visits_cmbShips.SelectedValue)).ToList();
+
+                if (Reports_Visits_cmbPorts.SelectedValue != null && (int)Reports_Visits_cmbPorts.SelectedValue != -1)
+                    trips = trips.Where(t => t.PortId == Convert.ToInt32(Reports_Visits_cmbPorts.SelectedValue)).ToList();
+
+                trips = trips.Where(t => t.TripsStatus.FirstOrDefault(
+                    s => (s.Status == (int)TripStatus.ArriveAtPlatform && DateTime.Compare(Reports_Visits_dtpFrom.Value.Date, s.Date) <= 0 && DateTime.Compare(Reports_Visits_dtpTo.Value.Date, s.Date) >= 0)
+                    || (s.Status == (int)TripStatus.AtGhates && DateTime.Compare(Reports_Visits_dtpFrom.Value.Date, s.Date) <= 0 && DateTime.Compare(Reports_Visits_dtpTo.Value.Date, s.Date) >= 0)) != null).ToList();
+
+                var shipGroups = trips.GroupBy(s => s.ShipId);
+
+                foreach (var shipGroup in shipGroups)
+                {
+                    tables.Add(GetSubTable(shipGroup.ToList(), "تقرير زيارات السفينة " + shipGroup.First().Ship.Name, "visits"));
+                }
+
+                foreach (var table in tables)
+                {
+                    document.Add(table);
+                    document.Add(new Phrase(" "));
+                }
+                document.Close();
+            }
         }
     }
 }
