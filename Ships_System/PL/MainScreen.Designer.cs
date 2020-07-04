@@ -174,7 +174,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.TripsDGV = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.Trips_btnExportReport = new System.Windows.Forms.Button();
             this.Trips_btnClearSearch = new System.Windows.Forms.Button();
             this.Trips_cmbSearchFields = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -265,6 +264,8 @@
             this.Reports_PeriodsReport_dtpFrom = new System.Windows.Forms.DateTimePicker();
             this.label47 = new System.Windows.Forms.Label();
             this.Reports_quantitiesReport = new System.Windows.Forms.GroupBox();
+            this.label63 = new System.Windows.Forms.Label();
+            this.Reports_quantityReport_cmbPorts = new System.Windows.Forms.ComboBox();
             this.Reports_quantities_btnExtract = new System.Windows.Forms.Button();
             this.Reports_quantitiesReport_dtpTo = new System.Windows.Forms.DateTimePicker();
             this.Reports_quantitiesReport_dtpFrom = new System.Windows.Forms.DateTimePicker();
@@ -273,8 +274,6 @@
             this.label54 = new System.Windows.Forms.Label();
             this.Reports_quantityReport_cmbProducts = new System.Windows.Forms.ComboBox();
             this.ReportSFD = new System.Windows.Forms.SaveFileDialog();
-            this.label63 = new System.Windows.Forms.Label();
-            this.Reports_quantityReport_cmbPorts = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
             this.portTab.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -1876,7 +1875,6 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.Trips_btnExportReport);
             this.panel4.Controls.Add(this.Trips_btnClearSearch);
             this.panel4.Controls.Add(this.Trips_cmbSearchFields);
             this.panel4.Controls.Add(this.label10);
@@ -1889,23 +1887,12 @@
             this.panel4.Size = new System.Drawing.Size(982, 55);
             this.panel4.TabIndex = 7;
             // 
-            // Trips_btnExportReport
-            // 
-            this.Trips_btnExportReport.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.Trips_btnExportReport.Location = new System.Drawing.Point(212, 9);
-            this.Trips_btnExportReport.Name = "Trips_btnExportReport";
-            this.Trips_btnExportReport.Size = new System.Drawing.Size(193, 39);
-            this.Trips_btnExportReport.TabIndex = 16;
-            this.Trips_btnExportReport.Text = "استخراج تقرير كل الرحلات";
-            this.Trips_btnExportReport.UseVisualStyleBackColor = true;
-            this.Trips_btnExportReport.Click += new System.EventHandler(this.Trips_btnExportReport_Click);
-            // 
             // Trips_btnClearSearch
             // 
             this.Trips_btnClearSearch.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.Trips_btnClearSearch.Location = new System.Drawing.Point(411, 9);
+            this.Trips_btnClearSearch.Location = new System.Drawing.Point(375, 8);
             this.Trips_btnClearSearch.Name = "Trips_btnClearSearch";
-            this.Trips_btnClearSearch.Size = new System.Drawing.Size(89, 39);
+            this.Trips_btnClearSearch.Size = new System.Drawing.Size(107, 39);
             this.Trips_btnClearSearch.TabIndex = 15;
             this.Trips_btnClearSearch.Text = "مسح الفلتر";
             this.Trips_btnClearSearch.UseVisualStyleBackColor = true;
@@ -1928,9 +1915,9 @@
             "الميناء",
             "الرصيف",
             "ملاحظات"});
-            this.Trips_cmbSearchFields.Location = new System.Drawing.Point(506, 11);
+            this.Trips_cmbSearchFields.Location = new System.Drawing.Point(489, 11);
             this.Trips_cmbSearchFields.Name = "Trips_cmbSearchFields";
-            this.Trips_cmbSearchFields.Size = new System.Drawing.Size(147, 31);
+            this.Trips_cmbSearchFields.Size = new System.Drawing.Size(163, 31);
             this.Trips_cmbSearchFields.TabIndex = 13;
             this.Trips_cmbSearchFields.SelectedIndexChanged += new System.EventHandler(this.Trips_cmbSearchFields_SelectedIndexChanged);
             // 
@@ -1938,7 +1925,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label10.Location = new System.Drawing.Point(654, 15);
+            this.label10.Location = new System.Drawing.Point(653, 15);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(77, 23);
             this.label10.TabIndex = 12;
@@ -1947,9 +1934,9 @@
             // Trips_btnDelete
             // 
             this.Trips_btnDelete.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.Trips_btnDelete.Location = new System.Drawing.Point(6, 7);
+            this.Trips_btnDelete.Location = new System.Drawing.Point(10, 7);
             this.Trips_btnDelete.Name = "Trips_btnDelete";
-            this.Trips_btnDelete.Size = new System.Drawing.Size(96, 41);
+            this.Trips_btnDelete.Size = new System.Drawing.Size(129, 41);
             this.Trips_btnDelete.TabIndex = 11;
             this.Trips_btnDelete.Text = "حذف الرحلة";
             this.Trips_btnDelete.UseVisualStyleBackColor = true;
@@ -1958,9 +1945,9 @@
             // Trips_btnEdit
             // 
             this.Trips_btnEdit.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.Trips_btnEdit.Location = new System.Drawing.Point(106, 7);
+            this.Trips_btnEdit.Location = new System.Drawing.Point(147, 7);
             this.Trips_btnEdit.Name = "Trips_btnEdit";
-            this.Trips_btnEdit.Size = new System.Drawing.Size(100, 41);
+            this.Trips_btnEdit.Size = new System.Drawing.Size(133, 41);
             this.Trips_btnEdit.TabIndex = 10;
             this.Trips_btnEdit.Text = "تعديل الرحلة";
             this.Trips_btnEdit.UseVisualStyleBackColor = true;
@@ -2930,6 +2917,26 @@
             this.Reports_quantitiesReport.TabStop = false;
             this.Reports_quantitiesReport.Text = "تقرير كميات البضائع";
             // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label63.Location = new System.Drawing.Point(684, 28);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(45, 16);
+            this.label63.TabIndex = 19;
+            this.label63.Text = "الميناء";
+            // 
+            // Reports_quantityReport_cmbPorts
+            // 
+            this.Reports_quantityReport_cmbPorts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Reports_quantityReport_cmbPorts.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Reports_quantityReport_cmbPorts.FormattingEnabled = true;
+            this.Reports_quantityReport_cmbPorts.Location = new System.Drawing.Point(543, 21);
+            this.Reports_quantityReport_cmbPorts.Name = "Reports_quantityReport_cmbPorts";
+            this.Reports_quantityReport_cmbPorts.Size = new System.Drawing.Size(140, 31);
+            this.Reports_quantityReport_cmbPorts.TabIndex = 18;
+            // 
             // Reports_quantities_btnExtract
             // 
             this.Reports_quantities_btnExtract.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
@@ -3006,26 +3013,6 @@
             this.ReportSFD.DefaultExt = "pdf";
             this.ReportSFD.FileName = "Report.pdf";
             this.ReportSFD.Filter = "PDF files|*.pdf";
-            // 
-            // label63
-            // 
-            this.label63.AutoSize = true;
-            this.label63.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label63.Location = new System.Drawing.Point(684, 28);
-            this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(45, 16);
-            this.label63.TabIndex = 19;
-            this.label63.Text = "الميناء";
-            // 
-            // Reports_quantityReport_cmbPorts
-            // 
-            this.Reports_quantityReport_cmbPorts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Reports_quantityReport_cmbPorts.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.Reports_quantityReport_cmbPorts.FormattingEnabled = true;
-            this.Reports_quantityReport_cmbPorts.Location = new System.Drawing.Point(543, 21);
-            this.Reports_quantityReport_cmbPorts.Name = "Reports_quantityReport_cmbPorts";
-            this.Reports_quantityReport_cmbPorts.Size = new System.Drawing.Size(140, 31);
-            this.Reports_quantityReport_cmbPorts.TabIndex = 18;
             // 
             // MainScreen
             // 
@@ -3288,7 +3275,6 @@
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.Button Trips_btnExportReport;
         private System.Windows.Forms.SaveFileDialog ReportSFD;
         private System.Windows.Forms.Label Accidet_label;
         private System.Windows.Forms.GroupBox AddShip_GBAddType;
