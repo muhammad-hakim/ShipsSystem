@@ -183,6 +183,7 @@
             this.searchlab = new System.Windows.Forms.Label();
             this.triptabControl = new System.Windows.Forms.TabControl();
             this.AccidentTab = new System.Windows.Forms.TabPage();
+            this.Accidents_btnImport = new System.Windows.Forms.Button();
             this.Accidet_label = new System.Windows.Forms.Label();
             this.accidents_deletebtn = new System.Windows.Forms.Button();
             this.Accident_Upadtebtn = new System.Windows.Forms.Button();
@@ -274,6 +275,8 @@
             this.label54 = new System.Windows.Forms.Label();
             this.Reports_quantityReport_cmbProducts = new System.Windows.Forms.ComboBox();
             this.ReportSFD = new System.Windows.Forms.SaveFileDialog();
+            this.AccidentsExcelOFD = new System.Windows.Forms.OpenFileDialog();
+            this.accidents_lblImporting = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
             this.portTab.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -1998,6 +2001,8 @@
             // AccidentTab
             // 
             this.AccidentTab.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.AccidentTab.Controls.Add(this.accidents_lblImporting);
+            this.AccidentTab.Controls.Add(this.Accidents_btnImport);
             this.AccidentTab.Controls.Add(this.Accidet_label);
             this.AccidentTab.Controls.Add(this.accidents_deletebtn);
             this.AccidentTab.Controls.Add(this.Accident_Upadtebtn);
@@ -2009,12 +2014,23 @@
             this.AccidentTab.TabIndex = 6;
             this.AccidentTab.Text = "الحوادث";
             // 
+            // Accidents_btnImport
+            // 
+            this.Accidents_btnImport.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Accidents_btnImport.Location = new System.Drawing.Point(299, 62);
+            this.Accidents_btnImport.Name = "Accidents_btnImport";
+            this.Accidents_btnImport.Size = new System.Drawing.Size(219, 54);
+            this.Accidents_btnImport.TabIndex = 3;
+            this.Accidents_btnImport.Text = "استيراد البيانات من ملف إكسيل";
+            this.Accidents_btnImport.UseVisualStyleBackColor = true;
+            this.Accidents_btnImport.Click += new System.EventHandler(this.Accidents_btnImport_Click);
+            // 
             // Accidet_label
             // 
             this.Accidet_label.AutoSize = true;
             this.Accidet_label.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Accidet_label.Font = new System.Drawing.Font("Times New Roman", 20F, System.Drawing.FontStyle.Bold);
-            this.Accidet_label.Location = new System.Drawing.Point(299, 14);
+            this.Accidet_label.Location = new System.Drawing.Point(375, 15);
             this.Accidet_label.Name = "Accidet_label";
             this.Accidet_label.Size = new System.Drawing.Size(278, 31);
             this.Accidet_label.TabIndex = 2;
@@ -2023,9 +2039,9 @@
             // accidents_deletebtn
             // 
             this.accidents_deletebtn.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.accidents_deletebtn.Location = new System.Drawing.Point(490, 62);
+            this.accidents_deletebtn.Location = new System.Drawing.Point(677, 62);
             this.accidents_deletebtn.Name = "accidents_deletebtn";
-            this.accidents_deletebtn.Size = new System.Drawing.Size(161, 54);
+            this.accidents_deletebtn.Size = new System.Drawing.Size(150, 51);
             this.accidents_deletebtn.TabIndex = 1;
             this.accidents_deletebtn.Text = "حذف بيانات الحادثة";
             this.accidents_deletebtn.UseVisualStyleBackColor = true;
@@ -2034,9 +2050,9 @@
             // Accident_Upadtebtn
             // 
             this.Accident_Upadtebtn.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.Accident_Upadtebtn.Location = new System.Drawing.Point(325, 62);
+            this.Accident_Upadtebtn.Location = new System.Drawing.Point(524, 62);
             this.Accident_Upadtebtn.Name = "Accident_Upadtebtn";
-            this.Accident_Upadtebtn.Size = new System.Drawing.Size(159, 51);
+            this.Accident_Upadtebtn.Size = new System.Drawing.Size(148, 51);
             this.Accident_Upadtebtn.TabIndex = 1;
             this.Accident_Upadtebtn.Text = "تعديل بيانات الحادثة";
             this.Accident_Upadtebtn.UseVisualStyleBackColor = true;
@@ -2046,9 +2062,11 @@
             // 
             this.Accidents_DGV.BackgroundColor = System.Drawing.SystemColors.Control;
             this.Accidents_DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Accidents_DGV.Location = new System.Drawing.Point(-4, 134);
+            this.Accidents_DGV.Location = new System.Drawing.Point(-4, 122);
             this.Accidents_DGV.Name = "Accidents_DGV";
-            this.Accidents_DGV.Size = new System.Drawing.Size(1000, 524);
+            this.Accidents_DGV.RowHeadersVisible = false;
+            this.Accidents_DGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Accidents_DGV.Size = new System.Drawing.Size(1000, 536);
             this.Accidents_DGV.TabIndex = 0;
             // 
             // AccidentManagementTab
@@ -3014,6 +3032,22 @@
             this.ReportSFD.FileName = "Report.pdf";
             this.ReportSFD.Filter = "PDF files|*.pdf";
             // 
+            // AccidentsExcelOFD
+            // 
+            this.AccidentsExcelOFD.Filter = "*.xlx|*.xlsx";
+            this.AccidentsExcelOFD.Title = "اختر ملف بيانات الحوادث ";
+            // 
+            // accidents_lblImporting
+            // 
+            this.accidents_lblImporting.AutoSize = true;
+            this.accidents_lblImporting.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.accidents_lblImporting.Location = new System.Drawing.Point(17, 76);
+            this.accidents_lblImporting.Name = "accidents_lblImporting";
+            this.accidents_lblImporting.Size = new System.Drawing.Size(281, 23);
+            this.accidents_lblImporting.TabIndex = 4;
+            this.accidents_lblImporting.Text = "جارى استيراد البيانات .. برجاء الإنتظار ...";
+            this.accidents_lblImporting.Visible = false;
+            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3336,5 +3370,8 @@
         private System.Windows.Forms.Button EditTrip_btnChangeStatus;
         private System.Windows.Forms.Label label63;
         private System.Windows.Forms.ComboBox Reports_quantityReport_cmbPorts;
+        private System.Windows.Forms.Button Accidents_btnImport;
+        private System.Windows.Forms.OpenFileDialog AccidentsExcelOFD;
+        private System.Windows.Forms.Label accidents_lblImporting;
     }
 }

@@ -10,6 +10,9 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
+using System.Runtime.InteropServices;
+using Microsoft.Office.Interop.Excel;
 
 namespace Ships_System.PL
 {
@@ -656,7 +659,7 @@ namespace Ships_System.PL
             Trips_cmbSearchFields.SelectedIndex = 0;
             Reports_TripsReport_cmbPorts.SelectedValue = -1;
         }
-        
+
         private void Agents_btnSave_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(Agents_txtAgentName.Text.Trim()))
@@ -1218,7 +1221,7 @@ namespace Ships_System.PL
             AddTrip_CmbPlatforms.Text = TripsDGV.CurrentRow.Cells[8].Value.ToString();
             AddTrip_txtNotes.Text = TripsDGV.CurrentRow.Cells[9].Value.ToString();
             AddTrip_CmbStatus.Text = ArabicValues[Enum.GetName(typeof(TripStatus), TripsDGV.CurrentRow.Cells[10].Value)];
-            AddTrip_CmbStatus_SelectedIndexChanged(sender , e);
+            AddTrip_CmbStatus_SelectedIndexChanged(sender, e);
             TripShipLoad.Clear();
             foreach (TripsLoad item in allTrips.Find(t => t.TripId == Convert.ToInt32(TripsDGV.CurrentRow.Cells[0].Value)).TripsLoads)
             {
@@ -1251,7 +1254,7 @@ namespace Ships_System.PL
                 }
             }
         }
-        
+
         private void Trips_btnClearSearch_Click(object sender, EventArgs e)
         {
             Trips_txtSearch.Clear();
@@ -1907,7 +1910,7 @@ namespace Ships_System.PL
                 }
             }
         }
-        
+
         private void EditTrip_btnChangeStatus_Click(object sender, EventArgs e)
         {
 
@@ -2005,6 +2008,128 @@ namespace Ships_System.PL
                     document.Add(new Phrase(" "));
                 }
                 document.Close();
+            }
+        }
+
+        private void Accidents_btnImport_Click(object sender, EventArgs e)
+        {
+            if (AccidentsExcelOFD.ShowDialog() == DialogResult.OK)
+            {
+                accidents_lblImporting.Visible = true;
+
+                Excel.Application xlApp;
+                Excel.Workbook xlWorkBook;
+                Excel.Worksheet xlWorkSheet;
+                Excel.Range range;
+
+                int rCnt;
+                int cCnt;
+                int rw = 0;
+                int cl = 0;
+
+                xlApp = new Excel.Application();
+                xlWorkBook = xlApp.Workbooks.Open(AccidentsExcelOFD.FileName, 0, true, 5, "", "", true, Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
+                xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+
+                range = xlWorkSheet.UsedRange;
+                rw = range.Rows.Count;
+                cl = range.Columns.Count;
+
+                try
+                {
+                    for (rCnt = 2; rCnt <= rw; rCnt++)
+                    {
+                        string[] values = new string[16];
+
+                        for (cCnt = 1; cCnt <= cl; cCnt++)
+                        {
+                            if ((range.Cells[rCnt, cCnt] as Excel.Range).Value2 != null)
+                                values[cCnt - 1] = ((range.Cells[rCnt, cCnt] as Excel.Range).Value2).ToString();
+                            else
+                                values[cCnt - 1] = "";
+                        }
+                        Accident accident = new Accident();
+
+                        if (!string.IsNullOrEmpty(values[0]))
+                            accident.Date = DateTime.FromOADate(Convert.ToDouble(values[0]));
+                        else
+                        {
+                            continue;
+                        }
+
+                        if (!string.IsNullOrEmpty(values[3]))
+                        {
+                            var ship = shipService.GetAllShips().FirstOrDefault(s => s.Imo == values[3]);
+                            if (ship != null)
+                                accident.ShipId = ship.ShipId;
+                            else
+                            if (!string.IsNullOrEmpty(values[1]) && !string.IsNullOrEmpty(values[2]))
+                            {
+                                Ship s = new Ship { Name = values[1], Imo = values[3] };
+
+                                var shipType = shipTypesService.GetAllShipTypes().FirstOrDefault(t => t.Name == values[2]);
+                                if (shipType != null)
+                                    s.Type = shipType.TypeId;
+                                else
+                                {
+                                    ShipType t = new ShipType { Name = values[2] };
+                                    shipTypesService.AddShipType(t);
+                                    s.Type = t.TypeId;
+                                }
+                                shipService.AddShip(s);
+                                accident.ShipId = s.ShipId;
+                            }
+                            else
+                            {
+                                continue;
+                            }
+
+                        }
+                        else
+                        {
+                            continue;
+                        }
+
+                        if (!string.IsNullOrEmpty(values[4]))
+                        {
+                            if (values[4].Contains("ميناء"))
+                                accident.Area = (int)AccidentArea.InPortArea;
+                            else if (values[4].Contains("دولي"))
+                                accident.Area = (int)AccidentArea.InInternationalWater;
+                            else if (values[4].Contains("قليمي"))
+                                accident.Area = (int)AccidentArea.InTerritorialWater;
+                        }
+
+                        accident.latitude = values[6];
+                        accident.longitude = values[7];
+                        accident.Details = values[8];
+                        accident.CrewConequences = values[9];
+                        accident.CrewAction = values[10];
+                        accident.IsReported = values[11] == "1";
+                        accident.ReportedTo = values[12];
+                        accident.CostalStateAction = values[14];
+
+                        if (accidentService.GetAllAccidents().FirstOrDefault(a => a.Area == accident.Area && a.Date == accident.Date && a.ShipId == accident.ShipId && a.latitude == accident.latitude && a.longitude == accident.longitude) == null)
+                        {
+                            accidentService.AddAccident(accident);
+                            dbService.Commit();
+                        }
+                    }
+                    accidents_lblImporting.Visible = false;
+                    FillAccidentsDGV();
+                    MessageBox.Show("تم استيراد البيانات بنجاح وحفظها فى قاعدة البيانات", "استيراد البيانات", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("فشل استيراد البيانات .. برجاء مراجعة صلاحية البيانات الموجودة فى فايل الإكسيل", "استيراد البيانات", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                xlWorkBook.Close(true, null, null);
+                xlApp.Quit();
+
+                Marshal.ReleaseComObject(xlWorkSheet);
+                Marshal.ReleaseComObject(xlWorkBook);
+                Marshal.ReleaseComObject(xlApp);
             }
         }
     }
