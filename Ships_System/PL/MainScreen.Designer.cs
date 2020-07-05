@@ -183,6 +183,7 @@
             this.searchlab = new System.Windows.Forms.Label();
             this.triptabControl = new System.Windows.Forms.TabControl();
             this.AccidentTab = new System.Windows.Forms.TabPage();
+            this.accidents_lblImporting = new System.Windows.Forms.Label();
             this.Accidents_btnImport = new System.Windows.Forms.Button();
             this.Accidet_label = new System.Windows.Forms.Label();
             this.accidents_deletebtn = new System.Windows.Forms.Button();
@@ -276,7 +277,7 @@
             this.Reports_quantityReport_cmbProducts = new System.Windows.Forms.ComboBox();
             this.ReportSFD = new System.Windows.Forms.SaveFileDialog();
             this.AccidentsExcelOFD = new System.Windows.Forms.OpenFileDialog();
-            this.accidents_lblImporting = new System.Windows.Forms.Label();
+            this.AddTrip_lblPlatformReq = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
             this.portTab.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -1321,6 +1322,7 @@
             // addingTripTab
             // 
             this.addingTripTab.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.addingTripTab.Controls.Add(this.AddTrip_lblPlatformReq);
             this.addingTripTab.Controls.Add(this.EditTrip_btnChangeStatus);
             this.addingTripTab.Controls.Add(this.label40);
             this.addingTripTab.Controls.Add(this.label39);
@@ -1396,7 +1398,7 @@
             this.label38.AutoSize = true;
             this.label38.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label38.ForeColor = System.Drawing.Color.Red;
-            this.label38.Location = new System.Drawing.Point(720, 174);
+            this.label38.Location = new System.Drawing.Point(724, 176);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(20, 23);
             this.label38.TabIndex = 45;
@@ -1646,7 +1648,7 @@
             // AddTrip_lnkAddPlatform
             // 
             this.AddTrip_lnkAddPlatform.AutoSize = true;
-            this.AddTrip_lnkAddPlatform.Location = new System.Drawing.Point(219, 121);
+            this.AddTrip_lnkAddPlatform.Location = new System.Drawing.Point(208, 121);
             this.AddTrip_lnkAddPlatform.Name = "AddTrip_lnkAddPlatform";
             this.AddTrip_lnkAddPlatform.Size = new System.Drawing.Size(68, 15);
             this.AddTrip_lnkAddPlatform.TabIndex = 34;
@@ -2013,6 +2015,17 @@
             this.AccidentTab.Size = new System.Drawing.Size(996, 646);
             this.AccidentTab.TabIndex = 6;
             this.AccidentTab.Text = "الحوادث";
+            // 
+            // accidents_lblImporting
+            // 
+            this.accidents_lblImporting.AutoSize = true;
+            this.accidents_lblImporting.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.accidents_lblImporting.Location = new System.Drawing.Point(17, 76);
+            this.accidents_lblImporting.Name = "accidents_lblImporting";
+            this.accidents_lblImporting.Size = new System.Drawing.Size(281, 23);
+            this.accidents_lblImporting.TabIndex = 4;
+            this.accidents_lblImporting.Text = "جارى استيراد البيانات .. برجاء الإنتظار ...";
+            this.accidents_lblImporting.Visible = false;
             // 
             // Accidents_btnImport
             // 
@@ -3037,16 +3050,17 @@
             this.AccidentsExcelOFD.Filter = "*.xlx|*.xlsx";
             this.AccidentsExcelOFD.Title = "اختر ملف بيانات الحوادث ";
             // 
-            // accidents_lblImporting
+            // AddTrip_lblPlatformReq
             // 
-            this.accidents_lblImporting.AutoSize = true;
-            this.accidents_lblImporting.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.accidents_lblImporting.Location = new System.Drawing.Point(17, 76);
-            this.accidents_lblImporting.Name = "accidents_lblImporting";
-            this.accidents_lblImporting.Size = new System.Drawing.Size(281, 23);
-            this.accidents_lblImporting.TabIndex = 4;
-            this.accidents_lblImporting.Text = "جارى استيراد البيانات .. برجاء الإنتظار ...";
-            this.accidents_lblImporting.Visible = false;
+            this.AddTrip_lblPlatformReq.AutoSize = true;
+            this.AddTrip_lblPlatformReq.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.AddTrip_lblPlatformReq.ForeColor = System.Drawing.Color.Red;
+            this.AddTrip_lblPlatformReq.Location = new System.Drawing.Point(276, 119);
+            this.AddTrip_lblPlatformReq.Name = "AddTrip_lblPlatformReq";
+            this.AddTrip_lblPlatformReq.Size = new System.Drawing.Size(20, 23);
+            this.AddTrip_lblPlatformReq.TabIndex = 49;
+            this.AddTrip_lblPlatformReq.Text = "*";
+            this.AddTrip_lblPlatformReq.Visible = false;
             // 
             // MainScreen
             // 
@@ -3373,5 +3387,6 @@
         private System.Windows.Forms.Button Accidents_btnImport;
         private System.Windows.Forms.OpenFileDialog AccidentsExcelOFD;
         private System.Windows.Forms.Label accidents_lblImporting;
+        private System.Windows.Forms.Label AddTrip_lblPlatformReq;
     }
 }

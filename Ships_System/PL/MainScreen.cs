@@ -927,7 +927,8 @@ namespace Ships_System.PL
         {
             if (AddTrip_CmbShips.SelectedValue == null || (int)AddTrip_CmbShips.SelectedValue == -1 || AddTrip_CmbAgents.SelectedValue == null ||
                (int)AddTrip_CmbAgents.SelectedValue == -1 || AddTrip_CmbStatus.SelectedValue == null || (int)AddTrip_CmbStatus.SelectedValue == -1 ||
-               AddTrip_CmbPorts.SelectedValue == null || (int)AddTrip_CmbPorts.SelectedValue == -1 || AddTrip_dtpDate.Value == null)
+               AddTrip_CmbPorts.SelectedValue == null || (int)AddTrip_CmbPorts.SelectedValue == -1 || AddTrip_dtpDate.Value == null ||
+               ((int)AddTrip_CmbStatus.SelectedValue == (int)TripStatus.ArriveAtPlatform && (AddTrip_CmbPlatforms.SelectedValue == null || (int)AddTrip_CmbPlatforms.SelectedValue == -1)))
                 MessageBox.Show("من فضلك أدخل الحقول المطلوبة", "حقول مطلوبة", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
             if (AddTrip_btnSaveTrip.Tag != null && DateTime.Compare(previousStatusDate.Date, AddTrip_dtpDate.Value.Date) > 0 && previousStatusDate != DateTime.MaxValue)
@@ -1872,8 +1873,16 @@ namespace Ships_System.PL
 
         private void AddTrip_CmbStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
-            AddTrip_CmbPlatforms.Enabled = AddTrip_CmbStatus.SelectedValue != null && (int)AddTrip_CmbStatus.SelectedValue == (int)TripStatus.ArriveAtPlatform &&
-                                           AddTrip_CmbPorts.SelectedValue != null && (int)AddTrip_CmbPorts.SelectedValue != -1;
+            if (AddTrip_CmbStatus.SelectedValue != null && (int)AddTrip_CmbStatus.SelectedValue == (int)TripStatus.ArriveAtPlatform)
+            {
+                AddTrip_lblPlatformReq.Visible = true;
+                AddTrip_CmbPlatforms.Enabled = AddTrip_CmbPorts.SelectedValue != null && (int)AddTrip_CmbPorts.SelectedValue != -1;
+            }
+            else
+            {
+                AddTrip_lblPlatformReq.Visible = false;
+                AddTrip_CmbPlatforms.Enabled = false;
+            }
 
             if (AddTrip_btnSaveTrip.Tag != null && AddTrip_CmbStatus.SelectedValue != null)
             {
@@ -1913,9 +1922,9 @@ namespace Ships_System.PL
 
         private void EditTrip_btnChangeStatus_Click(object sender, EventArgs e)
         {
-
             if (EditTrip_btnChangeStatus.Tag != null)
             {
+                EditTrip_btnChangeStatus.Visible = false;
                 previousStatusDate = tripService.GetTripById(Convert.ToInt32(AddTrip_btnSaveTrip.Tag)).TripsStatus.FirstOrDefault(s => s.Status == (int)AddTrip_CmbStatus.SelectedValue).Date;
                 AddTrip_CmbStatus.SelectedValue = EditTrip_btnChangeStatus.Tag;
             }
