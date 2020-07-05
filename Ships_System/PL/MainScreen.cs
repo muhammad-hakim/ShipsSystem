@@ -109,6 +109,7 @@ namespace Ships_System.PL
             TripsDGV.Columns[0].Width = 85;
             TripsDGV.Columns[2].Width = 75;
             TripsDGV.Columns[5].Width = 90;
+            TripsDGV.Columns[9].Width = 200;
 
             Trips_btnDelete.Enabled = Trips_btnEdit.Enabled = TripsDGV.Rows.Count > 0;
         }
@@ -174,7 +175,7 @@ namespace Ships_System.PL
             FillList(Reports_TripsReport_cmbPorts, ports, "PortId", "PortName");
             FillList(Reports_Visits_cmbPorts, CloneList(ports), "PortId", "PortName");
             FillList(Reports_ShipStaus_cmbPorts, CloneList(ports), "PortId", "PortName");
-            FillList(Reports_Visits_cmbPorts, CloneList(ports), "PortId", "PortName");
+            FillList(Reports_quantityReport_cmbPorts, CloneList(ports), "PortId", "PortName");
         }
         void FillReportsCmbPlatforms()
         {
@@ -321,7 +322,7 @@ namespace Ships_System.PL
                 AddTrip_DGVProducts.Columns[0].Visible = false;
                 AddTrip_DGVProducts.Columns[1].HeaderText = "الصنف";
                 AddTrip_DGVProducts.Columns[2].HeaderText = "الكمية";
-                AddTrip_DGVProducts.Columns[1].Width = AddTrip_DGVProducts.Columns[2].Width = 120;
+                AddTrip_DGVProducts.Columns[1].Width = AddTrip_DGVProducts.Columns[2].Width = 100;
                 AddTrip_DGVProducts.CurrentCell = AddTrip_DGVProducts.Rows[0].Cells[1];
             }
         }
@@ -510,8 +511,11 @@ namespace Ships_System.PL
                 PdfPCell c3 = new PdfPCell(new Phrase(trip.Ship.Imo, cellFont));
                 table.AddCell(c3);
 
-                PdfPCell c4 = new PdfPCell(new Phrase(trip.Port.Name, cellFont));
-                table.AddCell(c4);
+                if (type != "status")
+                {
+                    PdfPCell c4 = new PdfPCell(new Phrase(trip.Port.Name, cellFont));
+                    table.AddCell(c4);
+                }
 
                 PdfPCell c5 = new PdfPCell(new Phrase(trip.TripsStatus.FirstOrDefault(s => s.Status == trip.Status).Date.ToShortDateString(), cellFont));
                 table.AddCell(c5);
@@ -1852,7 +1856,8 @@ namespace Ships_System.PL
             }
             else
             {
-                EditTrip_btnChangeStatus.Visible = true;
+                if ((int)AddTrip_CmbStatus.SelectedValue != (int)TripStatus.WaitingAtGhatesAfterUnload)
+                    EditTrip_btnChangeStatus.Visible = true;
             }
         }
 

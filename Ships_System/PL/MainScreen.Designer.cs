@@ -129,6 +129,7 @@
             this.ShipsGridView = new System.Windows.Forms.DataGridView();
             this.label18 = new System.Windows.Forms.Label();
             this.addingTripTab = new System.Windows.Forms.TabPage();
+            this.AddTrip_lblPlatformReq = new System.Windows.Forms.Label();
             this.EditTrip_btnChangeStatus = new System.Windows.Forms.Button();
             this.label40 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
@@ -277,7 +278,6 @@
             this.Reports_quantityReport_cmbProducts = new System.Windows.Forms.ComboBox();
             this.ReportSFD = new System.Windows.Forms.SaveFileDialog();
             this.AccidentsExcelOFD = new System.Windows.Forms.OpenFileDialog();
-            this.AddTrip_lblPlatformReq = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).BeginInit();
             this.portTab.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -1361,6 +1361,18 @@
             this.addingTripTab.Text = "إدارة الرحلات";
             this.addingTripTab.Enter += new System.EventHandler(this.addingTripTab_Enter);
             // 
+            // AddTrip_lblPlatformReq
+            // 
+            this.AddTrip_lblPlatformReq.AutoSize = true;
+            this.AddTrip_lblPlatformReq.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.AddTrip_lblPlatformReq.ForeColor = System.Drawing.Color.Red;
+            this.AddTrip_lblPlatformReq.Location = new System.Drawing.Point(276, 119);
+            this.AddTrip_lblPlatformReq.Name = "AddTrip_lblPlatformReq";
+            this.AddTrip_lblPlatformReq.Size = new System.Drawing.Size(20, 23);
+            this.AddTrip_lblPlatformReq.TabIndex = 49;
+            this.AddTrip_lblPlatformReq.Text = "*";
+            this.AddTrip_lblPlatformReq.Visible = false;
+            // 
             // EditTrip_btnChangeStatus
             // 
             this.EditTrip_btnChangeStatus.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
@@ -1502,7 +1514,7 @@
             // AddTrip_btnRemoveProduct
             // 
             this.AddTrip_btnRemoveProduct.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.AddTrip_btnRemoveProduct.Location = new System.Drawing.Point(430, 140);
+            this.AddTrip_btnRemoveProduct.Location = new System.Drawing.Point(371, 140);
             this.AddTrip_btnRemoveProduct.Name = "AddTrip_btnRemoveProduct";
             this.AddTrip_btnRemoveProduct.Size = new System.Drawing.Size(87, 33);
             this.AddTrip_btnRemoveProduct.TabIndex = 43;
@@ -1513,7 +1525,7 @@
             // AddTrip_btnEditProduct
             // 
             this.AddTrip_btnEditProduct.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.AddTrip_btnEditProduct.Location = new System.Drawing.Point(430, 72);
+            this.AddTrip_btnEditProduct.Location = new System.Drawing.Point(371, 72);
             this.AddTrip_btnEditProduct.Name = "AddTrip_btnEditProduct";
             this.AddTrip_btnEditProduct.Size = new System.Drawing.Size(87, 33);
             this.AddTrip_btnEditProduct.TabIndex = 42;
@@ -1581,16 +1593,14 @@
             // 
             this.AddTrip_DGVProducts.AllowUserToAddRows = false;
             this.AddTrip_DGVProducts.AllowUserToDeleteRows = false;
-            this.AddTrip_DGVProducts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.AddTrip_DGVProducts.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.AddTrip_DGVProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.AddTrip_DGVProducts.Location = new System.Drawing.Point(532, 72);
+            this.AddTrip_DGVProducts.Location = new System.Drawing.Point(464, 72);
             this.AddTrip_DGVProducts.MultiSelect = false;
             this.AddTrip_DGVProducts.Name = "AddTrip_DGVProducts";
             this.AddTrip_DGVProducts.ReadOnly = true;
             this.AddTrip_DGVProducts.RowHeadersVisible = false;
             this.AddTrip_DGVProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.AddTrip_DGVProducts.Size = new System.Drawing.Size(135, 101);
+            this.AddTrip_DGVProducts.Size = new System.Drawing.Size(203, 101);
             this.AddTrip_DGVProducts.TabIndex = 37;
             // 
             // quantitylabel
@@ -1864,18 +1874,18 @@
             // 
             this.TripsDGV.AllowUserToAddRows = false;
             this.TripsDGV.AllowUserToDeleteRows = false;
-            this.TripsDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.TripsDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.TripsDGV.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TripsDGV.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.TripsDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.TripsDGV.Location = new System.Drawing.Point(0, 78);
+            this.TripsDGV.Location = new System.Drawing.Point(-4, 78);
             this.TripsDGV.MultiSelect = false;
             this.TripsDGV.Name = "TripsDGV";
             this.TripsDGV.ReadOnly = true;
             this.TripsDGV.RowHeadersVisible = false;
             this.TripsDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.TripsDGV.ShowEditingIcon = false;
-            this.TripsDGV.Size = new System.Drawing.Size(996, 603);
+            this.TripsDGV.Size = new System.Drawing.Size(1000, 603);
             this.TripsDGV.TabIndex = 8;
             // 
             // panel4
@@ -3050,18 +3060,6 @@
             this.AccidentsExcelOFD.Filter = "*.xlx|*.xlsx";
             this.AccidentsExcelOFD.Title = "اختر ملف بيانات الحوادث ";
             // 
-            // AddTrip_lblPlatformReq
-            // 
-            this.AddTrip_lblPlatformReq.AutoSize = true;
-            this.AddTrip_lblPlatformReq.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.AddTrip_lblPlatformReq.ForeColor = System.Drawing.Color.Red;
-            this.AddTrip_lblPlatformReq.Location = new System.Drawing.Point(276, 119);
-            this.AddTrip_lblPlatformReq.Name = "AddTrip_lblPlatformReq";
-            this.AddTrip_lblPlatformReq.Size = new System.Drawing.Size(20, 23);
-            this.AddTrip_lblPlatformReq.TabIndex = 49;
-            this.AddTrip_lblPlatformReq.Text = "*";
-            this.AddTrip_lblPlatformReq.Visible = false;
-            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3076,7 +3074,7 @@
             this.Name = "MainScreen";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "نظام إدارة السفن";
             this.Load += new System.EventHandler(this.MainScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton2)).EndInit();
